@@ -1,0 +1,16 @@
+Lorsque que le programme reçoit une phrase, il la sépare en mots qu'il place dans
+un tableau. Pour le programme, il s'agit d'un mot différent (et donc d'une nouvelle
+case dans le tableau) dès que l'on rencontre un espace (on split sur le caractère ' ').
+Le problème est qu'il existe des mots qui comprennent un espace, comme "la quelle",
+et beaucoup d'autres. 
+
+On souhaite que ces mots soient considérés comme un mot et non comme deux.
+Comment procéder ?
+
+Pour remédier à cela, avant de séparer la phrase en mots, on repère des modèles, qui
+correspondent à ces mots comprenant un espace. Lorsque l'on trouve un de ces mots
+dans la phrase, on remplace l'espace ' ' par un '$', afin que celui-ci ne soit plus
+considéré comme un séparateur de mot. Au moment d'ajouter le mot dans une case du
+tableau, on remplace tous les '$' par des ' '.
+
+Problème résolu. Les mots comprenant un espace ' ' sont correctement traités.

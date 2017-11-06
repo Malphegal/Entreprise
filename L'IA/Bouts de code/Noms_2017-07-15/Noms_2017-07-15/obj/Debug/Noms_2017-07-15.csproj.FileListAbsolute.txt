@@ -1,0 +1,7 @@
+D:\Documents\Projet Éris\L'IA\Tests\Noms_2017-07-15\Noms_2017-07-15\bin\Debug\Noms_2017-07-15.exe.config
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\bin\Debug\Noms_2017-07-15.exe.config
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\bin\Debug\Noms_2017-07-15.exe
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\bin\Debug\Noms_2017-07-15.pdb
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\obj\Debug\Noms_2017-07-15.csprojResolveAssemblyReference.cache
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\obj\Debug\Noms_2017-07-15.exe
+D:\Documents\Projet AIA\L'IA\Bouts de code\Noms_2017-07-15\Noms_2017-07-15\obj\Debug\Noms_2017-07-15.pdb

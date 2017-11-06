@@ -1,0 +1,13 @@
+﻿Fonctionnement et algorithmes :
+https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels
+https://fr.wikipedia.org/wiki/Inf%C3%A9rence_bay%C3%A9sienne
+
+Apprentissage :
+https://fr.wikipedia.org/wiki/Apprentissage_automatique
+
+Communication avec le monde extérieur :
+https://fr.wikipedia.org/wiki/Reconnaissance_automatique_de_la_parole
+https://fr.wikipedia.org/wiki/Reconnaissance_de_l%27%C3%A9criture_manuscrite
+
+
+

@@ -1,0 +1,15 @@
+﻿Lorsque le programme reçoit une phrase, il considère que le caractère ' correspond
+à une contraction devant une voyelle (t' → te dans "je t'aime" → "je te aime").
+Il considère donc le caractère ' comme un séparateur de mot.
+Le problème est qu'il existe des mots qui comprennent des ', comme "aujourd'hui".
+
+On souhaite que ces mots soient considérés comme un seul et non comme deux.
+Comme procéder ?
+
+Pour remédier à cela, avant de séparer la phrase en mots, on repère des modèles, qui
+correspondent à ces mots comprenant des '. Lorsque l'on trouve un de ces mots
+dans la phrase, on remplace le ' par un '§', afin que celui-ci ne soit plus
+considéré comme un séparateur de mot. Au moment d'ajouter le mot dans une case du
+tableau, on remplace tous les '§' par des '.
+
+Problème résolu. Les mots comprenant des ' sont correctement traités.

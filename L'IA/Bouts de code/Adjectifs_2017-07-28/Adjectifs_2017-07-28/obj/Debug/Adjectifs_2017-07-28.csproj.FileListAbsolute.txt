@@ -1,0 +1,6 @@
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\bin\Debug\Adjectifs_2017-07-28.exe.config
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\bin\Debug\Adjectifs_2017-07-28.exe
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\bin\Debug\Adjectifs_2017-07-28.pdb
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\obj\Debug\Adjectifs_2017-07-28.csprojResolveAssemblyReference.cache
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\obj\Debug\Adjectifs_2017-07-28.exe
+D:\Documents\Projet AIA\L'IA\Bouts de code\Adjectifs_2017-07-28\Adjectifs_2017-07-28\obj\Debug\Adjectifs_2017-07-28.pdb
