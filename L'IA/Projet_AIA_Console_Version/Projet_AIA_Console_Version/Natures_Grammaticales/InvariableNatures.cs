@@ -39,7 +39,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
         {
             for (int i = 0; i < Phrase.lesData.Tables["Adverbes"].Rows.Count; i++)
             {
-                if (adverbe == (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Adveres"])
+                if (adverbe == (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Adverbe"])
                     return (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Type"];
             }
 
