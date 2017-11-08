@@ -4,7 +4,7 @@ namespace Projet_AIA_Console_Version
 {
     static class Adjectives
     {
-        static private string[] infoAdjectif = null;    // Tableau contenu les informations de l'adjectif en cours de traitement.
+        static private string[] infoAdjectif = null;    // Tableau contenant les informations de l'adjectif en cours de traitement.
 
         // ------ STRUCTURES ------
 

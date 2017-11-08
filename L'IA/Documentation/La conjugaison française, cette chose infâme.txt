@@ -1,0 +1,25 @@
+http://la-conjugaison.nouvelobs.com/regles/grammaire/le-radical-157.php
+http://la-conjugaison.nouvelobs.com/regles/grammaire/les-verbes-du-1er-groupe-130.php
+http://la-conjugaison.nouvelobs.com/regles/grammaire/les-verbes-du-2e-groupe-123.php
+http://la-conjugaison.nouvelobs.com/regles/grammaire/les-verbes-du-3e-groupe-88.php
+
+Pour trouver le radical d'un verbe à l'infinitif, on supprime sa terminaison -er,
+-ir, -oir, ou -re.
+
+Mais la conjugaison française est pleine d'exceptions. Se présente ainsi plusieurs
+problèmes :
+
+- certains verbes comme aller ou être possède plusieurs radicaux, en fonction du temps
+auquel on les conjugue.
+Pour remédier à cela, on renvoie pour radical de ces verbes le radical de la forme
+infinitive. On traite les temps où le radical change à part, dans la fonction qui
+conjugue les verbes.
+
+- le 3 ième groupe est pénible : certains verbes comme mentir, partir, dont le radical
+se termine par un "-t" lorsque l'on supprime la terminaison, perd ce "t" pour certaines
+personnes de certains temps quand la terminaison est "-s".
+	exemple : mentir -> je mens ; partir -> je pars
+Il faut donc tester si le radical termine par "t" avant d'ajouter un "s" en terminaison,
+afin de supprimer ce "t".
+
+- être et avoir sont chiants et changent tout le temps. À traiter à part.

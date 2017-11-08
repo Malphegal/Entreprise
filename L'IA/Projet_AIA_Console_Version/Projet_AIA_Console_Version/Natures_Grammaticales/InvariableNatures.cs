@@ -37,17 +37,16 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
         // Renvoie le type
         private static string typeOf(string adverbe)
         {
-            DataRow row = null;
             for (int i = 0; i < Phrase.lesData.Tables["Adverbes"].Rows.Count; i++)
             {
                 if (adverbe == (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Adveres"])
-                {
-                    row = Phrase.lesData.Tables["Adverbes"].Rows[i];
-                    break;
-                }
+                    return (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Type"];
             }
 
-            return (string)row["Type"];
+            // Vu que la table des adverbes ne contient pas tous les adverbes, si l'adverbe n'a pas été
+            // trouvé dans la table, on renvoie le type "manière" par défaut, car la plupart des adverbes
+            // finissant par "-ement" sont de type manière.
+            return "manière";
         }
 
 

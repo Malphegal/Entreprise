@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 using CMD = System.Data.OleDb.OleDbCommand;
 using CON = System.Data.OleDb.OleDbConnection;
+using Projet_AIA_Console_Version.Natures_Grammaticales;
 
 namespace Projet_AIA_Console_Version
 {
@@ -45,12 +46,14 @@ namespace Projet_AIA_Console_Version
             da.Fill(lesData, "Adjectifs");
             cmd.CommandText = "SELECT * FROM AdjectifsAccords";
             da.Fill(lesData, "AdjectifsAccords");
-            cmd.CommandText = "SELECT Infinitif, sum(nbrUtilisation) AS nbrUtilisation FROM VerbesConjugues GROUP BY Infinitif, nbrUtilisation ORDER BY nbrUtilisation DESC ";
+            cmd.CommandText = "SELECT Infinitif AS Verbe, sum(nbrUtilisation) AS nbrUtilisation, Groupe FROM VerbesConjugues GROUP BY Infinitif, nbrUtilisation, Groupe ORDER BY nbrUtilisation DESC ";
             da.Fill(lesData, "VerbesInfinitifs");
             cmd.CommandText = "SELECT * FROM AdjectifsExceptionsS2P ORDER BY GroupS2P ASC";
             da.Fill(lesData, "AdjectifsExceptionsS2P");
             cmd.CommandText = "SELECT * FROM AdjectifsExceptionsM2F ORDER BY GroupM2F ASC";
             da.Fill(lesData, "AdjectifsExceptionsM2F");
+            cmd.CommandText = "SELECT * FROM Conjugaison";
+            da.Fill(lesData, "Conjugaison");
         }
 
         public static List<List<List<object[]>>> DecouperPhrase(string reponseUtilisateur)
@@ -224,6 +227,30 @@ namespace Projet_AIA_Console_Version
                         break;
                     case "Adjectifs":
                         phrase.Add(new Adjectives.Adjective((string)laPhrase[i][0][0]));
+                        break;
+                    case "VerbesConjugues":
+                        phrase.Add(new Verbs.ConjugatedVerb((string)laPhrase[i][0][0]));
+                        break;
+                    case "VerbesInfinitifs":
+                        phrase.Add(new Verbs.InfinitiveVerb((string)laPhrase[i][0][0]));
+                        break;
+                    case "Determinants":
+                        phrase.Add(new Determiners.Determiner((string)laPhrase[i][0][0]));
+                        break;
+                    case "Pronoms":
+                        phrase.Add(new Pronouns.Pronoun((string)laPhrase[i][0][0]));
+                        break;
+                    case "Adverbes":
+                        phrase.Add(new InvariableNatures.Adverbe((string)laPhrase[i][0][0]));
+                        break;
+                    case "ConjDeCoords":
+                        phrase.Add(new InvariableNatures.ConjDeCoord((string)laPhrase[i][0][0]));
+                        break;
+                    case "ConjDeSubs":
+                        phrase.Add(new InvariableNatures.ConjDeSub((string)laPhrase[i][0][0]));
+                        break;
+                    case "Prepositions":
+                        phrase.Add(new InvariableNatures.Preposition((string)laPhrase[i][0][0]));
                         break;
                 }
             }
