@@ -8,11 +8,9 @@ public static class GLivingEntity {
 
     private static ushort _nextId = 0;  // L'identifiant que prendra la prochaine entité vivante créée
 
-
         // PROPERTIES
     
     public static List<LivingEntity> AllLivingEntity { get; private set; }  // Liste de toutes les entités vivantes créées
-
 
         // STATIC METHODS
 
