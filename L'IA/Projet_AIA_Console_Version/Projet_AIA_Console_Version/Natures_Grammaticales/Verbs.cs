@@ -4,8 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CMD = System.Data.OleDb.OleDbCommand;
-using CON = System.Data.OleDb.OleDbConnection;
 
 namespace Projet_AIA_Console_Version
 {
@@ -308,6 +306,8 @@ namespace Projet_AIA_Console_Version
             switch(group)
             {
                 case "1":
+                    if (stem.Contains("appell") || stem.Contains("jett"))
+                        stem = stem.Substring(0, stem.Length - 1);
                     return stem + "er";
                 case "2":
                     if (stem + "ir" == "hair")
@@ -361,18 +361,55 @@ namespace Projet_AIA_Console_Version
             
             // On commence par récupérer le radical du verbe.
             string stem = stemOf(verbe.verb, verbe.nature);
+            string ending = "";
+
             for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
             {
                 // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
-                // en renvoie le radical du verbe infinitif + la terminaison de la ligne trouvée.
+                // on récupère la terminaison correspondante à cette ligne.
                 if ((string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["verbGroup"] == verbe.group
                         && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["time"] == time
                         && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["person"] == person)
-                    return new ConjugatedVerb(stemOf(verbe.verb, verbe.nature) + (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"],
-                                                person, verbe.group, time, verbe.verb);
+                    ending = (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"];
             }
-        
-            return new ConjugatedVerb();
+
+            // On traite les exceptions :
+
+            // Premier groupe :
+            if (verbe.group == "1")
+            {
+                // -eler, -eter → -elle, -ette si "appeler" ou "jeter"
+                if (ending[0] == 'e' && ending != "ez" && (verbe.verb.Contains("appeler") || verbe.verb.Contains("jeter")))
+                    stem += stem[stem.Length - 1];
+                // -e*er → è
+                else if (stem[stem.Length - 2] == 'e' && ending[0] == 'e' && ending != "ez")
+                    stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                // -é*er → è
+                else if (stem[stem.Length - 2] == 'é' && new string[] { "e", "es", "ent" }.Contains(ending))
+                    stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                // -*yer → i
+                else if (stem[stem.Length - 1] == 'y' && ending[0] == 'e' && ending != "ez")
+                    stem = stem.Substring(0, stem.Length - 1) + "i";
+            }
+
+            // Deuxième groupe :
+            else if (verbe.group == "2")
+            {
+                // Les verbes du deuxième groupe sont régulier, sauf le verbe haïr.
+                if (verbe.verb == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
+                        && new string[] { "présent indicatif", "présent impératif" }.Contains(time)))
+                    ending = "ï" + ending.Substring(1);
+            }
+
+            // Général :
+            // c → ç
+            if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                stem = stem.Substring(0, stem.Length - 2) + "ç";
+            // g → ge
+            else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                stem += "e";
+
+            return new ConjugatedVerb(stem + ending, person, verbe.group, time, verbe.verb);
         }
         // Conjugue le verbe conjugué à la personne et au temps entrés en paramètre.
         private static ConjugatedVerb Conjugate(ConjugatedVerb verbe, string person, string time)
