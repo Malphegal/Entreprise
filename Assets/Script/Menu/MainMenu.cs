@@ -9,4 +9,14 @@ public class MainMenu : MonoBehaviour {
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
+
+    // TODO: Ajouter un pop-up demandant au joueur s'il veut vraiment quitter ou non
+    public void OnClickQuit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 }
