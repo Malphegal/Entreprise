@@ -1,1 +1,6 @@
 ﻿Temp/
+.vs/**
+*.sln
+*.csproj
+Library/**
+ProjectSettings/
