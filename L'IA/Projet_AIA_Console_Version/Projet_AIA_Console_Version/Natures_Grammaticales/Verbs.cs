@@ -40,9 +40,9 @@ namespace Projet_AIA_Console_Version
             // ------ INSTANCE METHODS ------
 
             // Conjugue le verbe à la personne et au temps donnés en paramètre.
-            public ConjugatedVerb Conjugate(string person, string time)
+            public ConjugatedVerb Conjugate(string person, string time, string mode)
             {
-                return Verbs.Conjugate(this, person, time);
+                return Verbs.Conjugate(this, person, time, mode);
             }
 
             public override string ToString()
@@ -60,6 +60,7 @@ namespace Projet_AIA_Console_Version
             public string group { get; private set; }   // Le groupe du verbe
             public string person { get; private set; }  // La personne à laquelle est conjugué le verbe
             public string time { get; private set; }    // Le temps auquel est conjugué le verbe
+            public string mode { get; private set; }    // Le mode auquel le verbe est conjugué (ex : l'indicatif)
 
             // Constructeur
             // On appelle ce constructeur si on a aucun moyen dans la phrase de connaître la personne
@@ -72,13 +73,15 @@ namespace Projet_AIA_Console_Version
                 {
                     this.group = infoVerbe[0];
                     this.time = infoVerbe[1];
-                    this.person = infoVerbe[2];
-                    this.action = infoVerbe[3];
+                    this.mode = infoVerbe[2];
+                    this.person = infoVerbe[3];
+                    this.action = infoVerbe[4];
                 }
                 else
                 {
                     this.group = groupOf(verb, nature);
                     this.time = timeOf(verb);
+                    this.mode = modeOf(verb);
                     this.person = personOf(verb);
                     this.action = infinitiveOf(verb);
                 }
@@ -95,24 +98,27 @@ namespace Projet_AIA_Console_Version
                 {
                     this.group = infoVerbe[0];
                     this.time = infoVerbe[1];
-                    this.action = infoVerbe[3];
+                    this.mode = infoVerbe[2];
+                    this.action = infoVerbe[4];
                 }
                 else
                 {
                     this.group = groupOf(verb, nature);
                     this.time = timeOf(verb);
+                    this.mode = modeOf(verb);
                     this.action = infinitiveOf(verb);
                 }
             }
             // On appelle ce constructeur dans la méthode qui conjugue des verbes à l'infinitif.
             // En effet, on possède déjà toutes les informations sur le verbe conjugué.
-            public ConjugatedVerb(string verb, string person, string group, string time, string action)
+            public ConjugatedVerb(string verb, string person, string group, string time, string mode, string action)
             {
                 this.verb = verb;
                 this.nature = "verbe conjugué";
                 this.person = person;
                 this.group = group;
                 this.time = time;
+                this.mode = mode;
                 this.action = action;
             }
 
@@ -129,9 +135,9 @@ namespace Projet_AIA_Console_Version
             }
 
             // Conjugue le verbe à la personne et au temps donnés en paramètre.
-            public ConjugatedVerb Conjugate(string person, string time)
+            public ConjugatedVerb Conjugate(string person, string time, string mode)
             {
-                return Verbs.Conjugate(this, person, time);
+                return Verbs.Conjugate(this, person, time, mode);
             }
 
             public override string ToString()
@@ -247,7 +253,7 @@ namespace Projet_AIA_Console_Version
                     for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                     {
                         // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie cette terminaison.
-                        if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
+                        if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
                             return verb.Substring(i);
                     }
                 }
@@ -267,13 +273,32 @@ namespace Projet_AIA_Console_Version
                 for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
                     // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le temps correspondant.
-                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
-                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["time"];
+                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Time"];
                 }
             }
 
             // Si on n'a rien trouvé et qu'on ne sait pas, on renvoie "présent indicatif" par défaut.
-            return "présent indicatif";
+            return "présent";
+        }
+
+        // Renvoie le mode auquel est conjugué le verbe.
+        private static string modeOf(string verb)
+        {
+            // On récupère la terminaison du verbe conjugué et on cherche dans la table Conjugaison
+            // à quel mode appartient cette terminaison.
+            for (int i = 0; i < verb.Length; i++)
+            {
+                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                {
+                    // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le mode correspondant.
+                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Mode"];
+                }
+            }
+
+            // Si on n'a rien trouvé et qu'on ne sait pas, on renvoie "indicatif" par défaut.
+            return "indicatif";
         }
 
         // Renvoie la personne à laquelle est conjuguée le verbe.
@@ -286,8 +311,8 @@ namespace Projet_AIA_Console_Version
                 for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
                     // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie la personne correspondante.
-                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
-                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["person"];
+                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Person"];
                 }
             }
 
@@ -339,7 +364,7 @@ namespace Projet_AIA_Console_Version
         }
 
         // Conjugue le verbe infinitif à la personne et au temps entrés en paramètre.
-        private static ConjugatedVerb Conjugate(InfinitiveVerb verbe, string person, string time)
+        private static ConjugatedVerb Conjugate(InfinitiveVerb verbe, string person, string time, string mode)
         {
             string nomTable = verbe.nature == "verbe conjugué" ? "VerbesConjugues":"VerbesInfinitifs";
             // Si le verbe est connu, on récupère directement sa conjugaison dans la base de données.
@@ -352,8 +377,9 @@ namespace Projet_AIA_Console_Version
                     if ((string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Infinitif"] == verbe.verb
                             && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Groupe"] == verbe.group
                             && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Temps"] == time
+                            && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Mode"] == mode
                             && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Personne"] == person)
-                        return new ConjugatedVerb((string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Verbe"], person, verbe.group, time, verbe.verb);
+                        return new ConjugatedVerb((string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Verbe"], person, verbe.group, time, mode, verbe.verb);
                 }
             }
             // Si on arrive à ce stade du programme, c'est que le verbe n'est pas connu ou que la forme voulue (temps / personne)
@@ -367,10 +393,11 @@ namespace Projet_AIA_Console_Version
             {
                 // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
                 // on récupère la terminaison correspondante à cette ligne.
-                if ((string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["verbGroup"] == verbe.group
-                        && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["time"] == time
-                        && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["person"] == person)
-                    ending = (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"];
+                if ((string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["VerbGroup"] == verbe.group
+                        && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Time"] == time
+                        && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Mode"] == mode
+                        && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Person"] == person)
+                    ending = (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"];
             }
 
             // On traite les exceptions :
@@ -397,24 +424,33 @@ namespace Projet_AIA_Console_Version
             {
                 // Les verbes du deuxième groupe sont régulier, sauf le verbe haïr.
                 if (verbe.verb == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
-                        && new string[] { "présent indicatif", "présent impératif" }.Contains(time)))
+                        && new string[] { "présent indicatif", "présent impératif" }.Contains(time + " " + mode)))
                     ending = "ï" + ending.Substring(1);
+            }
+
+            // Troisième groupe :
+            else if (verbe.group == "3")
+            {
+                // Si le dernier caractère du radical est un 't' et que la terminaison commence par un 's',
+                // on supprime le 't'. Exemple : sortir → sort- → sors 
+                if (stem[stem.Length - 1] == 't' && ending[0] == 's')
+                    stem = stem.Substring(0, stem.Length - 1);
             }
 
             // Général :
             // c → ç
             if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
-                stem = stem.Substring(0, stem.Length - 2) + "ç";
+                stem = stem.Substring(0, stem.Length - 1) + "ç";
             // g → ge
             else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
                 stem += "e";
 
-            return new ConjugatedVerb(stem + ending, person, verbe.group, time, verbe.verb);
+            return new ConjugatedVerb(stem + ending, person, verbe.group, time, mode, verbe.verb);
         }
         // Conjugue le verbe conjugué à la personne et au temps entrés en paramètre.
-        private static ConjugatedVerb Conjugate(ConjugatedVerb verbe, string person, string time)
+        private static ConjugatedVerb Conjugate(ConjugatedVerb verbe, string person, string time, string mode)
         {
-            return Conjugate(ToInfinitive(verbe), person, time);
+            return Conjugate(ToInfinitive(verbe), person, time, mode);
         }
 
         // Renvoie true si le verbe est connu dans la table, sinon false
@@ -442,6 +478,7 @@ namespace Projet_AIA_Console_Version
                     if (typeVerbe == "VerbesConjugues")
                         infoVerbe = new string[] { (string)(row)["Groupe"],
                                                     (string)(row)["Temps"],
+                                                    (string)(row)["Mode"],
                                                     (string)(row)["Personne"],
                                                     (string)(row)["Infinitif"]};
                     else
