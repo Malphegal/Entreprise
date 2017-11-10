@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
-
+    
     // TODO: Ajouter toutes les autres vérifications et initialisations
     private void Awake()
     {
         TextAsset leTexte;
-        if (Application.systemLanguage.ToString() != "French")
+        if (Application.systemLanguage.ToString() == "French")
             leTexte = Resources.Load<TextAsset>("lang.fr");
         else
             leTexte = Resources.Load<TextAsset>("lang.en");
