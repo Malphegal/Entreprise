@@ -9,5 +9,5 @@ Communication avec le monde extérieur :
 https://fr.wikipedia.org/wiki/Reconnaissance_automatique_de_la_parole
 https://fr.wikipedia.org/wiki/Reconnaissance_de_l%27%C3%A9criture_manuscrite
 
-
-
+Tous les mots avec leurs versions masculin singulier :
+http://abu.cnam.fr/DICO/donner-dico-uncompress.html
