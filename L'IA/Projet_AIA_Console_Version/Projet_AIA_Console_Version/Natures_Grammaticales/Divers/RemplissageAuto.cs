@@ -21,7 +21,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             {
                 int val = 0;
 
-                    // Indicatif
+                // Indicatif
 
                 res += "'3', '" + Temps(val++) + 1 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 2 + "', '" + tousLesVerves[i] + "', '0'\n";
@@ -51,7 +51,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 res += "'3', '" + Temps(val++) + 5 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 6 + "', '" + tousLesVerves[i] + "', '0'\n";
 
-                    // Conditionnel
+                // Conditionnel
 
                 res += "'3', '" + Temps(val++) + 1 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 2 + "', '" + tousLesVerves[i] + "', '0'\n";
@@ -60,7 +60,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 res += "'3', '" + Temps(val++) + 5 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 6 + "', '" + tousLesVerves[i] + "', '0'\n";
 
-                    // Subjonctif
+                // Subjonctif
 
                 res += "'3', '" + Temps(val++) + 1 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 2 + "', '" + tousLesVerves[i] + "', '0'\n";
@@ -76,13 +76,13 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 res += "'3', '" + Temps(val++) + 5 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 6 + "', '" + tousLesVerves[i] + "', '0'\n";
 
-                    // Impératif
+                // Impératif
 
                 res += "'3', '" + Temps(val++) + 2 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 4 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 5 + "', '" + tousLesVerves[i] + "', '0'\n";
 
-                    // Participe
+                // Participe
 
                 res += "'3', '" + Temps(val++) + 1 + "', '" + tousLesVerves[i] + "', '0'\n";
                 res += "'3', '" + Temps(val++) + 1 + "', '" + tousLesVerves[i] + "', '0'\n";
@@ -90,14 +90,20 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
 
             File.AppendAllText(outtxt, res);
 
-                // Maintenant, faire le insert dans la base de données
+            // Maintenant, faire le insert dans la base de données
 
             System.Threading.Thread.Sleep(100);
 
-            string[] lesVerbesFormat = File.ReadAllLines(outtxt);
-            foreach (string ligneValues in lesVerbesFormat)
-                new OleDbCommand(@"INSERT INTO VerbesConjugues ('Groupe', 'Temps', 'Mode', 'Personne', 'Infinitif', 'nbrUtilisation')
-                    VALUES (" + ligneValues + ")", new OleDbConnection("")).ExecuteNonQuery();
+            using (OleDbConnection con = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =..\..\..\IA.MDB")) {
+                con.Open();
+                string[] lesVerbesFormat = File.ReadAllLines(outtxt);
+                foreach (string ligneValues in lesVerbesFormat)
+                {
+                    Console.WriteLine(ligneValues);
+                    new OleDbCommand(@"INSERT INTO VerbesConjugues (Groupe, Temps, Mode, Personne, Infinitif, nbrUtilisation)
+                    VALUES (" + ligneValues + ")", con).ExecuteNonQuery();
+                }
+            }
         }
 
         private static string Temps(int valeur)
