@@ -46,6 +46,7 @@
     <Compile Include="Natures_Grammaticales\Adjectives.cs" />
     <Compile Include="Natures_Grammaticales\Determiners.cs" />
     <Compile Include="Natures_Grammaticales\Divers\AjoutAutomatiqueVerbe.cs" />
+    <Compile Include="Natures_Grammaticales\Divers\RemplissageAuto.cs" />
     <Compile Include="Natures_Grammaticales\InvariableNatures.cs" />
     <Compile Include="Natures_Grammaticales\Names.cs" />
     <Compile Include="Natures_Grammaticales\Pronouns.cs" />
