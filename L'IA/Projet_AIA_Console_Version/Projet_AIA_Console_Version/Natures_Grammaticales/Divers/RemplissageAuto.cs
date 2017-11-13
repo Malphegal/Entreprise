@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -127,6 +128,33 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             if (valeur < 46)
                 return "présent', 'participe', '";
             return "passé', 'participe', '";
+        }
+
+        public static void VerbesToURL()
+        {
+            string[] tousLesVerbes = File.ReadAllLines("verbes.txt");
+
+            string res = "";
+            foreach (string s in tousLesVerbes)
+                res += "http://la-conjugaison.nouvelobs.com/du/verbe/" + s + ".php\n";
+
+            File.AppendAllText("out.txt", res);
+        }
+
+        public static void TousLesURL()
+        {
+            foreach (string url in File.ReadAllLines("out.txt"))
+            {
+                Uri uri = new Uri(url);
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+
+                HttpWebResponse httpRes = (HttpWebResponse)req.GetResponse();
+
+                Stream stream = httpRes.GetResponseStream();
+                StreamReader streamReader = new StreamReader(stream);
+                string body = streamReader.ReadToEnd();
+                File.AppendAllText("test/" + url.Split('/')[5] + ".txt", body);
+            }
         }
     }
 }
