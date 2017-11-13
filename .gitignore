@@ -4,3 +4,4 @@
 Library/**
 ProjectSettings/
 Temp/
+*.vs/**
