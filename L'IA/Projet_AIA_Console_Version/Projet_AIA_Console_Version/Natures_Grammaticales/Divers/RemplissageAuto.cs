@@ -12,6 +12,25 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
 {
     public static class RemplissageAuto
     {
+        #region COMMENTAIRE
+        /* 
+         * Indicatif                présent             [1 - 6]         185
+         * Indicatif                imparfait           [1 - 6]         185
+         * indicatif                passé simple        [1 - 6]         185
+         * Indicatif                futur Simple        [1 - 6]         196
+         * 
+         * Conditionnel             présent             [1 - 6]         196
+         * 
+         * Subjonctif               présent             [1 - 6]         207
+         * Subjonctif               imparfait           [1 - 6]         207
+         * 
+         * Impératif                présent             [2 4 5]         208
+         * 
+         * Participe                présent             [1]             210
+         * Participe                passé               [1]             210
+         */
+        #endregion
+
         public static void TousLesVerbes()
         {
             const string outtxt = "out.txt";
@@ -141,19 +160,43 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             File.AppendAllText("out.txt", res);
         }
 
-        public static void TousLesURL()
+        public static void URLToFichier()
         {
-            foreach (string url in File.ReadAllLines("out.txt"))
+            string[] aa = File.ReadAllLines("out.txt").Skip(2).ToArray();
+            foreach (string url in aa)
             {
-                Uri uri = new Uri(url);
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+                WebRequest objRequest = WebRequest.Create(new Uri(url));
 
-                HttpWebResponse httpRes = (HttpWebResponse)req.GetResponse();
+                HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();
 
-                Stream stream = httpRes.GetResponseStream();
-                StreamReader streamReader = new StreamReader(stream);
-                string body = streamReader.ReadToEnd();
-                File.AppendAllText("test/" + url.Split('/')[5] + ".txt", body);
+                string Charset = objResponse.CharacterSet;
+                Encoding encoding = Encoding.GetEncoding(Charset);
+
+                StreamReader sr =
+                       new StreamReader(objResponse.GetResponseStream(), encoding);
+                string body = sr.ReadToEnd();
+                File.AppendAllText("test/" + url.Split('/')[5] + ".txt", body, Encoding.UTF8);
+            }
+        }
+
+        public static void HTMLToFormatHTML()
+        {
+            string[] outtxt = File.ReadAllLines("out.txt");
+            string[] fichierCourant;
+            string fichierNouveau;
+
+            string verbeActuel;
+
+            for (int i = 2; i < outtxt.Length; i++)
+            {
+                fichierCourant = File.ReadAllLines("test/" + (outtxt[i].Split('/')[5] + ".txt"));
+
+                verbeActuel = fichierCourant[5].Split(' ')[4];
+                verbeActuel += verbeActuel == "se" ? fichierCourant[5].Split(' ')[5] : "";
+
+                fichierNouveau = fichierCourant[184] + fichierCourant[195] + fichierCourant[206] + fichierCourant[207] + fichierCourant[209];
+
+                File.AppendAllText("test_format/" + verbeActuel + ".txt", fichierNouveau, Encoding.UTF8);
             }
         }
     }

@@ -44,7 +44,7 @@ namespace Projet_AIA_Console_Version
                     break;
                 case (6):
                     Console.Clear();
-                    Natures_Grammaticales.Divers.RemplissageAuto.TousLesURL();
+                    Natures_Grammaticales.Divers.RemplissageAuto.HTMLToFormatHTML();
                     break;
                 default:
                     Console.WriteLine("Erreur : Veuillez entrer un numéro valide");
