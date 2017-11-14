@@ -194,9 +194,48 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 verbeActuel = fichierCourant[5].Split(' ')[4];
                 verbeActuel += verbeActuel == "se" ? fichierCourant[5].Split(' ')[5] : "";
 
-                fichierNouveau = fichierCourant[184] + fichierCourant[195] + fichierCourant[206] + fichierCourant[207] + fichierCourant[209];
+                fichierNouveau = fichierCourant[184] + "\n" + fichierCourant[195] + "\n" + fichierCourant[206] +
+                     "\n" + fichierCourant[207] + "\n" + fichierCourant[209];
 
                 File.AppendAllText("test_format/" + verbeActuel + ".txt", fichierNouveau, Encoding.UTF8);
+            }
+        }
+
+        public static void FormatHTMLToLigne()
+        {
+            string[] lesVerbesTXT = Directory.GetFiles(@"test_format/");
+            string[] lesVerbes = new string[lesVerbesTXT.Length];
+            for (int i = 0; i < lesVerbesTXT.Length; i++)
+                lesVerbes[i] = lesVerbesTXT[i].Split('/')[1].Split('.')[0];
+
+            string stringDeficherDeUnVerbe;
+            string[] splitDuFichierSource;
+            string[] lesTempsDuVerbeCourant;
+            string[][] lesTempsDuVerbeCourantFormat;
+
+            for (int i = 0; i < lesVerbesTXT.Length; i++)
+            {
+            stringDeficherDeUnVerbe = File.ReadAllText(lesVerbesTXT[i]);
+
+            splitDuFichierSource = stringDeficherDeUnVerbe.Split(new string[] { "tempscorps" }, StringSplitOptions.None);
+
+            lesTempsDuVerbeCourant = new string[] { splitDuFichierSource[1], splitDuFichierSource[3], splitDuFichierSource[5] };
+
+            //lesTempsDuVerbeCourantFormat = new string[][] { new string[] { } };
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[0].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').First().Split('<')[0]);
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').First().Split('<')[0]);
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').First().Split('<')[0]);
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').First().Split('<')[0]);
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').First().Split('<')[0]);
+            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').Last() +
+                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[6].Split('>').First().Split('<')[0]);
+
+            Console.WriteLine();
             }
         }
     }
