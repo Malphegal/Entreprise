@@ -1,0 +1,57 @@
+﻿je revends
+tu revends
+il revend
+nous revendons
+vous revendez
+ils revendent
+
+je revendais
+tu revendais
+il revendait
+nous revendions
+vous revendiez
+ils revendaient
+
+je revendis
+tu revendis
+il revendit
+nous revendîmes
+vous revendîtes
+ils revendirent
+
+je revendrai
+tu revendras
+il revendra
+nous revendrons
+vous revendrez
+ils revendront
+
+je revendrais
+tu revendrais
+il revendrait
+nous revendrions
+vous revendriez
+ils revendraient
+
+que je revende
+que tu revendes
+qu'il revende
+que nous revendions
+que vous revendiez
+qu'ils revendent
+
+que je revendisse
+que tu revendisses
+qu'il revendît
+que nous revendissions
+que vous revendissiez
+qu'ils revendissent
+
+revends
+revendons
+revendez
+
+revendant
+
+ revendu
+

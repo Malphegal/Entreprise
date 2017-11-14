@@ -1,0 +1,57 @@
+﻿je pends
+tu pends
+il pend
+nous pendons
+vous pendez
+ils pendent
+
+je pendais
+tu pendais
+il pendait
+nous pendions
+vous pendiez
+ils pendaient
+
+je pendis
+tu pendis
+il pendit
+nous pendîmes
+vous pendîtes
+ils pendirent
+
+je pendrai
+tu pendras
+il pendra
+nous pendrons
+vous pendrez
+ils pendront
+
+je pendrais
+tu pendrais
+il pendrait
+nous pendrions
+vous pendriez
+ils pendraient
+
+que je pende
+que tu pendes
+qu'il pende
+que nous pendions
+que vous pendiez
+qu'ils pendent
+
+que je pendisse
+que tu pendisses
+qu'il pendît
+que nous pendissions
+que vous pendissiez
+qu'ils pendissent
+
+pends
+pendons
+pendez
+
+pendant
+
+ pendu
+

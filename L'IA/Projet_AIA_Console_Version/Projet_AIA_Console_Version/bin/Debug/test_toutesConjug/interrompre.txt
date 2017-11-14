@@ -1,0 +1,57 @@
+﻿j'interromps
+tu interromps
+il interrompt
+nous interrompons
+vous interrompez
+ils interrompent
+
+j'interrompais
+tu interrompais
+il interrompait
+nous interrompions
+vous interrompiez
+ils interrompaient
+
+j'interrompis
+tu interrompis
+il interrompit
+nous interrompîmes
+vous interrompîtes
+ils interrompirent
+
+j'interromprai
+tu interrompras
+il interrompra
+nous interromprons
+vous interromprez
+ils interrompront
+
+j'interromprais
+tu interromprais
+il interromprait
+nous interromprions
+vous interrompriez
+ils interrompraient
+
+que j'interrompe
+que tu interrompes
+qu'il interrompe
+que nous interrompions
+que vous interrompiez
+qu'ils interrompent
+
+que j'interrompisse
+que tu interrompisses
+qu'il interrompît
+que nous interrompissions
+que vous interrompissiez
+qu'ils interrompissent
+
+interromps
+interrompons
+interrompez
+
+interrompant
+
+ interrompu
+

@@ -1,0 +1,57 @@
+﻿je survis
+tu survis
+il survit
+nous survivons
+vous survivez
+ils survivent
+
+je survivais
+tu survivais
+il survivait
+nous survivions
+vous surviviez
+ils survivaient
+
+je survécus
+tu survécus
+il survécut
+nous survécûmes
+vous survécûtes
+ils survécurent
+
+je survivrai
+tu survivras
+il survivra
+nous survivrons
+vous survivrez
+ils survivront
+
+je survivrais
+tu survivrais
+il survivrait
+nous survivrions
+vous survivriez
+ils survivraient
+
+que je survive
+que tu survives
+qu'il survive
+que nous survivions
+que vous surviviez
+qu'ils survivent
+
+que je survécusse
+que tu survécusses
+qu'il survécût
+que nous survécussions
+que vous survécussiez
+qu'ils survécussent
+
+survis
+survivons
+survivez
+
+survivant
+
+ survécu
+

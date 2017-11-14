@@ -1,0 +1,57 @@
+﻿j'interdis
+tu interdis
+il interdit
+nous interdisons
+vous interdisez
+ils interdisent
+
+j'interdisais
+tu interdisais
+il interdisait
+nous interdisions
+vous interdisiez
+ils interdisaient
+
+j'interdis
+tu interdis
+il interdit
+nous interdîmes
+vous interdîtes
+ils interdirent
+
+j'interdirai
+tu interdiras
+il interdira
+nous interdirons
+vous interdirez
+ils interdiront
+
+j'interdirais
+tu interdirais
+il interdirait
+nous interdirions
+vous interdiriez
+ils interdiraient
+
+que j'interdise
+que tu interdises
+qu'il interdise
+que nous interdisions
+que vous interdisiez
+qu'ils interdisent
+
+que j'interdisse
+que tu interdisses
+qu'il interdît
+que nous interdissions
+que vous interdissiez
+qu'ils interdissent
+
+interdis
+interdisons
+interdisez
+
+interdisant
+
+ interdit
+

@@ -1,0 +1,57 @@
+﻿je m'enquiers
+tu t'enquiers
+il s'enquiert
+nous nous enquérons
+vous vous enquérez
+ils s'enquièrent
+
+je m'enquérais
+tu t'enquérais
+il s'enquérait
+nous nous enquérions
+vous vous enquériez
+ils s'enquéraient
+
+je m'enquis
+tu t'enquis
+il s'enquit
+nous nous enquîmes
+vous vous enquîtes
+ils s'enquirent
+
+je m'enquerrai
+tu t'enquerras
+il s'enquerra
+nous nous enquerrons
+vous vous enquerrez
+ils s'enquerront
+
+je m'enquerrais
+tu t'enquerrais
+il s'enquerrait
+nous nous enquerrions
+vous vous enquerriez
+ils s'enquerraient
+
+que je m'enquière
+que tu t'enquières
+qu'il s'enquière
+que nous nous enquérions
+que vous vous enquériez
+qu'ils s'enquièrent
+
+que je m'enquisse
+que tu t'enquisses
+qu'il s'enquît
+que nous nous enquissions
+que vous vous enquissiez
+qu'ils s'enquissent
+
+enquiers-toi
+enquérons-nous
+enquérez-vous
+
+s'enquérant
+
+-
+

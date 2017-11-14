@@ -1,0 +1,57 @@
+﻿je soumets
+tu soumets
+il soumet
+nous soumettons
+vous soumettez
+ils soumettent
+
+je soumettais
+tu soumettais
+il soumettait
+nous soumettions
+vous soumettiez
+ils soumettaient
+
+je soumis
+tu soumis
+il soumit
+nous soumîmes
+vous soumîtes
+ils soumirent
+
+je soumettrai
+tu soumettras
+il soumettra
+nous soumettrons
+vous soumettrez
+ils soumettront
+
+je soumettrais
+tu soumettrais
+il soumettrait
+nous soumettrions
+vous soumettriez
+ils soumettraient
+
+que je soumette
+que tu soumettes
+qu'il soumette
+que nous soumettions
+que vous soumettiez
+qu'ils soumettent
+
+que je soumisse
+que tu soumisses
+qu'il soumît
+que nous soumissions
+que vous soumissiez
+qu'ils soumissent
+
+soumets
+soumettons
+soumettez
+
+soumettant
+
+ soumis
+

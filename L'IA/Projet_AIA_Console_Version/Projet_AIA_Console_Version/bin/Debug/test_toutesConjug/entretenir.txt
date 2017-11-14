@@ -1,0 +1,57 @@
+﻿j'entretiens
+tu entretiens
+il entretient
+nous entretenons
+vous entretenez
+ils entretiennent
+
+j'entretenais
+tu entretenais
+il entretenait
+nous entretenions
+vous entreteniez
+ils entretenaient
+
+j'entretins
+tu entretins
+il entretint
+nous entretînmes
+vous entretîntes
+ils entretinrent
+
+j'entretiendrai
+tu entretiendras
+il entretiendra
+nous entretiendrons
+vous entretiendrez
+ils entretiendront
+
+j'entretiendrais
+tu entretiendrais
+il entretiendrait
+nous entretiendrions
+vous entretiendriez
+ils entretiendraient
+
+que j'entretienne
+que tu entretiennes
+qu'il entretienne
+que nous entretenions
+que vous entreteniez
+qu'ils entretiennent
+
+que j'entretinsse
+que tu entretinsses
+qu'il entretînt
+que nous entretinssions
+que vous entretinssiez
+qu'ils entretinssent
+
+entretiens
+entretenons
+entretenez
+
+entretenant
+
+ entretenu
+

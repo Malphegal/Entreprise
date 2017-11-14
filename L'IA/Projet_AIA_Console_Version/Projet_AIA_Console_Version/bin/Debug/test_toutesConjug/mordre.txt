@@ -1,0 +1,57 @@
+﻿je mords
+tu mords
+il mord
+nous mordons
+vous mordez
+ils mordent
+
+je mordais
+tu mordais
+il mordait
+nous mordions
+vous mordiez
+ils mordaient
+
+je mordis
+tu mordis
+il mordit
+nous mordîmes
+vous mordîtes
+ils mordirent
+
+je mordrai
+tu mordras
+il mordra
+nous mordrons
+vous mordrez
+ils mordront
+
+je mordrais
+tu mordrais
+il mordrait
+nous mordrions
+vous mordriez
+ils mordraient
+
+que je morde
+que tu mordes
+qu'il morde
+que nous mordions
+que vous mordiez
+qu'ils mordent
+
+que je mordisse
+que tu mordisses
+qu'il mordît
+que nous mordissions
+que vous mordissiez
+qu'ils mordissent
+
+mords
+mordons
+mordez
+
+mordant
+
+ mordu
+

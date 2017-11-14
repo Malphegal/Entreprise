@@ -1,0 +1,57 @@
+﻿je reviens
+tu reviens
+il revient
+nous revenons
+vous revenez
+ils reviennent
+
+je revenais
+tu revenais
+il revenait
+nous revenions
+vous reveniez
+ils revenaient
+
+je revins
+tu revins
+il revint
+nous revînmes
+vous revîntes
+ils revinrent
+
+je reviendrai
+tu reviendras
+il reviendra
+nous reviendrons
+vous reviendrez
+ils reviendront
+
+je reviendrais
+tu reviendrais
+il reviendrait
+nous reviendrions
+vous reviendriez
+ils reviendraient
+
+que je revienne
+que tu reviennes
+qu'il revienne
+que nous revenions
+que vous reveniez
+qu'ils reviennent
+
+que je revinsse
+que tu revinsses
+qu'il revînt
+que nous revinssions
+que vous revinssiez
+qu'ils revinssent
+
+reviens
+revenons
+revenez
+
+revenant
+
+ revenu
+

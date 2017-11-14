@@ -1,0 +1,57 @@
+﻿je souscris
+tu souscris
+il souscrit
+nous souscrivons
+vous souscrivez
+ils souscrivent
+
+je souscrivais
+tu souscrivais
+il souscrivait
+nous souscrivions
+vous souscriviez
+ils souscrivaient
+
+je souscrivis
+tu souscrivis
+il souscrivit
+nous souscrivîmes
+vous souscrivîtes
+ils souscrivirent
+
+je souscrirai
+tu souscriras
+il souscrira
+nous souscrirons
+vous souscrirez
+ils souscriront
+
+je souscrirais
+tu souscrirais
+il souscrirait
+nous souscririons
+vous souscririez
+ils souscriraient
+
+que je souscrive
+que tu souscrives
+qu'il souscrive
+que nous souscrivions
+que vous souscriviez
+qu'ils souscrivent
+
+que je souscrivisse
+que tu souscrivisses
+qu'il souscrivît
+que nous souscrivissions
+que vous souscrivissiez
+qu'ils souscrivissent
+
+souscris
+souscrivons
+souscrivez
+
+souscrivant
+
+ souscrit
+

@@ -1,0 +1,57 @@
+﻿j'élis
+tu élis
+il élit
+nous élisons
+vous élisez
+ils élisent
+
+j'élisais
+tu élisais
+il élisait
+nous élisions
+vous élisiez
+ils élisaient
+
+j'élus
+tu élus
+il élut
+nous élûmes
+vous élûtes
+ils élurent
+
+j'élirai
+tu éliras
+il élira
+nous élirons
+vous élirez
+ils éliront
+
+j'élirais
+tu élirais
+il élirait
+nous élirions
+vous éliriez
+ils éliraient
+
+que j'élise
+que tu élises
+qu'il élise
+que nous élisions
+que vous élisiez
+qu'ils élisent
+
+que j'élusse
+que tu élusses
+qu'il élût
+que nous élussions
+que vous élussiez
+qu'ils élussent
+
+élis
+élisons
+élisez
+
+élisant
+
+ élu
+

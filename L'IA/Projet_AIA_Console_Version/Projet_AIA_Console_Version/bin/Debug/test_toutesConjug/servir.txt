@@ -1,0 +1,57 @@
+﻿je sers
+tu sers
+il sert
+nous servons
+vous servez
+ils servent
+
+je servais
+tu servais
+il servait
+nous servions
+vous serviez
+ils servaient
+
+je servis
+tu servis
+il servit
+nous servîmes
+vous servîtes
+ils servirent
+
+je servirai
+tu serviras
+il servira
+nous servirons
+vous servirez
+ils serviront
+
+je servirais
+tu servirais
+il servirait
+nous servirions
+vous serviriez
+ils serviraient
+
+que je serve
+que tu serves
+qu'il serve
+que nous servions
+que vous serviez
+qu'ils servent
+
+que je servisse
+que tu servisses
+qu'il servît
+que nous servissions
+que vous servissiez
+qu'ils servissent
+
+sers
+servons
+servez
+
+servant
+
+ servi
+

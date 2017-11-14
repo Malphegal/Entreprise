@@ -1,0 +1,57 @@
+﻿je mens
+tu mens
+il ment
+nous mentons
+vous mentez
+ils mentent
+
+je mentais
+tu mentais
+il mentait
+nous mentions
+vous mentiez
+ils mentaient
+
+je mentis
+tu mentis
+il mentit
+nous mentîmes
+vous mentîtes
+ils mentirent
+
+je mentirai
+tu mentiras
+il mentira
+nous mentirons
+vous mentirez
+ils mentiront
+
+je mentirais
+tu mentirais
+il mentirait
+nous mentirions
+vous mentiriez
+ils mentiraient
+
+que je mente
+que tu mentes
+qu'il mente
+que nous mentions
+que vous mentiez
+qu'ils mentent
+
+que je mentisse
+que tu mentisses
+qu'il mentît
+que nous mentissions
+que vous mentissiez
+qu'ils mentissent
+
+mens
+mentons
+mentez
+
+mentant
+
+ menti
+

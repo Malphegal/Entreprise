@@ -1,0 +1,57 @@
+﻿je vêts
+tu vêts
+il vêt
+nous vêtons
+vous vêtez
+ils vêtent
+
+je vêtais
+tu vêtais
+il vêtait
+nous vêtions
+vous vêtiez
+ils vêtaient
+
+je vêtis
+tu vêtis
+il vêtit
+nous vêtîmes
+vous vêtîtes
+ils vêtirent
+
+je vêtirai
+tu vêtiras
+il vêtira
+nous vêtirons
+vous vêtirez
+ils vêtiront
+
+je vêtirais
+tu vêtirais
+il vêtirait
+nous vêtirions
+vous vêtiriez
+ils vêtiraient
+
+que je vête
+que tu vêtes
+qu'il vête
+que nous vêtions
+que vous vêtiez
+qu'ils vêtent
+
+que je vêtisse
+que tu vêtisses
+qu'il vêtît
+que nous vêtissions
+que vous vêtissiez
+qu'ils vêtissent
+
+vêts
+vêtons
+vêtez
+
+vêtant
+
+ vêtu
+

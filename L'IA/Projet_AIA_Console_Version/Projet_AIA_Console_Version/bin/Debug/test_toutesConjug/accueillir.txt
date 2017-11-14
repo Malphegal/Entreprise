@@ -1,0 +1,57 @@
+﻿j'accueille
+tu accueilles
+il accueille
+nous accueillons
+vous accueillez
+ils accueillent
+
+j'accueillais
+tu accueillais
+il accueillait
+nous accueillions
+vous accueilliez
+ils accueillaient
+
+j'accueillis
+tu accueillis
+il accueillit
+nous accueillîmes
+vous accueillîtes
+ils accueillirent
+
+j'accueillerai
+tu accueilleras
+il accueillera
+nous accueillerons
+vous accueillerez
+ils accueilleront
+
+j'accueillerais
+tu accueillerais
+il accueillerait
+nous accueillerions
+vous accueilleriez
+ils accueilleraient
+
+que j'accueille
+que tu accueilles
+qu'il accueille
+que nous accueillions
+que vous accueilliez
+qu'ils accueillent
+
+que j'accueillisse
+que tu accueillisses
+qu'il accueillît
+que nous accueillissions
+que vous accueillissiez
+qu'ils accueillissent
+
+accueille
+accueillons
+accueillez
+
+accueillant
+
+ accueilli
+

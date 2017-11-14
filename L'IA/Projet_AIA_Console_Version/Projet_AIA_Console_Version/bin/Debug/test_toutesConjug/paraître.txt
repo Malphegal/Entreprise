@@ -1,0 +1,57 @@
+﻿je parais
+tu parais
+il paraît
+nous paraissons
+vous paraissez
+ils paraissent
+
+je paraissais
+tu paraissais
+il paraissait
+nous paraissions
+vous paraissiez
+ils paraissaient
+
+je parus
+tu parus
+il parut
+nous parûmes
+vous parûtes
+ils parurent
+
+je paraîtrai
+tu paraîtras
+il paraîtra
+nous paraîtrons
+vous paraîtrez
+ils paraîtront
+
+je paraîtrais
+tu paraîtrais
+il paraîtrait
+nous paraîtrions
+vous paraîtriez
+ils paraîtraient
+
+que je paraisse
+que tu paraisses
+qu'il paraisse
+que nous paraissions
+que vous paraissiez
+qu'ils paraissent
+
+que je parusse
+que tu parusses
+qu'il parût
+que nous parussions
+que vous parussiez
+qu'ils parussent
+
+parais
+paraissons
+paraissez
+
+paraissant
+
+ paru
+

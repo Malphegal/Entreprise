@@ -1,0 +1,57 @@
+﻿j'étends
+tu étends
+il étend
+nous étendons
+vous étendez
+ils étendent
+
+j'étendais
+tu étendais
+il étendait
+nous étendions
+vous étendiez
+ils étendaient
+
+j'étendis
+tu étendis
+il étendit
+nous étendîmes
+vous étendîtes
+ils étendirent
+
+j'étendrai
+tu étendras
+il étendra
+nous étendrons
+vous étendrez
+ils étendront
+
+j'étendrais
+tu étendrais
+il étendrait
+nous étendrions
+vous étendriez
+ils étendraient
+
+que j'étende
+que tu étendes
+qu'il étende
+que nous étendions
+que vous étendiez
+qu'ils étendent
+
+que j'étendisse
+que tu étendisses
+qu'il étendît
+que nous étendissions
+que vous étendissiez
+qu'ils étendissent
+
+étends
+étendons
+étendez
+
+étendant
+
+ étendu
+

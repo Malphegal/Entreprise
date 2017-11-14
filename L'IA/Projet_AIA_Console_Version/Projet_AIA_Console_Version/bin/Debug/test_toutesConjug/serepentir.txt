@@ -1,0 +1,57 @@
+﻿je me repens
+tu te repens
+il se repent
+nous nous repentons
+vous vous repentez
+ils se repentent
+
+je me repentais
+tu te repentais
+il se repentait
+nous nous repentions
+vous vous repentiez
+ils se repentaient
+
+je me repentis
+tu te repentis
+il se repentit
+nous nous repentîmes
+vous vous repentîtes
+ils se repentirent
+
+je me repentirai
+tu te repentiras
+il se repentira
+nous nous repentirons
+vous vous repentirez
+ils se repentiront
+
+je me repentirais
+tu te repentirais
+il se repentirait
+nous nous repentirions
+vous vous repentiriez
+ils se repentiraient
+
+que je me repente
+que tu te repentes
+qu'il se repente
+que nous nous repentions
+que vous vous repentiez
+qu'ils se repentent
+
+que je me repentisse
+que tu te repentisses
+qu'il se repentît
+que nous nous repentissions
+que vous vous repentissiez
+qu'ils se repentissent
+
+repens-toi
+repentons-nous
+repentez-vous
+
+se repentant
+
+-
+

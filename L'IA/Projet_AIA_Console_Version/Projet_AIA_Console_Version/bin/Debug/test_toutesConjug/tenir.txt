@@ -1,0 +1,57 @@
+﻿je tiens
+tu tiens
+il tient
+nous tenons
+vous tenez
+ils tiennent
+
+je tenais
+tu tenais
+il tenait
+nous tenions
+vous teniez
+ils tenaient
+
+je tins
+tu tins
+il tint
+nous tînmes
+vous tîntes
+ils tinrent
+
+je tiendrai
+tu tiendras
+il tiendra
+nous tiendrons
+vous tiendrez
+ils tiendront
+
+je tiendrais
+tu tiendrais
+il tiendrait
+nous tiendrions
+vous tiendriez
+ils tiendraient
+
+que je tienne
+que tu tiennes
+qu'il tienne
+que nous tenions
+que vous teniez
+qu'ils tiennent
+
+que je tinsse
+que tu tinsses
+qu'il tînt
+que nous tinssions
+que vous tinssiez
+qu'ils tinssent
+
+tiens
+tenons
+tenez
+
+tenant
+
+ tenu
+

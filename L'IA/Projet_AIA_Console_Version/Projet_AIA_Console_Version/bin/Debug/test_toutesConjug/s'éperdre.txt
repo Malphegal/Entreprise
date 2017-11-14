@@ -1,0 +1,57 @@
+﻿je m'éperds
+tu t'éperds
+il s'éperd
+nous nous éperdons
+vous vous éperdez
+ils s'éperdent
+
+je m'éperdais
+tu t'éperdais
+il s'éperdait
+nous nous éperdions
+vous vous éperdiez
+ils s'éperdaient
+
+je m'éperdis
+tu t'éperdis
+il s'éperdit
+nous nous éperdîmes
+vous vous éperdîtes
+ils s'éperdirent
+
+je m'éperdrai
+tu t'éperdras
+il s'éperdra
+nous nous éperdrons
+vous vous éperdrez
+ils s'éperdront
+
+je m'éperdrais
+tu t'éperdrais
+il s'éperdrait
+nous nous éperdrions
+vous vous éperdriez
+ils s'éperdraient
+
+que je m'éperde
+que tu t'éperdes
+qu'il s'éperde
+que nous nous éperdions
+que vous vous éperdiez
+qu'ils s'éperdent
+
+que je m'éperdisse
+que tu t'éperdisses
+qu'il s'éperdît
+que nous nous éperdissions
+que vous vous éperdissiez
+qu'ils s'éperdissent
+
+éperds-toi
+éperdons-nous
+éperdez-vous
+
+s'éperdant
+
+-
+

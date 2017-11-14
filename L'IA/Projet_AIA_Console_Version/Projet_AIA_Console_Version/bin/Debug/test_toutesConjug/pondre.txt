@@ -1,0 +1,57 @@
+﻿je ponds
+tu ponds
+il pond
+nous pondons
+vous pondez
+ils pondent
+
+je pondais
+tu pondais
+il pondait
+nous pondions
+vous pondiez
+ils pondaient
+
+je pondis
+tu pondis
+il pondit
+nous pondîmes
+vous pondîtes
+ils pondirent
+
+je pondrai
+tu pondras
+il pondra
+nous pondrons
+vous pondrez
+ils pondront
+
+je pondrais
+tu pondrais
+il pondrait
+nous pondrions
+vous pondriez
+ils pondraient
+
+que je ponde
+que tu pondes
+qu'il ponde
+que nous pondions
+que vous pondiez
+qu'ils pondent
+
+que je pondisse
+que tu pondisses
+qu'il pondît
+que nous pondissions
+que vous pondissiez
+qu'ils pondissent
+
+ponds
+pondons
+pondez
+
+pondant
+
+ pondu
+

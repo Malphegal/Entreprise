@@ -1,0 +1,57 @@
+﻿je prescris
+tu prescris
+il prescrit
+nous prescrivons
+vous prescrivez
+ils prescrivent
+
+je prescrivais
+tu prescrivais
+il prescrivait
+nous prescrivions
+vous prescriviez
+ils prescrivaient
+
+je prescrivis
+tu prescrivis
+il prescrivit
+nous prescrivîmes
+vous prescrivîtes
+ils prescrivirent
+
+je prescrirai
+tu prescriras
+il prescrira
+nous prescrirons
+vous prescrirez
+ils prescriront
+
+je prescrirais
+tu prescrirais
+il prescrirait
+nous prescririons
+vous prescririez
+ils prescriraient
+
+que je prescrive
+que tu prescrives
+qu'il prescrive
+que nous prescrivions
+que vous prescriviez
+qu'ils prescrivent
+
+que je prescrivisse
+que tu prescrivisses
+qu'il prescrivît
+que nous prescrivissions
+que vous prescrivissiez
+qu'ils prescrivissent
+
+prescris
+prescrivons
+prescrivez
+
+prescrivant
+
+ prescrit
+

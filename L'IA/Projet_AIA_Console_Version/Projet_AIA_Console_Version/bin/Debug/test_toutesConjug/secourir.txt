@@ -1,0 +1,57 @@
+﻿je secours
+tu secours
+il secourt
+nous secourons
+vous secourez
+ils secourent
+
+je secourais
+tu secourais
+il secourait
+nous secourions
+vous secouriez
+ils secouraient
+
+je secourus
+tu secourus
+il secourut
+nous secourûmes
+vous secourûtes
+ils secoururent
+
+je secourrai
+tu secourras
+il secourra
+nous secourrons
+vous secourrez
+ils secourront
+
+je secourrais
+tu secourrais
+il secourrait
+nous secourrions
+vous secourriez
+ils secourraient
+
+que je secoure
+que tu secoures
+qu'il secoure
+que nous secourions
+que vous secouriez
+qu'ils secourent
+
+que je secourusse
+que tu secourusses
+qu'il secourût
+que nous secourussions
+que vous secourussiez
+qu'ils secourussent
+
+secours
+secourons
+secourez
+
+secourant
+
+ secouru
+

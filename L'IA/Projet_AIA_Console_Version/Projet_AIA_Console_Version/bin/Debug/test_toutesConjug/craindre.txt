@@ -1,0 +1,57 @@
+﻿je crains
+tu crains
+il craint
+nous craignons
+vous craignez
+ils craignent
+
+je craignais
+tu craignais
+il craignait
+nous craignions
+vous craigniez
+ils craignaient
+
+je craignis
+tu craignis
+il craignit
+nous craignîmes
+vous craignîtes
+ils craignirent
+
+je craindrai
+tu craindras
+il craindra
+nous craindrons
+vous craindrez
+ils craindront
+
+je craindrais
+tu craindrais
+il craindrait
+nous craindrions
+vous craindriez
+ils craindraient
+
+que je craigne
+que tu craignes
+qu'il craigne
+que nous craignions
+que vous craigniez
+qu'ils craignent
+
+que je craignisse
+que tu craignisses
+qu'il craignît
+que nous craignissions
+que vous craignissiez
+qu'ils craignissent
+
+crains
+craignons
+craignez
+
+craignant
+
+ craint
+

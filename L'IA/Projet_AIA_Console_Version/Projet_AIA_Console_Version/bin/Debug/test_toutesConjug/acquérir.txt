@@ -1,0 +1,57 @@
+﻿j'acquiers
+tu acquiers
+il acquiert
+nous acquérons
+vous acquérez
+ils acquièrent
+
+j'acquérais
+tu acquérais
+il acquérait
+nous acquérions
+vous acquériez
+ils acquéraient
+
+j'acquis
+tu acquis
+il acquit
+nous acquîmes
+vous acquîtes
+ils acquirent
+
+j'acquerrai
+tu acquerras
+il acquerra
+nous acquerrons
+vous acquerrez
+ils acquerront
+
+j'acquerrais
+tu acquerrais
+il acquerrait
+nous acquerrions
+vous acquerriez
+ils acquerraient
+
+que j'acquière
+que tu acquières
+qu'il acquière
+que nous acquérions
+que vous acquériez
+qu'ils acquièrent
+
+que j'acquisse
+que tu acquisses
+qu'il acquît
+que nous acquissions
+que vous acquissiez
+qu'ils acquissent
+
+acquiers
+acquérons
+acquérez
+
+acquérant
+
+ acquis
+

@@ -1,0 +1,57 @@
+﻿j'accours
+tu accours
+il accourt
+nous accourons
+vous accourez
+ils accourent
+
+j'accourais
+tu accourais
+il accourait
+nous accourions
+vous accouriez
+ils accouraient
+
+j'accourus
+tu accourus
+il accourut
+nous accourûmes
+vous accourûtes
+ils accoururent
+
+j'accourrai
+tu accourras
+il accourra
+nous accourrons
+vous accourrez
+ils accourront
+
+j'accourrais
+tu accourrais
+il accourrait
+nous accourrions
+vous accourriez
+ils accourraient
+
+que j'accoure
+que tu accoures
+qu'il accoure
+que nous accourions
+que vous accouriez
+qu'ils accourent
+
+que j'accourusse
+que tu accourusses
+qu'il accourût
+que nous accourussions
+que vous accourussiez
+qu'ils accourussent
+
+accours
+accourons
+accourez
+
+accourant
+
+ accouru
+

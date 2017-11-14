@@ -1,0 +1,57 @@
+﻿je bats
+tu bats
+il bat
+nous battons
+vous battez
+ils battent
+
+je battais
+tu battais
+il battait
+nous battions
+vous battiez
+ils battaient
+
+je battis
+tu battis
+il battit
+nous battîmes
+vous battîtes
+ils battirent
+
+je battrai
+tu battras
+il battra
+nous battrons
+vous battrez
+ils battront
+
+je battrais
+tu battrais
+il battrait
+nous battrions
+vous battriez
+ils battraient
+
+que je batte
+que tu battes
+qu'il batte
+que nous battions
+que vous battiez
+qu'ils battent
+
+que je battisse
+que tu battisses
+qu'il battît
+que nous battissions
+que vous battissiez
+qu'ils battissent
+
+bats
+battons
+battez
+
+battant
+
+ battu
+

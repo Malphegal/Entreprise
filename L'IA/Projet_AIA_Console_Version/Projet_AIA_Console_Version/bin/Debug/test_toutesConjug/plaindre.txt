@@ -1,0 +1,57 @@
+﻿je plains
+tu plains
+il plaint
+nous plaignons
+vous plaignez
+ils plaignent
+
+je plaignais
+tu plaignais
+il plaignait
+nous plaignions
+vous plaigniez
+ils plaignaient
+
+je plaignis
+tu plaignis
+il plaignit
+nous plaignîmes
+vous plaignîtes
+ils plaignirent
+
+je plaindrai
+tu plaindras
+il plaindra
+nous plaindrons
+vous plaindrez
+ils plaindront
+
+je plaindrais
+tu plaindrais
+il plaindrait
+nous plaindrions
+vous plaindriez
+ils plaindraient
+
+que je plaigne
+que tu plaignes
+qu'il plaigne
+que nous plaignions
+que vous plaigniez
+qu'ils plaignent
+
+que je plaignisse
+que tu plaignisses
+qu'il plaignît
+que nous plaignissions
+que vous plaignissiez
+qu'ils plaignissent
+
+plains
+plaignons
+plaignez
+
+plaignant
+
+ plaint
+

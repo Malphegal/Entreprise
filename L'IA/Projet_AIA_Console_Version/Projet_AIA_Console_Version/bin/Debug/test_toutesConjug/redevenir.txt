@@ -1,0 +1,57 @@
+﻿je redeviens
+tu redeviens
+il redevient
+nous redevenons
+vous redevenez
+ils redeviennent
+
+je redevenais
+tu redevenais
+il redevenait
+nous redevenions
+vous redeveniez
+ils redevenaient
+
+je redevins
+tu redevins
+il redevint
+nous redevînmes
+vous redevîntes
+ils redevinrent
+
+je redeviendrai
+tu redeviendras
+il redeviendra
+nous redeviendrons
+vous redeviendrez
+ils redeviendront
+
+je redeviendrais
+tu redeviendrais
+il redeviendrait
+nous redeviendrions
+vous redeviendriez
+ils redeviendraient
+
+que je redevienne
+que tu redeviennes
+qu'il redevienne
+que nous redevenions
+que vous redeveniez
+qu'ils redeviennent
+
+que je redevinsse
+que tu redevinsses
+qu'il redevînt
+que nous redevinssions
+que vous redevinssiez
+qu'ils redevinssent
+
+redeviens
+redevenons
+redevenez
+
+redevenant
+
+ redevenu
+

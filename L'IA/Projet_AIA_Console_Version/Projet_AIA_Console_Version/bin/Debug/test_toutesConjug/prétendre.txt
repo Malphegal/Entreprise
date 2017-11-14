@@ -1,0 +1,57 @@
+﻿je prétends
+tu prétends
+il prétend
+nous prétendons
+vous prétendez
+ils prétendent
+
+je prétendais
+tu prétendais
+il prétendait
+nous prétendions
+vous prétendiez
+ils prétendaient
+
+je prétendis
+tu prétendis
+il prétendit
+nous prétendîmes
+vous prétendîtes
+ils prétendirent
+
+je prétendrai
+tu prétendras
+il prétendra
+nous prétendrons
+vous prétendrez
+ils prétendront
+
+je prétendrais
+tu prétendrais
+il prétendrait
+nous prétendrions
+vous prétendriez
+ils prétendraient
+
+que je prétende
+que tu prétendes
+qu'il prétende
+que nous prétendions
+que vous prétendiez
+qu'ils prétendent
+
+que je prétendisse
+que tu prétendisses
+qu'il prétendît
+que nous prétendissions
+que vous prétendissiez
+qu'ils prétendissent
+
+prétends
+prétendons
+prétendez
+
+prétendant
+
+ prétendu
+

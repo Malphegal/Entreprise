@@ -1,0 +1,57 @@
+﻿j'aperçois
+tu aperçois
+il aperçoit
+nous apercevons
+vous apercevez
+ils aperçoivent
+
+j'apercevais
+tu apercevais
+il apercevait
+nous apercevions
+vous aperceviez
+ils apercevaient
+
+j'aperçus
+tu aperçus
+il aperçut
+nous aperçûmes
+vous aperçûtes
+ils aperçurent
+
+j'apercevrai
+tu apercevras
+il apercevra
+nous apercevrons
+vous apercevrez
+ils apercevront
+
+j'apercevrais
+tu apercevrais
+il apercevrait
+nous apercevrions
+vous apercevriez
+ils apercevraient
+
+que j'aperçoive
+que tu aperçoives
+qu'il aperçoive
+que nous apercevions
+que vous aperceviez
+qu'ils aperçoivent
+
+que j'aperçusse
+que tu aperçusses
+qu'il aperçût
+que nous aperçussions
+que vous aperçussiez
+qu'ils aperçussent
+
+aperçois
+apercevons
+apercevez
+
+apercevant
+
+ aperçu
+

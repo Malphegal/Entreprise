@@ -1,0 +1,57 @@
+﻿j'assaille
+tu assailles
+il assaille
+nous assaillons
+vous assaillez
+ils assaillent
+
+j'assaillais
+tu assaillais
+il assaillait
+nous assaillions
+vous assailliez
+ils assaillaient
+
+j'assaillis
+tu assaillis
+il assaillit
+nous assaillîmes
+vous assaillîtes
+ils assaillirent
+
+j'assaillirai
+tu assailliras
+il assaillira
+nous assaillirons
+vous assaillirez
+ils assailliront
+
+j'assaillirais
+tu assaillirais
+il assaillirait
+nous assaillirions
+vous assailliriez
+ils assailliraient
+
+que j'assaille
+que tu assailles
+qu'il assaille
+que nous assaillions
+que vous assailliez
+qu'ils assaillent
+
+que j'assaillisse
+que tu assaillisses
+qu'il assaillît
+que nous assaillissions
+que vous assaillissiez
+qu'ils assaillissent
+
+assaille
+assaillons
+assaillez
+
+assaillant
+
+ assailli
+

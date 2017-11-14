@@ -1,0 +1,57 @@
+﻿je rejoins
+tu rejoins
+il rejoint
+nous rejoignons
+vous rejoignez
+ils rejoignent
+
+je rejoignais
+tu rejoignais
+il rejoignait
+nous rejoignions
+vous rejoigniez
+ils rejoignaient
+
+je rejoignis
+tu rejoignis
+il rejoignit
+nous rejoignîmes
+vous rejoignîtes
+ils rejoignirent
+
+je rejoindrai
+tu rejoindras
+il rejoindra
+nous rejoindrons
+vous rejoindrez
+ils rejoindront
+
+je rejoindrais
+tu rejoindrais
+il rejoindrait
+nous rejoindrions
+vous rejoindriez
+ils rejoindraient
+
+que je rejoigne
+que tu rejoignes
+qu'il rejoigne
+que nous rejoignions
+que vous rejoigniez
+qu'ils rejoignent
+
+que je rejoignisse
+que tu rejoignisses
+qu'il rejoignît
+que nous rejoignissions
+que vous rejoignissiez
+qu'ils rejoignissent
+
+rejoins
+rejoignons
+rejoignez
+
+rejoignant
+
+ rejoint
+

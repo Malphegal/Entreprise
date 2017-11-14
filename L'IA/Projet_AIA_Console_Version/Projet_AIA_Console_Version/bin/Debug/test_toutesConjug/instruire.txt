@@ -1,0 +1,57 @@
+﻿j'instruis
+tu instruis
+il instruit
+nous instruisons
+vous instruisez
+ils instruisent
+
+j'instruisais
+tu instruisais
+il instruisait
+nous instruisions
+vous instruisiez
+ils instruisaient
+
+j'instruisis
+tu instruisis
+il instruisit
+nous instruisîmes
+vous instruisîtes
+ils instruisirent
+
+j'instruirai
+tu instruiras
+il instruira
+nous instruirons
+vous instruirez
+ils instruiront
+
+j'instruirais
+tu instruirais
+il instruirait
+nous instruirions
+vous instruiriez
+ils instruiraient
+
+que j'instruise
+que tu instruises
+qu'il instruise
+que nous instruisions
+que vous instruisiez
+qu'ils instruisent
+
+que j'instruisisse
+que tu instruisisses
+qu'il instruisît
+que nous instruisissions
+que vous instruisissiez
+qu'ils instruisissent
+
+instruis
+instruisons
+instruisez
+
+instruisant
+
+ instruit
+

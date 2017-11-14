@@ -1,0 +1,57 @@
+﻿je fuis
+tu fuis
+il fuit
+nous fuyons
+vous fuyez
+ils fuient
+
+je fuyais
+tu fuyais
+il fuyait
+nous fuyions
+vous fuyiez
+ils fuyaient
+
+je fuis
+tu fuis
+il fuit
+nous fuîmes
+vous fuîtes
+ils fuirent
+
+je fuirai
+tu fuiras
+il fuira
+nous fuirons
+vous fuirez
+ils fuiront
+
+je fuirais
+tu fuirais
+il fuirait
+nous fuirions
+vous fuiriez
+ils fuiraient
+
+que je fuie
+que tu fuies
+qu'il fuie
+que nous fuyions
+que vous fuyiez
+qu'ils fuient
+
+que je fuisse
+que tu fuisses
+qu'il fuît
+que nous fuissions
+que vous fuissiez
+qu'ils fuissent
+
+fuis
+fuyons
+fuyez
+
+fuyant
+
+ fui
+

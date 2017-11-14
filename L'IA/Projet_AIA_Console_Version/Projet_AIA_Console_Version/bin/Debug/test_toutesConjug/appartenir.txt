@@ -1,0 +1,57 @@
+﻿j'appartiens
+tu appartiens
+il appartient
+nous appartenons
+vous appartenez
+ils appartiennent
+
+j'appartenais
+tu appartenais
+il appartenait
+nous appartenions
+vous apparteniez
+ils appartenaient
+
+j'appartins
+tu appartins
+il appartint
+nous appartînmes
+vous appartîntes
+ils appartinrent
+
+j'appartiendrai
+tu appartiendras
+il appartiendra
+nous appartiendrons
+vous appartiendrez
+ils appartiendront
+
+j'appartiendrais
+tu appartiendrais
+il appartiendrait
+nous appartiendrions
+vous appartiendriez
+ils appartiendraient
+
+que j'appartienne
+que tu appartiennes
+qu'il appartienne
+que nous appartenions
+que vous apparteniez
+qu'ils appartiennent
+
+que j'appartinsse
+que tu appartinsses
+qu'il appartînt
+que nous appartinssions
+que vous appartinssiez
+qu'ils appartinssent
+
+appartiens
+appartenons
+appartenez
+
+appartenant
+
+ appartenu
+

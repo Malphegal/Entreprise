@@ -1,0 +1,57 @@
+﻿je croîs
+tu croîs
+il croît
+nous croissons
+vous croissez
+ils croissent
+
+je croissais
+tu croissais
+il croissait
+nous croissions
+vous croissiez
+ils croissaient
+
+je crûs
+tu crûs
+il crût
+nous crûmes
+vous crûtes
+ils crûrent
+
+je croîtrai
+tu croîtras
+il croîtra
+nous croîtrons
+vous croîtrez
+ils croîtront
+
+je croîtrais
+tu croîtrais
+il croîtrait
+nous croîtrions
+vous croîtriez
+ils croîtraient
+
+que je croisse
+que tu croisses
+qu'il croisse
+que nous croissions
+que vous croissiez
+qu'ils croissent
+
+que je crûsse
+que tu crûsses
+qu'il crût
+que nous crûssions
+que vous crûssiez
+qu'ils crûssent
+
+croîs
+croissons
+croissez
+
+croissant
+
+ crû
+

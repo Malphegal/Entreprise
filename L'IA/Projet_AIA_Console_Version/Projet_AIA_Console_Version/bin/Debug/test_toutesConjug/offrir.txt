@@ -1,0 +1,57 @@
+﻿j'offre
+tu offres
+il offre
+nous offrons
+vous offrez
+ils offrent
+
+j'offrais
+tu offrais
+il offrait
+nous offrions
+vous offriez
+ils offraient
+
+j'offris
+tu offris
+il offrit
+nous offrîmes
+vous offrîtes
+ils offrirent
+
+j'offrirai
+tu offriras
+il offrira
+nous offrirons
+vous offrirez
+ils offriront
+
+j'offrirais
+tu offrirais
+il offrirait
+nous offririons
+vous offririez
+ils offriraient
+
+que j'offre
+que tu offres
+qu'il offre
+que nous offrions
+que vous offriez
+qu'ils offrent
+
+que j'offrisse
+que tu offrisses
+qu'il offrît
+que nous offrissions
+que vous offrissiez
+qu'ils offrissent
+
+offre
+offrons
+offrez
+
+offrant
+
+ offert
+

@@ -209,33 +209,95 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 lesVerbes[i] = lesVerbesTXT[i].Split('/')[1].Split('.')[0];
 
             string stringDeficherDeUnVerbe;
-            string[] splitDuFichierSource;
-            string[] lesTempsDuVerbeCourant;
-            string[][] lesTempsDuVerbeCourantFormat;
+            string[] lesTempsDuVerbeCourant = new string[10]; // Une case par temps
 
-            for (int i = 0; i < lesVerbesTXT.Length; i++)
+            for (int i = 0; i < lesVerbesTXT.Length; i++) // Pour chaque verbe dans le dossier 'test_format/'
             {
-            stringDeficherDeUnVerbe = File.ReadAllText(lesVerbesTXT[i]);
+                stringDeficherDeUnVerbe = File.ReadAllText(lesVerbesTXT[i]);
 
-            splitDuFichierSource = stringDeficherDeUnVerbe.Split(new string[] { "tempscorps" }, StringSplitOptions.None);
+                /*splitDuFichierSource = stringDeficherDeUnVerbe.Split(new string[] { "tempscorps" }, StringSplitOptions.None);
 
-            lesTempsDuVerbeCourant = new string[] { splitDuFichierSource[1], splitDuFichierSource[3], splitDuFichierSource[5] };
+                lesTempsDuVerbeCourant = new string[] { splitDuFichierSource[1], splitDuFichierSource[3], splitDuFichierSource[5] };
 
-            //lesTempsDuVerbeCourantFormat = new string[][] { new string[] { } };
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[0].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').First().Split('<')[0]);
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').First().Split('<')[0]);
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').First().Split('<')[0]);
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').First().Split('<')[0]);
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').First().Split('<')[0]);
-            Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').Last() +
-                lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[6].Split('>').First().Split('<')[0]);
+                lesTempsDuVerbeCourantFormat = new string[][] { new string[] { } };
 
-            Console.WriteLine();
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[0].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').First().Split('<')[0]);
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[1].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').First().Split('<')[0]);
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[2].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').First().Split('<')[0]);
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[3].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').First().Split('<')[0]);
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[4].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').First().Split('<')[0]);
+                Console.WriteLine(lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[5].Split('>').Last() +
+                    lesTempsDuVerbeCourant[0].Split(new string[] { "<b>" }, StringSplitOptions.None)[6].Split('>').First().Split('<')[0]);
+                    */
+                lesTempsDuVerbeCourant[0] = stringDeficherDeUnVerbe.Split(new string[] { "Présent" }, StringSplitOptions.None)[2].Substring(60); // Indicatif Présent
+                //Console.WriteLine(lesTempsDuVerbeCourant[0]);
+                lesTempsDuVerbeCourant[1] = stringDeficherDeUnVerbe.Split(new string[] { "Imparfait" }, StringSplitOptions.None)[2].Substring(60); // Indicatif Imparfait
+                //Console.WriteLine(lesTempsDuVerbeCourant[1]);
+                lesTempsDuVerbeCourant[2] = stringDeficherDeUnVerbe.Split(new string[] { "Passé simple" }, StringSplitOptions.None)[2].Substring(60); // Indicatif Passé simple
+                //Console.WriteLine(lesTempsDuVerbeCourant[2]);
+                lesTempsDuVerbeCourant[3] = stringDeficherDeUnVerbe.Split(new string[] { "Futur simple" }, StringSplitOptions.None)[2].Substring(60); // Indicatif Futur Simple
+                //Console.WriteLine(lesTempsDuVerbeCourant[3]);
+                lesTempsDuVerbeCourant[4] = stringDeficherDeUnVerbe.Split(new string[] { "Présent" }, StringSplitOptions.None)[4].Substring(60); // Conditionnel Présent
+                //Console.WriteLine(lesTempsDuVerbeCourant[4]);
+                lesTempsDuVerbeCourant[5] = stringDeficherDeUnVerbe.Split(new string[] { "Présent" }, StringSplitOptions.None)[6].Substring(60); // Subjonctif Présent
+                //Console.WriteLine(lesTempsDuVerbeCourant[5]);
+                lesTempsDuVerbeCourant[6] = stringDeficherDeUnVerbe.Split(new string[] { "Imparfait" }, StringSplitOptions.None)[4].Substring(60); // Subjonctif Imparfait
+                //Console.WriteLine(lesTempsDuVerbeCourant[6]);
+                lesTempsDuVerbeCourant[7] = stringDeficherDeUnVerbe.Split(new string[] { "Présent" }, StringSplitOptions.None)[8].Substring(60); // Impératif Présent
+                //Console.WriteLine(lesTempsDuVerbeCourant[7]);
+                lesTempsDuVerbeCourant[8] = stringDeficherDeUnVerbe.Split(new string[] { "Présent" }, StringSplitOptions.None)[10].Substring(60); // Participe Présent
+                //Console.WriteLine(lesTempsDuVerbeCourant[8]);
+                lesTempsDuVerbeCourant[9] = stringDeficherDeUnVerbe.Split(new string[] { "Passé" }, StringSplitOptions.None)[14].Substring(60); // Participe Passé
+                //Console.WriteLine(lesTempsDuVerbeCourant[9]);
+
+                string resUnVerbe = "";
+
+                for (int j = 0; j < 10; j++)
+                {
+                    lesTempsDuVerbeCourant[j] = lesTempsDuVerbeCourant[j].Replace("<b>", "");
+                    lesTempsDuVerbeCourant[j] = lesTempsDuVerbeCourant[j].Replace("</b>", "");
+                    lesTempsDuVerbeCourant[j] = lesTempsDuVerbeCourant[j].Replace("<br />", "\n");
+                    lesTempsDuVerbeCourant[j] = lesTempsDuVerbeCourant[j].Split('\n').ArrayStringVersString(j < 7 ? 6 : j < 8 ? 3 : 1, '\n');
+                    resUnVerbe += lesTempsDuVerbeCourant[j] + "\n";
+                    //Console.WriteLine("\t" + ActuelTemps(j + 1) + "\n\n" + lesTempsDuVerbeCourant[j] + "\n\n");
+                    //Console.ReadKey(true);
+                }
+
+                File.AppendAllText("test_toutesConjug/" + lesVerbes[i] + ".txt", resUnVerbe, Encoding.UTF8);
+
+                //Console.WriteLine(resUnVerbe);
+                //Console.WriteLine();
+                //Console.ReadKey(true);
+            }
+        }
+
+        static string ArrayStringVersString(this string[] tab, int nb, char separateur)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string s in tab.Take(nb))
+                stringBuilder.Append(s + separateur);
+            return stringBuilder.ToString();
+        }
+
+        static string ActuelTemps(int n) // pour le CW
+        {
+            switch (n)
+            {
+                case 1: return "Indicatif présent";
+                case 2: return "Indicatif imparfait";
+                case 3: return "Indicatif passé simple";
+                case 4: return "Indicatif futur simple";
+                case 5: return "Conditionnel présent";
+                case 6: return "subjontif présent";
+                case 7: return "subjonctif imparfait";
+                case 8: return "impératif présent";
+                case 9: return "Participe présent";
+                default: return "Participe passé";
             }
         }
     }

@@ -1,0 +1,57 @@
+﻿j'émets
+tu émets
+il émet
+nous émettons
+vous émettez
+ils émettent
+
+j'émettais
+tu émettais
+il émettait
+nous émettions
+vous émettiez
+ils émettaient
+
+j'émis
+tu émis
+il émit
+nous émîmes
+vous émîtes
+ils émirent
+
+j'émettrai
+tu émettras
+il émettra
+nous émettrons
+vous émettrez
+ils émettront
+
+j'émettrais
+tu émettrais
+il émettrait
+nous émettrions
+vous émettriez
+ils émettraient
+
+que j'émette
+que tu émettes
+qu'il émette
+que nous émettions
+que vous émettiez
+qu'ils émettent
+
+que j'émisse
+que tu émisses
+qu'il émît
+que nous émissions
+que vous émissiez
+qu'ils émissent
+
+émets
+émettons
+émettez
+
+émettant
+
+ émis
+

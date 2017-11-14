@@ -1,0 +1,57 @@
+﻿je lis
+tu lis
+il lit
+nous lisons
+vous lisez
+ils lisent
+
+je lisais
+tu lisais
+il lisait
+nous lisions
+vous lisiez
+ils lisaient
+
+je lus
+tu lus
+il lut
+nous lûmes
+vous lûtes
+ils lurent
+
+je lirai
+tu liras
+il lira
+nous lirons
+vous lirez
+ils liront
+
+je lirais
+tu lirais
+il lirait
+nous lirions
+vous liriez
+ils liraient
+
+que je lise
+que tu lises
+qu'il lise
+que nous lisions
+que vous lisiez
+qu'ils lisent
+
+que je lusse
+que tu lusses
+qu'il lût
+que nous lussions
+que vous lussiez
+qu'ils lussent
+
+lis
+lisons
+lisez
+
+lisant
+
+ lu
+

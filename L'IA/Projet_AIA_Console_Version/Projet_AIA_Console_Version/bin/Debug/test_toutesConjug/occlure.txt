@@ -1,0 +1,57 @@
+﻿j'occlus
+tu occlus
+il occlut
+nous occluons
+vous occluez
+ils occluent
+
+j'occluais
+tu occluais
+il occluait
+nous occluions
+vous occluiez
+ils occluaient
+
+j'occlus
+tu occlus
+il occlut
+nous occlûmes
+vous occlûtes
+ils occlurent
+
+j'occlurai
+tu occluras
+il occlura
+nous occlurons
+vous occlurez
+ils occluront
+
+j'occlurais
+tu occlurais
+il occlurait
+nous occlurions
+vous occluriez
+ils occluraient
+
+que j'occlue
+que tu occlues
+qu'il occlue
+que nous occluions
+que vous occluiez
+qu'ils occluent
+
+que j'occlusse
+que tu occlusses
+qu'il occlût
+que nous occlussions
+que vous occlussiez
+qu'ils occlussent
+
+occlus
+occluons
+occluez
+
+occluant
+
+ occlus
+

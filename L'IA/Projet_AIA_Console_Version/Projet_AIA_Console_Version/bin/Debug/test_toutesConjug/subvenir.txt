@@ -1,0 +1,57 @@
+﻿je subviens
+tu subviens
+il subvient
+nous subvenons
+vous subvenez
+ils subviennent
+
+je subvenais
+tu subvenais
+il subvenait
+nous subvenions
+vous subveniez
+ils subvenaient
+
+je subvins
+tu subvins
+il subvint
+nous subvînmes
+vous subvîntes
+ils subvinrent
+
+je subviendrai
+tu subviendras
+il subviendra
+nous subviendrons
+vous subviendrez
+ils subviendront
+
+je subviendrais
+tu subviendrais
+il subviendrait
+nous subviendrions
+vous subviendriez
+ils subviendraient
+
+que je subvienne
+que tu subviennes
+qu'il subvienne
+que nous subvenions
+que vous subveniez
+qu'ils subviennent
+
+que je subvinsse
+que tu subvinsses
+qu'il subvînt
+que nous subvinssions
+que vous subvinssiez
+qu'ils subvinssent
+
+subviens
+subvenons
+subvenez
+
+subvenant
+
+ subvenu
+

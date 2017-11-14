@@ -1,0 +1,57 @@
+﻿je séduis
+tu séduis
+il séduit
+nous séduisons
+vous séduisez
+ils séduisent
+
+je séduisais
+tu séduisais
+il séduisait
+nous séduisions
+vous séduisiez
+ils séduisaient
+
+je séduisis
+tu séduisis
+il séduisit
+nous séduisîmes
+vous séduisîtes
+ils séduisirent
+
+je séduirai
+tu séduiras
+il séduira
+nous séduirons
+vous séduirez
+ils séduiront
+
+je séduirais
+tu séduirais
+il séduirait
+nous séduirions
+vous séduiriez
+ils séduiraient
+
+que je séduise
+que tu séduises
+qu'il séduise
+que nous séduisions
+que vous séduisiez
+qu'ils séduisent
+
+que je séduisisse
+que tu séduisisses
+qu'il séduisît
+que nous séduisissions
+que vous séduisissiez
+qu'ils séduisissent
+
+séduis
+séduisons
+séduisez
+
+séduisant
+
+ séduit
+

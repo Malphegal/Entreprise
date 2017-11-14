@@ -1,0 +1,57 @@
+﻿je perçois
+tu perçois
+il perçoit
+nous percevons
+vous percevez
+ils perçoivent
+
+je percevais
+tu percevais
+il percevait
+nous percevions
+vous perceviez
+ils percevaient
+
+je perçus
+tu perçus
+il perçut
+nous perçûmes
+vous perçûtes
+ils perçurent
+
+je percevrai
+tu percevras
+il percevra
+nous percevrons
+vous percevrez
+ils percevront
+
+je percevrais
+tu percevrais
+il percevrait
+nous percevrions
+vous percevriez
+ils percevraient
+
+que je perçoive
+que tu perçoives
+qu'il perçoive
+que nous percevions
+que vous perceviez
+qu'ils perçoivent
+
+que je perçusse
+que tu perçusses
+qu'il perçût
+que nous perçussions
+que vous perçussiez
+qu'ils perçussent
+
+perçois
+percevons
+percevez
+
+percevant
+
+ perçu
+

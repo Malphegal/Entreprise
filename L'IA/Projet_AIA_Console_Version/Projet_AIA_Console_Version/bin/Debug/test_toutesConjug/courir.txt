@@ -1,0 +1,57 @@
+﻿je cours
+tu cours
+il court
+nous courons
+vous courez
+ils courent
+
+je courais
+tu courais
+il courait
+nous courions
+vous couriez
+ils couraient
+
+je courus
+tu courus
+il courut
+nous courûmes
+vous courûtes
+ils coururent
+
+je courrai
+tu courras
+il courra
+nous courrons
+vous courrez
+ils courront
+
+je courrais
+tu courrais
+il courrait
+nous courrions
+vous courriez
+ils courraient
+
+que je coure
+que tu coures
+qu'il coure
+que nous courions
+que vous couriez
+qu'ils courent
+
+que je courusse
+que tu courusses
+qu'il courût
+que nous courussions
+que vous courussiez
+qu'ils courussent
+
+cours
+courons
+courez
+
+courant
+
+ couru
+

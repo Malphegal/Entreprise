@@ -1,0 +1,57 @@
+﻿je poursuis
+tu poursuis
+il poursuit
+nous poursuivons
+vous poursuivez
+ils poursuivent
+
+je poursuivais
+tu poursuivais
+il poursuivait
+nous poursuivions
+vous poursuiviez
+ils poursuivaient
+
+je poursuivis
+tu poursuivis
+il poursuivit
+nous poursuivîmes
+vous poursuivîtes
+ils poursuivirent
+
+je poursuivrai
+tu poursuivras
+il poursuivra
+nous poursuivrons
+vous poursuivrez
+ils poursuivront
+
+je poursuivrais
+tu poursuivrais
+il poursuivrait
+nous poursuivrions
+vous poursuivriez
+ils poursuivraient
+
+que je poursuive
+que tu poursuives
+qu'il poursuive
+que nous poursuivions
+que vous poursuiviez
+qu'ils poursuivent
+
+que je poursuivisse
+que tu poursuivisses
+qu'il poursuivît
+que nous poursuivissions
+que vous poursuivissiez
+qu'ils poursuivissent
+
+poursuis
+poursuivons
+poursuivez
+
+poursuivant
+
+ poursuivi
+

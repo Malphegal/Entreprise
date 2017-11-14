@@ -1,0 +1,57 @@
+﻿je vaincs
+tu vaincs
+il vainc
+nous vainquons
+vous vainquez
+ils vainquent
+
+je vainquais
+tu vainquais
+il vainquait
+nous vainquions
+vous vainquiez
+ils vainquaient
+
+je vainquis
+tu vainquis
+il vainquit
+nous vainquîmes
+vous vainquîtes
+ils vainquirent
+
+je vaincrai
+tu vaincras
+il vaincra
+nous vaincrons
+vous vaincrez
+ils vaincront
+
+je vaincrais
+tu vaincrais
+il vaincrait
+nous vaincrions
+vous vaincriez
+ils vaincraient
+
+que je vainque
+que tu vainques
+qu'il vainque
+que nous vainquions
+que vous vainquiez
+qu'ils vainquent
+
+que je vainquisse
+que tu vainquisses
+qu'il vainquît
+que nous vainquissions
+que vous vainquissiez
+qu'ils vainquissent
+
+vaincs
+vainquons
+vainquez
+
+vainquant
+
+ vaincu
+

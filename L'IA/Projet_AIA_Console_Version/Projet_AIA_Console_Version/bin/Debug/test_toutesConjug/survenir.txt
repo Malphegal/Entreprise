@@ -1,0 +1,57 @@
+﻿je surviens
+tu surviens
+il survient
+nous survenons
+vous survenez
+ils surviennent
+
+je survenais
+tu survenais
+il survenait
+nous survenions
+vous surveniez
+ils survenaient
+
+je survins
+tu survins
+il survint
+nous survînmes
+vous survîntes
+ils survinrent
+
+je surviendrai
+tu surviendras
+il surviendra
+nous surviendrons
+vous surviendrez
+ils surviendront
+
+je surviendrais
+tu surviendrais
+il surviendrait
+nous surviendrions
+vous surviendriez
+ils surviendraient
+
+que je survienne
+que tu surviennes
+qu'il survienne
+que nous survenions
+que vous surveniez
+qu'ils surviennent
+
+que je survinsse
+que tu survinsses
+qu'il survînt
+que nous survinssions
+que vous survinssiez
+qu'ils survinssent
+
+surviens
+survenons
+survenez
+
+survenant
+
+ survenu
+

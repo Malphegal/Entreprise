@@ -1,0 +1,57 @@
+﻿j'ouvre
+tu ouvres
+il ouvre
+nous ouvrons
+vous ouvrez
+ils ouvrent
+
+j'ouvrais
+tu ouvrais
+il ouvrait
+nous ouvrions
+vous ouvriez
+ils ouvraient
+
+j'ouvris
+tu ouvris
+il ouvrit
+nous ouvrîmes
+vous ouvrîtes
+ils ouvrirent
+
+j'ouvrirai
+tu ouvriras
+il ouvrira
+nous ouvrirons
+vous ouvrirez
+ils ouvriront
+
+j'ouvrirais
+tu ouvrirais
+il ouvrirait
+nous ouvririons
+vous ouvririez
+ils ouvriraient
+
+que j'ouvre
+que tu ouvres
+qu'il ouvre
+que nous ouvrions
+que vous ouvriez
+qu'ils ouvrent
+
+que j'ouvrisse
+que tu ouvrisses
+qu'il ouvrît
+que nous ouvrissions
+que vous ouvrissiez
+qu'ils ouvrissent
+
+ouvre
+ouvrons
+ouvrez
+
+ouvrant
+
+ ouvert
+

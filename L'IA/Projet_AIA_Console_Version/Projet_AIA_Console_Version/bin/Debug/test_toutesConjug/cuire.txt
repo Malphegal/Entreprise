@@ -1,0 +1,57 @@
+﻿je cuis
+tu cuis
+il cuit
+nous cuisons
+vous cuisez
+ils cuisent
+
+je cuisais
+tu cuisais
+il cuisait
+nous cuisions
+vous cuisiez
+ils cuisaient
+
+je cuisis
+tu cuisis
+il cuisit
+nous cuisîmes
+vous cuisîtes
+ils cuisirent
+
+je cuirai
+tu cuiras
+il cuira
+nous cuirons
+vous cuirez
+ils cuiront
+
+je cuirais
+tu cuirais
+il cuirait
+nous cuirions
+vous cuiriez
+ils cuiraient
+
+que je cuise
+que tu cuises
+qu'il cuise
+que nous cuisions
+que vous cuisiez
+qu'ils cuisent
+
+que je cuisisse
+que tu cuisisses
+qu'il cuisît
+que nous cuisissions
+que vous cuisissiez
+qu'ils cuisissent
+
+cuis
+cuisons
+cuisez
+
+cuisant
+
+ cuit
+

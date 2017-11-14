@@ -1,0 +1,57 @@
+﻿je tonds
+tu tonds
+il tond
+nous tondons
+vous tondez
+ils tondent
+
+je tondais
+tu tondais
+il tondait
+nous tondions
+vous tondiez
+ils tondaient
+
+je tondis
+tu tondis
+il tondit
+nous tondîmes
+vous tondîtes
+ils tondirent
+
+je tondrai
+tu tondras
+il tondra
+nous tondrons
+vous tondrez
+ils tondront
+
+je tondrais
+tu tondrais
+il tondrait
+nous tondrions
+vous tondriez
+ils tondraient
+
+que je tonde
+que tu tondes
+qu'il tonde
+que nous tondions
+que vous tondiez
+qu'ils tondent
+
+que je tondisse
+que tu tondisses
+qu'il tondît
+que nous tondissions
+que vous tondissiez
+qu'ils tondissent
+
+tonds
+tondons
+tondez
+
+tondant
+
+ tondu
+

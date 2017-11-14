@@ -1,0 +1,57 @@
+﻿je reveux
+tu reveux
+il reveut
+nous revoulons
+vous revoulez
+ils reveulent
+
+je revoulais
+tu revoulais
+il revoulait
+nous revoulions
+vous revouliez
+ils revoulaient
+
+je revoulus
+tu revoulus
+il revoulut
+nous revoulûmes
+vous revoulûtes
+ils revoulurent
+
+je revoudrai
+tu revoudras
+il revoudra
+nous revoudrons
+vous revoudrez
+ils revoudront
+
+je revoudrais
+tu revoudrais
+il revoudrait
+nous revoudrions
+vous revoudriez
+ils revoudraient
+
+que je reveuille
+que tu reveuilles
+qu'il reveuille
+que nous revoulions
+que vous revouliez
+qu'ils reveuillent
+
+que je revoulusse
+que tu revoulusses
+qu'il revoulût
+que nous revoulussions
+que vous revoulussiez
+qu'ils revoulussent
+
+reveux/reveuille
+revoulons
+revoulez/reveuillez
+
+revoulant
+
+ revoulu
+

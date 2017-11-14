@@ -1,0 +1,57 @@
+﻿je bous
+tu bous
+il bout
+nous bouillons
+vous bouillez
+ils bouillent
+
+je bouillais
+tu bouillais
+il bouillait
+nous bouillions
+vous bouilliez
+ils bouillaient
+
+je bouillis
+tu bouillis
+il bouillit
+nous bouillîmes
+vous bouillîtes
+ils bouillirent
+
+je bouillirai
+tu bouilliras
+il bouillira
+nous bouillirons
+vous bouillirez
+ils bouilliront
+
+je bouillirais
+tu bouillirais
+il bouillirait
+nous bouillirions
+vous bouilliriez
+ils bouilliraient
+
+que je bouille
+que tu bouilles
+qu'il bouille
+que nous bouillions
+que vous bouilliez
+qu'ils bouillent
+
+que je bouillisse
+que tu bouillisses
+qu'il bouillît
+que nous bouillissions
+que vous bouillissiez
+qu'ils bouillissent
+
+bous
+bouillons
+bouillez
+
+bouillant
+
+ bouilli
+

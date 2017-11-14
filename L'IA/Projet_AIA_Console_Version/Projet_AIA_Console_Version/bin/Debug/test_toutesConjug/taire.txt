@@ -1,0 +1,57 @@
+﻿je tais
+tu tais
+il tait
+nous taisons
+vous taisez
+ils taisent
+
+je taisais
+tu taisais
+il taisait
+nous taisions
+vous taisiez
+ils taisaient
+
+je tus
+tu tus
+il tut
+nous tûmes
+vous tûtes
+ils turent
+
+je tairai
+tu tairas
+il taira
+nous tairons
+vous tairez
+ils tairont
+
+je tairais
+tu tairais
+il tairait
+nous tairions
+vous tairiez
+ils tairaient
+
+que je taise
+que tu taises
+qu'il taise
+que nous taisions
+que vous taisiez
+qu'ils taisent
+
+que je tusse
+que tu tusses
+qu'il tût
+que nous tussions
+que vous tussiez
+qu'ils tussent
+
+tais
+taisons
+taisez
+
+taisant
+
+ tu
+

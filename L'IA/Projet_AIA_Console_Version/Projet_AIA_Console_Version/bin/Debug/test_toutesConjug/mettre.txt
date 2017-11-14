@@ -1,0 +1,57 @@
+﻿je mets
+tu mets
+il met
+nous mettons
+vous mettez
+ils mettent
+
+je mettais
+tu mettais
+il mettait
+nous mettions
+vous mettiez
+ils mettaient
+
+je mis
+tu mis
+il mit
+nous mîmes
+vous mîtes
+ils mirent
+
+je mettrai
+tu mettras
+il mettra
+nous mettrons
+vous mettrez
+ils mettront
+
+je mettrais
+tu mettrais
+il mettrait
+nous mettrions
+vous mettriez
+ils mettraient
+
+que je mette
+que tu mettes
+qu'il mette
+que nous mettions
+que vous mettiez
+qu'ils mettent
+
+que je misse
+que tu misses
+qu'il mît
+que nous missions
+que vous missiez
+qu'ils missent
+
+mets
+mettons
+mettez
+
+mettant
+
+ mis
+

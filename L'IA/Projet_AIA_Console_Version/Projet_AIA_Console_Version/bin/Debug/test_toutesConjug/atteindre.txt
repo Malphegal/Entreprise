@@ -1,0 +1,57 @@
+﻿j'atteins
+tu atteins
+il atteint
+nous atteignons
+vous atteignez
+ils atteignent
+
+j'atteignais
+tu atteignais
+il atteignait
+nous atteignions
+vous atteigniez
+ils atteignaient
+
+j'atteignis
+tu atteignis
+il atteignit
+nous atteignîmes
+vous atteignîtes
+ils atteignirent
+
+j'atteindrai
+tu atteindras
+il atteindra
+nous atteindrons
+vous atteindrez
+ils atteindront
+
+j'atteindrais
+tu atteindrais
+il atteindrait
+nous atteindrions
+vous atteindriez
+ils atteindraient
+
+que j'atteigne
+que tu atteignes
+qu'il atteigne
+que nous atteignions
+que vous atteigniez
+qu'ils atteignent
+
+que j'atteignisse
+que tu atteignisses
+qu'il atteignît
+que nous atteignissions
+que vous atteignissiez
+qu'ils atteignissent
+
+atteins
+atteignons
+atteignez
+
+atteignant
+
+ atteint
+

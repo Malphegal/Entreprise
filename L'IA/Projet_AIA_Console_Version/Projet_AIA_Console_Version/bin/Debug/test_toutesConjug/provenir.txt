@@ -1,0 +1,57 @@
+﻿je proviens
+tu proviens
+il provient
+nous provenons
+vous provenez
+ils proviennent
+
+je provenais
+tu provenais
+il provenait
+nous provenions
+vous proveniez
+ils provenaient
+
+je provins
+tu provins
+il provint
+nous provînmes
+vous provîntes
+ils provinrent
+
+je proviendrai
+tu proviendras
+il proviendra
+nous proviendrons
+vous proviendrez
+ils proviendront
+
+je proviendrais
+tu proviendrais
+il proviendrait
+nous proviendrions
+vous proviendriez
+ils proviendraient
+
+que je provienne
+que tu proviennes
+qu'il provienne
+que nous provenions
+que vous proveniez
+qu'ils proviennent
+
+que je provinsse
+que tu provinsses
+qu'il provînt
+que nous provinssions
+que vous provinssiez
+qu'ils provinssent
+
+proviens
+provenons
+provenez
+
+provenant
+
+ provenu
+

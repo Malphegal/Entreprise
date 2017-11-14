@@ -1,0 +1,57 @@
+﻿je parcours
+tu parcours
+il parcourt
+nous parcourons
+vous parcourez
+ils parcourent
+
+je parcourais
+tu parcourais
+il parcourait
+nous parcourions
+vous parcouriez
+ils parcouraient
+
+je parcourus
+tu parcourus
+il parcourut
+nous parcourûmes
+vous parcourûtes
+ils parcoururent
+
+je parcourrai
+tu parcourras
+il parcourra
+nous parcourrons
+vous parcourrez
+ils parcourront
+
+je parcourrais
+tu parcourrais
+il parcourrait
+nous parcourrions
+vous parcourriez
+ils parcourraient
+
+que je parcoure
+que tu parcoures
+qu'il parcoure
+que nous parcourions
+que vous parcouriez
+qu'ils parcourent
+
+que je parcourusse
+que tu parcourusses
+qu'il parcourût
+que nous parcourussions
+que vous parcourussiez
+qu'ils parcourussent
+
+parcours
+parcourons
+parcourez
+
+parcourant
+
+ parcouru
+

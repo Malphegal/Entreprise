@@ -1,0 +1,57 @@
+﻿je conduis
+tu conduis
+il conduit
+nous conduisons
+vous conduisez
+ils conduisent
+
+je conduisais
+tu conduisais
+il conduisait
+nous conduisions
+vous conduisiez
+ils conduisaient
+
+je conduisis
+tu conduisis
+il conduisit
+nous conduisîmes
+vous conduisîtes
+ils conduisirent
+
+je conduirai
+tu conduiras
+il conduira
+nous conduirons
+vous conduirez
+ils conduiront
+
+je conduirais
+tu conduirais
+il conduirait
+nous conduirions
+vous conduiriez
+ils conduiraient
+
+que je conduise
+que tu conduises
+qu'il conduise
+que nous conduisions
+que vous conduisiez
+qu'ils conduisent
+
+que je conduisisse
+que tu conduisisses
+qu'il conduisît
+que nous conduisissions
+que vous conduisissiez
+qu'ils conduisissent
+
+conduis
+conduisons
+conduisez
+
+conduisant
+
+ conduit
+

@@ -1,0 +1,57 @@
+﻿je bois
+tu bois
+il boit
+nous buvons
+vous buvez
+ils boivent
+
+je buvais
+tu buvais
+il buvait
+nous buvions
+vous buviez
+ils buvaient
+
+je bus
+tu bus
+il but
+nous bûmes
+vous bûtes
+ils burent
+
+je boirai
+tu boiras
+il boira
+nous boirons
+vous boirez
+ils boiront
+
+je boirais
+tu boirais
+il boirait
+nous boirions
+vous boiriez
+ils boiraient
+
+que je boive
+que tu boives
+qu'il boive
+que nous buvions
+que vous buviez
+qu'ils boivent
+
+que je busse
+que tu busses
+qu'il bût
+que nous bussions
+que vous bussiez
+qu'ils bussent
+
+bois
+buvons
+buvez
+
+buvant
+
+ bu
+

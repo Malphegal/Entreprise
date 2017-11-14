@@ -1,0 +1,57 @@
+﻿je perds
+tu perds
+il perd
+nous perdons
+vous perdez
+ils perdent
+
+je perdais
+tu perdais
+il perdait
+nous perdions
+vous perdiez
+ils perdaient
+
+je perdis
+tu perdis
+il perdit
+nous perdîmes
+vous perdîtes
+ils perdirent
+
+je perdrai
+tu perdras
+il perdra
+nous perdrons
+vous perdrez
+ils perdront
+
+je perdrais
+tu perdrais
+il perdrait
+nous perdrions
+vous perdriez
+ils perdraient
+
+que je perde
+que tu perdes
+qu'il perde
+que nous perdions
+que vous perdiez
+qu'ils perdent
+
+que je perdisse
+que tu perdisses
+qu'il perdît
+que nous perdissions
+que vous perdissiez
+qu'ils perdissent
+
+perds
+perdons
+perdez
+
+perdant
+
+ perdu
+

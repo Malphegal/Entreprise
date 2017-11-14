@@ -1,0 +1,57 @@
+﻿j'abats
+tu abats
+il abat
+nous abattons
+vous abattez
+ils abattent
+
+j'abattais
+tu abattais
+il abattait
+nous abattions
+vous abattiez
+ils abattaient
+
+j'abattis
+tu abattis
+il abattit
+nous abattîmes
+vous abattîtes
+ils abattirent
+
+j'abattrai
+tu abattras
+il abattra
+nous abattrons
+vous abattrez
+ils abattront
+
+j'abattrais
+tu abattrais
+il abattrait
+nous abattrions
+vous abattriez
+ils abattraient
+
+que j'abatte
+que tu abattes
+qu'il abatte
+que nous abattions
+que vous abattiez
+qu'ils abattent
+
+que j'abattisse
+que tu abattisses
+qu'il abattît
+que nous abattissions
+que vous abattissiez
+qu'ils abattissent
+
+abats
+abattons
+abattez
+
+abattant
+
+ abattu
+

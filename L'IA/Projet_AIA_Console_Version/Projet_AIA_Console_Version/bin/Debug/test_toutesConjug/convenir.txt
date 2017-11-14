@@ -1,0 +1,57 @@
+﻿je conviens
+tu conviens
+il convient
+nous convenons
+vous convenez
+ils conviennent
+
+je convenais
+tu convenais
+il convenait
+nous convenions
+vous conveniez
+ils convenaient
+
+je convins
+tu convins
+il convint
+nous convînmes
+vous convîntes
+ils convinrent
+
+je conviendrai
+tu conviendras
+il conviendra
+nous conviendrons
+vous conviendrez
+ils conviendront
+
+je conviendrais
+tu conviendrais
+il conviendrait
+nous conviendrions
+vous conviendriez
+ils conviendraient
+
+que je convienne
+que tu conviennes
+qu'il convienne
+que nous convenions
+que vous conveniez
+qu'ils conviennent
+
+que je convinsse
+que tu convinsses
+qu'il convînt
+que nous convinssions
+que vous convinssiez
+qu'ils convinssent
+
+conviens
+convenons
+convenez
+
+convenant
+
+ convenu
+

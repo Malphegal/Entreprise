@@ -1,0 +1,57 @@
+﻿je sous-tends
+tu sous-tends
+il sous-tend
+nous sous-tendons
+vous sous-tendez
+ils sous-tendent
+
+je sous-tendais
+tu sous-tendais
+il sous-tendait
+nous sous-tendions
+vous sous-tendiez
+ils sous-tendaient
+
+je sous-tendis
+tu sous-tendis
+il sous-tendit
+nous sous-tendîmes
+vous sous-tendîtes
+ils sous-tendirent
+
+je sous-tendrai
+tu sous-tendras
+il sous-tendra
+nous sous-tendrons
+vous sous-tendrez
+ils sous-tendront
+
+je sous-tendrais
+tu sous-tendrais
+il sous-tendrait
+nous sous-tendrions
+vous sous-tendriez
+ils sous-tendraient
+
+que je sous-tende
+que tu sous-tendes
+qu'il sous-tende
+que nous sous-tendions
+que vous sous-tendiez
+qu'ils sous-tendent
+
+que je sous-tendisse
+que tu sous-tendisses
+qu'il sous-tendît
+que nous sous-tendissions
+que vous sous-tendissiez
+qu'ils sous-tendissent
+
+sous-tends
+sous-tendons
+sous-tendez
+
+sous-tendant
+
+ sous-tendu
+

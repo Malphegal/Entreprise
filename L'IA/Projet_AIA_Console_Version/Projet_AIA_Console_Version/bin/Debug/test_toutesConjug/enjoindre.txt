@@ -1,0 +1,57 @@
+﻿j'enjoins
+tu enjoins
+il enjoint
+nous enjoignons
+vous enjoignez
+ils enjoignent
+
+j'enjoignais
+tu enjoignais
+il enjoignait
+nous enjoignions
+vous enjoigniez
+ils enjoignaient
+
+j'enjoignis
+tu enjoignis
+il enjoignit
+nous enjoignîmes
+vous enjoignîtes
+ils enjoignirent
+
+j'enjoindrai
+tu enjoindras
+il enjoindra
+nous enjoindrons
+vous enjoindrez
+ils enjoindront
+
+j'enjoindrais
+tu enjoindrais
+il enjoindrait
+nous enjoindrions
+vous enjoindriez
+ils enjoindraient
+
+que j'enjoigne
+que tu enjoignes
+qu'il enjoigne
+que nous enjoignions
+que vous enjoigniez
+qu'ils enjoignent
+
+que j'enjoignisse
+que tu enjoignisses
+qu'il enjoignît
+que nous enjoignissions
+que vous enjoignissiez
+qu'ils enjoignissent
+
+enjoins
+enjoignons
+enjoignez
+
+enjoignant
+
+ enjoint
+

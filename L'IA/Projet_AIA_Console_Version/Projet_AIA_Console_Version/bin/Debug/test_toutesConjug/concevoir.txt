@@ -1,0 +1,57 @@
+﻿je conçois
+tu conçois
+il conçoit
+nous concevons
+vous concevez
+ils conçoivent
+
+je concevais
+tu concevais
+il concevait
+nous concevions
+vous conceviez
+ils concevaient
+
+je conçus
+tu conçus
+il conçut
+nous conçûmes
+vous conçûtes
+ils conçurent
+
+je concevrai
+tu concevras
+il concevra
+nous concevrons
+vous concevrez
+ils concevront
+
+je concevrais
+tu concevrais
+il concevrait
+nous concevrions
+vous concevriez
+ils concevraient
+
+que je conçoive
+que tu conçoives
+qu'il conçoive
+que nous concevions
+que vous conceviez
+qu'ils conçoivent
+
+que je conçusse
+que tu conçusses
+qu'il conçût
+que nous conçussions
+que vous conçussiez
+qu'ils conçussent
+
+conçois
+concevons
+concevez
+
+concevant
+
+ conçu
+

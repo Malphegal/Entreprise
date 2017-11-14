@@ -1,0 +1,57 @@
+﻿je concours
+tu concours
+il concourt
+nous concourons
+vous concourez
+ils concourent
+
+je concourais
+tu concourais
+il concourait
+nous concourions
+vous concouriez
+ils concouraient
+
+je concourus
+tu concourus
+il concourut
+nous concourûmes
+vous concourûtes
+ils concoururent
+
+je concourrai
+tu concourras
+il concourra
+nous concourrons
+vous concourrez
+ils concourront
+
+je concourrais
+tu concourrais
+il concourrait
+nous concourrions
+vous concourriez
+ils concourraient
+
+que je concoure
+que tu concoures
+qu'il concoure
+que nous concourions
+que vous concouriez
+qu'ils concourent
+
+que je concourusse
+que tu concourusses
+qu'il concourût
+que nous concourussions
+que vous concourussiez
+qu'ils concourussent
+
+concours
+concourons
+concourez
+
+concourant
+
+ concouru
+

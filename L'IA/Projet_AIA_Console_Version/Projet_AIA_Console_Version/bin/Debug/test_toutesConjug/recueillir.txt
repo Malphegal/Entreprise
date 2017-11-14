@@ -1,0 +1,57 @@
+﻿je recueille
+tu recueilles
+il recueille
+nous recueillons
+vous recueillez
+ils recueillent
+
+je recueillais
+tu recueillais
+il recueillait
+nous recueillions
+vous recueilliez
+ils recueillaient
+
+je recueillis
+tu recueillis
+il recueillit
+nous recueillîmes
+vous recueillîtes
+ils recueillirent
+
+je recueillerai
+tu recueilleras
+il recueillera
+nous recueillerons
+vous recueillerez
+ils recueilleront
+
+je recueillerais
+tu recueillerais
+il recueillerait
+nous recueillerions
+vous recueilleriez
+ils recueilleraient
+
+que je recueille
+que tu recueilles
+qu'il recueille
+que nous recueillions
+que vous recueilliez
+qu'ils recueillent
+
+que je recueillisse
+que tu recueillisses
+qu'il recueillît
+que nous recueillissions
+que vous recueillissiez
+qu'ils recueillissent
+
+recueille
+recueillons
+recueillez
+
+recueillant
+
+ recueilli
+

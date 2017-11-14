@@ -1,0 +1,57 @@
+﻿je construis
+tu construis
+il construit
+nous construisons
+vous construisez
+ils construisent
+
+je construisais
+tu construisais
+il construisait
+nous construisions
+vous construisiez
+ils construisaient
+
+je construisis
+tu construisis
+il construisit
+nous construisîmes
+vous construisîtes
+ils construisirent
+
+je construirai
+tu construiras
+il construira
+nous construirons
+vous construirez
+ils construiront
+
+je construirais
+tu construirais
+il construirait
+nous construirions
+vous construiriez
+ils construiraient
+
+que je construise
+que tu construises
+qu'il construise
+que nous construisions
+que vous construisiez
+qu'ils construisent
+
+que je construisisse
+que tu construisisses
+qu'il construisît
+que nous construisissions
+que vous construisissiez
+qu'ils construisissent
+
+construis
+construisons
+construisez
+
+construisant
+
+ construit
+

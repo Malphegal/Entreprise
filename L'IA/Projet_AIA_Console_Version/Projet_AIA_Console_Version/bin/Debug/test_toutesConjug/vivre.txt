@@ -1,0 +1,57 @@
+﻿je vis
+tu vis
+il vit
+nous vivons
+vous vivez
+ils vivent
+
+je vivais
+tu vivais
+il vivait
+nous vivions
+vous viviez
+ils vivaient
+
+je vécus
+tu vécus
+il vécut
+nous vécûmes
+vous vécûtes
+ils vécurent
+
+je vivrai
+tu vivras
+il vivra
+nous vivrons
+vous vivrez
+ils vivront
+
+je vivrais
+tu vivrais
+il vivrait
+nous vivrions
+vous vivriez
+ils vivraient
+
+que je vive
+que tu vives
+qu'il vive
+que nous vivions
+que vous viviez
+qu'ils vivent
+
+que je vécusse
+que tu vécusses
+qu'il vécût
+que nous vécussions
+que vous vécussiez
+qu'ils vécussent
+
+vis
+vivons
+vivez
+
+vivant
+
+ vécu
+

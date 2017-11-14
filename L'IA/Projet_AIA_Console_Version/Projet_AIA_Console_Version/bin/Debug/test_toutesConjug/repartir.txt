@@ -1,0 +1,57 @@
+﻿je repars
+tu repars
+il repart
+nous repartons
+vous repartez
+ils repartent
+
+je repartais
+tu repartais
+il repartait
+nous repartions
+vous repartiez
+ils repartaient
+
+je repartis
+tu repartis
+il repartit
+nous repartîmes
+vous repartîtes
+ils repartirent
+
+je repartirai
+tu repartiras
+il repartira
+nous repartirons
+vous repartirez
+ils repartiront
+
+je repartirais
+tu repartirais
+il repartirait
+nous repartirions
+vous repartiriez
+ils repartiraient
+
+que je reparte
+que tu repartes
+qu'il reparte
+que nous repartions
+que vous repartiez
+qu'ils repartent
+
+que je repartisse
+que tu repartisses
+qu'il repartît
+que nous repartissions
+que vous repartissiez
+qu'ils repartissent
+
+repars
+repartons
+repartez
+
+repartant
+
+ reparti
+

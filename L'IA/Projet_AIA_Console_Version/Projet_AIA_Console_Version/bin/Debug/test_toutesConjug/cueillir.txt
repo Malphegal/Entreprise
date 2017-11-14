@@ -1,0 +1,57 @@
+﻿je cueille
+tu cueilles
+il cueille
+nous cueillons
+vous cueillez
+ils cueillent
+
+je cueillais
+tu cueillais
+il cueillait
+nous cueillions
+vous cueilliez
+ils cueillaient
+
+je cueillis
+tu cueillis
+il cueillit
+nous cueillîmes
+vous cueillîtes
+ils cueillirent
+
+je cueillerai
+tu cueilleras
+il cueillera
+nous cueillerons
+vous cueillerez
+ils cueilleront
+
+je cueillerais
+tu cueillerais
+il cueillerait
+nous cueillerions
+vous cueilleriez
+ils cueilleraient
+
+que je cueille
+que tu cueilles
+qu'il cueille
+que nous cueillions
+que vous cueilliez
+qu'ils cueillent
+
+que je cueillisse
+que tu cueillisses
+qu'il cueillît
+que nous cueillissions
+que vous cueillissiez
+qu'ils cueillissent
+
+cueille
+cueillons
+cueillez
+
+cueillant
+
+ cueilli
+

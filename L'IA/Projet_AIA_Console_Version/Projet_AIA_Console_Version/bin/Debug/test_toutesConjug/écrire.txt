@@ -1,0 +1,57 @@
+﻿j'écris
+tu écris
+il écrit
+nous écrivons
+vous écrivez
+ils écrivent
+
+j'écrivais
+tu écrivais
+il écrivait
+nous écrivions
+vous écriviez
+ils écrivaient
+
+j'écrivis
+tu écrivis
+il écrivit
+nous écrivîmes
+vous écrivîtes
+ils écrivirent
+
+j'écrirai
+tu écriras
+il écrira
+nous écrirons
+vous écrirez
+ils écriront
+
+j'écrirais
+tu écrirais
+il écrirait
+nous écririons
+vous écririez
+ils écriraient
+
+que j'écrive
+que tu écrives
+qu'il écrive
+que nous écrivions
+que vous écriviez
+qu'ils écrivent
+
+que j'écrivisse
+que tu écrivisses
+qu'il écrivît
+que nous écrivissions
+que vous écrivissiez
+qu'ils écrivissent
+
+écris
+écrivons
+écrivez
+
+écrivant
+
+ écrit
+

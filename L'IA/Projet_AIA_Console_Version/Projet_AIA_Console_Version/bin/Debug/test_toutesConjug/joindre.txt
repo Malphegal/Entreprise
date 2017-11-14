@@ -1,0 +1,57 @@
+﻿je joins
+tu joins
+il joint
+nous joignons
+vous joignez
+ils joignent
+
+je joignais
+tu joignais
+il joignait
+nous joignions
+vous joigniez
+ils joignaient
+
+je joignis
+tu joignis
+il joignit
+nous joignîmes
+vous joignîtes
+ils joignirent
+
+je joindrai
+tu joindras
+il joindra
+nous joindrons
+vous joindrez
+ils joindront
+
+je joindrais
+tu joindrais
+il joindrait
+nous joindrions
+vous joindriez
+ils joindraient
+
+que je joigne
+que tu joignes
+qu'il joigne
+que nous joignions
+que vous joigniez
+qu'ils joignent
+
+que je joignisse
+que tu joignisses
+qu'il joignît
+que nous joignissions
+que vous joignissiez
+qu'ils joignissent
+
+joins
+joignons
+joignez
+
+joignant
+
+ joint
+

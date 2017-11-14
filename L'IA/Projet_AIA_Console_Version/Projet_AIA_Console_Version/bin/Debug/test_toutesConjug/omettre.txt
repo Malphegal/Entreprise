@@ -1,0 +1,57 @@
+﻿j'omets
+tu omets
+il omet
+nous omettons
+vous omettez
+ils omettent
+
+j'omettais
+tu omettais
+il omettait
+nous omettions
+vous omettiez
+ils omettaient
+
+j'omis
+tu omis
+il omit
+nous omîmes
+vous omîtes
+ils omirent
+
+j'omettrai
+tu omettras
+il omettra
+nous omettrons
+vous omettrez
+ils omettront
+
+j'omettrais
+tu omettrais
+il omettrait
+nous omettrions
+vous omettriez
+ils omettraient
+
+que j'omette
+que tu omettes
+qu'il omette
+que nous omettions
+que vous omettiez
+qu'ils omettent
+
+que j'omisse
+que tu omisses
+qu'il omît
+que nous omissions
+que vous omissiez
+qu'ils omissent
+
+omets
+omettons
+omettez
+
+omettant
+
+ omis
+

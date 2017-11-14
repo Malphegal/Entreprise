@@ -1,0 +1,57 @@
+﻿je combats
+tu combats
+il combat
+nous combattons
+vous combattez
+ils combattent
+
+je combattais
+tu combattais
+il combattait
+nous combattions
+vous combattiez
+ils combattaient
+
+je combattis
+tu combattis
+il combattit
+nous combattîmes
+vous combattîtes
+ils combattirent
+
+je combattrai
+tu combattras
+il combattra
+nous combattrons
+vous combattrez
+ils combattront
+
+je combattrais
+tu combattrais
+il combattrait
+nous combattrions
+vous combattriez
+ils combattraient
+
+que je combatte
+que tu combattes
+qu'il combatte
+que nous combattions
+que vous combattiez
+qu'ils combattent
+
+que je combattisse
+que tu combattisses
+qu'il combattît
+que nous combattissions
+que vous combattissiez
+qu'ils combattissent
+
+combats
+combattons
+combattez
+
+combattant
+
+ combattu
+

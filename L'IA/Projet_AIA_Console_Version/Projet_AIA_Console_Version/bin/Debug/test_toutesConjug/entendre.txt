@@ -1,0 +1,57 @@
+﻿j'entends
+tu entends
+il entend
+nous entendons
+vous entendez
+ils entendent
+
+j'entendais
+tu entendais
+il entendait
+nous entendions
+vous entendiez
+ils entendaient
+
+j'entendis
+tu entendis
+il entendit
+nous entendîmes
+vous entendîtes
+ils entendirent
+
+j'entendrai
+tu entendras
+il entendra
+nous entendrons
+vous entendrez
+ils entendront
+
+j'entendrais
+tu entendrais
+il entendrait
+nous entendrions
+vous entendriez
+ils entendraient
+
+que j'entende
+que tu entendes
+qu'il entende
+que nous entendions
+que vous entendiez
+qu'ils entendent
+
+que j'entendisse
+que tu entendisses
+qu'il entendît
+que nous entendissions
+que vous entendissiez
+qu'ils entendissent
+
+entends
+entendons
+entendez
+
+entendant
+
+ entendu
+

@@ -1,0 +1,57 @@
+﻿je luis
+tu luis
+il luit
+nous luisons
+vous luisez
+ils luisent
+
+je luisais
+tu luisais
+il luisait
+nous luisions
+vous luisiez
+ils luisaient
+
+je luisis
+tu luisis
+il luisit
+nous luisîmes
+vous luisîtes
+ils luisirent
+
+je luirai
+tu luiras
+il luira
+nous luirons
+vous luirez
+ils luiront
+
+je luirais
+tu luirais
+il luirait
+nous luirions
+vous luiriez
+ils luiraient
+
+que je luise
+que tu luises
+qu'il luise
+que nous luisions
+que vous luisiez
+qu'ils luisent
+
+que je luisisse
+que tu luisisses
+qu'il luisît
+que nous luisissions
+que vous luisissiez
+qu'ils luisissent
+
+luis
+luisons
+luisez
+
+luisant
+
+ lui
+

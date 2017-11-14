@@ -1,0 +1,57 @@
+﻿j'interviens
+tu interviens
+il intervient
+nous intervenons
+vous intervenez
+ils interviennent
+
+j'intervenais
+tu intervenais
+il intervenait
+nous intervenions
+vous interveniez
+ils intervenaient
+
+j'intervins
+tu intervins
+il intervint
+nous intervînmes
+vous intervîntes
+ils intervinrent
+
+j'interviendrai
+tu interviendras
+il interviendra
+nous interviendrons
+vous interviendrez
+ils interviendront
+
+j'interviendrais
+tu interviendrais
+il interviendrait
+nous interviendrions
+vous interviendriez
+ils interviendraient
+
+que j'intervienne
+que tu interviennes
+qu'il intervienne
+que nous intervenions
+que vous interveniez
+qu'ils interviennent
+
+que j'intervinsse
+que tu intervinsses
+qu'il intervînt
+que nous intervinssions
+que vous intervinssiez
+qu'ils intervinssent
+
+interviens
+intervenons
+intervenez
+
+intervenant
+
+ intervenu
+

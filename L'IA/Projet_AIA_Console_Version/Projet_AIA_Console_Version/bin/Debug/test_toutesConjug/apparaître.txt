@@ -1,0 +1,57 @@
+﻿j'apparais
+tu apparais
+il apparaît
+nous apparaissons
+vous apparaissez
+ils apparaissent
+
+j'apparaissais
+tu apparaissais
+il apparaissait
+nous apparaissions
+vous apparaissiez
+ils apparaissaient
+
+j'apparus
+tu apparus
+il apparut
+nous apparûmes
+vous apparûtes
+ils apparurent
+
+j'apparaîtrai
+tu apparaîtras
+il apparaîtra
+nous apparaîtrons
+vous apparaîtrez
+ils apparaîtront
+
+j'apparaîtrais
+tu apparaîtrais
+il apparaîtrait
+nous apparaîtrions
+vous apparaîtriez
+ils apparaîtraient
+
+que j'apparaisse
+que tu apparaisses
+qu'il apparaisse
+que nous apparaissions
+que vous apparaissiez
+qu'ils apparaissent
+
+que j'apparusse
+que tu apparusses
+qu'il apparût
+que nous apparussions
+que vous apparussiez
+qu'ils apparussent
+
+apparais
+apparaissons
+apparaissez
+
+apparaissant
+
+ apparu
+

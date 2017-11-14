@@ -1,0 +1,57 @@
+﻿j'apprends
+tu apprends
+il apprend
+nous apprenons
+vous apprenez
+ils apprennent
+
+j'apprenais
+tu apprenais
+il apprenait
+nous apprenions
+vous appreniez
+ils apprenaient
+
+j'appris
+tu appris
+il apprit
+nous apprîmes
+vous apprîtes
+ils apprirent
+
+j'apprendrai
+tu apprendras
+il apprendra
+nous apprendrons
+vous apprendrez
+ils apprendront
+
+j'apprendrais
+tu apprendrais
+il apprendrait
+nous apprendrions
+vous apprendriez
+ils apprendraient
+
+que j'apprenne
+que tu apprennes
+qu'il apprenne
+que nous apprenions
+que vous appreniez
+qu'ils apprennent
+
+que j'apprisse
+que tu apprisses
+qu'il apprît
+que nous apprissions
+que vous apprissiez
+qu'ils apprissent
+
+apprends
+apprenons
+apprenez
+
+apprenant
+
+ appris
+

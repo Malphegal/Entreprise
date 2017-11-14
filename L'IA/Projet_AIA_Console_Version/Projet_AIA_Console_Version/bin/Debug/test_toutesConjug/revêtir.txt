@@ -1,0 +1,57 @@
+﻿je revêts
+tu revêts
+il revêt
+nous revêtons
+vous revêtez
+ils revêtent
+
+je revêtais
+tu revêtais
+il revêtait
+nous revêtions
+vous revêtiez
+ils revêtaient
+
+je revêtis
+tu revêtis
+il revêtit
+nous revêtîmes
+vous revêtîtes
+ils revêtirent
+
+je revêtirai
+tu revêtiras
+il revêtira
+nous revêtirons
+vous revêtirez
+ils revêtiront
+
+je revêtirais
+tu revêtirais
+il revêtirait
+nous revêtirions
+vous revêtiriez
+ils revêtiraient
+
+que je revête
+que tu revêtes
+qu'il revête
+que nous revêtions
+que vous revêtiez
+qu'ils revêtent
+
+que je revêtisse
+que tu revêtisses
+qu'il revêtît
+que nous revêtissions
+que vous revêtissiez
+qu'ils revêtissent
+
+revêts
+revêtons
+revêtez
+
+revêtant
+
+ revêtu
+

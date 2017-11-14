@@ -1,0 +1,57 @@
+﻿je tends
+tu tends
+il tend
+nous tendons
+vous tendez
+ils tendent
+
+je tendais
+tu tendais
+il tendait
+nous tendions
+vous tendiez
+ils tendaient
+
+je tendis
+tu tendis
+il tendit
+nous tendîmes
+vous tendîtes
+ils tendirent
+
+je tendrai
+tu tendras
+il tendra
+nous tendrons
+vous tendrez
+ils tendront
+
+je tendrais
+tu tendrais
+il tendrait
+nous tendrions
+vous tendriez
+ils tendraient
+
+que je tende
+que tu tendes
+qu'il tende
+que nous tendions
+que vous tendiez
+qu'ils tendent
+
+que je tendisse
+que tu tendisses
+qu'il tendît
+que nous tendissions
+que vous tendissiez
+qu'ils tendissent
+
+tends
+tendons
+tendez
+
+tendant
+
+ tendu
+

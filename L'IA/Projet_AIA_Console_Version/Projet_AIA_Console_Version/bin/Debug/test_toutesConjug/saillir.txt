@@ -1,0 +1,57 @@
+﻿je saille
+tu sailles
+il saille
+nous saillons
+vous saillez
+ils saillent
+
+je saillais
+tu saillais
+il saillait
+nous saillions
+vous sailliez
+ils saillaient
+
+je saillis
+tu saillis
+il saillit
+nous saillîmes
+vous saillîtes
+ils saillirent
+
+je saillerai
+tu sailleras
+il saillera
+nous saillerons
+vous saillerez
+ils sailleront
+
+je saillirais
+tu saillirais
+il saillirait
+nous saillirions
+vous sailliriez
+ils sailliraient
+
+que je saille
+que tu sailles
+qu'il saille
+que nous saillions
+que vous sailliez
+qu'ils saillent
+
+que je saillisse
+que tu saillisses
+qu'il saillît
+que nous saillissions
+que vous saillissiez
+qu'ils saillissent
+
+saille
+saillons
+saillez
+
+saillant
+
+ sailli
+

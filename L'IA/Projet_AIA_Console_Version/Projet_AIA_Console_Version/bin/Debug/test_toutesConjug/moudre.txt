@@ -1,0 +1,57 @@
+﻿je mouds
+tu mouds
+il moud
+nous moulons
+vous moulez
+ils moulent
+
+je moulais
+tu moulais
+il moulait
+nous moulions
+vous mouliez
+ils moulaient
+
+je moulus
+tu moulus
+il moulut
+nous moulûmes
+vous moulûtes
+ils moulurent
+
+je moudrai
+tu moudras
+il moudra
+nous moudrons
+vous moudrez
+ils moudront
+
+je moudrais
+tu moudrais
+il moudrait
+nous moudrions
+vous moudriez
+ils moudraient
+
+que je moule
+que tu moules
+qu'il moule
+que nous moulions
+que vous mouliez
+qu'ils moulent
+
+que je moulusse
+que tu moulusses
+qu'il moulût
+que nous moulussions
+que vous moulussiez
+qu'ils moulussent
+
+mouds
+moulons
+moulez
+
+moulant
+
+ moulu
+

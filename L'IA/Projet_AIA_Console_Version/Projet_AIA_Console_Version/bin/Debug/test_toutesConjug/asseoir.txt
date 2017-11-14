@@ -1,0 +1,57 @@
+﻿j'assieds
+tu assieds
+il assied
+nous asseyons
+vous asseyez
+ils asseyent
+
+j'asseyais
+tu asseyais
+il asseyait
+nous asseyions
+vous asseyiez
+ils asseyaient
+
+j'assis
+tu assis
+il assit
+nous assîmes
+vous assîtes
+ils assirent
+
+j'assiérai
+tu assiéras
+il assiéra
+nous assiérons
+vous assiérez
+ils assiéront
+
+j'assiérais
+tu assiérais
+il assiérait
+nous assiérions
+vous assiériez
+ils assiéraient
+
+que j'asseye
+que tu asseyes
+qu'il asseye
+que nous asseyions
+que vous asseyiez
+qu'ils asseyent
+
+que j'assisse
+que tu assisses
+qu'il assît
+que nous assissions
+que vous assissiez
+qu'ils assissent
+
+assieds
+asseyons
+asseyez
+
+asseyant
+
+ assis
+

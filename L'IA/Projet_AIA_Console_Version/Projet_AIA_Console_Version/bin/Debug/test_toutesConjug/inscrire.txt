@@ -1,0 +1,57 @@
+﻿j'inscris
+tu inscris
+il inscrit
+nous inscrivons
+vous inscrivez
+ils inscrivent
+
+j'inscrivais
+tu inscrivais
+il inscrivait
+nous inscrivions
+vous inscriviez
+ils inscrivaient
+
+j'inscrivis
+tu inscrivis
+il inscrivit
+nous inscrivîmes
+vous inscrivîtes
+ils inscrivirent
+
+j'inscrirai
+tu inscriras
+il inscrira
+nous inscrirons
+vous inscrirez
+ils inscriront
+
+j'inscrirais
+tu inscrirais
+il inscrirait
+nous inscririons
+vous inscririez
+ils inscriraient
+
+que j'inscrive
+que tu inscrives
+qu'il inscrive
+que nous inscrivions
+que vous inscriviez
+qu'ils inscrivent
+
+que j'inscrivisse
+que tu inscrivisses
+qu'il inscrivît
+que nous inscrivissions
+que vous inscrivissiez
+qu'ils inscrivissent
+
+inscris
+inscrivons
+inscrivez
+
+inscrivant
+
+ inscrit
+

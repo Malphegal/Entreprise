@@ -1,0 +1,57 @@
+﻿je relis
+tu relis
+il relit
+nous relisons
+vous relisez
+ils relisent
+
+je relisais
+tu relisais
+il relisait
+nous relisions
+vous relisiez
+ils relisaient
+
+je relus
+tu relus
+il relut
+nous relûmes
+vous relûtes
+ils relurent
+
+je relirai
+tu reliras
+il relira
+nous relirons
+vous relirez
+ils reliront
+
+je relirais
+tu relirais
+il relirait
+nous relirions
+vous reliriez
+ils reliraient
+
+que je relise
+que tu relises
+qu'il relise
+que nous relisions
+que vous relisiez
+qu'ils relisent
+
+que je relusse
+que tu relusses
+qu'il relût
+que nous relussions
+que vous relussiez
+qu'ils relussent
+
+relis
+relisons
+relisez
+
+relisant
+
+ relu
+

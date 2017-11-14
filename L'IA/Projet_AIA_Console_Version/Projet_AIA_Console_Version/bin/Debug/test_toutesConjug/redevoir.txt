@@ -1,0 +1,57 @@
+﻿je redois
+tu redois
+il redoit
+nous redevons
+vous redevez
+ils redoivent
+
+je redevais
+tu redevais
+il redevait
+nous redevions
+vous redeviez
+ils redevaient
+
+je redus
+tu redus
+il redut
+nous redûmes
+vous redûtes
+ils redurent
+
+je redevrai
+tu redevras
+il redevra
+nous redevrons
+vous redevrez
+ils redevront
+
+je redevrais
+tu redevrais
+il redevrait
+nous redevrions
+vous redevriez
+ils redevraient
+
+que je redoive
+que tu redoives
+qu'il redoive
+que nous redevions
+que vous redeviez
+qu'ils redoivent
+
+que je redusse
+que tu redusses
+qu'il redût
+que nous redussions
+que vous redussiez
+qu'ils redussent
+
+redois
+redevons
+redevez
+
+redevant
+
+ redû
+

@@ -1,0 +1,57 @@
+﻿je faux
+tu faux
+il faut
+nous faillons
+vous faillez
+ils faillent
+
+je faillais
+tu faillais
+il faillait
+nous faillions
+vous failliez
+ils faillaient
+
+je faillis
+tu faillis
+il faillit
+nous faillîmes
+vous faillîtes
+ils faillirent
+
+je faillirai/faudrai
+tu failliras/faudras
+il faillira/faudra
+nous faillirons/faudrons
+vous faillirez/faudrez
+ils failliront/faudront
+
+je faillirais/faudrais
+tu faillirais/faudrais
+il faillirait/faudrait
+nous faillirions/faudrions
+vous failliriez/faudriez
+ils failliraient/faudraient
+
+que je faillisse/faille
+que tu faillisses/failles
+qu'il faillisse/faille
+que nous faillissions/faillions
+que vous faillissiez/failliez
+qu'ils faillissent/faillent
+
+que je faillisse
+que tu faillisses
+qu'il faillît
+que nous faillissions
+que vous faillissiez
+qu'ils faillissent
+
+-
+-
+-
+
+faillant
+
+ failli
+

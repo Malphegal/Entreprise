@@ -1,0 +1,57 @@
+﻿je vaux
+tu vaux
+il vaut
+nous valons
+vous valez
+ils valent
+
+je valais
+tu valais
+il valait
+nous valions
+vous valiez
+ils valaient
+
+je valus
+tu valus
+il valut
+nous valûmes
+vous valûtes
+ils valurent
+
+je vaudrai
+tu vaudras
+il vaudra
+nous vaudrons
+vous vaudrez
+ils vaudront
+
+je vaudrais
+tu vaudrais
+il vaudrait
+nous vaudrions
+vous vaudriez
+ils vaudraient
+
+que je vaille
+que tu vailles
+qu'il vaille
+que nous valions
+que vous valiez
+qu'ils vaillent
+
+que je valusse
+que tu valusses
+qu'il valût
+que nous valussions
+que vous valussiez
+qu'ils valussent
+
+vaux
+valons
+valez
+
+valant
+
+ valu
+

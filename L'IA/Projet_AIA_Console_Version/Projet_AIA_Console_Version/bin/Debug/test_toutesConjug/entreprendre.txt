@@ -1,0 +1,57 @@
+﻿j'entreprends
+tu entreprends
+il entreprend
+nous entreprenons
+vous entreprenez
+ils entreprennent
+
+j'entreprenais
+tu entreprenais
+il entreprenait
+nous entreprenions
+vous entrepreniez
+ils entreprenaient
+
+j'entrepris
+tu entrepris
+il entreprit
+nous entreprîmes
+vous entreprîtes
+ils entreprirent
+
+j'entreprendrai
+tu entreprendras
+il entreprendra
+nous entreprendrons
+vous entreprendrez
+ils entreprendront
+
+j'entreprendrais
+tu entreprendrais
+il entreprendrait
+nous entreprendrions
+vous entreprendriez
+ils entreprendraient
+
+que j'entreprenne
+que tu entreprennes
+qu'il entreprenne
+que nous entreprenions
+que vous entrepreniez
+qu'ils entreprennent
+
+que j'entreprisse
+que tu entreprisses
+qu'il entreprît
+que nous entreprissions
+que vous entreprissiez
+qu'ils entreprissent
+
+entreprends
+entreprenons
+entreprenez
+
+entreprenant
+
+ entrepris
+

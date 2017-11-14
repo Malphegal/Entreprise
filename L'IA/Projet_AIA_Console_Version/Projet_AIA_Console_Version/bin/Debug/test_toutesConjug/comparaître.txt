@@ -1,0 +1,57 @@
+﻿je comparais
+tu comparais
+il comparaît
+nous comparaissons
+vous comparaissez
+ils comparaissent
+
+je comparaissais
+tu comparaissais
+il comparaissait
+nous comparaissions
+vous comparaissiez
+ils comparaissaient
+
+je comparus
+tu comparus
+il comparut
+nous comparûmes
+vous comparûtes
+ils comparurent
+
+je comparaîtrai
+tu comparaîtras
+il comparaîtra
+nous comparaîtrons
+vous comparaîtrez
+ils comparaîtront
+
+je comparaîtrais
+tu comparaîtrais
+il comparaîtrait
+nous comparaîtrions
+vous comparaîtriez
+ils comparaîtraient
+
+que je comparaisse
+que tu comparaisses
+qu'il comparaisse
+que nous comparaissions
+que vous comparaissiez
+qu'ils comparaissent
+
+que je comparusse
+que tu comparusses
+qu'il comparût
+que nous comparussions
+que vous comparussiez
+qu'ils comparussent
+
+comparais
+comparaissons
+comparaissez
+
+comparaissant
+
+ comparu
+

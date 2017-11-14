@@ -1,0 +1,57 @@
+﻿je m'abstiens
+tu t'abstiens
+il s'abstient
+nous nous abstenons
+vous vous abstenez
+ils s'abstiennent
+
+je m'abstenais
+tu t'abstenais
+il s'abstenait
+nous nous abstenions
+vous vous absteniez
+ils s'abstenaient
+
+je m'abstins
+tu t'abstins
+il s'abstint
+nous nous abstînmes
+vous vous abstîntes
+ils s'abstinrent
+
+je m'abstiendrai
+tu t'abstiendras
+il s'abstiendra
+nous nous abstiendrons
+vous vous abstiendrez
+ils s'abstiendront
+
+je m'abstiendrais
+tu t'abstiendrais
+il s'abstiendrait
+nous nous abstiendrions
+vous vous abstiendriez
+ils s'abstiendraient
+
+que je m'abstienne
+que tu t'abstiennes
+qu'il s'abstienne
+que nous nous abstenions
+que vous vous absteniez
+qu'ils s'abstiennent
+
+que je m'abstinsse
+que tu t'abstinsses
+qu'il s'abstînt
+que nous nous abstinssions
+que vous vous abstinssiez
+qu'ils s'abstinssent
+
+abstiens-toi
+abstenons-nous
+abstenez-vous
+
+s'abstenant
+
+-
+

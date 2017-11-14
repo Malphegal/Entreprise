@@ -1,0 +1,57 @@
+﻿je me souviens
+tu te souviens
+il se souvient
+nous nous souvenons
+vous vous souvenez
+ils se souviennent
+
+je me souvenais
+tu te souvenais
+il se souvenait
+nous nous souvenions
+vous vous souveniez
+ils se souvenaient
+
+je me souvins
+tu te souvins
+il se souvint
+nous nous souvînmes
+vous vous souvîntes
+ils se souvinrent
+
+je me souviendrai
+tu te souviendras
+il se souviendra
+nous nous souviendrons
+vous vous souviendrez
+ils se souviendront
+
+je me souviendrais
+tu te souviendrais
+il se souviendrait
+nous nous souviendrions
+vous vous souviendriez
+ils se souviendraient
+
+que je me souvienne
+que tu te souviennes
+qu'il se souvienne
+que nous nous souvenions
+que vous vous souveniez
+qu'ils se souviennent
+
+que je me souvinsse
+que tu te souvinsses
+qu'il se souvînt
+que nous nous souvinssions
+que vous vous souvinssiez
+qu'ils se souvinssent
+
+souviens-toi
+souvenons-nous
+souvenez-vous
+
+se souvenant
+
+-
+

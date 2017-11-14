@@ -1,0 +1,57 @@
+﻿j'accrois
+tu accrois
+il accroît
+nous accroissons
+vous accroissez
+ils accroissent
+
+j'accroissais
+tu accroissais
+il accroissait
+nous accroissions
+vous accroissiez
+ils accroissaient
+
+j'accrus
+tu accrus
+il accrut
+nous accrûmes
+vous accrûtes
+ils accrurent
+
+j'accroîtrai
+tu accroîtras
+il accroîtra
+nous accroîtrons
+vous accroîtrez
+ils accroîtront
+
+j'accroîtrais
+tu accroîtrais
+il accroîtrait
+nous accroîtrions
+vous accroîtriez
+ils accroîtraient
+
+que j'accroisse
+que tu accroisses
+qu'il accroisse
+que nous accroissions
+que vous accroissiez
+qu'ils accroissent
+
+que j'accrusse
+que tu accrusses
+qu'il accrût
+que nous accrussions
+que vous accrussiez
+qu'ils accrussent
+
+accrois
+accroissons
+accroissez
+
+accroissant
+
+ accru
+

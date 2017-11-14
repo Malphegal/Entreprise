@@ -1,0 +1,57 @@
+﻿je reçois
+tu reçois
+il reçoit
+nous recevons
+vous recevez
+ils reçoivent
+
+je recevais
+tu recevais
+il recevait
+nous recevions
+vous receviez
+ils recevaient
+
+je reçus
+tu reçus
+il reçut
+nous reçûmes
+vous reçûtes
+ils reçurent
+
+je recevrai
+tu recevras
+il recevra
+nous recevrons
+vous recevrez
+ils recevront
+
+je recevrais
+tu recevrais
+il recevrait
+nous recevrions
+vous recevriez
+ils recevraient
+
+que je reçoive
+que tu reçoives
+qu'il reçoive
+que nous recevions
+que vous receviez
+qu'ils reçoivent
+
+que je reçusse
+que tu reçusses
+qu'il reçût
+que nous reçussions
+que vous reçussiez
+qu'ils reçussent
+
+reçois
+recevons
+recevez
+
+recevant
+
+ reçu
+

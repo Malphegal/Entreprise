@@ -1,0 +1,57 @@
+﻿je suspends
+tu suspends
+il suspend
+nous suspendons
+vous suspendez
+ils suspendent
+
+je suspendais
+tu suspendais
+il suspendait
+nous suspendions
+vous suspendiez
+ils suspendaient
+
+je suspendis
+tu suspendis
+il suspendit
+nous suspendîmes
+vous suspendîtes
+ils suspendirent
+
+je suspendrai
+tu suspendras
+il suspendra
+nous suspendrons
+vous suspendrez
+ils suspendront
+
+je suspendrais
+tu suspendrais
+il suspendrait
+nous suspendrions
+vous suspendriez
+ils suspendraient
+
+que je suspende
+que tu suspendes
+qu'il suspende
+que nous suspendions
+que vous suspendiez
+qu'ils suspendent
+
+que je suspendisse
+que tu suspendisses
+qu'il suspendît
+que nous suspendissions
+que vous suspendissiez
+qu'ils suspendissent
+
+suspends
+suspendons
+suspendez
+
+suspendant
+
+ suspendu
+

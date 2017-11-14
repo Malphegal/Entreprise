@@ -1,0 +1,57 @@
+﻿je revis
+tu revis
+il revit
+nous revivons
+vous revivez
+ils revivent
+
+je revivais
+tu revivais
+il revivait
+nous revivions
+vous reviviez
+ils revivaient
+
+je revécus
+tu revécus
+il revécut
+nous revécûmes
+vous revécûtes
+ils revécurent
+
+je revivrai
+tu revivras
+il revivra
+nous revivrons
+vous revivrez
+ils revivront
+
+je revivrais
+tu revivrais
+il revivrait
+nous revivrions
+vous revivriez
+ils revivraient
+
+que je revive
+que tu revives
+qu'il revive
+que nous revivions
+que vous reviviez
+qu'ils revivent
+
+que je revécusse
+que tu revécusses
+qu'il revécût
+que nous revécussions
+que vous revécussiez
+qu'ils revécussent
+
+revis
+revivons
+revivez
+
+revivant
+
+ revécu
+

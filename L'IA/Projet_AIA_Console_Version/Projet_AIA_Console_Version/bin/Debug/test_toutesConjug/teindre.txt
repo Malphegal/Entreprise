@@ -1,0 +1,57 @@
+﻿je teins
+tu teins
+il teint
+nous teignons
+vous teignez
+ils teignent
+
+je teignais
+tu teignais
+il teignait
+nous teignions
+vous teigniez
+ils teignaient
+
+je teignis
+tu teignis
+il teignit
+nous teignîmes
+vous teignîtes
+ils teignirent
+
+je teindrai
+tu teindras
+il teindra
+nous teindrons
+vous teindrez
+ils teindront
+
+je teindrais
+tu teindrais
+il teindrait
+nous teindrions
+vous teindriez
+ils teindraient
+
+que je teigne
+que tu teignes
+qu'il teigne
+que nous teignions
+que vous teigniez
+qu'ils teignent
+
+que je teignisse
+que tu teignisses
+qu'il teignît
+que nous teignissions
+que vous teignissiez
+qu'ils teignissent
+
+teins
+teignons
+teignez
+
+teignant
+
+ teint
+

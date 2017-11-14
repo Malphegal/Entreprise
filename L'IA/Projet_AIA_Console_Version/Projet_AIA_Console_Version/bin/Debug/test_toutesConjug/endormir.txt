@@ -1,0 +1,57 @@
+﻿j'endors
+tu endors
+il endort
+nous endormons
+vous endormez
+ils endorment
+
+j'endormais
+tu endormais
+il endormait
+nous endormions
+vous endormiez
+ils endormaient
+
+j'endormis
+tu endormis
+il endormit
+nous endormîmes
+vous endormîtes
+ils endormirent
+
+j'endormirai
+tu endormiras
+il endormira
+nous endormirons
+vous endormirez
+ils endormiront
+
+j'endormirais
+tu endormirais
+il endormirait
+nous endormirions
+vous endormiriez
+ils endormiraient
+
+que j'endorme
+que tu endormes
+qu'il endorme
+que nous endormions
+que vous endormiez
+qu'ils endorment
+
+que j'endormisse
+que tu endormisses
+qu'il endormît
+que nous endormissions
+que vous endormissiez
+qu'ils endormissent
+
+endors
+endormons
+endormez
+
+endormant
+
+ endormi
+

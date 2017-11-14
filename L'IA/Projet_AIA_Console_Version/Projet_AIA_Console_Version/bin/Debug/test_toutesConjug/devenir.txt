@@ -1,0 +1,57 @@
+﻿je deviens
+tu deviens
+il devient
+nous devenons
+vous devenez
+ils deviennent
+
+je devenais
+tu devenais
+il devenait
+nous devenions
+vous deveniez
+ils devenaient
+
+je devins
+tu devins
+il devint
+nous devînmes
+vous devîntes
+ils devinrent
+
+je deviendrai
+tu deviendras
+il deviendra
+nous deviendrons
+vous deviendrez
+ils deviendront
+
+je deviendrais
+tu deviendrais
+il deviendrait
+nous deviendrions
+vous deviendriez
+ils deviendraient
+
+que je devienne
+que tu deviennes
+qu'il devienne
+que nous devenions
+que vous deveniez
+qu'ils deviennent
+
+que je devinsse
+que tu devinsses
+qu'il devînt
+que nous devinssions
+que vous devinssiez
+qu'ils devinssent
+
+deviens
+devenons
+devenez
+
+devenant
+
+ devenu
+

@@ -1,0 +1,57 @@
+﻿j'adjoins
+tu adjoins
+il adjoint
+nous adjoignons
+vous adjoignez
+ils adjoignent
+
+j'adjoignais
+tu adjoignais
+il adjoignait
+nous adjoignions
+vous adjoigniez
+ils adjoignaient
+
+j'adjoignis
+tu adjoignis
+il adjoignit
+nous adjoignîmes
+vous adjoignîtes
+ils adjoignirent
+
+j'adjoindrai
+tu adjoindras
+il adjoindra
+nous adjoindrons
+vous adjoindrez
+ils adjoindront
+
+j'adjoindrais
+tu adjoindrais
+il adjoindrait
+nous adjoindrions
+vous adjoindriez
+ils adjoindraient
+
+que j'adjoigne
+que tu adjoignes
+qu'il adjoigne
+que nous adjoignions
+que vous adjoigniez
+qu'ils adjoignent
+
+que j'adjoignisse
+que tu adjoignisses
+qu'il adjoignît
+que nous adjoignissions
+que vous adjoignissiez
+qu'ils adjoignissent
+
+adjoins
+adjoignons
+adjoignez
+
+adjoignant
+
+ adjoint
+

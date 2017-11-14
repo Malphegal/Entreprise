@@ -1,0 +1,57 @@
+﻿je meurs
+tu meurs
+il meurt
+nous mourons
+vous mourez
+ils meurent
+
+je mourais
+tu mourais
+il mourait
+nous mourions
+vous mouriez
+ils mouraient
+
+je mourus
+tu mourus
+il mourut
+nous mourûmes
+vous mourûtes
+ils moururent
+
+je mourrai
+tu mourras
+il mourra
+nous mourrons
+vous mourrez
+ils mourront
+
+je mourrais
+tu mourrais
+il mourrait
+nous mourrions
+vous mourriez
+ils mourraient
+
+que je meure
+que tu meures
+qu'il meure
+que nous mourions
+que vous mouriez
+qu'ils meurent
+
+que je mourusse
+que tu mourusses
+qu'il mourût
+que nous mourussions
+que vous mourussiez
+qu'ils mourussent
+
+meurs
+mourons
+mourez
+
+mourant
+
+ mort
+

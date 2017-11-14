@@ -1,0 +1,57 @@
+﻿je romps
+tu romps
+il rompt
+nous rompons
+vous rompez
+ils rompent
+
+je rompais
+tu rompais
+il rompait
+nous rompions
+vous rompiez
+ils rompaient
+
+je rompis
+tu rompis
+il rompit
+nous rompîmes
+vous rompîtes
+ils rompirent
+
+je romprai
+tu rompras
+il rompra
+nous romprons
+vous romprez
+ils rompront
+
+je romprais
+tu romprais
+il romprait
+nous romprions
+vous rompriez
+ils rompraient
+
+que je rompe
+que tu rompes
+qu'il rompe
+que nous rompions
+que vous rompiez
+qu'ils rompent
+
+que je rompisse
+que tu rompisses
+qu'il rompît
+que nous rompissions
+que vous rompissiez
+qu'ils rompissent
+
+romps
+rompons
+rompez
+
+rompant
+
+ rompu
+

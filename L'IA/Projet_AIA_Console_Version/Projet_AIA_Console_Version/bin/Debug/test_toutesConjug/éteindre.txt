@@ -1,0 +1,57 @@
+﻿j'éteins
+tu éteins
+il éteint
+nous éteignons
+vous éteignez
+ils éteignent
+
+j'éteignais
+tu éteignais
+il éteignait
+nous éteignions
+vous éteigniez
+ils éteignaient
+
+j'éteignis
+tu éteignis
+il éteignit
+nous éteignîmes
+vous éteignîtes
+ils éteignirent
+
+j'éteindrai
+tu éteindras
+il éteindra
+nous éteindrons
+vous éteindrez
+ils éteindront
+
+j'éteindrais
+tu éteindrais
+il éteindrait
+nous éteindrions
+vous éteindriez
+ils éteindraient
+
+que j'éteigne
+que tu éteignes
+qu'il éteigne
+que nous éteignions
+que vous éteigniez
+qu'ils éteignent
+
+que j'éteignisse
+que tu éteignisses
+qu'il éteignît
+que nous éteignissions
+que vous éteignissiez
+qu'ils éteignissent
+
+éteins
+éteignons
+éteignez
+
+éteignant
+
+ éteint
+

@@ -1,0 +1,57 @@
+﻿je peins
+tu peins
+il peint
+nous peignons
+vous peignez
+ils peignent
+
+je peignais
+tu peignais
+il peignait
+nous peignions
+vous peigniez
+ils peignaient
+
+je peignis
+tu peignis
+il peignit
+nous peignîmes
+vous peignîtes
+ils peignirent
+
+je peindrai
+tu peindras
+il peindra
+nous peindrons
+vous peindrez
+ils peindront
+
+je peindrais
+tu peindrais
+il peindrait
+nous peindrions
+vous peindriez
+ils peindraient
+
+que je peigne
+que tu peignes
+qu'il peigne
+que nous peignions
+que vous peigniez
+qu'ils peignent
+
+que je peignisse
+que tu peignisses
+qu'il peignît
+que nous peignissions
+que vous peignissiez
+qu'ils peignissent
+
+peins
+peignons
+peignez
+
+peignant
+
+ peint
+

@@ -1,0 +1,57 @@
+﻿j'enduis
+tu enduis
+il enduit
+nous enduisons
+vous enduisez
+ils enduisent
+
+j'enduisais
+tu enduisais
+il enduisait
+nous enduisions
+vous enduisiez
+ils enduisaient
+
+j'enduisis
+tu enduisis
+il enduisit
+nous enduisîmes
+vous enduisîtes
+ils enduisirent
+
+j'enduirai
+tu enduiras
+il enduira
+nous enduirons
+vous enduirez
+ils enduiront
+
+j'enduirais
+tu enduirais
+il enduirait
+nous enduirions
+vous enduiriez
+ils enduiraient
+
+que j'enduise
+que tu enduises
+qu'il enduise
+que nous enduisions
+que vous enduisiez
+qu'ils enduisent
+
+que j'enduisisse
+que tu enduisisses
+qu'il enduisît
+que nous enduisissions
+que vous enduisissiez
+qu'ils enduisissent
+
+enduis
+enduisons
+enduisez
+
+enduisant
+
+ enduit
+

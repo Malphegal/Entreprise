@@ -1,0 +1,57 @@
+﻿je parviens
+tu parviens
+il parvient
+nous parvenons
+vous parvenez
+ils parviennent
+
+je parvenais
+tu parvenais
+il parvenait
+nous parvenions
+vous parveniez
+ils parvenaient
+
+je parvins
+tu parvins
+il parvint
+nous parvînmes
+vous parvîntes
+ils parvinrent
+
+je parviendrai
+tu parviendras
+il parviendra
+nous parviendrons
+vous parviendrez
+ils parviendront
+
+je parviendrais
+tu parviendrais
+il parviendrait
+nous parviendrions
+vous parviendriez
+ils parviendraient
+
+que je parvienne
+que tu parviennes
+qu'il parvienne
+que nous parvenions
+que vous parveniez
+qu'ils parviennent
+
+que je parvinsse
+que tu parvinsses
+qu'il parvînt
+que nous parvinssions
+que vous parvinssiez
+qu'ils parvinssent
+
+parviens
+parvenons
+parvenez
+
+parvenant
+
+ parvenu
+

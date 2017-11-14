@@ -1,0 +1,57 @@
+﻿je vends
+tu vends
+il vend
+nous vendons
+vous vendez
+ils vendent
+
+je vendais
+tu vendais
+il vendait
+nous vendions
+vous vendiez
+ils vendaient
+
+je vendis
+tu vendis
+il vendit
+nous vendîmes
+vous vendîtes
+ils vendirent
+
+je vendrai
+tu vendras
+il vendra
+nous vendrons
+vous vendrez
+ils vendront
+
+je vendrais
+tu vendrais
+il vendrait
+nous vendrions
+vous vendriez
+ils vendraient
+
+que je vende
+que tu vendes
+qu'il vende
+que nous vendions
+que vous vendiez
+qu'ils vendent
+
+que je vendisse
+que tu vendisses
+qu'il vendît
+que nous vendissions
+que vous vendissiez
+qu'ils vendissent
+
+vends
+vendons
+vendez
+
+vendant
+
+ vendu
+

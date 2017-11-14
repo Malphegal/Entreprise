@@ -1,0 +1,57 @@
+﻿j'enceins
+tu enceins
+il enceint
+nous enceignons
+vous enceignez
+ils enceignent
+
+j'enceignais
+tu enceignais
+il enceignait
+nous enceignions
+vous enceigniez
+ils enceignaient
+
+j'enceignis
+tu enceignis
+il enceignit
+nous enceignîmes
+vous enceignîtes
+ils enceignirent
+
+j'enceindrai
+tu enceindras
+il enceindra
+nous enceindrons
+vous enceindrez
+ils enceindront
+
+j'enceindrais
+tu enceindrais
+il enceindrait
+nous enceindrions
+vous enceindriez
+ils enceindraient
+
+que j'enceigne
+que tu enceignes
+qu'il enceigne
+que nous enceignions
+que vous enceigniez
+qu'ils enceignent
+
+que j'enceignisse
+que tu enceignisses
+qu'il enceignît
+que nous enceignissions
+que vous enceignissiez
+qu'ils enceignissent
+
+enceins
+enceignons
+enceignez
+
+enceignant
+
+ enceint
+

@@ -1,0 +1,57 @@
+﻿j'attends
+tu attends
+il attend
+nous attendons
+vous attendez
+ils attendent
+
+j'attendais
+tu attendais
+il attendait
+nous attendions
+vous attendiez
+ils attendaient
+
+j'attendis
+tu attendis
+il attendit
+nous attendîmes
+vous attendîtes
+ils attendirent
+
+j'attendrai
+tu attendras
+il attendra
+nous attendrons
+vous attendrez
+ils attendront
+
+j'attendrais
+tu attendrais
+il attendrait
+nous attendrions
+vous attendriez
+ils attendraient
+
+que j'attende
+que tu attendes
+qu'il attende
+que nous attendions
+que vous attendiez
+qu'ils attendent
+
+que j'attendisse
+que tu attendisses
+qu'il attendît
+que nous attendissions
+que vous attendissiez
+qu'ils attendissent
+
+attends
+attendons
+attendez
+
+attendant
+
+ attendu
+

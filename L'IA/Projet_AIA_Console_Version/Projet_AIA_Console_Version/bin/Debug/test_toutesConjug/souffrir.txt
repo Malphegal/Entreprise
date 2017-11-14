@@ -1,0 +1,57 @@
+﻿je souffre
+tu souffres
+il souffre
+nous souffrons
+vous souffrez
+ils souffrent
+
+je souffrais
+tu souffrais
+il souffrait
+nous souffrions
+vous souffriez
+ils souffraient
+
+je souffris
+tu souffris
+il souffrit
+nous souffrîmes
+vous souffrîtes
+ils souffrirent
+
+je souffrirai
+tu souffriras
+il souffrira
+nous souffrirons
+vous souffrirez
+ils souffriront
+
+je souffrirais
+tu souffrirais
+il souffrirait
+nous souffririons
+vous souffririez
+ils souffriraient
+
+que je souffre
+que tu souffres
+qu'il souffre
+que nous souffrions
+que vous souffriez
+qu'ils souffrent
+
+que je souffrisse
+que tu souffrisses
+qu'il souffrît
+que nous souffrissions
+que vous souffrissiez
+qu'ils souffrissent
+
+souffre
+souffrons
+souffrez
+
+souffrant
+
+ souffert
+

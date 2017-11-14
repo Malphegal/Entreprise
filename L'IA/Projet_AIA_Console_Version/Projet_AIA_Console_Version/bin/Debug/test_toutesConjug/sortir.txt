@@ -1,0 +1,57 @@
+﻿je sors
+tu sors
+il sort
+nous sortons
+vous sortez
+ils sortent
+
+je sortais
+tu sortais
+il sortait
+nous sortions
+vous sortiez
+ils sortaient
+
+je sortis
+tu sortis
+il sortit
+nous sortîmes
+vous sortîtes
+ils sortirent
+
+je sortirai
+tu sortiras
+il sortira
+nous sortirons
+vous sortirez
+ils sortiront
+
+je sortirais
+tu sortirais
+il sortirait
+nous sortirions
+vous sortiriez
+ils sortiraient
+
+que je sorte
+que tu sortes
+qu'il sorte
+que nous sortions
+que vous sortiez
+qu'ils sortent
+
+que je sortisse
+que tu sortisses
+qu'il sortît
+que nous sortissions
+que vous sortissiez
+qu'ils sortissent
+
+sors
+sortons
+sortez
+
+sortant
+
+ sorti
+

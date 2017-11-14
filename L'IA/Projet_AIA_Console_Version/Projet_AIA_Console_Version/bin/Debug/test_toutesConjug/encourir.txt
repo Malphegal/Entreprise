@@ -1,0 +1,57 @@
+﻿j'encours
+tu encours
+il encourt
+nous encourons
+vous encourez
+ils encourent
+
+j'encourais
+tu encourais
+il encourait
+nous encourions
+vous encouriez
+ils encouraient
+
+j'encourus
+tu encourus
+il encourut
+nous encourûmes
+vous encourûtes
+ils encoururent
+
+j'encourrai
+tu encourras
+il encourra
+nous encourrons
+vous encourrez
+ils encourront
+
+j'encourrais
+tu encourrais
+il encourrait
+nous encourrions
+vous encourriez
+ils encourraient
+
+que j'encoure
+que tu encoures
+qu'il encoure
+que nous encourions
+que vous encouriez
+qu'ils encourent
+
+que j'encourusse
+que tu encourusses
+qu'il encourût
+que nous encourussions
+que vous encourussiez
+qu'ils encourussent
+
+encours
+encourons
+encourez
+
+encourant
+
+ encouru
+

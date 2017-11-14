@@ -1,0 +1,57 @@
+﻿je dors
+tu dors
+il dort
+nous dormons
+vous dormez
+ils dorment
+
+je dormais
+tu dormais
+il dormait
+nous dormions
+vous dormiez
+ils dormaient
+
+je dormis
+tu dormis
+il dormit
+nous dormîmes
+vous dormîtes
+ils dormirent
+
+je dormirai
+tu dormiras
+il dormira
+nous dormirons
+vous dormirez
+ils dormiront
+
+je dormirais
+tu dormirais
+il dormirait
+nous dormirions
+vous dormiriez
+ils dormiraient
+
+que je dorme
+que tu dormes
+qu'il dorme
+que nous dormions
+que vous dormiez
+qu'ils dorment
+
+que je dormisse
+que tu dormisses
+qu'il dormît
+que nous dormissions
+que vous dormissiez
+qu'ils dormissent
+
+dors
+dormons
+dormez
+
+dormant
+
+ dormi
+

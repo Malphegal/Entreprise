@@ -1,0 +1,57 @@
+﻿je connais
+tu connais
+il connaît
+nous connaissons
+vous connaissez
+ils connaissent
+
+je connaissais
+tu connaissais
+il connaissait
+nous connaissions
+vous connaissiez
+ils connaissaient
+
+je connus
+tu connus
+il connut
+nous connûmes
+vous connûtes
+ils connurent
+
+je connaîtrai
+tu connaîtras
+il connaîtra
+nous connaîtrons
+vous connaîtrez
+ils connaîtront
+
+je connaîtrais
+tu connaîtrais
+il connaîtrait
+nous connaîtrions
+vous connaîtriez
+ils connaîtraient
+
+que je connaisse
+que tu connaisses
+qu'il connaisse
+que nous connaissions
+que vous connaissiez
+qu'ils connaissent
+
+que je connusse
+que tu connusses
+qu'il connût
+que nous connussions
+que vous connussiez
+qu'ils connussent
+
+connais
+connaissons
+connaissez
+
+connaissant
+
+ connu
+

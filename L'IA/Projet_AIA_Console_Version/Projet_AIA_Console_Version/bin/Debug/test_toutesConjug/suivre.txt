@@ -1,0 +1,57 @@
+﻿je suis
+tu suis
+il suit
+nous suivons
+vous suivez
+ils suivent
+
+je suivais
+tu suivais
+il suivait
+nous suivions
+vous suiviez
+ils suivaient
+
+je suivis
+tu suivis
+il suivit
+nous suivîmes
+vous suivîtes
+ils suivirent
+
+je suivrai
+tu suivras
+il suivra
+nous suivrons
+vous suivrez
+ils suivront
+
+je suivrais
+tu suivrais
+il suivrait
+nous suivrions
+vous suivriez
+ils suivraient
+
+que je suive
+que tu suives
+qu'il suive
+que nous suivions
+que vous suiviez
+qu'ils suivent
+
+que je suivisse
+que tu suivisses
+qu'il suivît
+que nous suivissions
+que vous suivissiez
+qu'ils suivissent
+
+suis
+suivons
+suivez
+
+suivant
+
+ suivi
+
