@@ -284,7 +284,8 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             return stringBuilder.ToString();
         }
 
-        static string ActuelTemps(int n) // pour le CW
+        // pour le CW uniquement
+        static string ActuelTemps(int n)
         {
             switch (n)
             {
@@ -299,6 +300,81 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 case 9: return "Participe présent";
                 default: return "Participe passé";
             }
+        }
+
+        public static void LigneToInsertFile()
+        {
+            string[] lesVerbesTXT = Directory.GetFiles(@"test_toutesConjug/");
+            string[] lesVerbes = new string[lesVerbesTXT.Length];
+            for (int i = 0; i < lesVerbesTXT.Length; i++)
+                lesVerbes[i] = lesVerbesTXT[i].Split('/')[1].Split('.')[0];
+
+            for (int i = 0; i < lesVerbesTXT.Length; i++) // Pour chaque verbe
+            {
+                string[] lesLignesDuVerbe = File.ReadAllLines(lesVerbesTXT[i]);
+
+                string res = lesVerbes[i];
+
+                for (int j = 0; j < lesLignesDuVerbe.Length; j++)
+                {
+                    if (j < 6)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 6)
+                        continue;
+
+                    else if (j < 13)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 13)
+                        continue;
+
+                    else if (j < 20)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 20)
+                        continue;
+
+                    else if (j < 27)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 27)
+                        continue;
+
+                    else if (j < 34)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 34)
+                        continue;
+
+                    else if (j < 41)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 41)
+                        continue;
+
+                    else if (j < 48)
+                        res += lesLignesDuVerbe[j].Split('\'', ' ').Last().RetirerLeTiret() + "\n";
+                    else if (j == 48)
+                        continue;
+
+                    else if (j < 52)
+                        res += lesLignesDuVerbe[j].RetirerLeTiret() + "\n";
+                    else if (j == 52)
+                        continue;
+
+                    else if (j == 53)
+                        res += lesLignesDuVerbe[j].RetirerLeTiret() + "\n";
+                    else if (j == 54)
+                        continue;
+
+                    else if (j == 55)
+                        res += lesLignesDuVerbe[j].RetirerLeTiret().TrimStart(' ');
+                    else
+                        continue;
+                }
+
+                File.AppendAllText("test_toutesInsert/" + lesVerbes[i] + ".txt", res, Encoding.UTF8);
+            }
+        }
+
+        static string RetirerLeTiret(this string s)
+        {
+            return s == "-" ? "RIENRIEN" : s;
         }
     }
 }
