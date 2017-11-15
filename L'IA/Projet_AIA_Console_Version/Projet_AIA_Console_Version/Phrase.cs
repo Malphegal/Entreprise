@@ -46,7 +46,9 @@ namespace Projet_AIA_Console_Version
             da.Fill(lesData, "Adjectifs");
             cmd.CommandText = "SELECT * FROM AdjectifsAccords";
             da.Fill(lesData, "AdjectifsAccords");
-            cmd.CommandText = "SELECT Infinitif AS Verbe, sum(nbrUtilisation) AS nbrUtilisation, Groupe FROM VerbesConjugues GROUP BY Infinitif, nbrUtilisation, Groupe ORDER BY nbrUtilisation DESC ";
+            /*cmd.CommandText = "SELECT Infinitif AS Verbe, sum(nbrUtilisation) AS nbrUtilisation, Groupe FROM VerbesConjugues GROUP BY Infinitif, nbrUtilisation, Groupe ORDER BY nbrUtilisation DESC ";
+            da.Fill(lesData, "VerbesInfinitifs");*/
+            cmd.CommandText = "SELECT * FROM VerbesInfinitifs ORDER BY nbrUtilisation DESC";
             da.Fill(lesData, "VerbesInfinitifs");
             cmd.CommandText = "SELECT * FROM VerbesInfinitifs ORDER BY nbrUtilisation DESC";
             da.Fill(lesData, "InfosVerbesInfinitifs");

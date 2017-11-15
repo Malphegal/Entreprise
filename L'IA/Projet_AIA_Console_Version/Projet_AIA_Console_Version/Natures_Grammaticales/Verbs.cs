@@ -342,13 +342,10 @@ namespace Projet_AIA_Console_Version
                 else if (verb.Substring(verb.Length - 2) != "ir")
                     return "3";
                 // Les cas restant sont les verbes terminant par "ir".
-                // Si la forme conjuguée en -issons existe pour ce verbe, on renvoie le groupe "2".
-                infoVerbe = null;
-                if (estConnu(verb.Substring(0, verb.Length - 2) + "issons", "VerbesConjugues")/* && infoVerbe[2] == "4" && infoVerbe[1] == "présent indicatif"*/)
-                    return "2";
-                // Autrement, on renvoie le groupe "3".
+                // On renvoie donc le groupe 2 car c'est le groupe où se trouve la majorité
+                // des verbes terminant par "ir".
                 else
-                    return "3";
+                    return "2";
             }
             // Cas où le verbe est conjugué :
             else
@@ -575,50 +572,57 @@ namespace Projet_AIA_Console_Version
                     ending = (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"];
             }
 
-            // On traite les exceptions :
-
-            // Premier groupe :
-            if (verbe.Group == "1")
+            // Si à ce stade, la terminaison est vide, c'est que la combinaison personne/temps/mode n'existe pas
+            // (exemple : à l'impératif, seules les personnes 2, 4 et 5 existent).
+            // On n'entre alors pas dans le traitement des exceptions car il n'y a rien à traiter et
+            // cela va donc générer des erreurs.
+            if (ending != "")
             {
-                // -eler, -eter → -elle, -ette si "appeler" ou "jeter"
-                if (ending[0] == 'e' && ending != "ez" && (verbe.Verb.Contains("appeler") || verbe.Verb.Contains("jeter")))
-                    stem += stem[stem.Length - 1];
-                // -e*er → è
-                else if (stem[stem.Length - 2] == 'e' && ending[0] == 'e' && ending != "ez")
-                    stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
-                // -é*er → è
-                else if (stem[stem.Length - 2] == 'é' && new string[] { "e", "es", "ent" }.Contains(ending))
-                    stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
-                // -*yer → i
-                else if (stem[stem.Length - 1] == 'y' && ending[0] == 'e' && ending != "ez")
-                    stem = stem.Substring(0, stem.Length - 1) + "i";
-            }
+                // On traite les exceptions :
 
-            // Deuxième groupe :
-            else if (verbe.Group == "2")
-            {
-                // Les verbes du deuxième groupe sont régulier, sauf le verbe haïr.
-                if (verbe.Verb == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
-                        && new string[] { "présent indicatif", "présent impératif" }.Contains(time + " " + mode)))
-                    ending = "ï" + ending.Substring(1);
-            }
+                // Premier groupe :
+                if (verbe.Group == "1")
+                {
+                    // -eler, -eter → -elle, -ette si "appeler" ou "jeter"
+                    if (ending[0] == 'e' && ending != "ez" && (verbe.Verb.Contains("appeler") || verbe.Verb.Contains("jeter")))
+                        stem += stem[stem.Length - 1];
+                    // -e*er → è
+                    else if (stem[stem.Length - 2] == 'e' && ending[0] == 'e' && ending != "ez")
+                        stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                    // -é*er → è
+                    else if (stem[stem.Length - 2] == 'é' && new string[] { "e", "es", "ent" }.Contains(ending))
+                        stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                    // -*yer → i
+                    else if (stem[stem.Length - 1] == 'y' && ending[0] == 'e' && ending != "ez")
+                        stem = stem.Substring(0, stem.Length - 1) + "i";
+                }
 
-            // Troisième groupe :
-            else if (verbe.Group == "3")
-            {
-                // Si le dernier caractère du radical est un 't' et que la terminaison commence par un 's',
-                // on supprime le 't'. Exemple : sortir → sort- → sors 
-                if (stem[stem.Length - 1] == 't' && ending[0] == 's')
-                    stem = stem.Substring(0, stem.Length - 1);
-            }
+                // Deuxième groupe :
+                else if (verbe.Group == "2")
+                {
+                    // Les verbes du deuxième groupe sont régulier, sauf le verbe haïr.
+                    if (verbe.Verb == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
+                            && new string[] { "présent indicatif", "présent impératif" }.Contains(time + " " + mode)))
+                        ending = "ï" + ending.Substring(1);
+                }
 
-            // Général :
-            // c → ç
-            if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
-                stem = stem.Substring(0, stem.Length - 1) + "ç";
-            // g → ge
-            else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
-                stem += "e";
+                // Troisième groupe :
+                else if (verbe.Group == "3")
+                {
+                    // Si le dernier caractère du radical est un 't' et que la terminaison commence par un 's',
+                    // on supprime le 't'. Exemple : sortir → sort- → sors 
+                    if (stem[stem.Length - 1] == 't' && ending[0] == 's')
+                        stem = stem.Substring(0, stem.Length - 1);
+                }
+
+                // Général :
+                // c → ç
+                if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                    stem = stem.Substring(0, stem.Length - 1) + "ç";
+                // g → ge
+                else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                    stem += "e";
+            }
 
             return new ConjugatedVerb(stem + ending, person, verbe.Group, time, mode, verbe.Verb, verbe.auxAvoir, verbe.auxEtre,
                                             verbe.nonPronominale, verbe.pronominale, verbe.transitif, verbe.intransitif);
