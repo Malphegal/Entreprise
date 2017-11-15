@@ -33,7 +33,8 @@ namespace Projet_AIA_Console_Version
                 else
                     verbeConjugue = new ConjugatedVerb(Console.ReadLine());
 
-                Console.WriteLine("\nTemps ?\t 1. Présent\t 2. Futur simple\t 3. Imparfait\t 4. Passé");
+                Console.WriteLine("\nTemps ?\t 1. Présent\t 2. Futur simple\t 3. Imparfait\t 4. Passé simple\n",
+                    "\t ");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -52,21 +53,21 @@ namespace Projet_AIA_Console_Version
 
                 if (type == "verbe infinitif")
                 {
-                    Console.WriteLine("Je " + verbeInfinitif.Conjugate("1", temps, mode).verb);
-                    Console.WriteLine("Tu " + verbeInfinitif.Conjugate("2", temps, mode).verb);
-                    Console.WriteLine("Il " + verbeInfinitif.Conjugate("3", temps, mode).verb);
-                    Console.WriteLine("Nous " + verbeInfinitif.Conjugate("4", temps, mode).verb);
-                    Console.WriteLine("Vous " + verbeInfinitif.Conjugate("5", temps, mode).verb);
-                    Console.WriteLine("Ils " + verbeInfinitif.Conjugate("6", temps, mode).verb);
+                    Console.WriteLine("Je " + verbeInfinitif.Conjugate("1", temps, mode).Verb);
+                    Console.WriteLine("Tu " + verbeInfinitif.Conjugate("2", temps, mode).Verb);
+                    Console.WriteLine("Il " + verbeInfinitif.Conjugate("3", temps, mode).Verb);
+                    Console.WriteLine("Nous " + verbeInfinitif.Conjugate("4", temps, mode).Verb);
+                    Console.WriteLine("Vous " + verbeInfinitif.Conjugate("5", temps, mode).Verb);
+                    Console.WriteLine("Ils " + verbeInfinitif.Conjugate("6", temps, mode).Verb);
                 }
                 else
                 {
-                    Console.WriteLine("Je " + verbeConjugue.Conjugate("1", temps, mode).verb);
-                    Console.WriteLine("Tu " + verbeConjugue.Conjugate("2", temps, mode).verb);
-                    Console.WriteLine("Il " + verbeConjugue.Conjugate("3", temps, mode).verb);
-                    Console.WriteLine("Nous " + verbeConjugue.Conjugate("4", temps, mode).verb);
-                    Console.WriteLine("Vous " + verbeConjugue.Conjugate("5", temps, mode).verb);
-                    Console.WriteLine("Ils " + verbeConjugue.Conjugate("6", temps, mode).verb);
+                    Console.WriteLine("Je " + verbeConjugue.Conjugate("1", temps, mode).Verb);
+                    Console.WriteLine("Tu " + verbeConjugue.Conjugate("2", temps, mode).Verb);
+                    Console.WriteLine("Il " + verbeConjugue.Conjugate("3", temps, mode).Verb);
+                    Console.WriteLine("Nous " + verbeConjugue.Conjugate("4", temps, mode).Verb);
+                    Console.WriteLine("Vous " + verbeConjugue.Conjugate("5", temps, mode).Verb);
+                    Console.WriteLine("Ils " + verbeConjugue.Conjugate("6", temps, mode).Verb);
                 }
                 Console.WriteLine();
             }
