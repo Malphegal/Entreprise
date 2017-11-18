@@ -1,8 +1,8 @@
-﻿__.vs/**
-__*.sln
-__*.csproj
-__Library/**
-__ProjectSettings/
+﻿.vs/**
+*.sln
+*.csproj
+Library/**
+ProjectSettings/
 Temp/
 L'IA/Projet_AIA_Console_Version/.vs/**
 L'IA/Projet_AIA_Console_Version/Projet_AIA_Console_Version/obj/**
