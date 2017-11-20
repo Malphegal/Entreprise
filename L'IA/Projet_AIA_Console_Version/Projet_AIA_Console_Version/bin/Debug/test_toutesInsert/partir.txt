@@ -1,4 +1,4 @@
-﻿partirpars
+﻿pars
 pars
 part
 partons

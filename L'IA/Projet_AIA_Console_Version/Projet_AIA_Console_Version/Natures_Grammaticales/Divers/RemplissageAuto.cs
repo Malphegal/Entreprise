@@ -308,12 +308,12 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             string[] lesVerbes = new string[lesVerbesTXT.Length];
             for (int i = 0; i < lesVerbesTXT.Length; i++)
                 lesVerbes[i] = lesVerbesTXT[i].Split('/')[1].Split('.')[0];
-
+            
             for (int i = 0; i < lesVerbesTXT.Length; i++) // Pour chaque verbe
             {
                 string[] lesLignesDuVerbe = File.ReadAllLines(lesVerbesTXT[i]);
 
-                string res = lesVerbes[i];
+                string res = string.Empty;
 
                 for (int j = 0; j < lesLignesDuVerbe.Length; j++)
                 {
@@ -367,7 +367,6 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                     else
                         continue;
                 }
-
                 File.AppendAllText("test_toutesInsert/" + lesVerbes[i] + ".txt", res, Encoding.UTF8);
             }
         }
@@ -375,6 +374,106 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
         static string RetirerLeTiret(this string s)
         {
             return s == "-" ? "RIENRIEN" : s;
+        }
+
+        public static void InsertFileToInsertFormatFile()
+        {
+            string[] lesVerbesTXT = Directory.GetFiles(@"test_toutesInsert/");
+            string[] lesVerbes = new string[lesVerbesTXT.Length];
+            for (int i = 0; i < lesVerbesTXT.Length; i++)
+                lesVerbes[i] = lesVerbesTXT[i].Split('/')[1].Split('.')[0];
+
+            using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=..\..\..\IA.MDB"))
+                for (int i = 0; i < lesVerbesTXT.Length; i++)
+                {
+                    string resDeUnVerbe = "";
+                    string[] conjugDuVerbeCourant = File.ReadAllLines(lesVerbesTXT[i]);
+
+                    for (int j = 0; j < 47; j++)
+                        resDeUnVerbe += "UPDATE VerbesConjuges SET Verbe = '" + conjugDuVerbeCourant[j] + "' WHERE Mode = '"
+                            + SetDuVerbe(j)[0] + "' AND Temps = '" + SetDuVerbe(j)[1] + "' AND Infinitif = '" + lesVerbes[i] + "'" +
+                            " AND Personne = '" + SetDePersonne(j) + "'\n";
+
+                    File.AppendAllText("test_WhereInsert/" + lesVerbes[i] + ".txt", resDeUnVerbe, Encoding.UTF8);
+                    /* OleDbCommand cmd = new OleDbCommand(@"UPDATE VerbesConjugues SET
+                     Verbe = " + "" + @"
+                     WHERE Infinitif = " + lesVerbes[i], con);*/
+                }
+        }
+
+        static string[] SetDuVerbe(int i) {
+            string[] lesModes = { "indicatif", "conditionnel", "subjonctif", "impératif", "participe" };
+            string[] lesTemps = { "présent", "imparfait", "passé simple", "futur simple" };
+            string[] res = new string[2];
+
+            if (i < 6)
+                res[1] = lesTemps[0];
+            else if (i < 12)
+                res[1] = lesTemps[1];
+            else if (i < 18)
+                res[1] = lesTemps[2];
+            else if (i < 24)
+                res[1] = lesTemps[3];
+            else if (i < 30)
+                res[1] = lesTemps[0];
+            else if (i < 36)
+                res[1] = lesTemps[0];
+            else if (i < 42)
+                res[1] = lesTemps[1];
+            else if (i < 46)
+                res[1] = lesTemps[0];
+            else
+                res[1] = lesTemps[1];
+
+            res[0] = lesModes[i < 24 ? 0 : i < 30 ? 1 : i < 42 ? 2 : i < 45 ? 3 : 4];
+
+            return res;
+        }
+
+        static int SetDePersonne(int i)
+        {
+            if (i < 6)
+                return i + 1;
+            else if (i < 12)
+                return i - 6 + 1;
+            else if (i < 18)
+                return i - 12 + 1;
+            else if (i < 24)
+                return i - 18 + 1;
+            else if (i < 30)
+                return i - 24 + 1;
+            else if (i < 36)
+                return i - 30 + 1;
+            else if (i < 42)
+                return i - 36 + 1;
+            else if (i < 43)
+                return 2;
+            else if (i < 44)
+                return 4;
+            else if (i < 45)
+                return 5;
+            else
+                return 1;
+        }
+
+        public static void InsertFormatFileToDb()
+        {
+            string[] lesVerbesTXT = Directory.GetFiles(@"test_WhereInsert/");
+
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=..\..\..\IA.MDB");
+            OleDbCommand cmd = new OleDbCommand() { Connection = con };
+
+            for (int i = 0; i < lesVerbesTXT.Length; i++)
+            {
+                string[] unVerbe = File.ReadLines(lesVerbesTXT[i]).ToArray();
+
+                for (int j = 0; j < 47; j++)
+                {
+                    cmd.CommandText = unVerbe[j];
+                    if (cmd.ExecuteNonQuery() != 0)
+                        Console.WriteLine(cmd.CommandText);
+                }
+            }
         }
     }
 }

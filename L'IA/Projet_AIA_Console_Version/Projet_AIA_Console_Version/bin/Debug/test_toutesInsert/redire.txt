@@ -1,4 +1,4 @@
-﻿redireredis
+﻿redis
 redis
 redit
 redisons

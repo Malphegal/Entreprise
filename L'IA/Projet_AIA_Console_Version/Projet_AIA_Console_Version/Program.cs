@@ -44,7 +44,7 @@ namespace Projet_AIA_Console_Version
                     break;
                 case (6):
                     Console.Clear();
-                    Natures_Grammaticales.Divers.RemplissageAuto.LigneToInsertFile();
+                    Natures_Grammaticales.Divers.RemplissageAuto.InsertFormatFileToDb();
                     break;
                 default:
                     Console.WriteLine("Erreur : Veuillez entrer un numéro valide");
