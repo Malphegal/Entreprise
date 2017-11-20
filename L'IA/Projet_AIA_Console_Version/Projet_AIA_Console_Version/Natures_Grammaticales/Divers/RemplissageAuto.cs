@@ -390,7 +390,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                     string[] conjugDuVerbeCourant = File.ReadAllLines(lesVerbesTXT[i]);
 
                     for (int j = 0; j < 47; j++)
-                        resDeUnVerbe += "UPDATE VerbesConjuges SET Verbe = '" + conjugDuVerbeCourant[j] + "' WHERE Mode = '"
+                        resDeUnVerbe += "UPDATE VerbesConjugues SET Verbe = '" + conjugDuVerbeCourant[j] + "' WHERE Mode = '"
                             + SetDuVerbe(j)[0] + "' AND Temps = '" + SetDuVerbe(j)[1] + "' AND Infinitif = '" + lesVerbes[i] + "'" +
                             " AND Personne = '" + SetDePersonne(j) + "'\n";
 
@@ -423,7 +423,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             else if (i < 46)
                 res[1] = lesTemps[0];
             else
-                res[1] = lesTemps[1];
+                res[1] = "passé";
 
             res[0] = lesModes[i < 24 ? 0 : i < 30 ? 1 : i < 42 ? 2 : i < 45 ? 3 : 4];
 
@@ -461,8 +461,8 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             string[] lesVerbesTXT = Directory.GetFiles(@"test_WhereInsert/");
 
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=..\..\..\IA.MDB");
-            OleDbCommand cmd = new OleDbCommand() { Connection = con };
-
+            OleDbCommand cmd = new OleDbCommand() { Connection = con, CommandType = CommandType.Text };
+            con.Open();
             for (int i = 0; i < lesVerbesTXT.Length; i++)
             {
                 string[] unVerbe = File.ReadLines(lesVerbesTXT[i]).ToArray();
@@ -470,10 +470,12 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
                 for (int j = 0; j < 47; j++)
                 {
                     cmd.CommandText = unVerbe[j];
-                    if (cmd.ExecuteNonQuery() != 0)
+                    if (cmd.ExecuteNonQuery() == 0)
                         Console.WriteLine(cmd.CommandText);
                 }
+                Console.WriteLine(i);
             }
+            con.Close();
         }
     }
 }

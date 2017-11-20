@@ -16,11 +16,11 @@ namespace Projet_AIA_Console_Version
             string type;
             string res = "";
 
-            /*Console.WriteLine(" 1. Je veux entrer des verbes à l'infinitif\n 2. Je veux entrer des verbes conjugués");
-            if (Console.ReadLine() == "1")*/
+            Console.WriteLine(" 1. Je veux entrer des verbes à l'infinitif\n 2. Je veux entrer des verbes conjugués");
+            if (Console.ReadLine() == "1")
                 type = "verbe infinitif";
-            /*else
-                type = "verbe conjugué";*/
+            else
+                type = "verbe conjugué";
 
             Console.WriteLine();
 
@@ -114,7 +114,8 @@ namespace Projet_AIA_Console_Version
                         }
                         else if (mode == "subjonctif")
                         {
-                            if (new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbeInfinitif.Conjugate("1", temps, mode).Verb[0]))
+                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
+                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
                                 Console.WriteLine("que j'" + verbeInfinitif.Conjugate("1", temps, mode).Verb);
                             else
                                 Console.WriteLine("que je " + verbeInfinitif.Conjugate("1", temps, mode).Verb);
@@ -130,7 +131,8 @@ namespace Projet_AIA_Console_Version
                         }
                         else
                         {
-                            if (new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbeInfinitif.Conjugate("1", temps, mode).Verb[0]))
+                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
+                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
                                 Console.WriteLine("J'" + verbeInfinitif.Conjugate("1", temps, mode).Verb);
                             else
                                 Console.WriteLine("Je " + verbeInfinitif.Conjugate("1", temps, mode).Verb);
@@ -151,7 +153,8 @@ namespace Projet_AIA_Console_Version
                         }
                         else if (mode == "subjonctif")
                         {
-                            if (new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbeInfinitif.Conjugate("1", temps, mode).Verb[0]))
+                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
+                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
                                 Console.WriteLine("que j'" + verbeConjugue.Conjugate("1", temps, mode).Verb);
                             else
                                 Console.WriteLine("que je " + verbeConjugue.Conjugate("1", temps, mode).Verb);
@@ -167,7 +170,8 @@ namespace Projet_AIA_Console_Version
                         }
                         else
                         {
-                            if (new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbeInfinitif.Conjugate("1", temps, mode).Verb[0]))
+                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
+                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
                                 Console.WriteLine("J'" + verbeConjugue.Conjugate("1", temps, mode).Verb);
                             else
                                 Console.WriteLine("Je " + verbeConjugue.Conjugate("1", temps, mode).Verb);

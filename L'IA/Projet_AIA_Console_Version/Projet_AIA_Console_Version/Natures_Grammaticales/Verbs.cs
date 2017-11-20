@@ -416,6 +416,7 @@ namespace Projet_AIA_Console_Version
         // Renvoie le radical du verbe.
         private static string stemOf(string verb, string nature)
         {
+            verb = verb ?? "";
             // Cas où le verbe est un infinitif :
             if (nature == "verbe infinitif")
             {
@@ -443,8 +444,12 @@ namespace Projet_AIA_Console_Version
                 }
             }
 
-            // Si on a rien trouvé et qu'on ne sait pas, on renvoie le verbe sans les 2 derniers caractères.
-            return verb.Substring(0, verb.Length -2);
+            // Si on a rien trouvé et qu'on ne sait pas, on renvoie le verbe sans les 2 derniers caractères si le verbe
+            // faut au moins trois caractères de taille, sinon on renvoie la chaîne vide.
+            if (verb.Length >= 3)
+                return verb.Substring(0, verb.Length - 2);
+            else
+                return "";
         }
 
         // Renvoie la terminaison du verbe.
@@ -592,14 +597,14 @@ namespace Projet_AIA_Console_Version
                 {
                     for (int idRow = 0; idRow < Phrase.lesData.Tables["VerbesConjugues"].Rows.Count; idRow++)
                     {
+                        DataRow row = Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow];
                         // Si on a trouvé la ligne pour l'infinitif où le groupe est le même pour le temps et la personne que l'on souhaite,
                         // en renvoie le verbe conjugué de cette même ligne.
-                        if ((string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Infinitif"] == verbe.Verb
-                                && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Groupe"] == verbe.Group
-                                && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Temps"] == time
-                                && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Mode"] == mode
-                                && (string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Personne"] == person)
-                            return new ConjugatedVerb((string)Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow]["Verbe"], person, verbe.Group, time, mode, verbe.Verb,
+                        if (row["Infinitif"] as string == verbe.Verb && row["Groupe"] as string == verbe.Group && row["Temps"] as string == time
+                                && row["Mode"] as string == mode && row["Personne"] as string == person && row["Verbe"] as string != null)
+                            // On ne renvoie le verbe conjugué à cet endroit là que si le verbe trouvé n'est pas null (c'est à dire, qu'il est
+                            // renseigné dans la table. Sinon, on passe à la suite afin de le construire manuellement.
+                            return new ConjugatedVerb(row["Verbe"] as string, person, verbe.Group, time, mode, verbe.Verb,
                                         verbe.auxAvoir, verbe.auxEtre, verbe.nonPronominale, verbe.pronominale, verbe.transitif, verbe.intransitif);
                     }
                 }
@@ -612,14 +617,19 @@ namespace Projet_AIA_Console_Version
 
                 for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
+                    DataRow row = Phrase.lesData.Tables["Conjugaison"].Rows[idRow];
                     // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
                     // on récupère la terminaison correspondante à cette ligne.
-                    if ((string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["VerbGroup"] == verbe.Group
-                            && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Time"] == time
-                            && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Mode"] == mode
-                            && (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Person"] == person)
-                        ending = (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"];
+                    if (row["VerbGroup"] as string == verbe.Group && row["Time"] as string == time
+                            && row["Mode"] as string == mode && row["Person"] as string == person)
+                    {
+                        ending = row["Ending"] as string;
+                        break;
+                    }
                 }
+
+                // Si ending est null, ending vaut la chaîne vide.
+                ending = ending ?? "";
 
                 // Si à ce stade, la terminaison est vide, c'est que la combinaison personne/temps/mode n'existe pas
                 // (exemple : à l'impératif, seules les personnes 2, 4 et 5 existent).
@@ -719,7 +729,7 @@ namespace Projet_AIA_Console_Version
                 DataRow rowInfo = null;
                 for (int i = 0; i < Phrase.lesData.Tables[typeVerbe].Rows.Count; i++)
                 {
-                    if (verb == (string)Phrase.lesData.Tables[typeVerbe].Rows[i]["Verbe"])
+                    if (verb == Phrase.lesData.Tables[typeVerbe].Rows[i]["Verbe"] as string)
                     {
                         row = Phrase.lesData.Tables[typeVerbe].Rows[i];
                         break;
@@ -736,7 +746,7 @@ namespace Projet_AIA_Console_Version
                         for (int j = 0; j < Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
                         {
                             // On fait pour cela une recherche par l'infinitif, puisque la table ne contient que des infinitifs.
-                            if ((string)(row)["Infinitif"] == (string)Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"])
+                            if ((row)["Infinitif"] as string == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
                             {
                                 rowInfo = Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
                                 break;
@@ -760,7 +770,7 @@ namespace Projet_AIA_Console_Version
                         for (int j = 0; j < Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
                         {
                             // On fait pour cela une recherche par l'infinitif, puisque la table ne contient que des infinitifs.
-                            if (verb == (string)Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"])
+                            if (verb == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
                             {
                                 rowInfo = Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
                                 break;
