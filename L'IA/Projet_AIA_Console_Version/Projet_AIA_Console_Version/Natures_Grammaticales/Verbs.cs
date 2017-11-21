@@ -32,6 +32,7 @@ namespace Projet_AIA_Console_Version
             // CONSTRUCTEUR
             public InfinitiveVerb(string verb)
             {
+                infoVerbe = null;
                 this.Verb = verb;
                 this.Nature = "verbe infinitif";
                 if (estConnu(verb, "VerbesInfinitifs"))
@@ -183,6 +184,7 @@ namespace Projet_AIA_Console_Version
             // du verbe.
             public ConjugatedVerb(string verb)
             {
+                infoVerbe = null;
                 this.Verb = verb;
                 this.Nature = "verbe conjugué";
                 if (estConnu(verb, "VerbesConjugues"))
@@ -223,6 +225,7 @@ namespace Projet_AIA_Console_Version
             // nom ou un pronom personnel le précédant.
             public ConjugatedVerb(string verb, string person)
             {
+                infoVerbe = null;
                 this.Verb = verb;
                 this.Nature = "verbe conjugué";
                 this.Person = person;
@@ -381,23 +384,18 @@ namespace Projet_AIA_Console_Version
             // Cas où le verbe est un infinitif :
             if (nature == "verbe infinitif")
             {
-                // Si le verbe est "aller", on renvoie le groupe "3".
-                if (verb == "aller")
+                // Si le verbe est "aller" ou termine par "re" ou "oir", on renvoie le groupe "3".
+                if (verb == "aller" || verb.Substring(verb.Length - 2) == "re" || verb.Substring(verb.Length - 3) == "oir")
                     return "3";
-                // Si le verbe est haïr, on renvoie le groupe "2".
-                else if (verb == "haïr")
+                // Si le verbe est haïr ou se termine par "ir", on renvoie le groupe "2".
+                else if (verb == "haïr" || verb.Substring(verb.Length - 2) == "ir")
                     return "2";
                 // Si le verbe termine par "er", on renvoie le groupe "1".
                 else if (verb.Substring(verb.Length - 2) == "er")
                     return "1";
-                // Dans les cas qu'il reste, si le verbe ne termine pas par "ir", on renvoie le groupe "3".
-                else if (verb.Substring(verb.Length - 2) != "ir")
-                    return "3";
-                // Les cas restant sont les verbes terminant par "ir".
-                // On renvoie donc le groupe 2 car c'est le groupe où se trouve la majorité
-                // des verbes terminant par "ir".
+                // Si on ne sait pas, dans les cas restant, on renvoie le groupe "3".
                 else
-                    return "2";
+                    return "3";
             }
             // Cas où le verbe est conjugué :
             else
