@@ -477,5 +477,31 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             }
             con.Close();
         }
+
+        public static void InsertInfinitiveToDb()
+        {
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=..\..\..\IA.MDB");
+            OleDbCommand cmd = new OleDbCommand() { Connection = con, CommandType = CommandType.Text };
+            con.Open();
+
+            for (int idRow = 0; idRow < Phrase.lesData.Tables["InsertInfinitive"].Rows.Count; idRow++)
+            {
+                DataRow listeVerbes = Phrase.lesData.Tables["InsertInfinitive"].Rows[idRow];
+                string verbe = listeVerbes["Infinitif"] as string;
+                string groupe = listeVerbes["Groupe"] as string;
+                if (!new string[] { "aimer", "aller", "avoir", "comprendre", "coudre", "croire", "découdre", "dire",
+                    "être", "faire", "finir", "manger", "parler", "penser", "pouvoir", "prendre", "recoudre", "savoir",
+                    "sentir", "venir", "voir", "vouloir" }.Contains(verbe))
+                {
+                    cmd.CommandText = "INSERT INTO VerbesInfinitifs (Verbe, Groupe) VALUES ('" + verbe + "', '" + groupe + "')";
+                    if (cmd.ExecuteNonQuery() == 0)
+                        Console.WriteLine("=====> Erreur : " + cmd.CommandText);
+                    else
+                        Console.WriteLine(verbe);
+                }
+            }
+
+            con.Close();
+        }
     }
 }

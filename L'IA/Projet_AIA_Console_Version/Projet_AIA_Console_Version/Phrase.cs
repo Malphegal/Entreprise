@@ -58,6 +58,9 @@ namespace Projet_AIA_Console_Version
             da.Fill(lesData, "AdjectifsExceptionsM2F");
             cmd.CommandText = "SELECT * FROM Conjugaison";
             da.Fill(lesData, "Conjugaison");
+            // à supprimer
+            cmd.CommandText = "SELECT Infinitif, Groupe FROM VerbesConjugues GROUP BY Infinitif, Groupe";
+            da.Fill(lesData, "InsertInfinitive");
         }
 
         public static List<List<List<object[]>>> DecouperPhrase(string reponseUtilisateur)

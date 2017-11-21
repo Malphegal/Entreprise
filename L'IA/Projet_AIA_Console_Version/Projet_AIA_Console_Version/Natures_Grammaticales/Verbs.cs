@@ -36,13 +36,15 @@ namespace Projet_AIA_Console_Version
                 this.Nature = "verbe infinitif";
                 if (estConnu(verb, "VerbesInfinitifs"))
                 {
-                    this.Group = infoVerbe[0];
-                    this.auxAvoir = Convert.ToByte(infoVerbe[1]);
-                    this.auxEtre = Convert.ToByte(infoVerbe[2]);
-                    this.nonPronominale = Convert.ToByte(infoVerbe[3]);
-                    this.pronominale = Convert.ToByte(infoVerbe[4]);
+                    // Si la case est renseignée, le champ prend la valeur de la case.
+                    // Sinon, le champ prend la valeur par défaut spécifiée.
+                    this.Group = infoVerbe[0] == null ? groupOf(verb, Nature) : infoVerbe[0];
+                    this.auxAvoir = infoVerbe[1] == null ? (byte)1 : Convert.ToByte(infoVerbe[1]);
+                    this.auxEtre = infoVerbe[2] == null ? (byte)0 : Convert.ToByte(infoVerbe[2]);
+                    this.nonPronominale = infoVerbe[3] == null ? (byte)1 : Convert.ToByte(infoVerbe[3]);
+                    this.pronominale = infoVerbe[4] == null ? (byte)1 : Convert.ToByte(infoVerbe[4]);
                     this.transitif = infoVerbe[5];
-                    this.intransitif = Convert.ToByte(infoVerbe[6]);
+                    this.intransitif = infoVerbe[6] == null ? (byte)1 : Convert.ToByte(infoVerbe[6]);
                 }
                 else
                 {
@@ -185,17 +187,19 @@ namespace Projet_AIA_Console_Version
                 this.Nature = "verbe conjugué";
                 if (estConnu(verb, "VerbesConjugues"))
                 {
-                    this.Group = infoVerbe[0];
-                    this.Time = infoVerbe[1];
-                    this.Mode = infoVerbe[2];
-                    this.Person = infoVerbe[3];
-                    this.Action = infoVerbe[4];
-                    this.auxAvoir = Convert.ToByte(infoVerbe[5]);
-                    this.auxEtre = Convert.ToByte(infoVerbe[6]);
-                    this.nonPronominale = Convert.ToByte(infoVerbe[7]);
-                    this.pronominale = Convert.ToByte(infoVerbe[8]);
-                    this.transitif = infoVerbe[9];
-                    this.intransitif = Convert.ToByte(infoVerbe[10]);
+                    // Si la case est renseignée, le champ prend la valeur de la case.
+                    // Sinon, le champ prend la valeur par défaut spécifiée.
+                    this.Group = infoVerbe[0] == null ? groupOf(verb, Nature) : infoVerbe[0];
+                    this.Time = infoVerbe[1] == null ? timeOf(verb) : infoVerbe[1];
+                    this.Mode = infoVerbe[2] == null ? modeOf(verb) : infoVerbe[2];
+                    this.Person = infoVerbe[3] == null ? personOf(verb) : infoVerbe[3];
+                    this.Action = infoVerbe[4] == null ? infinitiveOf(verb) : infoVerbe[4];
+                    this.auxAvoir = infoVerbe[1] == null ? (byte)1 : Convert.ToByte(infoVerbe[1]);
+                    this.auxEtre = infoVerbe[2] == null ? (byte)0 : Convert.ToByte(infoVerbe[2]);
+                    this.nonPronominale = infoVerbe[3] == null ? (byte)1 : Convert.ToByte(infoVerbe[3]);
+                    this.pronominale = infoVerbe[4] == null ? (byte)1 : Convert.ToByte(infoVerbe[4]);
+                    this.transitif = infoVerbe[5];
+                    this.intransitif = infoVerbe[6] == null ? (byte)1 : Convert.ToByte(infoVerbe[6]);
                 }
                 else
                 {
@@ -224,16 +228,18 @@ namespace Projet_AIA_Console_Version
                 this.Person = person;
                 if (estConnu(verb, "VerbesConjugues"))
                 {
-                    this.Group = infoVerbe[0];
-                    this.Time = infoVerbe[1];
-                    this.Mode = infoVerbe[2];
-                    this.Action = infoVerbe[4];
-                    this.auxAvoir = Convert.ToByte(infoVerbe[5]);
-                    this.auxEtre = Convert.ToByte(infoVerbe[6]);
-                    this.nonPronominale = Convert.ToByte(infoVerbe[7]);
-                    this.pronominale = Convert.ToByte(infoVerbe[8]);
-                    this.transitif = infoVerbe[9];
-                    this.intransitif = Convert.ToByte(infoVerbe[10]);
+                    // Si la case est renseignée, le champ prend la valeur de la case.
+                    // Sinon, le champ prend la valeur par défaut spécifiée.
+                    this.Group = infoVerbe[0] == null ? groupOf(verb, Nature) : infoVerbe[0];
+                    this.Time = infoVerbe[1] == null ? timeOf(verb) : infoVerbe[1];
+                    this.Mode = infoVerbe[2] == null ? modeOf(verb) : infoVerbe[2];
+                    this.Action = infoVerbe[4] == null ? infinitiveOf(verb) : infoVerbe[4];
+                    this.auxAvoir = infoVerbe[1] == null ? (byte)1 : Convert.ToByte(infoVerbe[1]);
+                    this.auxEtre = infoVerbe[2] == null ? (byte)0 : Convert.ToByte(infoVerbe[2]);
+                    this.nonPronominale = infoVerbe[3] == null ? (byte)1 : Convert.ToByte(infoVerbe[3]);
+                    this.pronominale = infoVerbe[4] == null ? (byte)1 : Convert.ToByte(infoVerbe[4]);
+                    this.transitif = infoVerbe[5];
+                    this.intransitif = infoVerbe[6] == null ? (byte)1 : Convert.ToByte(infoVerbe[6]);
                 }
                 else
                 {
@@ -746,23 +752,23 @@ namespace Projet_AIA_Console_Version
                         for (int j = 0; j < Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
                         {
                             // On fait pour cela une recherche par l'infinitif, puisque la table ne contient que des infinitifs.
-                            if ((row)["Infinitif"] as string == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
+                            if (row["Infinitif"] as string == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
                             {
                                 rowInfo = Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
                                 break;
                             }
                         }
-                        infoVerbe = new string[] { (string)(row)["Groupe"],
-                                                    (string)(row)["Temps"],
-                                                    (string)(row)["Mode"],
-                                                    (string)(row)["Personne"],
-                                                    (string)(row)["Infinitif"],
-                                                    (string)(rowInfo)["AuxAvoir"],
-                                                    (string)(rowInfo)["AuxEtre"],
-                                                    (string)(rowInfo)["NonPronominale"],
-                                                    (string)(rowInfo)["Pronominale"],
-                                                    (string)(rowInfo)["Transitif"],
-                                                    (string)(rowInfo)["Intransitif"]};
+                        infoVerbe = new string[] { row["Groupe"] as string,
+                                                    row["Temps"] as string,
+                                                    row["Mode"] as string,
+                                                    row["Personne"] as string,
+                                                    row["Infinitif"] as string,
+                                                    rowInfo["AuxAvoir"] as string,
+                                                    rowInfo["AuxEtre"] as string,
+                                                    rowInfo["NonPronominale"] as string,
+                                                    rowInfo["Pronominale"] as string,
+                                                    rowInfo["Transitif"] as string,
+                                                    rowInfo["Intransitif"] as string };
                     }
                     else
                     {
@@ -776,13 +782,13 @@ namespace Projet_AIA_Console_Version
                                 break;
                             }
                         }
-                        infoVerbe = new string[] { (string)(row)["Groupe"],
-                                                    (string)(rowInfo)["AuxAvoir"],
-                                                    (string)(rowInfo)["AuxEtre"],
-                                                    (string)(rowInfo)["NonPronominale"],
-                                                    (string)(rowInfo)["Pronominale"],
-                                                    (string)(rowInfo)["Transitif"],
-                                                    (string)(rowInfo)["Intransitif"]};
+                        infoVerbe = new string[] { row["Groupe"] as string,
+                                                    rowInfo["AuxAvoir"] as string,
+                                                    rowInfo["AuxEtre"]  as string,
+                                                    rowInfo["NonPronominale"]  as string,
+                                                    rowInfo["Pronominale"]  as string,
+                                                    rowInfo["Transitif"] as string,
+                                                    rowInfo["Intransitif"] as string };
                     }
                     return true;
                 }
