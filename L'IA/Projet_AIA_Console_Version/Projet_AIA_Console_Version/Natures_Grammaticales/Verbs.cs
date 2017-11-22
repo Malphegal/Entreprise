@@ -196,12 +196,12 @@ namespace Projet_AIA_Console_Version
                     this.Mode = infoVerbe[2] == null ? modeOf(verb) : infoVerbe[2];
                     this.Person = infoVerbe[3] == null ? personOf(verb) : infoVerbe[3];
                     this.Action = infoVerbe[4] == null ? infinitiveOf(verb) : infoVerbe[4];
-                    this.auxAvoir = infoVerbe[1] == null ? (byte)1 : Convert.ToByte(infoVerbe[1]);
-                    this.auxEtre = infoVerbe[2] == null ? (byte)0 : Convert.ToByte(infoVerbe[2]);
-                    this.nonPronominale = infoVerbe[3] == null ? (byte)1 : Convert.ToByte(infoVerbe[3]);
-                    this.pronominale = infoVerbe[4] == null ? (byte)1 : Convert.ToByte(infoVerbe[4]);
-                    this.transitif = infoVerbe[5];
-                    this.intransitif = infoVerbe[6] == null ? (byte)1 : Convert.ToByte(infoVerbe[6]);
+                    this.auxAvoir = infoVerbe[5] == null ? (byte)1 : Convert.ToByte(infoVerbe[5]);
+                    this.auxEtre = infoVerbe[6] == null ? (byte)0 : Convert.ToByte(infoVerbe[6]);
+                    this.nonPronominale = infoVerbe[7] == null ? (byte)1 : Convert.ToByte(infoVerbe[7]);
+                    this.pronominale = infoVerbe[8] == null ? (byte)1 : Convert.ToByte(infoVerbe[8]);
+                    this.transitif = infoVerbe[9];
+                    this.intransitif = infoVerbe[10] == null ? (byte)1 : Convert.ToByte(infoVerbe[10]);
                 }
                 else
                 {
@@ -570,7 +570,7 @@ namespace Projet_AIA_Console_Version
                 case "3":
                     if (new char[] { 't', 'd', 'p' }.Contains(stem[stem.Length - 1]))
                         return stem + "re";
-                    else if (stem[stem.Length] == 'l')
+                    else if (stem[stem.Length-1] == 'l')
                         if (stem + "er" == "aller")
                             return "aller";
                         else

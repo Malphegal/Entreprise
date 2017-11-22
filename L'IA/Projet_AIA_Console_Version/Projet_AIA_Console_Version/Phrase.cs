@@ -85,28 +85,51 @@ namespace Projet_AIA_Console_Version
                     if (positionDuPoint == -1)
                         positionDuPoint = reponseUtilisateur.Length-1;
                     phrase = reponseUtilisateur.Substring(startPhrase, positionDuPoint - startPhrase + 1).Trim();
+
                     // Extraction des mots depuis la phrase
                     do
                     {
                         positionDuSeparateur = phrase.IndexOfAny(new char[] { ' ', '\'' }, startMot);
                         if (positionDuSeparateur >= 0)
                         {
+                            // On récupère le mot.
                             mot = phrase.Substring(startMot, positionDuSeparateur - startMot + 1).Trim();
-                            unePhrase.Add(new List<object[]> { new object[] { mot, 0 } });    // on ajoute le mot dans le tableau des mots
+
+                            // On traite le cas où le mot contient un apostrophe.
+                            mot = TraiterMotsComprenantApostropheOuEspace(mot, ref unePhrase);
+
+                            // On ajoute le mot dans le tableau des mots.
+                            unePhrase.Add(new List<object[]> { new object[] { mot, 0 } });
+                            // On redéfinit les variables pour passer au mot suivant.
                             startMot = positionDuSeparateur + 1;
                             compteurMot++;
                         }
+                        // Sinon, s'il n'y a plus de points...
                         else if (positionDuSeparateur == -1)
-                            unePhrase.Add(new List<object[]> { new object[] { phrase.Substring(startMot).Trim('.') } });    // on ajoute le dernier mot dans le tableau des mots
+                        {
+                            // On récupère le mot.
+                            mot = phrase.Substring(startMot).Trim('.');
+
+                            // On traite le cas où le mot contient un apostrophe.
+                            mot = TraiterMotsComprenantApostropheOuEspace(mot, ref unePhrase);
+
+                            // On ajoute le dernier mot dans le tableau des mots.
+                            unePhrase.Add(new List<object[]> { new object[] { mot } });
+                        }
                     } while (positionDuSeparateur > 0);
+
+                    // On ajoute la phrase dans la liste des phrases.
+                    lesPhrases.Add(unePhrase);
+
+                    // On redéfinit les variables avant de passer à la phrase suivante.
                     positionDuSeparateur = 0;
                     startMot = 0;
                     compteurMot = 0;
-                    lesPhrases.Add(unePhrase);  // on ajoute la phrase dans la liste des phrases
                     startPhrase = positionDuPoint + 1;
                 }
                 unePhrase = new List<List<object[]>>(16);
             } while (positionDuPoint > 0 && positionDuPoint < reponseUtilisateur.Length-1);  // si <=0, c'est qu'il n'y a plus de point
+
             return lesPhrases;
         }
 
@@ -167,31 +190,44 @@ namespace Projet_AIA_Console_Version
                     {
                         // Verbe
                         // Si le mot précédent est un pronom ou un nom, alors le mot courant peut être un verbe
-                        if (new string[] { "Pronoms", "Noms" }.Contains((string)laPhrase[i - 1][1][0]))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                        if (laPhrase[i - 1].Count > 1 && new string[] { "Pronoms", "Noms" }.Contains(laPhrase[i - 1][1][0] as string))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 1 });
+
                         // Nom
                         // Si le mot précédent est un déterminant, alors le mot courant peut être un nom
-                        var testMotPrecedent = (from item in laPhrase[i - 1] where (string)item[0] == "Determinants" select item);
-                        if (testMotPrecedent != null && testMotPrecedent.Count() != 0)
-                            laPhrase[i].Add(new object[] { "Noms", 0 });
+                        //var testMotPrecedent = (from item in laPhrase[i - 1] where (string)item[0] == "Determinants" select item);
+                        if (laPhrase[i - 1].Exists(item => (string)item[0] == "Determinants"))
+                            laPhrase[i].Add(new object[] { "Noms", 1 });
+
                         // Adjectif
-                        // Si le mot précédent est un nom, alors le mot courant peut être un adjectif
-                        testMotPrecedent = (from item in laPhrase[i - 1] where (string)item[0] == "Noms" select item);
-                        // Si le mot précédent est le verbe être, alors le mot courant peut être un adjectif
-                        var testVerbeEtre = (from str in lesData.Tables["VerbesConjugues"].AsEnumerable()
-                                     where (string)str["Infinitif"] == "être"
-                                     select str).ToList();
-
-                        // Afin de convertir la List de DataRow en List de String
-                        List<string> ListString = new List<string>();
-                        foreach (var row in testVerbeEtre)
-                            ListString.Add(row[0].ToString());
-                        // ------------------
-
-                        if ((testMotPrecedent != null && testMotPrecedent.Count() != 0) || ListString.Contains(laPhrase[i - 1][0][0]))
+                        // Si le mot précédent est un nom
+                        // OU si le mot précédent est une des conjugaisons du verbe être
+                        // ALORS le mot courant peut être un adjectif.
+                        if (laPhrase[i - 1].Exists(item => (string)item[0] == "Noms")
+                            || (lesData.Tables["VerbesConjugues"].AsEnumerable()
+                            .Where(x => x["Infinitif"] as string == "être").AsEnumerable()
+                            .Any(c => c["Verbe"].ToString() == laPhrase[i - 1][0][0].ToString())))
                         {
-                            laPhrase[i].Add(new object[] { "Adjectif", 0});
+                            laPhrase[i].Add(new object[] { "Adjectifs", 1 });
                         }
+
+                        // Participe présent
+                        // Si le mot courant termine par "-ant", alors il peut être un participe présent.
+                        if (motCourant.Length > 3 && motCourant.EndsWith("ant"))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+
+                        // Participe passé
+                        // Si le mot courant termine par "-é", "-i" ou "u", alors il peut être un participe passé.
+                        if (motCourant.Length > 2 && motCourant.EndsWith("é"))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                        else if (motCourant.Length > 2 && motCourant.EndsWith("i"))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                        else if (motCourant.Length > 2 && motCourant.EndsWith("u"))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                        else if (motCourant.Length > 3 && (motCourant.EndsWith("és") || motCourant.EndsWith("ée") || motCourant.EndsWith("ées")
+                                || motCourant.EndsWith("is") || motCourant.EndsWith("ie") || motCourant.EndsWith("ies")
+                                || motCourant.EndsWith("us") || motCourant.EndsWith("ue") || motCourant.EndsWith("ues")))
+                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
                     }
 
                     // ADVERBES
@@ -199,7 +235,7 @@ namespace Projet_AIA_Console_Version
                     // (car il en existe beaucoup trop), on repere aussi les adverbes par leur
                     // terminaison en -ment
 
-                    if (motCourant.Length > 4 && motCourant.Contains("ment"))
+                    if (motCourant.Length > 4 && motCourant.EndsWith("ment"))
                         laPhrase[i].Add(new object[] { "Adverbes", 0 });
                     rechercheDansTable("Adverbes", i, motCourant, laPhrase);
 
@@ -227,40 +263,60 @@ namespace Projet_AIA_Console_Version
 
             for (i = 0; i < laPhrase.Count; i++) // Pour chaque mot de la phrase...
             {
-                switch((string)laPhrase[i][1][0])   // laPhrase[i][1][0] → correspond à la nature
+                // Afin que le programme ne crash pas si le mot testé n'a pas de nature attribuée
+                // (et donc que la case laPhrase[i][1] n'existe pas, ce qui entraîne une exception).
+                if (laPhrase[i].Count > 1)
                 {
-                    case "Noms":
-                        phrase.Add(new Names.Name((string)laPhrase[i][0][0]));
-                        break;
-                    case "Adjectifs":
-                        phrase.Add(new Adjectives.Adjective((string)laPhrase[i][0][0]));
-                        break;
-                    case "VerbesConjugues":
-                        phrase.Add(new Verbs.ConjugatedVerb((string)laPhrase[i][0][0]));
-                        break;
-                    case "VerbesInfinitifs":
-                        phrase.Add(new Verbs.InfinitiveVerb((string)laPhrase[i][0][0]));
-                        break;
-                    case "Determinants":
-                        phrase.Add(new Determiners.Determiner((string)laPhrase[i][0][0]));
-                        break;
-                    case "Pronoms":
-                        phrase.Add(new Pronouns.Pronoun((string)laPhrase[i][0][0]));
-                        break;
-                    case "Adverbes":
-                        phrase.Add(new InvariableNatures.Adverbe((string)laPhrase[i][0][0]));
-                        break;
-                    case "ConjDeCoords":
-                        phrase.Add(new InvariableNatures.ConjDeCoord((string)laPhrase[i][0][0]));
-                        break;
-                    case "ConjDeSubs":
-                        phrase.Add(new InvariableNatures.ConjDeSub((string)laPhrase[i][0][0]));
-                        break;
-                    case "Prepositions":
-                        phrase.Add(new InvariableNatures.Preposition((string)laPhrase[i][0][0]));
-                        break;
+                    switch (laPhrase[i][1][0] as string)   // laPhrase[i][1][0] → correspond à la nature
+                    {
+                        case "Noms":
+                            phrase.Add(new Names.Name((string)laPhrase[i][0][0]));
+                            break;
+                        case "Adjectifs":
+                            phrase.Add(new Adjectives.Adjective((string)laPhrase[i][0][0]));
+                            break;
+                        case "VerbesConjugues":
+                            // On traite les verbes conjugués à des temps composés
+                            if (phrase.Last().GetType().Name == "ConjugatedVerb")
+                            {
+                                Verbs.ConjugatedVerb auxiliaire = (Verbs.ConjugatedVerb)phrase.Last();
+                                if (new string[] { "être", "avoir" }.Contains(auxiliaire.Action))
+                                {
+                                    phrase.RemoveAt(phrase.Count - 1);
+                                    phrase.Add(new Verbs.ConjugatedVerb(auxiliaire.ToString() + " " + (string)laPhrase[i][0][0], auxiliaire.Person));
+                                    Console.WriteLine(auxiliaire.ToString() + " " + (string)laPhrase[i][0][0]);
+                                    break;
+                                }
+                            }
+                            phrase.Add(new Verbs.ConjugatedVerb((string)laPhrase[i][0][0]));
+                            break;
+                        case "VerbesInfinitifs":
+                            phrase.Add(new Verbs.InfinitiveVerb((string)laPhrase[i][0][0]));
+                            break;
+                        case "Determinants":
+                            phrase.Add(new Determiners.Determiner((string)laPhrase[i][0][0]));
+                            break;
+                        case "Pronoms":
+                            phrase.Add(new Pronouns.Pronoun((string)laPhrase[i][0][0]));
+                            break;
+                        case "Adverbes":
+                            phrase.Add(new InvariableNatures.Adverbe((string)laPhrase[i][0][0]));
+                            break;
+                        case "ConjDeCoords":
+                            phrase.Add(new InvariableNatures.ConjDeCoord((string)laPhrase[i][0][0]));
+                            break;
+                        case "ConjDeSubs":
+                            phrase.Add(new InvariableNatures.ConjDeSub((string)laPhrase[i][0][0]));
+                            break;
+                        case "Prepositions":
+                            phrase.Add(new InvariableNatures.Preposition((string)laPhrase[i][0][0]));
+                            break;
+                    }
                 }
             }
+
+            // 
+
 
         }
 
@@ -276,6 +332,28 @@ namespace Projet_AIA_Console_Version
                     break;
                 }
             }
+        }
+
+        // Procédure utilisée par la fonction DecouperPhrase (ci-dessus)
+        private static string TraiterMotsComprenantApostropheOuEspace(string mot, ref List<List<object[]>> unePhrase)
+        {
+            string[] exceptionsApostrophe = new string[] { "aujourd'hui", "d'accord", "d'abord", "quelqu'un", "presqu'île" };
+
+            // On ne peut tester le mot précédent dans la liste que si la liste contient au moins
+            // un élément.
+            if (unePhrase.Count > 0)
+            {
+                string dernierMot = (string)unePhrase.Last()[0][0];
+                // On traite les mots comprenant des apostrophes afin qu'ils soient considérés
+                // comme un seul et et non comme deux.
+                if (exceptionsApostrophe.Contains(dernierMot + mot))
+                {
+                    unePhrase.RemoveAt(unePhrase.Count - 1);
+                    mot = dernierMot + mot;
+                }
+            }
+
+            return mot;
         }
     }
 }
