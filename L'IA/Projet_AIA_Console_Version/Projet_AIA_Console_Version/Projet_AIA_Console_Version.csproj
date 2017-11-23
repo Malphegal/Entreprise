@@ -44,10 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Natures_Grammaticales\Adjectives.cs" />
+    <Compile Include="Natures_Grammaticales\ConjugatedVerb.cs" />
     <Compile Include="Natures_Grammaticales\Determiners.cs" />
     <Compile Include="Natures_Grammaticales\Divers\AjoutAutomatiqueVerbe.cs" />
     <Compile Include="Natures_Grammaticales\Divers\RemplissageAuto.cs" />
+    <Compile Include="Natures_Grammaticales\InfinitiveVerb.cs" />
     <Compile Include="Natures_Grammaticales\InvariableNatures.cs" />
+    <Compile Include="Natures_Grammaticales\Mot.cs" />
     <Compile Include="Natures_Grammaticales\Names.cs" />
     <Compile Include="Natures_Grammaticales\Pronouns.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Adjectifs.cs" />
@@ -55,7 +58,7 @@
     <Compile Include="Natures_Grammaticales\Tests\Test_Noms.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Phrases.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Verbes.cs" />
-    <Compile Include="Natures_Grammaticales\Verbs.cs" />
+    <Compile Include="Natures_Grammaticales\Verb.cs" />
     <Compile Include="Phrase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

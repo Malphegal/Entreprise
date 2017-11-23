@@ -279,19 +279,19 @@ namespace Projet_AIA_Console_Version
                             // On traite les verbes conjugués à des temps composés
                             if (phrase.Last().GetType().Name == "ConjugatedVerb")
                             {
-                                Verbs.ConjugatedVerb auxiliaire = (Verbs.ConjugatedVerb)phrase.Last();
+                                ConjugatedVerb auxiliaire = (ConjugatedVerb)phrase.Last();
                                 if (new string[] { "être", "avoir" }.Contains(auxiliaire.Action))
                                 {
                                     phrase.RemoveAt(phrase.Count - 1);
-                                    phrase.Add(new Verbs.ConjugatedVerb(auxiliaire.ToString() + " " + (string)laPhrase[i][0][0], auxiliaire.Person));
+                                    phrase.Add(new ConjugatedVerb(auxiliaire.ToString() + " " + (string)laPhrase[i][0][0], auxiliaire.Person));
                                     Console.WriteLine(auxiliaire.ToString() + " " + (string)laPhrase[i][0][0]);
                                     break;
                                 }
                             }
-                            phrase.Add(new Verbs.ConjugatedVerb((string)laPhrase[i][0][0]));
+                            phrase.Add(new ConjugatedVerb((string)laPhrase[i][0][0]));
                             break;
                         case "VerbesInfinitifs":
-                            phrase.Add(new Verbs.InfinitiveVerb((string)laPhrase[i][0][0]));
+                            phrase.Add(new InfinitiveVerb((string)laPhrase[i][0][0]));
                             break;
                         case "Determinants":
                             phrase.Add(new Determiners.Determiner((string)laPhrase[i][0][0]));

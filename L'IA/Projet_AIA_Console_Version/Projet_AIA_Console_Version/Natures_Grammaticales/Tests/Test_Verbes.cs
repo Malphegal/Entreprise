@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Projet_AIA_Console_Version.Natures_Grammaticales;
+using System;
 using System.Linq;
-using static Projet_AIA_Console_Version.Verbs;
+using static Projet_AIA_Console_Version.Verb;
 
 namespace Projet_AIA_Console_Version
 {
@@ -9,8 +10,7 @@ namespace Projet_AIA_Console_Version
         public static void Test_Verbe()
         {
             // MINI PROGRAMME DE TEST POUR LA CONJUGAISON DES VERBES
-            InfinitiveVerb verbeInfinitif = new InfinitiveVerb();
-            ConjugatedVerb verbeConjugue = new ConjugatedVerb();
+            Verb verbe;
             string temps;
             string mode;
             string type;
@@ -32,9 +32,9 @@ namespace Projet_AIA_Console_Version
 
                 Console.WriteLine("Verbe ?\t");
                 if (type == "verbe infinitif")
-                    verbeInfinitif = new InfinitiveVerb(Console.ReadLine());
+                    verbe = new InfinitiveVerb(Console.ReadLine());
                 else
-                    verbeConjugue = new ConjugatedVerb(Console.ReadLine());
+                    verbe = new ConjugatedVerb(Console.ReadLine());
 
                 while (res != "autre")
                 {
@@ -108,78 +108,78 @@ namespace Projet_AIA_Console_Version
                     {
                         if (mode == "impératif")
                         {
-                            Console.WriteLine(verbeInfinitif.Conjugate("2", temps, mode).Verb + " !");
-                            Console.WriteLine(verbeInfinitif.Conjugate("4", temps, mode).Verb + " !");
-                            Console.WriteLine(verbeInfinitif.Conjugate("5", temps, mode).Verb + " !");
+                            Console.WriteLine(verbe.Conjugate("2", temps, mode).Verbe + " !");
+                            Console.WriteLine(verbe.Conjugate("4", temps, mode).Verbe + " !");
+                            Console.WriteLine(verbe.Conjugate("5", temps, mode).Verbe + " !");
                         }
                         else if (mode == "subjonctif")
                         {
-                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
-                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
-                                Console.WriteLine("que j'" + verbeInfinitif.Conjugate("1", temps, mode).Verb);
+                            verbe = verbe.Conjugate("1", temps, mode);
+                            if (verbe.Verbe != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verbe[0]))
+                                Console.WriteLine("que j'" + verbe.Conjugate("1", temps, mode).Verbe);
                             else
-                                Console.WriteLine("que je " + verbeInfinitif.Conjugate("1", temps, mode).Verb);
-                            Console.WriteLine("que tu " + verbeInfinitif.Conjugate("2", temps, mode).Verb);
-                            Console.WriteLine("qu'il " + verbeInfinitif.Conjugate("3", temps, mode).Verb);
-                            Console.WriteLine("que nous " + verbeInfinitif.Conjugate("4", temps, mode).Verb);
-                            Console.WriteLine("que vous " + verbeInfinitif.Conjugate("5", temps, mode).Verb);
-                            Console.WriteLine("qu'ils " + verbeInfinitif.Conjugate("6", temps, mode).Verb);
+                                Console.WriteLine("que je " + verbe.Conjugate("1", temps, mode).Verbe);
+                            Console.WriteLine("que tu " + verbe.Conjugate("2", temps, mode).Verbe);
+                            Console.WriteLine("qu'il " + verbe.Conjugate("3", temps, mode).Verbe);
+                            Console.WriteLine("que nous " + verbe.Conjugate("4", temps, mode).Verbe);
+                            Console.WriteLine("que vous " + verbe.Conjugate("5", temps, mode).Verbe);
+                            Console.WriteLine("qu'ils " + verbe.Conjugate("6", temps, mode).Verbe);
                         }
                         else if (mode == "participe")
                         {
-                            Console.WriteLine(verbeInfinitif.Conjugate("1", temps, mode).Verb);
+                            Console.WriteLine(verbe.Conjugate("1", temps, mode).Verbe);
                         }
                         else
                         {
-                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
-                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
-                                Console.WriteLine("J'" + verbeInfinitif.Conjugate("1", temps, mode).Verb);
+                            verbe = verbe.Conjugate("1", temps, mode);
+                            if (verbe.Verbe != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verbe[0]))
+                                Console.WriteLine("J'" + verbe.Conjugate("1", temps, mode).Verbe);
                             else
-                                Console.WriteLine("Je " + verbeInfinitif.Conjugate("1", temps, mode).Verb);
-                            Console.WriteLine("Tu " + verbeInfinitif.Conjugate("2", temps, mode).Verb);
-                            Console.WriteLine("Il " + verbeInfinitif.Conjugate("3", temps, mode).Verb);
-                            Console.WriteLine("Nous " + verbeInfinitif.Conjugate("4", temps, mode).Verb);
-                            Console.WriteLine("Vous " + verbeInfinitif.Conjugate("5", temps, mode).Verb);
-                            Console.WriteLine("Ils " + verbeInfinitif.Conjugate("6", temps, mode).Verb);
+                                Console.WriteLine("Je " + verbe.Conjugate("1", temps, mode).Verbe);
+                            Console.WriteLine("Tu " + verbe.Conjugate("2", temps, mode).Verbe);
+                            Console.WriteLine("Il " + verbe.Conjugate("3", temps, mode).Verbe);
+                            Console.WriteLine("Nous " + verbe.Conjugate("4", temps, mode).Verbe);
+                            Console.WriteLine("Vous " + verbe.Conjugate("5", temps, mode).Verbe);
+                            Console.WriteLine("Ils " + verbe.Conjugate("6", temps, mode).Verbe);
                         }
                     }
                     else
                     {
                         if (mode == "impératif")
                         {
-                            Console.WriteLine(verbeConjugue.Conjugate("2", temps, mode).Verb + " !");
-                            Console.WriteLine(verbeConjugue.Conjugate("4", temps, mode).Verb + " !");
-                            Console.WriteLine(verbeConjugue.Conjugate("5", temps, mode).Verb + " !");
+                            Console.WriteLine(verbe.Conjugate("2", temps, mode).Verbe + " !");
+                            Console.WriteLine(verbe.Conjugate("4", temps, mode).Verbe + " !");
+                            Console.WriteLine(verbe.Conjugate("5", temps, mode).Verbe + " !");
                         }
                         else if (mode == "subjonctif")
                         {
-                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
-                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
-                                Console.WriteLine("que j'" + verbeConjugue.Conjugate("1", temps, mode).Verb);
+                            verbe = verbe.Conjugate("1", temps, mode);
+                            if (verbe.Verbe != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verbe[0]))
+                                Console.WriteLine("que j'" + verbe.Conjugate("1", temps, mode).Verbe);
                             else
-                                Console.WriteLine("que je " + verbeConjugue.Conjugate("1", temps, mode).Verb);
-                            Console.WriteLine("que tu " + verbeConjugue.Conjugate("2", temps, mode).Verb);
-                            Console.WriteLine("qu'il " + verbeConjugue.Conjugate("3", temps, mode).Verb);
-                            Console.WriteLine("que nous " + verbeConjugue.Conjugate("4", temps, mode).Verb);
-                            Console.WriteLine("que vous " + verbeConjugue.Conjugate("5", temps, mode).Verb);
-                            Console.WriteLine("qu'ils " + verbeConjugue.Conjugate("6", temps, mode).Verb);
+                                Console.WriteLine("que je " + verbe.Conjugate("1", temps, mode).Verbe);
+                            Console.WriteLine("que tu " + verbe.Conjugate("2", temps, mode).Verbe);
+                            Console.WriteLine("qu'il " + verbe.Conjugate("3", temps, mode).Verbe);
+                            Console.WriteLine("que nous " + verbe.Conjugate("4", temps, mode).Verbe);
+                            Console.WriteLine("que vous " + verbe.Conjugate("5", temps, mode).Verbe);
+                            Console.WriteLine("qu'ils " + verbe.Conjugate("6", temps, mode).Verbe);
                         }
                         else if (mode == "participe")
                         {
-                            Console.WriteLine(verbeConjugue.Conjugate("1", temps, mode).Verb);
+                            Console.WriteLine(verbe.Conjugate("1", temps, mode).Verbe);
                         }
                         else
                         {
-                            ConjugatedVerb verbe = verbeInfinitif.Conjugate("1", temps, mode);
-                            if (verbe.Verb != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verb[0]))
-                                Console.WriteLine("J'" + verbeConjugue.Conjugate("1", temps, mode).Verb);
+                            verbe = verbe.Conjugate("1", temps, mode);
+                            if (verbe.Verbe != "" && new char[] { 'a', 'e', 'i', 'o', 'u', 'y' }.Contains(verbe.Verbe[0]))
+                                Console.WriteLine("J'" + verbe.Conjugate("1", temps, mode).Verbe);
                             else
-                                Console.WriteLine("Je " + verbeConjugue.Conjugate("1", temps, mode).Verb);
-                            Console.WriteLine("Tu " + verbeConjugue.Conjugate("2", temps, mode).Verb);
-                            Console.WriteLine("Il " + verbeConjugue.Conjugate("3", temps, mode).Verb);
-                            Console.WriteLine("Nous " + verbeConjugue.Conjugate("4", temps, mode).Verb);
-                            Console.WriteLine("Vous " + verbeConjugue.Conjugate("5", temps, mode).Verb);
-                            Console.WriteLine("Ils " + verbeConjugue.Conjugate("6", temps, mode).Verb);
+                                Console.WriteLine("Je " + verbe.Conjugate("1", temps, mode).Verbe);
+                            Console.WriteLine("Tu " + verbe.Conjugate("2", temps, mode).Verbe);
+                            Console.WriteLine("Il " + verbe.Conjugate("3", temps, mode).Verbe);
+                            Console.WriteLine("Nous " + verbe.Conjugate("4", temps, mode).Verbe);
+                            Console.WriteLine("Vous " + verbe.Conjugate("5", temps, mode).Verbe);
+                            Console.WriteLine("Ils " + verbe.Conjugate("6", temps, mode).Verbe);
                         }
                     }
                     Console.WriteLine();

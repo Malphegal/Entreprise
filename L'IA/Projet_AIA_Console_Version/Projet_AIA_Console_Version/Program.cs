@@ -19,7 +19,7 @@ namespace Projet_AIA_Console_Version
             Console.WriteLine();
             Console.WriteLine("\t\t\t========== PROJET AIA ==========\n\n");
             Console.WriteLine(" Quel programme de test souhaitez-vous lancer ?\n (Entrez le numéro correspondant)\n");
-            Console.WriteLine("\t1 - Verbe \t2 - Nom \t3 - Adjectif \t4 - Phrase \t5 - Déterminant \n\t6 - Remplissage table VerbesInfinitifs");
+            Console.WriteLine("\t1 - Verbe \t2 - Nom \t3 - Adjectif \t4 - Phrase \t5 - Déterminant \n");
             switch (int.Parse(Console.ReadLine()))
             {
                 case (1):
@@ -41,10 +41,6 @@ namespace Projet_AIA_Console_Version
                 case (5):
                     Console.Clear();
                     Test_Determinants.Test_Determinant();
-                    break;
-                case (6):
-                    Console.Clear();
-                    Natures_Grammaticales.Divers.RemplissageAuto.InsertInfinitiveToDb();
                     break;
                 default:
                     Console.WriteLine("Erreur : Veuillez entrer un numéro valide");
