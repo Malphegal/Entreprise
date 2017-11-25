@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Projet_AIA_Console_Version.Natures_Grammaticales
 {
-    abstract class Mot
+    public abstract class Word
     {
+            // PROPRIETES
 
+        public string Nature    { get; protected set; } // La nature grammaticale du mot
     }
 }

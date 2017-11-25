@@ -1,5 +1,5 @@
 ﻿using System;
-using static Projet_AIA_Console_Version.Adjectives;
+using static Projet_AIA_Console_Version.Adjective;
 
 namespace Projet_AIA_Console_Version
 {
@@ -16,11 +16,11 @@ namespace Projet_AIA_Console_Version
                 resQueFaire = "";
                 Console.Write("Adjectif ?\t");
                 Adjective adjective = new Adjective(Console.ReadLine());
-                if (adjective.gender == "M")
+                if (adjective.Gender == "M")
                     resGenre = "masculin";
                 else
                     resGenre = "féminin";
-                if (adjective.number == "S")
+                if (adjective.Number == "S")
                     resNombre = "singulier";
                 else
                     resNombre = "pluriel";
@@ -32,21 +32,21 @@ namespace Projet_AIA_Console_Version
                     resQueFaire = Console.ReadLine();
 
                     if (resQueFaire.Contains("masculin singulier"))
-                        Console.WriteLine("Masculin singulier : " + adjective.toMaleSingular());
+                        Console.WriteLine("Masculin singulier : " + MaleSingularOf(adjective));
                     else if (resQueFaire.Contains("masculin pluriel"))
-                        Console.WriteLine("Masculin pluriel : " + adjective.toMalePlurial());
+                        Console.WriteLine("Masculin pluriel : " + MalePlurialOf(adjective));
                     else if (resQueFaire.Contains("féminin singulier"))
-                        Console.WriteLine("Féminin singulier : " + adjective.toFemaleSingular());
+                        Console.WriteLine("Féminin singulier : " + FemaleSingularOf(adjective));
                     else if (resQueFaire.Contains("féminin pluriel"))
-                        Console.WriteLine("Féminin pluriel : " + adjective.toFemalePlurial());
+                        Console.WriteLine("Féminin pluriel : " + FemalePlurialOf(adjective));
                     else if (resQueFaire.Contains("singulier"))
-                        Console.WriteLine("Singulier : " + adjective.toSingular());
+                        Console.WriteLine("Singulier : " + SingularOf(adjective));
                     else if (resQueFaire.Contains("pluriel"))
-                        Console.WriteLine("Pluriel : " + adjective.toPlurial());
+                        Console.WriteLine("Pluriel : " + PlurialOf(adjective));
                     else if (resQueFaire.Contains("masculin"))
-                        Console.WriteLine("Masculin : " + adjective.toMale());
+                        Console.WriteLine("Masculin : " + MaleOf(adjective));
                     else if (resQueFaire.Contains("féminin"))
-                        Console.WriteLine("Féminin : " + adjective.toFemale());
+                        Console.WriteLine("Féminin : " + FemaleOf(adjective));
 
                     Console.WriteLine("");
 

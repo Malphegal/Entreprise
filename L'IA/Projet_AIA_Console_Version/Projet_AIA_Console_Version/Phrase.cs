@@ -8,6 +8,7 @@ using System.Data.OleDb;
 using CMD = System.Data.OleDb.OleDbCommand;
 using CON = System.Data.OleDb.OleDbConnection;
 using Projet_AIA_Console_Version.Natures_Grammaticales;
+using Projet_AIA_Console_Version.Natures_Grammaticales.Invariables;
 
 namespace Projet_AIA_Console_Version
 {
@@ -133,7 +134,7 @@ namespace Projet_AIA_Console_Version
             return lesPhrases;
         }
 
-        public static void DeterminerLesNatures(List<List<object[]>> laPhrase)
+        public static List<Word> DeterminerLesNatures(List<List<object[]>> laPhrase)
         {
             int i;
             string motCourant;
@@ -174,61 +175,66 @@ namespace Projet_AIA_Console_Version
 
                     // VERBES INFINITIFS
                     rechercheDansTable("VerbesInfinitifs", i, motCourant, laPhrase);
+                }
 
-                    // VERBES CONJUGUÉS et NOMS et ADJECTIFS
-                    if (laPhrase[i].Count == 1) // car si le mot est déjà d'une autre nature, il ne peut pas être un verbe, un nom ou un adjectif
+                // VERBES CONJUGUÉS et NOMS et ADJECTIFS
+                if (laPhrase[i].Count == 1) // car si le mot est déjà d'une autre nature, il ne peut pas être un verbe, un nom ou un adjectif
+                {
+                    // Verbe
+                    rechercheDansTable("VerbesConjugues", i, motCourant, laPhrase);
+                    // Nom
+                    rechercheDansTable("Noms", i, motCourant, laPhrase);
+                    // Adjectif
+                    rechercheDansTable("Adjectifs", i, motCourant, laPhrase);
+                }
+                // Si on a rien trouvé, et que le mot courant n'a toujours pas de nature attribuée
+                if (laPhrase[i].Count == 1 && i > 0)    // on teste i > 0 pour éviter les IndexOutOfRangeException avec laPhrase[i - 1]
+                {
+                    // Verbe infinitif
+                    // Si le mot courant termine par "er" ou "ir", il a de grandes chances d'être un verbe à l'infinitif.
+                    if (motCourant.EndsWith("er") || motCourant.EndsWith("ir"))
+                        laPhrase[i].Add(new object[] { "VerbesInfinitifs", 2 });
+
+                    // Verbe conjugué
+                    // Si le mot précédent est un pronom ou un nom, alors le mot courant peut être un verbe
+                    if (laPhrase[i - 1].Count > 1 && new string[] { "Pronoms", "Noms" }.Contains(laPhrase[i - 1][1][0] as string))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 1 });
+
+                    // Nom
+                    // Si le mot précédent est un déterminant, alors le mot courant peut être un nom
+                    //var testMotPrecedent = (from item in laPhrase[i - 1] where (string)item[0] == "Determinants" select item);
+                    if (laPhrase[i - 1].Exists(item => (string)item[0] == "Determinants"))
+                        laPhrase[i].Add(new object[] { "Noms", 1 });
+
+                    // Adjectif
+                    // Si le mot précédent est un nom
+                    // OU si le mot précédent est une des conjugaisons du verbe être
+                    // ALORS le mot courant peut être un adjectif.
+                    if (laPhrase[i - 1].Exists(item => (string)item[0] == "Noms")
+                        || (lesData.Tables["VerbesConjugues"].AsEnumerable()
+                        .Where(x => x["Infinitif"] as string == "être").AsEnumerable()
+                        .Any(c => c["Verbe"].ToString() == laPhrase[i - 1][0][0].ToString())))
                     {
-                        // Verbe
-                        rechercheDansTable("VerbesConjugues", i, motCourant, laPhrase);
-                        // Nom
-                        rechercheDansTable("Noms", i, motCourant, laPhrase);
-                        // Adjectif
-                        rechercheDansTable("Adjectifs", i, motCourant, laPhrase);
+                        laPhrase[i].Add(new object[] { "Adjectifs", 1 });
                     }
-                    // Si on a rien trouvé, et que le mot courant n'a toujours pas de nature attribuée
-                    if (laPhrase[i].Count == 1 && i > 0)    // on teste i > 0 pour éviter les IndexOutOfRangeException avec laPhrase[i - 1]
-                    {
-                        // Verbe
-                        // Si le mot précédent est un pronom ou un nom, alors le mot courant peut être un verbe
-                        if (laPhrase[i - 1].Count > 1 && new string[] { "Pronoms", "Noms" }.Contains(laPhrase[i - 1][1][0] as string))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 1 });
 
-                        // Nom
-                        // Si le mot précédent est un déterminant, alors le mot courant peut être un nom
-                        //var testMotPrecedent = (from item in laPhrase[i - 1] where (string)item[0] == "Determinants" select item);
-                        if (laPhrase[i - 1].Exists(item => (string)item[0] == "Determinants"))
-                            laPhrase[i].Add(new object[] { "Noms", 1 });
+                    // Participe présent
+                    // Si le mot courant termine par "-ant", alors il peut être un participe présent.
+                    if (motCourant.Length > 3 && motCourant.EndsWith("ant"))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
 
-                        // Adjectif
-                        // Si le mot précédent est un nom
-                        // OU si le mot précédent est une des conjugaisons du verbe être
-                        // ALORS le mot courant peut être un adjectif.
-                        if (laPhrase[i - 1].Exists(item => (string)item[0] == "Noms")
-                            || (lesData.Tables["VerbesConjugues"].AsEnumerable()
-                            .Where(x => x["Infinitif"] as string == "être").AsEnumerable()
-                            .Any(c => c["Verbe"].ToString() == laPhrase[i - 1][0][0].ToString())))
-                        {
-                            laPhrase[i].Add(new object[] { "Adjectifs", 1 });
-                        }
-
-                        // Participe présent
-                        // Si le mot courant termine par "-ant", alors il peut être un participe présent.
-                        if (motCourant.Length > 3 && motCourant.EndsWith("ant"))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
-
-                        // Participe passé
-                        // Si le mot courant termine par "-é", "-i" ou "u", alors il peut être un participe passé.
-                        if (motCourant.Length > 2 && motCourant.EndsWith("é"))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
-                        else if (motCourant.Length > 2 && motCourant.EndsWith("i"))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
-                        else if (motCourant.Length > 2 && motCourant.EndsWith("u"))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
-                        else if (motCourant.Length > 3 && (motCourant.EndsWith("és") || motCourant.EndsWith("ée") || motCourant.EndsWith("ées")
-                                || motCourant.EndsWith("is") || motCourant.EndsWith("ie") || motCourant.EndsWith("ies")
-                                || motCourant.EndsWith("us") || motCourant.EndsWith("ue") || motCourant.EndsWith("ues")))
-                            laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
-                    }
+                    // Participe passé
+                    // Si le mot courant termine par "-é", "-i" ou "u", alors il peut être un participe passé.
+                    if (motCourant.Length > 2 && motCourant.EndsWith("é"))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                    else if (motCourant.Length > 2 && motCourant.EndsWith("i"))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                    else if (motCourant.Length > 2 && motCourant.EndsWith("u"))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
+                    else if (motCourant.Length > 3 && (motCourant.EndsWith("és") || motCourant.EndsWith("ée") || motCourant.EndsWith("ées")
+                            || motCourant.EndsWith("is") || motCourant.EndsWith("ie") || motCourant.EndsWith("ies")
+                            || motCourant.EndsWith("us") || motCourant.EndsWith("ue") || motCourant.EndsWith("ues")))
+                        laPhrase[i].Add(new object[] { "VerbesConjugues", 0 });
 
                     // ADVERBES
                     // Comme la table Adverbes ne contient pas tous les adverbes existants
@@ -259,7 +265,7 @@ namespace Projet_AIA_Console_Version
             // des mots variables et la personne (+ nombre) et le temps des verbes. On stocke ces informations en transformant
             // chaque string contenant un mot de la phrase en type correspondant à sa nature (structure)
 
-            List<object> phrase = new List<object>();
+            List<Word> phrase = new List<Word>();
 
             for (i = 0; i < laPhrase.Count; i++) // Pour chaque mot de la phrase...
             {
@@ -270,14 +276,14 @@ namespace Projet_AIA_Console_Version
                     switch (laPhrase[i][1][0] as string)   // laPhrase[i][1][0] → correspond à la nature
                     {
                         case "Noms":
-                            phrase.Add(new Names.Name((string)laPhrase[i][0][0]));
+                            phrase.Add(new Name((string)laPhrase[i][0][0]));
                             break;
                         case "Adjectifs":
-                            phrase.Add(new Adjectives.Adjective((string)laPhrase[i][0][0]));
+                            phrase.Add(new Adjective((string)laPhrase[i][0][0]));
                             break;
                         case "VerbesConjugues":
                             // On traite les verbes conjugués à des temps composés
-                            if (phrase.Last().GetType().Name == "ConjugatedVerb")
+                            if (phrase.Count > 0 && phrase.Last().Nature == "verbe conjugué")
                             {
                                 ConjugatedVerb auxiliaire = (ConjugatedVerb)phrase.Last();
                                 if (new string[] { "être", "avoir" }.Contains(auxiliaire.Action))
@@ -294,30 +300,35 @@ namespace Projet_AIA_Console_Version
                             phrase.Add(new InfinitiveVerb((string)laPhrase[i][0][0]));
                             break;
                         case "Determinants":
-                            phrase.Add(new Determiners.Determiner((string)laPhrase[i][0][0]));
+                            phrase.Add(new Determiner((string)laPhrase[i][0][0]));
                             break;
                         case "Pronoms":
-                            phrase.Add(new Pronouns.Pronoun((string)laPhrase[i][0][0]));
+                            phrase.Add(new Pronoun((string)laPhrase[i][0][0]));
                             break;
                         case "Adverbes":
-                            phrase.Add(new InvariableNatures.Adverbe((string)laPhrase[i][0][0]));
+                            phrase.Add(new Adverbe((string)laPhrase[i][0][0]));
                             break;
                         case "ConjDeCoords":
-                            phrase.Add(new InvariableNatures.ConjDeCoord((string)laPhrase[i][0][0]));
+                            phrase.Add(new ConjDeCoord((string)laPhrase[i][0][0]));
                             break;
                         case "ConjDeSubs":
-                            phrase.Add(new InvariableNatures.ConjDeSub((string)laPhrase[i][0][0]));
+                            phrase.Add(new ConjDeSub((string)laPhrase[i][0][0]));
                             break;
                         case "Prepositions":
-                            phrase.Add(new InvariableNatures.Preposition((string)laPhrase[i][0][0]));
+                            phrase.Add(new Preposition((string)laPhrase[i][0][0]));
+                            break;
+                        default:
+                            phrase.Add(new UnknowWord((string)laPhrase[i][0][0]));
                             break;
                     }
                 }
+                else
+                    phrase.Add(new UnknowWord((string)laPhrase[i][0][0]));
             }
 
             // 
 
-
+            return phrase;
         }
 
         // Procédure utilisée par la fonction DeterminerLesNatures (ci-dessus)

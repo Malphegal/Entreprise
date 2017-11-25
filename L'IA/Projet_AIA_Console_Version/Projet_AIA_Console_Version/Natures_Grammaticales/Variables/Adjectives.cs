@@ -1,249 +1,319 @@
-﻿using System.Data;
+﻿using Projet_AIA_Console_Version.Natures_Grammaticales;
+using System.Data;
 
 namespace Projet_AIA_Console_Version
 {
-    static class Adjectives
+    class Adjective : VariableWord
     {
+            // CHAMPS
+
         static private string[] infoAdjectif = null;    // Tableau contenant les informations de l'adjectif en cours de traitement.
+        private string _adjectif;
 
-        // ------ STRUCTURES ------
+            // CONSTRUCTEUR
 
-        // Adjective
-        public struct Adjective
+        // Constructeur appelé par la phrase lorsque celle-ci ne permet pas de déterminer le nombre et le genre
+        // de l'adjectif.
+        public Adjective(string adjective)
         {
-            public const string nature = "adjectif";
-            public string adjective { get; private set; }
-            public string gender { get; private set; }
-            public readonly string genderBase;
-            public string number { get; private set; }
-            public readonly string numberBase;
-
-            // Constructeur appelé par la phrase lorsque celle-ci ne permet pas de déterminer le nombre et le genre
-            // de l'adjectif.
-            public Adjective(string adjective)
-            {
-                infoAdjectif = null;
-                this.adjective = adjective;
+            infoAdjectif = null;
+            this._adjectif = adjective;
+            this.Nature = "adjectif";
                 
-                if (estConnu(adjective))
+            if (estConnu(adjective))
+            {
+                this.Gender = infoAdjectif[0];
+                this.Number = infoAdjectif[1];
+            }
+            else
+            {
+                this.Gender = genderOf(adjective);
+                this.Number = numberOf(adjective);
+            }
+            this.GenderBase = this.Gender;
+            this.NumberBase = this.Number;
+        }
+
+        // Constructeur appelé par la phrase lorsque celle-ci permet déjà de déterminer le nombre et le genre
+        // de l'adjectif.
+        public Adjective(string adjective, string number, string gender)
+        {
+            infoAdjectif = null;
+            this._adjectif = adjective;
+            this.Gender = gender;
+            this.GenderBase = gender;
+            this.Number = number;
+            this.NumberBase = number;
+            this.Nature = "adjectif";
+        }
+
+        // Constructeur créant une copie distincte de l'adjectif passé en paramètre.
+        public Adjective(Adjective adjectif)
+        {
+            infoAdjectif = null;
+            this._adjectif = adjectif._adjectif;
+            this.Gender = adjectif.Gender;
+            this.GenderBase = adjectif.GenderBase;
+            this.Nature = "adjectif";
+            this.Number = adjectif.Number;
+            this.NumberBase = adjectif.NumberBase;
+        }
+
+
+            // METHODES
+
+        // Transforme l'adjectif sous la forme d'un masculin singulier.
+        public void ToMaleSingular()
+        {
+            // Si l'adjectif est connu...
+            if (estConnu(this._adjectif))
+            {
+                // On parcourt la table des accords des adjectifs.
+                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    this.gender = infoAdjectif[0];
-                    this.number = infoAdjectif[1];
-                }
-                else
-                {
-                    this.gender = genderOf(adjective);
-                    this.number = numberOf(adjective);
-                }
-                this.genderBase = this.gender;
-                this.numberBase = this.number;
-            }
-
-            // Constructeur appelé par la phrase lorsque celle-ci permet déjà de déterminer le nombre et le genre
-            // de l'adjectif.
-            public Adjective(string adjective, string number, string gender)
-            {
-                infoAdjectif = null;
-                this.adjective = adjective;
-                this.gender = gender;
-                this.genderBase = gender;
-                this.number = number;
-                this.numberBase = number;
-            }
-
-            // ------ INSTANCE METHODS ------
-
-            public bool isSingular()
-            {
-                return this.number == "S";
-            }
-
-            public bool isPlurial()
-            {
-                return this.number == "P";
-            }
-
-            public bool isMale()
-            {
-                return this.gender == "M";
-            }
-
-            public bool isFemale()
-            {
-                return this.gender == "F";
-            }
-
-            public string toMaleSingular()
-            {
-                if (estConnu(this.adjective))
-                {
-                    for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                    // Si on a trouvé l'adjectif...
+                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        if (this.adjective == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.gender + this.number])
-                        {
-                            this.adjective = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MS"];
-                            break;
-                        }
+                        // On modifie sa valeur et on sort de la boucle.
+                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MS"];
+                        break;
                     }
                 }
-                else
-                {
-                    if (this.gender == "M" && this.number == "P")
-                        this.adjective = Adjectives.plurialToSingular(this.adjective);
-                    else if (this.gender == "F" && this.number == "S")
-                        this.adjective = Adjectives.femaleToMale(this.adjective);
-                    else if (this.gender == "F" && this.number == "P")
-                        this.adjective = Adjectives.femaleToMale(Adjectives.plurialToSingular(this.adjective));
-                }
-
-                this.gender = "M";
-                this.number = "S";
-                return this.adjective;
+            }
+            // Sinon, si l'adjectif n'est pas connu...
+            else
+            {
+                if (this.Gender == "M" && this.Number == "P")
+                    this._adjectif = plurialToSingular(this._adjectif);
+                else if (this.Gender == "F" && this.Number == "S")
+                    this._adjectif = femaleToMale(this._adjectif);
+                else if (this.Gender == "F" && this.Number == "P")
+                    this._adjectif = femaleToMale(plurialToSingular(this._adjectif));
             }
 
-            public string toMalePlurial()
+            // On modifie les valeurs du genre et du nombre.
+            this.Gender = "M";
+            this.Number = "S";
+        }
+
+        // Transforme l'adjectif sous la forme d'un masculin pluriel.
+        public void ToMalePlurial()
+        {
+            // Si l'adjectif est connu...
+            if (estConnu(this._adjectif))
             {
-                if (estConnu(this.adjective))
+                // On parcourt la table des accords des adjectifs.
+                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                    // Si on a trouvé l"adjectif...
+                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        if (this.adjective == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.gender + this.number])
-                        {
-                            this.adjective = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MP"];
-                            break;
-                        }
+                        // On modifie sa valeur et on sort de la boucle.
+                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MP"];
+                        break;
                     }
                 }
-                else
-                {
-                    if (this.gender == "M" && this.number == "S")
-                        this.adjective = Adjectives.singularToPlurial(this.adjective);
-                    else if (this.gender == "F" && this.number == "P")
-                        this.adjective = Adjectives.singularToPlurial(Adjectives.femaleToMale(Adjectives.plurialToSingular(this.adjective)));
-                    else if (this.gender == "F" && this.number == "S")
-                        this.adjective = Adjectives.singularToPlurial(Adjectives.femaleToMale(this.adjective));
-                }
-
-                this.gender = "M";
-                this.number = "P";
-                return this.adjective;
+            }
+            // Sinon, si l'adjectif n'est pas connu...
+            else
+            {
+                if (this.Gender == "M" && this.Number == "S")
+                    this._adjectif = singularToPlurial(this._adjectif);
+                else if (this.Gender == "F" && this.Number == "P")
+                    this._adjectif = singularToPlurial(femaleToMale(plurialToSingular(this._adjectif)));
+                else if (this.Gender == "F" && this.Number == "S")
+                    this._adjectif = singularToPlurial(femaleToMale(this._adjectif));
             }
 
-            public string toFemaleSingular()
+            // On modifie les valeurs du genre et du nombre.
+            this.Gender = "M";
+            this.Number = "P";
+        }
+
+        // Transforme l'adjectif sous la forme d'un féminin singulier.
+        public void ToFemaleSingular()
+        {
+            if (estConnu(this._adjectif))
             {
-                if (estConnu(this.adjective))
+                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        if (this.adjective == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.gender + this.number])
-                        {
-                            this.adjective = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FS"];
-                            break;
-                        }
+                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FS"];
+                        break;
                     }
                 }
-                else
-                {
-                    if (this.gender == "F" && this.number == "P")
-                        this.adjective = Adjectives.plurialToSingular(this.adjective);
-                    else if (this.gender == "M" && this.number == "S")
-                        this.adjective = Adjectives.maleToFemale(this.adjective);
-                    else if (this.gender == "M" && this.number == "P")
-                        this.adjective = Adjectives.maleToFemale(Adjectives.plurialToSingular(this.adjective));
-                }
-
-                this.gender = "F";
-                this.number = "S";
-                return this.adjective;
+            }
+            else
+            {
+                if (this.Gender == "F" && this.Number == "P")
+                    this._adjectif = plurialToSingular(this._adjectif);
+                else if (this.Gender == "M" && this.Number == "S")
+                    this._adjectif = maleToFemale(this._adjectif);
+                else if (this.Gender == "M" && this.Number == "P")
+                    this._adjectif = maleToFemale(plurialToSingular(this._adjectif));
             }
 
-            public string toFemalePlurial()
+            this.Gender = "F";
+            this.Number = "S";
+        }
+
+        // Transforme l'adjectif sous la forme d'un féminin pluriel.
+        public void ToFemalePlurial()
+        {
+            if (estConnu(this._adjectif))
             {
-                if (estConnu(this.adjective))
+                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        if (this.adjective == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.gender + this.number])
-                        {
-                            this.adjective = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FP"];
-                            break;
-                        }
+                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FP"];
+                        break;
                     }
                 }
-                else
-                {
-                    if (this.gender == "F" && this.number == "S")
-                        this.adjective = Adjectives.singularToPlurial(this.adjective);
-                    else if (this.gender == "M" && this.number == "P")
-                        this.adjective = Adjectives.singularToPlurial(Adjectives.maleToFemale(Adjectives.plurialToSingular(this.adjective)));
-                    else if (this.gender == "M" && this.number == "S")
-                        this.adjective = Adjectives.singularToPlurial(Adjectives.maleToFemale(this.adjective));
-                }
-
-                this.gender = "F";
-                this.number = "P";
-                return this.adjective;
+            }
+            else
+            {
+                if (this.Gender == "F" && this.Number == "S")
+                    this._adjectif = singularToPlurial(this._adjectif);
+                else if (this.Gender == "M" && this.Number == "P")
+                    this._adjectif = singularToPlurial(maleToFemale(plurialToSingular(this._adjectif)));
+                else if (this.Gender == "M" && this.Number == "S")
+                    this._adjectif = singularToPlurial(maleToFemale(this._adjectif));
             }
 
-            public string toSingular()
-            {
-                if (this.number == "P")
-                {
-                    if (this.gender == "M")
-                        return this.toMaleSingular();
-                    else
-                        return this.toFemaleSingular();
-                }
-                else
-                    return this.adjective;
-            }
+            this.Gender = "F";
+            this.Number = "P";
+        }
 
-            public string toPlurial()
+        // Transforme l'adjectif sous la forme d'un singulier du même genre.
+        public void ToSingular()
+        {
+            // Si l'adjectif est un pluriel...
+            if (this.Number == "P")
             {
-                if (this.number == "S")
-                {
-                    if (this.gender == "M")
-                        return this.toMalePlurial();
-                    else
-                        return this.toFemalePlurial();
-                }
+                // Si l'adjectif est un masculin...
+                if (this.Gender == "M")
+                    // On le transforme en masculin singulier.
+                    this.ToMaleSingular();
+                // Sinon, si l'adjectif est un féminin...
                 else
-                    return this.adjective;
-            }
-
-            public string toMale()
-            {
-                if (this.gender == "F")
-                {
-                    if (this.number == "S")
-                        return this.toMaleSingular();
-                    else
-                        return this.toMalePlurial();
-                }
-                else
-                    return this.adjective;
-            }
-
-            public string toFemale()
-            {
-                if (this.gender == "M")
-                {
-                    if (this.number == "S")
-                        return this.toFemaleSingular();
-                    else
-                        return this.toFemalePlurial();
-                }
-                else
-                    return this.adjective;
-            }
-
-            public override string ToString()
-            {
-                return this.adjective;
+                    // On le transforme en un féminin singulier.
+                    this.ToFemaleSingular();
             }
         }
 
-        // ------ CLASS METHODS ------
+        // Transforme l'adjectif sous la forme d'un pluriel du même genre.
+        public void ToPlurial()
+        {
+            if (this.Number == "S")
+            {
+                if (this.Gender == "M")
+                    this.ToMalePlurial();
+                else
+                    this.ToFemalePlurial();
+            }
+        }
+
+        // Transforme l'adjectif sous la forme d'un masculin du même nombre.
+        public void ToMale()
+        {
+            if (this.Gender == "F")
+            {
+                if (this.Number == "S")
+                    this.ToMaleSingular();
+                else
+                    this.ToMalePlurial();
+            }
+        }
+
+        // Transforme l'adjectif sous la forme d'un féminin du même nombre.
+        public void ToFemale()
+        {
+            if (this.Gender == "M")
+            {
+                if (this.Number == "S")
+                    this.ToFemaleSingular();
+                else
+                    this.ToFemalePlurial();
+            }
+        }
+
+        public override string ToString()
+        {
+            return this._adjectif;
+        }
+
+
+            // METHODES STATIC
+
+        // PUBLIC
+
+        // Renvoie une string correspondant au masculin singulier de l'adjectif passé en paramètre.
+        public static string MaleSingularOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToMaleSingular();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au masculin pluriel de l'adjectif passé en paramètre.
+        public static string MalePlurialOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToMalePlurial();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au féminin singulier de l'adjectif passé en paramètre.
+        public static string FemaleSingularOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToFemaleSingular();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au féminin pluriel de l'adjectif passé en paramètre.
+        public static string FemalePlurialOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToFemalePlurial();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au singulier de l'adjectif passé en paramètre.
+        public static string SingularOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToSingular();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au pluriel de l'adjectif passé en paramètre.
+        public static string PlurialOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToPlurial();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au masculin de l'adjectif passé en paramètre.
+        public static string MaleOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToMale();
+            return a._adjectif;
+        }
+
+        // Renvoie une string correspondant au féminin de l'adjectif passé en paramètre.
+        public static string FemaleOf(Adjective adjectif)
+        {
+            Adjective a = new Adjective(adjectif);
+            a.ToFemale();
+            return a._adjectif;
+        }
+
+        // PRIVATE
 
         // Renvoie le genre de l'adjectif (M si masculin, F si féminin)
         private static string genderOf(string adjectiveArg)

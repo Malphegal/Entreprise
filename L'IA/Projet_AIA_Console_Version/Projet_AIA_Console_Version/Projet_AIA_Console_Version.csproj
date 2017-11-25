@@ -43,22 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Natures_Grammaticales\Adjectives.cs" />
-    <Compile Include="Natures_Grammaticales\ConjugatedVerb.cs" />
-    <Compile Include="Natures_Grammaticales\Determiners.cs" />
+    <Compile Include="Natures_Grammaticales\Invariables\InvariableWord.cs" />
+    <Compile Include="Natures_Grammaticales\UnknowWord.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Adjectives.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Verbes\ConjugatedVerb.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Determiner.cs" />
     <Compile Include="Natures_Grammaticales\Divers\AjoutAutomatiqueVerbe.cs" />
     <Compile Include="Natures_Grammaticales\Divers\RemplissageAuto.cs" />
-    <Compile Include="Natures_Grammaticales\InfinitiveVerb.cs" />
-    <Compile Include="Natures_Grammaticales\InvariableNatures.cs" />
-    <Compile Include="Natures_Grammaticales\Mot.cs" />
-    <Compile Include="Natures_Grammaticales\Names.cs" />
-    <Compile Include="Natures_Grammaticales\Pronouns.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Verbes\InfinitiveVerb.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\VariableWord.cs" />
+    <Compile Include="Natures_Grammaticales\Word.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Name.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Pronouns.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Adjectifs.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Determinants.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Noms.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Phrases.cs" />
     <Compile Include="Natures_Grammaticales\Tests\Test_Verbes.cs" />
-    <Compile Include="Natures_Grammaticales\Verb.cs" />
+    <Compile Include="Natures_Grammaticales\Variables\Verbes\Verb.cs" />
     <Compile Include="Phrase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +68,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

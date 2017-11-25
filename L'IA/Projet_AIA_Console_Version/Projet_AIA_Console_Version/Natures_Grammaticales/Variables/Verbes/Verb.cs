@@ -8,76 +8,79 @@ using System.Threading.Tasks;
 
 namespace Projet_AIA_Console_Version
 {
-    public abstract class Verb
+    public abstract class Verb : VariableWord
     {
+            // CHAMPS
+
         static protected string[] infoVerbe = null;    // Tableau contenant les informations du verbe en cours de traitement.
+        protected string _verbe;
 
-        // CHAMPS
-        public string Nature { get; protected set; }
-        public string Verbe { get; protected set; }   // Le verbe conjugué
-        public string Action { get; protected set; }  // L'infinitif du verbe et l'action effectuée
-        public string Group { get; protected set; }   // Le groupe du verbe
-        public byte auxAvoir;
-        public byte auxEtre;
-        public byte nonPronominale;
-        public byte pronominale;
-        public string transitif;
-        public byte intransitif;
+            // PROPRIETES
 
-        // CONSTRUCTOR
+        public string Action        { get; protected set; } // L'infinitif du verbe et l'action effectuée
+        public string Group         { get; protected set; } // Le groupe du verbe
+        public byte AuxAvoir        { get; protected set; }
+        public byte AuxEtre         { get; protected set; }
+        public byte NonPronominale  { get; protected set; }
+        public byte Pronominale     { get; protected set; }
+        public string Transitif     { get; protected set; }
+        public byte Intransitif     { get; protected set; }
+
+
+            // CONSTRUCTEUR
 
         public Verb()
         { }
 
 
-        // METHODS
+            // METHODES
 
         // Renvoie true si peut utiliser l'auxiliaire avoir.
         public bool CanUseAvoir()
         {
-            return this.auxAvoir == 1;
+            return this.AuxAvoir == 1;
         }
 
         // Renvoie true si peut utiliser l'auxiliaire être.
         public bool CanUseEtre()
         {
-            return this.auxEtre == 1;
+            return this.AuxEtre == 1;
         }
 
         // Renvoie true si peut être de forme non pronominale.
         public bool isNonPronominale()
         {
-            return this.nonPronominale == 1;
+            return this.NonPronominale == 1;
         }
 
         // Renvoie true si peut être de forme pronominale.
         public bool isPronominale()
         {
-            return this.pronominale == 1;
+            return this.Pronominale == 1;
         }
 
         // Renvoie true si peut être transitif.
         public bool isTransitif()
         {
-            return this.transitif != "null";
+            return this.Transitif != "null";
         }
 
         // Renvoie true si peut être intransitif.
         public bool isIntransitif()
         {
-            return this.intransitif == 1;
+            return this.Intransitif == 1;
         }
 
         // Renvoie true si peut être transitif direct.
         public bool isTransitifDirect()
         {
-            return this.transitif == "direct" || this.transitif == "both";
+            return this.Transitif == "direct" || this.Transitif == "both";
         }
 
         // Renvoie true si peut être transitif indirect.
         public bool isTransitifIndirect()
         {
-            return this.transitif == "indirect" || this.transitif == "both";
+            return this.Transitif == "indirect" || this.Transitif == "both";
         }
 
         // Renvoie le participe présent du verbe.
@@ -89,27 +92,174 @@ namespace Projet_AIA_Console_Version
         // Renvoie l'auxiliaire utilisé dans la conjugaison du verbe aux temps composés (avoir ou être).
         public string GetAuxiliaire()
         {
-            if (this.auxAvoir == 1)
+            if (this.AuxAvoir == 1)
                 return "avoir";
-            else if (this.auxEtre == 1)
+            else if (this.AuxEtre == 1)
                 return "être";
             else
                 return "";
         }
 
-        // Transforme le verbe entré en paramètre en un verbe à l'infinitif.
-        public abstract Verb ToInfinitive(Verb verbe);
-
-        // Conjugue le verbe à la personne et au temps donnés en paramètre.
-        public abstract Verb Conjugate(string person, string time, string mode);
-
         public override string ToString()
         {
-            return this.Verbe;
+            return this._verbe;
         }
 
 
-            // CLASS METHODS
+            // METHODES DE CLASSE
+
+        // Conjugue le verbe conjugué à la personne et au temps entrés en paramètre.
+        public static string ConjugationOf(Verb verbe, string person, string time, string mode)
+        {
+            // On déclare un objet InfinitiveVerb sur lequel on effectuera les modifications afin de ne pas modifier le verbe entré en paramètre.
+            InfinitiveVerb verbeInfinitif;
+            // Cas où le verbe entré en paramètre est un verbe conjugué.
+            if (verbe.Nature == "verbe conjugué")
+                verbeInfinitif = new InfinitiveVerb(verbe.Action, verbe.Group, verbe.AuxAvoir, verbe.AuxEtre, verbe.NonPronominale,
+                    verbe.Pronominale, verbe.Transitif, verbe.Intransitif);
+            // Cas où le verbe entré en paramètre est un infinitif.
+
+            else
+                verbeInfinitif = (InfinitiveVerb)verbe;
+            // ----- Cas des temps non composés -----
+            if (new string[] { "présent", "imparfait", "passé simple", "futur simple" }.Contains(time) || mode + time == "participepassé")
+            {
+                string nomTable = verbeInfinitif.Nature == "verbeInfinitif conjugué" ? "VerbesConjugues" : "VerbesInfinitifs";
+                // Si le verbeInfinitif est connu, on récupère directement sa conjugaison dans la base de données.
+                if (estConnu(verbeInfinitif._verbe, nomTable))
+                {
+                    for (int idRow = 0; idRow < Phrase.lesData.Tables["VerbesConjugues"].Rows.Count; idRow++)
+                    {
+                        DataRow row = Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow];
+                        // Si on a trouvé la ligne pour l'infinitif où le groupe est le même pour le temps et la personne que l'on souhaite,
+                        // en renvoie le verbeInfinitif conjugué de cette même ligne.
+                        if (row["Infinitif"] as string == verbeInfinitif._verbe && row["Groupe"] as string == verbeInfinitif.Group && row["Temps"] as string == time
+                                && row["Mode"] as string == mode && row["Personne"] as string == person && row["Verbe"] as string != null)
+                            // On ne renvoie le verbeInfinitif conjugué à cet endroit là que si le verbeInfinitif trouvé n'est pas null (c'est à dire, qu'il est
+                            // renseigné dans la table. Sinon, on passe à la suite afin de le construire manuellement.
+                            return new ConjugatedVerb(row["Verbe"] as string, person, verbeInfinitif.Group, time, mode, verbeInfinitif._verbe,
+                                        verbeInfinitif.AuxAvoir, verbeInfinitif.AuxEtre, verbeInfinitif.NonPronominale, verbeInfinitif.Pronominale,
+                                        verbeInfinitif.Transitif, verbeInfinitif.Intransitif)._verbe;
+                    }
+                }
+                // Si on arrive à ce stade du programme, c'est que le verbeInfinitif n'est pas connu ou que la forme voulue (temps / personne)
+                // n'est pas connue. Il faut donc construire la conjugaison manuellement.
+
+                // On commence par récupérer le radical du verbeInfinitif.
+                string stem = stemOf(verbeInfinitif._verbe, verbeInfinitif.Nature);
+                string ending = "";
+
+                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                {
+                    DataRow row = Phrase.lesData.Tables["Conjugaison"].Rows[idRow];
+                    // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
+                    // on récupère la terminaison correspondante à cette ligne.
+                    if (row["VerbGroup"] as string == verbeInfinitif.Group && row["Time"] as string == time
+                            && row["Mode"] as string == mode && row["Person"] as string == person)
+                    {
+                        ending = row["Ending"] as string;
+                        break;
+                    }
+                }
+
+                // Si ending est null, ending vaut la chaîne vide.
+                ending = ending ?? "";
+
+                // Si à ce stade, la terminaison est vide, c'est que la combinaison personne/temps/mode n'existe pas
+                // (exemple : à l'impératif, seules les personnes 2, 4 et 5 existent).
+                // On n'entre alors pas dans le traitement des exceptions car il n'y a rien à traiter et
+                // cela va donc générer des erreurs.
+                if (ending != "")
+                {
+                    // On traite les exceptions :
+
+                    // Premier groupe :
+                    if (verbeInfinitif.Group == "1")
+                    {
+                        // -eler, -eter → -elle, -ette si "appeler" ou "jeter"
+                        if (ending[0] == 'e' && ending != "ez" && (verbeInfinitif._verbe.Contains("appeler") || verbeInfinitif._verbe.Contains("jeter")))
+                            stem += stem[stem.Length - 1];
+                        // -e*er → è
+                        else if (stem[stem.Length - 2] == 'e' && ending[0] == 'e' && ending != "ez")
+                            stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                        // -é*er → è
+                        else if (stem[stem.Length - 2] == 'é' && new string[] { "e", "es", "ent" }.Contains(ending))
+                            stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
+                        // -*yer → i
+                        else if (stem[stem.Length - 1] == 'y' && ending[0] == 'e' && ending != "ez")
+                            stem = stem.Substring(0, stem.Length - 1) + "i";
+                    }
+
+                    // Deuxième groupe :
+                    else if (verbeInfinitif.Group == "2")
+                    {
+                        // Les verbes du deuxième groupe sont régulier, sauf le verbeInfinitif haïr.
+                        if (verbeInfinitif._verbe == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
+                                && new string[] { "présent indicatif", "présent impératif" }.Contains(time + " " + mode)))
+                            ending = "ï" + ending.Substring(1);
+                    }
+
+                    // Troisième groupe :
+                    else if (verbeInfinitif.Group == "3")
+                    {
+                        // Si le dernier caractère du radical est un 't' et que la terminaison commence par un 's',
+                        // on supprime le 't'. Exemple : sortir → sort- → sors 
+                        if (stem[stem.Length - 1] == 't' && ending[0] == 's')
+                            stem = stem.Substring(0, stem.Length - 1);
+                    }
+
+                    // Général :
+                    // c → ç
+                    if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                        stem = stem.Substring(0, stem.Length - 1) + "ç";
+                    // g → ge
+                    else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
+                        stem += "e";
+                }
+
+                return new ConjugatedVerb(stem + ending, person, verbeInfinitif.Group, time, mode, verbeInfinitif._verbe, verbeInfinitif.AuxAvoir,
+                    verbeInfinitif.AuxEtre, verbeInfinitif.NonPronominale, verbeInfinitif.Pronominale, verbeInfinitif.Transitif,
+                    verbeInfinitif.Intransitif)._verbe;
+            }
+
+
+            // ----- Cas des temps composés -----
+            // Si le temps souhaité est un temps composé (ex : passé composé), on le construit de la façon suivante :
+            // auxiliaire conjugué au temps correspondant (passé composé → présent) + participe passé du verbeInfinitif.
+            else
+            {
+                string verb = "";
+                // Indicatif
+                if (time == "passé composé")
+                    verb = ConjugationOf(new InfinitiveVerb(verbeInfinitif.GetAuxiliaire()), person, "présent", mode) + " " + verbeInfinitif.GetParticipePasse();
+                else if (time == "plus-que-parfait")
+                    verb = ConjugationOf(new InfinitiveVerb(verbeInfinitif.GetAuxiliaire()), person, "imparfait", mode) + " " + verbeInfinitif.GetParticipePasse();
+                else if (time == "passé antérieur")
+                    verb = ConjugationOf(new InfinitiveVerb(verbeInfinitif.GetAuxiliaire()), person, "passé simple", mode) + " " + verbeInfinitif.GetParticipePasse();
+                else if (time == "futur antérieur")
+                    verb = ConjugationOf(new InfinitiveVerb(verbeInfinitif.GetAuxiliaire()), person, "futur simple", mode) + " " + verbeInfinitif.GetParticipePasse();
+                // Autre
+                else if (time == "passé")
+                    verb = ConjugationOf(new InfinitiveVerb(verbeInfinitif.GetAuxiliaire()), person, "présent", mode) + " " + verbeInfinitif.GetParticipePasse();
+
+                return new ConjugatedVerb(verb, person, verbeInfinitif.Group, time, mode, verbeInfinitif._verbe, verbeInfinitif.AuxAvoir,
+                    verbeInfinitif.AuxEtre, verbeInfinitif.NonPronominale, verbeInfinitif.Pronominale, verbeInfinitif.Transitif,
+                    verbeInfinitif.Intransitif)._verbe;
+            }
+        }
+
+        // Conjugue le verbe à la personne et au temps donnés en paramètre.
+        public static void Conjugate(ref Verb verbe, string person, string time, string mode)
+        {
+            string action;
+            if (verbe.Nature == "verbe conjugué")
+                action = verbe.Action;
+            else
+                action = verbe._verbe;
+            verbe = new ConjugatedVerb(ConjugationOf(verbe, person, time, mode), person, verbe.Group, time, mode, action, verbe.AuxAvoir,
+                verbe.AuxEtre, verbe.NonPronominale, verbe.Pronominale, verbe.Transitif, verbe.Intransitif);
+        }
+
 
         // Renvoie le groupe du verbe.
         protected static string groupOf(string verb, string nature)
@@ -316,136 +466,14 @@ namespace Projet_AIA_Console_Version
             }
         }
 
-
-        // Conjugue le verbe conjugué à la personne et au temps entrés en paramètre.
-        protected static Verb Conjugate(Verb verbe, string person, string time, string mode)
+        // Transforme le verbe en un verbe à l'infinitif.
+        public static void ToInfinitive(ref Verb verbe)
         {
             if (verbe.Nature == "verbe conjugué")
-                verbe = verbe.ToInfinitive(verbe);
-
-            // ----- Cas des temps non composés -----
-            if (new string[] { "présent", "imparfait", "passé simple", "futur simple" }.Contains(time) || mode + time == "participepassé")
-            {
-                string nomTable = verbe.Nature == "verbe conjugué" ? "VerbesConjugues" : "VerbesInfinitifs";
-                // Si le verbe est connu, on récupère directement sa conjugaison dans la base de données.
-                if (estConnu(verbe.Verbe, nomTable))
-                {
-                    for (int idRow = 0; idRow < Phrase.lesData.Tables["VerbesConjugues"].Rows.Count; idRow++)
-                    {
-                        DataRow row = Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow];
-                        // Si on a trouvé la ligne pour l'infinitif où le groupe est le même pour le temps et la personne que l'on souhaite,
-                        // en renvoie le verbe conjugué de cette même ligne.
-                        if (row["Infinitif"] as string == verbe.Verbe && row["Groupe"] as string == verbe.Group && row["Temps"] as string == time
-                                && row["Mode"] as string == mode && row["Personne"] as string == person && row["Verbe"] as string != null)
-                            // On ne renvoie le verbe conjugué à cet endroit là que si le verbe trouvé n'est pas null (c'est à dire, qu'il est
-                            // renseigné dans la table. Sinon, on passe à la suite afin de le construire manuellement.
-                            return new ConjugatedVerb(row["Verbe"] as string, person, verbe.Group, time, mode, verbe.Verbe,
-                                        verbe.auxAvoir, verbe.auxEtre, verbe.nonPronominale, verbe.pronominale, verbe.transitif, verbe.intransitif);
-                    }
-                }
-                // Si on arrive à ce stade du programme, c'est que le verbe n'est pas connu ou que la forme voulue (temps / personne)
-                // n'est pas connue. Il faut donc construire la conjugaison manuellement.
-
-                // On commence par récupérer le radical du verbe.
-                string stem = stemOf(verbe.Verbe, verbe.Nature);
-                string ending = "";
-
-                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
-                {
-                    DataRow row = Phrase.lesData.Tables["Conjugaison"].Rows[idRow];
-                    // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
-                    // on récupère la terminaison correspondante à cette ligne.
-                    if (row["VerbGroup"] as string == verbe.Group && row["Time"] as string == time
-                            && row["Mode"] as string == mode && row["Person"] as string == person)
-                    {
-                        ending = row["Ending"] as string;
-                        break;
-                    }
-                }
-
-                // Si ending est null, ending vaut la chaîne vide.
-                ending = ending ?? "";
-
-                // Si à ce stade, la terminaison est vide, c'est que la combinaison personne/temps/mode n'existe pas
-                // (exemple : à l'impératif, seules les personnes 2, 4 et 5 existent).
-                // On n'entre alors pas dans le traitement des exceptions car il n'y a rien à traiter et
-                // cela va donc générer des erreurs.
-                if (ending != "")
-                {
-                    // On traite les exceptions :
-
-                    // Premier groupe :
-                    if (verbe.Group == "1")
-                    {
-                        // -eler, -eter → -elle, -ette si "appeler" ou "jeter"
-                        if (ending[0] == 'e' && ending != "ez" && (verbe.Verbe.Contains("appeler") || verbe.Verbe.Contains("jeter")))
-                            stem += stem[stem.Length - 1];
-                        // -e*er → è
-                        else if (stem[stem.Length - 2] == 'e' && ending[0] == 'e' && ending != "ez")
-                            stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
-                        // -é*er → è
-                        else if (stem[stem.Length - 2] == 'é' && new string[] { "e", "es", "ent" }.Contains(ending))
-                            stem = stem.Substring(0, stem.Length - 2) + "è" + stem[stem.Length - 1];
-                        // -*yer → i
-                        else if (stem[stem.Length - 1] == 'y' && ending[0] == 'e' && ending != "ez")
-                            stem = stem.Substring(0, stem.Length - 1) + "i";
-                    }
-
-                    // Deuxième groupe :
-                    else if (verbe.Group == "2")
-                    {
-                        // Les verbes du deuxième groupe sont régulier, sauf le verbe haïr.
-                        if (verbe.Verbe == "ha" && !(new string[] { "1", "2", "3" }.Contains(person)
-                                && new string[] { "présent indicatif", "présent impératif" }.Contains(time + " " + mode)))
-                            ending = "ï" + ending.Substring(1);
-                    }
-
-                    // Troisième groupe :
-                    else if (verbe.Group == "3")
-                    {
-                        // Si le dernier caractère du radical est un 't' et que la terminaison commence par un 's',
-                        // on supprime le 't'. Exemple : sortir → sort- → sors 
-                        if (stem[stem.Length - 1] == 't' && ending[0] == 's')
-                            stem = stem.Substring(0, stem.Length - 1);
-                    }
-
-                    // Général :
-                    // c → ç
-                    if (stem[stem.Length - 1] == 'c' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
-                        stem = stem.Substring(0, stem.Length - 1) + "ç";
-                    // g → ge
-                    else if (stem[stem.Length - 1] == 'g' && new char[] { 'a', 'o', 'â' }.Contains(ending[0]))
-                        stem += "e";
-                }
-
-                return new ConjugatedVerb(stem + ending, person, verbe.Group, time, mode, verbe.Verbe, verbe.auxAvoir, verbe.auxEtre,
-                                                verbe.nonPronominale, verbe.pronominale, verbe.transitif, verbe.intransitif);
-            }
-
-
-            // ----- Cas des temps composés -----
-            // Si le temps souhaité est un temps composé (ex : passé composé), on le construit de la façon suivante :
-            // auxiliaire conjugué au temps correspondant (passé composé → présent) + participe passé du verbe.
-            else
-            {
-                string verb = "";
-                // Indicatif
-                if (time == "passé composé")
-                    verb = Conjugate(new InfinitiveVerb(verbe.GetAuxiliaire()), person, "présent", mode).Verbe + " " + verbe.GetParticipePasse();
-                else if (time == "plus-que-parfait")
-                    verb = Conjugate(new InfinitiveVerb(verbe.GetAuxiliaire()), person, "imparfait", mode).Verbe + " " + verbe.GetParticipePasse();
-                else if (time == "passé antérieur")
-                    verb = Conjugate(new InfinitiveVerb(verbe.GetAuxiliaire()), person, "passé simple", mode).Verbe + " " + verbe.GetParticipePasse();
-                else if (time == "futur antérieur")
-                    verb = Conjugate(new InfinitiveVerb(verbe.GetAuxiliaire()), person, "futur simple", mode).Verbe + " " + verbe.GetParticipePasse();
-                // Autre
-                else if (time == "passé")
-                    verb = Conjugate(new InfinitiveVerb(verbe.GetAuxiliaire()), person, "présent", mode).Verbe + " " + verbe.GetParticipePasse();
-
-                return new ConjugatedVerb(verb, person, verbe.Group, time, mode, verbe.Verbe, verbe.auxAvoir, verbe.auxEtre,
-                                                verbe.nonPronominale, verbe.pronominale, verbe.transitif, verbe.intransitif);
-            }
-    }
+                verbe = new InfinitiveVerb(verbe.Action, verbe.Group, verbe.AuxAvoir, verbe.AuxEtre, verbe.NonPronominale,
+                    verbe.Pronominale, verbe.Transitif, verbe.Intransitif);
+            // Sinon, on ne fait rien car le verbe est déjà à l'infinitif.
+        }
 
         // Renvoie true si le verbe est connu dans la table, sinon false
         // L'argument typeVerbe vaut VerbesInfinitifs si le verbe est un infinitif,

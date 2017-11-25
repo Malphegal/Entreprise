@@ -1,128 +1,133 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Projet_AIA_Console_Version.Natures_Grammaticales;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CMD = System.Data.OleDb.OleDbCommand;
-using CON = System.Data.OleDb.OleDbConnection;
 
 namespace Projet_AIA_Console_Version
 {
-    class Names
+    class Name : VariableWord
     {
+            // CHAMPS
+
         static private string[] infoNom = null;    // Tableau contenu les informations du nom en cours de traitement.
+        private string _nom;
 
-        // ------ STRUCTURES ------
+            // CONSTRUCTEUR
 
-        // Name
-        public struct Name
+        // Constructeur appelé par la phrase lorsque celle-ci ne permet pas de déterminer le nombre et le genre
+        // du nom.
+        public Name(string name)
         {
-            public string name { get; private set; }
-            public const string nature = "nom";
-            public string gender { get; private set; }
-            public string number { get; private set; }
-            public readonly string numberBase;
-
-            // Constructeur appelé par la phrase lorsque celle-ci ne permet pas de déterminer le nombre et le genre
-            // du nom.
-            public Name(string name)
-            {
-                this.name = name;
+            infoNom = null;
+            this._nom = name;
+            this.Nature = "nom";
                 
-                if (estConnu(name))
-                {
-                    this.number = infoNom[0];
-                    this.numberBase = number;
-                    this.gender = infoNom[1];
-                }
-                else
-                {
-                    this.number = numberOf(name);
-                    this.numberBase = number;
-                    this.gender = genderOf(name, number);
-                }
-            }
-
-            // Constructeur appelé par la phrase lorsque celle-ci permet déjà de déterminer le nombre et le genre
-            // du nom.
-            public Name(string name, string number, string gender)
+            if (estConnu(name))
             {
-                this.name = name;
-                this.gender = gender;
-                this.number = number;
-                this.numberBase = number;
+                this.Number = infoNom[0];
+                this.Gender = infoNom[1];
             }
-
-            // ------ INSTANCE METHODS ------
-
-            public bool isSingular()
+            else
             {
-                return this.number == "S";
+                this.Number = numberOf(name);
+                this.Gender = genderOf(name, Number);
             }
-
-            public bool isPlurial()
-            {
-                return this.number == "P";
-            }
-
-            public bool isMale()
-            {
-                return this.gender == "M";
-            }
-
-            public bool isFemale()
-            {
-                return this.gender == "F";
-            }
-
-            public string singularToPlurial()
-            {
-                if(estConnu(this.name))
-                {
-                    for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
-                    {
-                        if (this.name == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"])
-                        {
-                            this.name = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"];
-                            break;
-                        }
-                    }
-                }
-                else
-                    this.name = Names.singularToPlurial(this.name);
-
-                this.number = "P";                 
-                return this.name;
-            }
-
-            public string plurialToSingular()
-            {
-                if (estConnu(this.name))
-                {
-                    for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
-                    {
-                        if (this.name == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"])
-                        {
-                            this.name = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"];
-                            break;
-                        }
-                    }
-                }
-                else
-                    this.name = Names.plurialToSingular(this.name);
-
-                this.number = "S";
-                return this.name;
-            }
-
-            public override string ToString()
-            {
-                return this.name;
-            }
+            this.NumberBase = Number;
+            this.GenderBase = Gender;
         }
 
-        // ------ CLASS METHODS ------
+        // Constructeur appelé par la phrase lorsque celle-ci permet déjà de déterminer le nombre et le genre
+        // du nom.
+        public Name(string name, string number, string gender)
+        {
+            infoNom = null;
+            this._nom = name;
+            this.Gender = gender;
+            this.Number = number;
+            this.NumberBase = number;
+            this.GenderBase = gender;
+        }
+
+        // Constructeur copiant le nom entré en paramètre.
+        public Name(Name nom)
+        {
+            infoNom = null;
+            this.Nature = nom.Nature;
+            this._nom = nom._nom;
+            this.Number = nom.Number;
+            this.NumberBase = nom.NumberBase;
+            this.Gender = nom.Gender;
+            this.GenderBase = nom.GenderBase;
+        }
+
+
+            // METHODES
+
+        // Transforme le nom en un pluriel.
+        public void ToPlurial()
+        {
+            if (estConnu(this._nom))
+            {
+                for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
+                {
+                    if (this._nom == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"])
+                    {
+                        this._nom = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"];
+                        break;
+                    }
+                }
+            }
+            else
+                this._nom = singularToPlurial(this._nom);
+
+            this.Number = "P";
+        }
+
+        // Transforme le nom en un singulier.
+        public void ToSingular()
+        {
+            if (estConnu(this._nom))
+            {
+                for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
+                {
+                    if (this._nom == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"])
+                    {
+                        this._nom = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"];
+                        break;
+                    }
+                }
+            }
+            else
+                this._nom = plurialToSingular(this._nom);
+
+            this.Number = "S";
+        }
+
+        public override string ToString()
+        {
+            return this._nom;
+        }
+
+
+            // METHODES STATIC
+
+        // PUBLIC
+
+        // Renvoie le singulier d'un nom entré en paramètre.
+        public static string SingularOf(Name nom)
+        {
+            Name n = new Name(nom);
+            n.ToSingular();
+            return n._nom;
+        }
+
+        // Renvoie le pluriel d'un nom entré en paramètre.
+        public static string PlurialOf(Name nom)
+        {
+            Name n = new Name(nom);
+            n.ToPlurial();
+            return n._nom;
+        }
+
+        // PRIVATE
 
         // Renvoie le genre du nom.
         private static string genderOf(string name, string number)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projet_AIA_Console_Version;
+using Projet_AIA_Console_Version.Natures_Grammaticales;
 
 namespace Projet_AIA_Console_Version
 {
@@ -27,21 +28,14 @@ namespace Projet_AIA_Console_Version
                 }*/
 
                 // TEST DeterminerLesNatures
+                List<Word> phraseAvecNature;
                 foreach (List<List<object[]>> phrase in lesPhrases)
                 {
-                    Phrase.DeterminerLesNatures(phrase);
-                    Console.WriteLine("\nVoici la phrase et les natures possibles pour chacun de ses mots : ");
-                    foreach (List<object[]> mot in phrase)
+                    phraseAvecNature = Phrase.DeterminerLesNatures(phrase);
+                    Console.WriteLine("\nVoici la phrase et la nature pour chacun de ses mots : ");
+                    foreach (Word mot in phraseAvecNature)
                     {
-                        if (mot.Count > 1)
-                        {
-                            Console.Write(mot[0][0] + " -> ");
-                            for (int i = 1; i < mot.Count; i++)
-                                Console.Write(mot[i][0] + " ");
-                            Console.WriteLine();
-                        }
-                        else
-                            Console.WriteLine(mot[0][0] + " -> non renseigné");
+                        Console.WriteLine(mot.ToString() + " : " + mot.Nature);
                     }
                 }
                 Console.WriteLine("\n");

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Projet_AIA_Console_Version.Natures_Grammaticales.Determiners;
+using static Projet_AIA_Console_Version.Natures_Grammaticales.Determiner;
 
 namespace Projet_AIA_Console_Version.Natures_Grammaticales.Tests
 {
@@ -18,25 +18,25 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Tests
 
                 Console.Write("Déterminant ?\t");
                 Determiner determiner = new Determiner(Console.ReadLine());
-                if (determiner.gender == "M")
+                if (determiner.Gender == "M")
                     resGenre = "masculin";
-                else if (determiner.gender == "F")
+                else if (determiner.Gender == "F")
                     resGenre = "féminin";
-                else if (determiner.gender == "N")
+                else if (determiner.Gender == "N")
                     resGenre = "neutre";
                 else
                     resGenre = "inconnu";
-                if (determiner.number == "S")
+                if (determiner.Number == "S")
                     resNombre = "singulier";
-                else if (determiner.number == "P")
+                else if (determiner.Number == "P")
                     resNombre = "pluriel";
                 else
                     resNombre = "inconnu";
-                Console.WriteLine(determiner + " est un " + determiner.type1 + " " + determiner.type2 + " " + resGenre + " " + resNombre);
-                Console.WriteLine("\t" + determiner.toMaleSingular());
-                Console.WriteLine("\t" + determiner.toFemaleSingular());
-                Console.WriteLine("\t" + determiner.toMalePlurial());
-                Console.WriteLine("\t" + determiner.toFemalePlurial());
+                Console.WriteLine(determiner + " est un " + determiner.Type1 + " " + determiner.Type2 + " " + resGenre + " " + resNombre);
+                Console.WriteLine("\t" + MaleSingularOf(determiner));
+                Console.WriteLine("\t" + FemaleSingularOf(determiner));
+                Console.WriteLine("\t" + MalePlurialOf(determiner));
+                Console.WriteLine("\t" + FemalePlurialOf(determiner));
                 Console.WriteLine();
             }
         }
