@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class EdibleFood : MonoBehaviour {
 
+    enum FoodType
+    {
+        Food,
+        Drink
+    }
+
+        // FIELDS
+
+    public string   name;           // Nom de l'aliment
+    public FoodType foodType;       // Type de l'aliment
+    public ushort   hungerRegen;    // Valeur de régénération de la faim par tick
+    public ushort   thirstRegen;    // Valeur de régénération de la soif par tick
+    public byte     nbOfTicks;      // Nombre de ticks nécessaire à la consommation entière de l'aliment
+
+        // METHODS
+
 	// Use this for initialization
 	void Start () {
 		

@@ -64,6 +64,8 @@ namespace Projet_AIA_Console_Version
             da.Fill(lesData, "InsertInfinitive");
         }
 
+        // Découpe la réponse de l'utilisateur en List de phrases, qui sont des List de mots qui sont
+        // eux mêmes des List de natures possibles.
         public static List<List<List<object[]>>> DecouperPhrase(string reponseUtilisateur)
         {
             List<List<List<object[]>>> lesPhrases = new List<List<List<object[]>>>();
@@ -134,6 +136,10 @@ namespace Projet_AIA_Console_Version
             return lesPhrases;
         }
 
+        // Détermine la nature de chaque mot d'une phrase entrée en paramètre, en déterminant
+        // dans un premier temps toutes les natures possibles pour ce mot, puis la nature
+        // la plus probable en fonction du nbrUtilisation de chaque nature pour ce mot
+        // et du contexte dans lequel est le mot.
         public static List<Word> DeterminerLesNatures(List<List<object[]>> laPhrase)
         {
             int i;
@@ -325,8 +331,6 @@ namespace Projet_AIA_Console_Version
                 else
                     phrase.Add(new UnknowWord((string)laPhrase[i][0][0]));
             }
-
-            // 
 
             return phrase;
         }
