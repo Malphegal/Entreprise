@@ -10,10 +10,10 @@ public class Controller : MonoBehaviour {
         // FIELDS
 
     Rigidbody _rb;
-    byte _speed;
+    public byte _speed;
     bool _isJumping;
     bool _canJump;
-    float _jumpPower;
+    public float _jumpPower;
 
         // METHODS
 
@@ -57,5 +57,15 @@ public class Controller : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         _canJump = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print(other.name);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        print("AU REVOIR " + other.name.ToUpper());
     }
 }
