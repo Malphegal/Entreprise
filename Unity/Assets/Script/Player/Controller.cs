@@ -10,27 +10,22 @@ public class Controller : MonoBehaviour {
         // FIELDS
 
     Rigidbody _rb;
-    public byte _speed;
+
+    byte _speed;
     bool _isJumping;
     bool _canJump;
-    public float _jumpPower;
+    float _jumpPower;
 
         // METHODS
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _speed = 10;
+        _speed = 4;
         _isJumping = false;
         _canJump = true;
-        _jumpPower = 850;
-
-        print("I'm awake");
+        _jumpPower = 250;
     }
-
-    void Start () {
-        print("I'm started");
-	}
 	
 	void Update () {
         if (Input.GetButtonDown("Jump") && !_isJumping && _canJump)
@@ -61,7 +56,8 @@ public class Controller : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
+        if (other.CompareTag("EdibleFood"))
+            print(other.name);
     }
 
     private void OnTriggerExit(Collider other)
