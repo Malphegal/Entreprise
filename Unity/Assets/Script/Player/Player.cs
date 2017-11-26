@@ -8,7 +8,7 @@ using UnityEngine;
 /// La classe représentant les statistiques du joueur ainsi que les méthodes
 /// décrivant les actions possibles par le joueur.
 /// </summary>
-public class Player : MonoBehaviour
+public sealed class Player : MonoBehaviour
 {
         // FIELDS
 

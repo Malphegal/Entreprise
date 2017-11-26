@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Classe permettant le déplacement du modèle du joueur.
 /// </summary>
-public class Controller : MonoBehaviour {
+public sealed class Controller : MonoBehaviour {
 
         // FIELDS
 
@@ -17,6 +17,12 @@ public class Controller : MonoBehaviour {
     private float _jumpPower;
 
     private UnityEngine.UI.Text _txtCanPerformAnAction;
+
+    private float _distanceCamera = 2F; // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp);
+    private float _distanceCameraSave = 2F;
+
+    private float _speedCamera = 5.0f;
+    public Transform _target;
 
         // METHODS
 
@@ -37,6 +43,16 @@ public class Controller : MonoBehaviour {
             _isJumping = true;
             _canJump = false;
         }
+
+        if (Input.GetMouseButton(0)) // Rotation de la caméra sur l'axe X
+        {
+            transform.LookAt(_target);
+            transform.RotateAround(_target.position, Vector3.up, Input.GetAxis("Mouse X") * _speedCamera);
+        }
+
+        _distanceCamera = Mathf.Clamp(_distanceCamera + Input.GetAxis("Mouse ScrollWheel") * 5, -8, 6);
+        Camera.main.transform.Translate(0, 0, -(_distanceCameraSave - _distanceCamera));
+        _distanceCameraSave = _distanceCamera;
     }
 
     private void FixedUpdate()

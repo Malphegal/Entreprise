@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114468575598203196}
   m_Layer: 0
   m_Name: Pomme
-  m_TagString: EdibleFood
+  m_TagString: CollectableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

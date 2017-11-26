@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MainMenu : MonoBehaviour {
+public sealed class MainMenu : MonoBehaviour {
     
     // TODO: Ajouter toutes les autres vérifications et initialisations
     private void Awake()
     {
+        /*
         TextAsset leTexte;
         if (Application.systemLanguage.ToString() == "French")
             leTexte = Resources.Load<TextAsset>("lang.fr");
         else
             leTexte = Resources.Load<TextAsset>("lang.en");
-        print(leTexte.text);
+        */
     }
 
     // TODO: Mettre sous un Thread pour avoir une barre de chargement
