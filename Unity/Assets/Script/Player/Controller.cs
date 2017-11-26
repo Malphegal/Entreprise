@@ -9,12 +9,14 @@ public class Controller : MonoBehaviour {
 
         // FIELDS
 
-    Rigidbody _rb;
+    private Rigidbody _rb;
 
-    byte _speed;
-    bool _isJumping;
-    bool _canJump;
-    float _jumpPower;
+    private byte _speed;
+    private bool _isJumping;
+    private bool _canJump;
+    private float _jumpPower;
+
+    private UnityEngine.UI.Text _txtCanPerformAnAction;
 
         // METHODS
 
@@ -22,9 +24,11 @@ public class Controller : MonoBehaviour {
     {
         _rb = GetComponent<Rigidbody>();
         _speed = 4;
+        _jumpPower = 250;
         _isJumping = false;
         _canJump = true;
-        _jumpPower = 250;
+
+        _txtCanPerformAnAction = GameObject.Find("TxtCanPerformAnAction").GetComponent<UnityEngine.UI.Text>();
     }
 	
 	void Update () {
@@ -54,14 +58,17 @@ public class Controller : MonoBehaviour {
         _canJump = true;
     }
 
+    #region Vérifier s'il existe un objet sur lequel on peut intéragir en face de nous
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EdibleFood"))
-            print(other.name);
+            _txtCanPerformAnAction.text = "Ramasser " + other.gameObject.GetComponent<EdibleFood>().nameOfFood;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        print("AU REVOIR " + other.name.ToUpper());
+        if (other.CompareTag("EdibleFood"))
+            _txtCanPerformAnAction.text = string.Empty;
     }
+    #endregion
 }
