@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private static UnityEngine.UI.Text  _txtHungerValue;
     private static UnityEngine.UI.Text  _txtThirstValue;
 
-    private static ushort _hunger;
+    private static ushort _hunger;  
     private static ushort _thirst;
 
         // PROPERTIES
@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
     public static int       CurrentHP   { get; private set; }   // Les points de vie acutels du joueur
     public static int       MaxHP       { get; private set; }   // Le nombre de points de vie maximum du joueur
 
-        // 
+        // INVENTORY
 
-    public static IDictionary _dictionary = new Dictionary<ushort, object[]>();
+    public static List<Item> _inventory = new List<Item>();
 
         // STATIC METHODS
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EdibleFood : MonoBehaviour {
+public class EdibleFood : Item {
 
     /* Correspond au type de l'aliment : nourriture ou boisson */
     public enum FoodType
@@ -50,28 +50,7 @@ public class EdibleFood : MonoBehaviour {
         {
             yield return new WaitForSeconds(nbOfSeconds);
             rottingValue--;
-
-                // Si besoin, modifier la couleur de l'objet
-
-            Renderer r = GetComponent<Renderer>();
-            switch (GetRottingState())
-            {
-                case "Fresh":
-                    r.material.color = Color.green;
-                    break;
-                case "Good":
-                    r.material.color = Color.red;
-                    break;
-                case "Stale":
-                    r.material.color = Color.gray;
-                    break;
-                default:
-                    r.material.color = new Color(0.1F, 0.1F, 0.1F);
-                    break;
-            }
         }
-        // TODO: Ajouter une animation de mort de l'objet
-        Destroy(gameObject);
     }
 
     /* Méthode renvoyant l'état de pourrissement de l'aliment */
