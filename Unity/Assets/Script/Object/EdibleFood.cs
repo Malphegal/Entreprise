@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EdibleFood : CollectableObject {
+public class EdibleFood : MonoBehaviour {
 
     /* Correspond au type de l'aliment : nourriture ou boisson */
     public enum FoodType
     {
         Food,
         Drink
-    }
-
-    /* Correspond à l'état de pourrissement de l'aliment */
-    public enum RottingValue
-    {
-        Fresh = "Frais",
-        Good = "Bon",
-        Stale = "Rassis",
-        Rotten = "Pourri"
     }
 
         // FIELDS
@@ -60,19 +51,19 @@ public class EdibleFood : CollectableObject {
             yield return new WaitForSeconds(nbOfSeconds);
             rottingValue--;
         }
-        Destroy(gameobject);
+        Destroy(gameObject);
     }
 
     /* Méthode renvoyant l'état de pourrissement de l'aliment */
     public string GetRottingState()
     {
         if (rottingValue > 89)
-            return RottingValue.Fresh;
+            return "Fresh"; // Frais
         else if (rottingValue > 49)
-            return RottingValue.Good;
+            return "Good"; // bon
         else if (rottingValue > 19)
-            return RottingValue.Stale;
+            return "Stale"; // rassis
         else
-            return RottingValue.Rotten;
+            return "Rotten"; // Pourri
     }
 }

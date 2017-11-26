@@ -66,7 +66,7 @@ public class Controller : MonoBehaviour {
             // Est-ce une nourriture collectible ?
 
         if (other.CompareTag("EdibleFood"))
-            _txtCanPerformAnAction.text = "Ramasser " + other.gameObject.GetComponent<EdibleFood>().nameOfFood;
+            _txtCanPerformAnAction.text = "Ramasser " + other.gameObject.GetComponent<EdibleFood>().foodName;
     }
 
     private void OnTriggerExit(Collider other)
