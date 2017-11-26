@@ -22,11 +22,11 @@ public class Controller : MonoBehaviour {
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
-        _speed = 4;
-        _jumpPower = 250;
-        _isJumping = false;
-        _canJump = true;
+        _rb         = GetComponent<Rigidbody>();
+        _speed      = 4;
+        _jumpPower  = 250;
+        _isJumping  = false;
+        _canJump    = true;
 
         _txtCanPerformAnAction = GameObject.Find("TxtCanPerformAnAction").GetComponent<UnityEngine.UI.Text>();
     }
@@ -52,21 +52,27 @@ public class Controller : MonoBehaviour {
         _rb.AddForce(Physics.gravity * GetComponent<Rigidbody>().mass);
     }
 
-    /* TODO: Vérifier si la collision se fait avec un tag de terrain */
+    /* TODO: Vérifier si la collision se fait avec un tag de terrain, et pas n'importe quoi */
     private void OnCollisionEnter(Collision collision)
     {
         _canJump = true;
     }
 
+    /* TODO: Si on sort du trigger d'un object collectable, mais qu'il y a encore un autre objet collectable,
+             il faut non pas mettre le 'txtCanPerformAnAction.text' à vide, mais le remplir avec l'autre objet */
     #region Vérifier s'il existe un objet sur lequel on peut intéragir en face de nous
     private void OnTriggerEnter(Collider other)
     {
+            // Est-ce une nourriture collectible ?
+
         if (other.CompareTag("EdibleFood"))
             _txtCanPerformAnAction.text = "Ramasser " + other.gameObject.GetComponent<EdibleFood>().nameOfFood;
     }
 
     private void OnTriggerExit(Collider other)
     {
+            // Était-ce une nourriture collectible ?
+
         if (other.CompareTag("EdibleFood"))
             _txtCanPerformAnAction.text = string.Empty;
     }
