@@ -18,7 +18,7 @@ public class EdibleFood : MonoBehaviour {
 
     [Space]
     [Header("Processus pourrissement")]
-    public byte         rottingValue;   // La valeur de l'état de pourrissement     TODO : changer le public en private à la fin des tests
+    public byte         rottingValue;   // La valeur de l'état de pourrissement TODO : changer le public en private à la fin des tests
     public byte         nbOfSeconds;    // Le nombre de secondes qu'il faut à l'aliment pour perdre un point
                                         // de fraîcheur (rottingValue--)
 
@@ -36,11 +36,11 @@ public class EdibleFood : MonoBehaviour {
         rottingValue = 100;
     }
 
-	// Use this for initialization
 	void Start () {
         StartCoroutine(RottingProcess());
 	}
 
+    // TODO: Ajouter une animation de mort de l'objet
     /* Méthode appelée par la coroutine qui se lance à la création de l'objet,
      * mettant à jour l'état de pourrissement de l'aliment jusqu'à sa décomposition
      * totale qui cause sa disparition. */
@@ -50,12 +50,32 @@ public class EdibleFood : MonoBehaviour {
         {
             yield return new WaitForSeconds(nbOfSeconds);
             rottingValue--;
+
+                // Si besoin, modifier la couleur de l'objet
+
+            Renderer r = GetComponent<Renderer>();
+            switch (GetRottingState())
+            {
+                case "Fresh":
+                    r.material.color = Color.green;
+                    break;
+                case "Good":
+                    r.material.color = Color.red;
+                    break;
+                case "Stale":
+                    r.material.color = Color.gray;
+                    break;
+                default:
+                    r.material.color = new Color(0.1F, 0.1F, 0.1F);
+                    break;
+            }
         }
+        // TODO: Ajouter une animation de mort de l'objet
         Destroy(gameObject);
     }
 
     /* Méthode renvoyant l'état de pourrissement de l'aliment */
-    public string GetRottingState()
+    private string GetRottingState()
     {
         if (rottingValue > 89)
             return "Fresh"; // Frais

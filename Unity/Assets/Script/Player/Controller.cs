@@ -23,8 +23,8 @@ public class Controller : MonoBehaviour {
     private void Awake()
     {
         _rb         = GetComponent<Rigidbody>();
-        _speed      = 4;
-        _jumpPower  = 250;
+        _speed      = 3;
+        _jumpPower  = 450;
         _isJumping  = false;
         _canJump    = true;
 
@@ -60,20 +60,36 @@ public class Controller : MonoBehaviour {
 
     /* TODO: Si on sort du trigger d'un object collectable, mais qu'il y a encore un autre objet collectable,
              il faut non pas mettre le 'txtCanPerformAnAction.text' à vide, mais le remplir avec l'autre objet */
+    /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
     #region Vérifier s'il existe un objet sur lequel on peut intéragir en face de nous
     private void OnTriggerEnter(Collider other)
     {
-            // Est-ce une nourriture collectible ?
+            // Est-ce un objet collectable ?
 
-        if (other.CompareTag("EdibleFood"))
-            _txtCanPerformAnAction.text = "Ramasser " + other.gameObject.GetComponent<EdibleFood>().foodName;
+        /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
+        if (other.CompareTag("CollectableObject"))
+            _txtCanPerformAnAction.text = "E - Pick up " + other.gameObject.GetComponent<EdibleFood>().foodName;
+    }
+
+    /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
+    private void OnTriggerStay(Collider other)
+    {
+            // Est-ce un objet collectable ?
+
+        /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
+        if (other.CompareTag("CollectableObject") && Input.GetKeyDown(KeyCode.E))
+        {
+            /*EdibleFood ef = other.GetComponent<EdibleFood>();
+            Player.Instance().Eat(ef.hungerRegen, ef.thirstRegen, ef.nbOfTicks);*/
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-            // Était-ce une nourriture collectible ?
+            // Était-ce un objet collectable ?
 
-        if (other.CompareTag("EdibleFood"))
+        if (other.CompareTag("CollectableObject"))
             _txtCanPerformAnAction.text = string.Empty;
     }
     #endregion
