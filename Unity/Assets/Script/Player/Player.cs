@@ -4,7 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// La classe représentant les statistiques du joueur.
+/// La classe représentant les statistiques du joueur ainsi que les méthodes
+/// décrivant les actions possibles par le joueur.
 /// </summary>
 public class Player
 {
@@ -22,13 +23,17 @@ public class Player
 
         // METHODS
     
+    /* DEBUG : à retirer, pour le debug uniquement */
     public override string ToString()
     {
         return "[" + this.Pseudo + "] " + this.CurrentHP + " / " + this.MaxHP + " PV  -  ";
     }
 
+    #region action
+    /* Si on mange un aliment, on lance une Coroutine effectuant l'action, et afficher sur l'UI le logo nourriture */
     public void Eat()
     {
-
+        
     }
+    #endregion
 }
