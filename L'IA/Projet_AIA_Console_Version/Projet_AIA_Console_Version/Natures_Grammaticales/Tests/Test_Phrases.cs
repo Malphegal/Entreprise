@@ -29,6 +29,7 @@ namespace Projet_AIA_Console_Version
 
                 // TEST DeterminerLesNatures
                 List<Word> phraseAvecNature;
+                List<Word[]> phraseAvecFonction;
                 foreach (List<List<object[]>> phrase in lesPhrases)
                 {
                     phraseAvecNature = Phrase.DeterminerLesNatures(phrase);
@@ -36,6 +37,15 @@ namespace Projet_AIA_Console_Version
                     foreach (Word mot in phraseAvecNature)
                     {
                         Console.WriteLine(mot.ToString() + " : " + mot.Nature);
+                    }
+
+                    Console.WriteLine("\n");
+
+                    phraseAvecFonction = Phrase.DeterminerLaFonction(phraseAvecNature);
+                    Console.WriteLine("\nCompréhension : ");
+                    foreach (Word[] idee in phraseAvecFonction)
+                    {
+                        Console.WriteLine(idee[0].ToString() + " " + idee[1].ToString() + " " + idee[2].ToString());
                     }
                 }
                 Console.WriteLine("\n");
