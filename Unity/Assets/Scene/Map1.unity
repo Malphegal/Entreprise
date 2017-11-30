@@ -121,7 +121,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4925667146924828, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -20.77
+      value: -18.624
       objectReference: {fileID: 0}
     - target: {fileID: 4925667146924828, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
       propertyPath: m_LocalPosition.y
@@ -129,7 +129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4925667146924828, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.616
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4925667146924828, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
       propertyPath: m_LocalRotation.x
@@ -171,7 +171,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1921373109305904, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
       propertyPath: m_Name
-      value: pomme
+      value: apple
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
@@ -403,12 +403,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1062209527}
   - component: {fileID: 1062209526}
-  - component: {fileID: 1062209525}
   - component: {fileID: 1062209524}
   - component: {fileID: 1062209529}
   - component: {fileID: 1062209530}
   - component: {fileID: 1062209528}
   - component: {fileID: 1062209531}
+  - component: {fileID: 1062209525}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -450,8 +450,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1062209525
-SphereCollider:
+--- !u!136 &1062209525
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -459,8 +459,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1062209526
 MeshFilter:
@@ -826,8 +827,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1415997610}
   - component: {fileID: 1415997609}
-  - component: {fileID: 1415997608}
   - component: {fileID: 1415997607}
+  - component: {fileID: 1415997608}
   m_Layer: 0
   m_Name: terrain
   m_TagString: Untagged
@@ -869,8 +870,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1415997608
-MeshCollider:
+--- !u!65 &1415997608
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -879,10 +880,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1415997609
 MeshFilter:
   m_ObjectHideFlags: 0

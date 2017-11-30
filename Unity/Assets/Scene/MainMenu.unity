@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 121171830}
   - component: {fileID: 121171829}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: eventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 274491221}
   - component: {fileID: 274491220}
   m_Layer: 5
-  m_Name: Button
+  m_Name: btnStartNewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 362905687}
   - component: {fileID: 362905686}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 1830414730}
   - component: {fileID: 1830414729}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txtStartNewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start a new game
+  m_Text: '[START]'
 --- !u!222 &1830414730
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ad0837c8e56b40bdb43be411b1ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuTexts: []
 --- !u!114 &2051328036
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,17 +11,17 @@ public sealed class Controller : MonoBehaviour {
 
     private Rigidbody _rb;
 
-    private byte _speed;
-    private bool _isJumping;
-    private bool _canJump;
-    private float _jumpPower;
+    private byte    _speed      = 3;
+    private float   _jumpPower  = 450;
+    private bool    _isJumping  = false;
+    private bool    _canJump    = true;
+
+    private float _distanceCamera       = 2F; // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp);
+    private float _distanceCameraSave   = 2F;
 
     private UnityEngine.UI.Text _txtCanPerformAnAction;
 
-    private float _distanceCamera = 2F; // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp);
-    private float _distanceCameraSave = 2F;
-
-    private float _speedCamera = 5.0f;
+    private float _speedCamera = 5.0F;
     public Transform _target;
 
         // METHODS
@@ -29,12 +29,8 @@ public sealed class Controller : MonoBehaviour {
     private void Awake()
     {
         _rb         = GetComponent<Rigidbody>();
-        _speed      = 3;
-        _jumpPower  = 450;
-        _isJumping  = false;
-        _canJump    = true;
 
-        _txtCanPerformAnAction = GameObject.Find("TxtCanPerformAnAction").GetComponent<UnityEngine.UI.Text>();
+        _txtCanPerformAnAction = GameObject.Find("txtCanPerformAnAction").GetComponent<UnityEngine.UI.Text>();
     }
 	
 	void Update () {
