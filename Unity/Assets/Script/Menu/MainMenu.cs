@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
 public sealed class MainMenu : MonoBehaviour {
-    
+
+    public UnityEngine.UI.Text[] mainMenuTexts;
+
     // TODO: Ajouter toutes les autres vérifications et initialisations
     private void Awake()
     {
-        /*
-        TextAsset leTexte;
-        if (Application.systemLanguage.ToString() == "French")
-            leTexte = Resources.Load<TextAsset>("lang.fr");
-        else
-            leTexte = Resources.Load<TextAsset>("lang.en");
-        */
+            // Language
+
+        string[] s = System.IO.Directory.GetFiles(".", "lang.fr.xml", System.IO.SearchOption.AllDirectories);
+        Lang.DefineLanguage(s[0], Application.systemLanguage.ToString());
+
+            // Init all texts
+
+        mainMenuTexts[0].text = Lang.GetString("mainmenu.startbutton");
     }
 
-    // TODO: Mettre sous un Thread pour avoir une barre de chargement
+    // TODO: Passer la méthode en asynchrone pour avoir une barre de chargement
     public void OnClickNewGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);

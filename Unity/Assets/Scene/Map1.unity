@@ -169,6 +169,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1921373109305904, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
+      propertyPath: m_Name
+      value: pomme
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea63d6263cfca1149be6297f8a289394, type: 2}
   m_IsPrefabParent: 0
@@ -406,7 +410,7 @@ GameObject:
   - component: {fileID: 1062209528}
   - component: {fileID: 1062209531}
   m_Layer: 0
-  m_Name: Player
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -541,7 +545,7 @@ GameObject:
   - component: {fileID: 1118662438}
   - component: {fileID: 1118662437}
   m_Layer: 0
-  m_Name: TxtCanPerformAnAction
+  m_Name: txtCanPerformAnAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +762,7 @@ GameObject:
   - component: {fileID: 1394287135}
   - component: {fileID: 1394287134}
   m_Layer: 0
-  m_Name: Sun
+  m_Name: sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +829,7 @@ GameObject:
   - component: {fileID: 1415997608}
   - component: {fileID: 1415997607}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,7 +914,7 @@ GameObject:
   - component: {fileID: 1571013549}
   - component: {fileID: 1571013548}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: eventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +977,7 @@ GameObject:
   - component: {fileID: 1744592748}
   - component: {fileID: 1744592747}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
