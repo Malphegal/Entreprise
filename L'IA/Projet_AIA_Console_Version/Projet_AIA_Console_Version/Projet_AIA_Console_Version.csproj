@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Natures_Grammaticales\Invariables\InvariableWord.cs" />
+    <Compile Include="Natures_Grammaticales\LinkBetweenWord.cs" />
     <Compile Include="Natures_Grammaticales\UnknowWord.cs" />
     <Compile Include="Natures_Grammaticales\Variables\Adjectives.cs" />
     <Compile Include="Natures_Grammaticales\Variables\Verbes\ConjugatedVerb.cs" />
