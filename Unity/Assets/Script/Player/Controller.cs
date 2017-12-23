@@ -7,62 +7,99 @@ using UnityEngine;
 /// </summary>
 public sealed class Controller : MonoBehaviour {
 
-        // FIELDS
+    /* Différent types d'object sur lesquels on peut intéragir */
+    enum KindOfInteractObject
+    {
+        EdibleFood
+    }
 
-    private Rigidbody _rb;
+    #region FIELD
 
-    private byte    _speed      = 3;
-    private float   _jumpPower  = 450;
-    private bool    _isJumping  = false;
-    private bool    _canJump    = true;
+    private Rigidbody _rb;  // RigibBody du joueur
 
-    private float _distanceCamera       = 2F; // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp);
-    private float _distanceCameraSave   = 2F;
+    private byte    _speed      = 3;        // Vitesse du joueur
+    private float   _jumpPower  = 450;      // Hauteur de saut du joueur
+    private bool    _isJumping  = false;    // Le joueur est-il en train de sauter ?
+    private bool    _canJump    = true;     // Le joueur peut-il sauter ?
 
-    private UnityEngine.UI.Text _txtCanPerformAnAction;
+    private float _distanceCamera       = 2F;   // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp)
+    private float _distanceCameraSave   = 2F;   // Distance sauvegarde, pour zoom dezoom
 
-    private float _speedCamera = 5.0F;
-    public Transform _target;
+    Vector3 screenPosForRayCast;  // Pour le raycast d'un objet 'Interact' : position de la caméra
+    RaycastHit hit;     // Pour le raycast d'un objet 'Interact' : avons nous touché grace à ray
 
-        // METHODS
+    private UnityEngine.UI.Text _txtCanPerformAnAction; // Le texte des actions que le joueur peut faire
+
+    #endregion
+
+    #region METHODS
 
     private void Awake()
     {
-        _rb         = GetComponent<Rigidbody>();
+            // Lang
+
+        Lang.DefineLanguage(System.IO.Directory.GetFiles(".", "lang.fr.xml", System.IO.SearchOption.AllDirectories)[0], "French");
+
+            // Init
+
+        _rb = GetComponent<Rigidbody>();
+
+        screenPosForRayCast = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
         _txtCanPerformAnAction = GameObject.Find("txtCanPerformAnAction").GetComponent<UnityEngine.UI.Text>();
     }
 	
-	void Update () {
+	private void Update ()
+    {
+            // Permet d'intéragir avec un objet 'Interact' à une distance de 'maxDistanceHit'
+
+        int maxDistanceHit = 5;
+        int layerMask = 1 << 9; // 9 == 'Interact'
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(screenPosForRayCast), out hit, maxDistanceHit, layerMask)){
+            // TODO: Traiter la valeur de retour
+            // Quel est le type de l'objet sur lequel on peut intéragir ?
+            WhichInteractObjectRayCastHitIs(hit);
+        }
+        else
+            _txtCanPerformAnAction.text = "";
+
+            // Saut à l'aide de la touche de saut
+
         if (Input.GetButtonDown("Jump") && !_isJumping && _canJump)
         {
             _isJumping = true;
             _canJump = false;
         }
 
-        if (Input.GetMouseButton(0)) // Rotation de la caméra sur l'axe X
-        {
-            transform.LookAt(_target);
-            transform.RotateAround(_target.position, Vector3.up, Input.GetAxis("Mouse X") * _speedCamera);
-        }
-
-        _distanceCamera = Mathf.Clamp(_distanceCamera + Input.GetAxis("Mouse ScrollWheel") * 5, -8, 6);
-        Camera.main.transform.Translate(0, 0, -(_distanceCameraSave - _distanceCamera));
-        _distanceCameraSave = _distanceCamera;
+        if (Input.GetButtonDown("Display stats"))
+            DisplayUI();
+        if (Input.GetButtonUp("Display stats"))
+            StartCoroutine("FadeOutUI");
     }
 
     private void FixedUpdate()
     {
+            // Permet de faire un déplacement
+
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _rb.MovePosition(_rb.position + transform.TransformDirection(direction) * _speed * Time.deltaTime);
+
+            // Si on saute, on ne peux plus resauter
 
         if (_isJumping)
         {
             _rb.AddForce(transform.up * _jumpPower);
             _isJumping = false;
         }
+
+            // Facteur de gravité
+
         _rb.AddForce(Physics.gravity * GetComponent<Rigidbody>().mass);
     }
+
+    #endregion
+
+    #region COLLISION
 
     /* TODO: Vérifier si la collision se fait avec un tag de terrain, et pas n'importe quoi */
     private void OnCollisionEnter(Collision collision)
@@ -70,39 +107,45 @@ public sealed class Controller : MonoBehaviour {
         _canJump = true;
     }
 
-    /* TODO: Si on sort du trigger d'un object collectable, mais qu'il y a encore un autre objet collectable,
-             il faut non pas mettre le 'txtCanPerformAnAction.text' à vide, mais le remplir avec l'autre objet */
-    /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
-    #region Vérifier s'il existe un objet sur lequel on peut intéragir en face de nous
-    private void OnTriggerEnter(Collider other)
+    // TODO: Changer le 'E' en la touche que le joueur choisira
+    // TODO: Changer le text à l'écran en fonction de la langue
+    private KindOfInteractObject WhichInteractObjectRayCastHitIs(RaycastHit raycastHit)
     {
-            // Est-ce un objet collectable ?
-
-        /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
-        if (other.CompareTag("CollectableObject"))
-            _txtCanPerformAnAction.text = "E - Pick up " + other.gameObject.GetComponent<EdibleFood>().foodName;
-    }
-
-    /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
-    private void OnTriggerStay(Collider other)
-    {
-            // Est-ce un objet collectable ?
-
-        /* TODO: Modifier le 'E' en la lettre que le joueur choisiera */
-        if (other.CompareTag("CollectableObject") && Input.GetKeyDown(KeyCode.E))
+        switch (raycastHit.collider.gameObject.tag)
         {
-            /*EdibleFood ef = other.GetComponent<EdibleFood>();
-            Player.Instance().Eat(ef.hungerRegen, ef.thirstRegen, ef.nbOfTicks);*/
-            Destroy(other.gameObject);
+            case "EdibleFood":
+                _txtCanPerformAnAction.text = "E - Pick up " + raycastHit.collider.gameObject.name;
+                return KindOfInteractObject.EdibleFood;
+            case "AA": case "BB":
+                return KindOfInteractObject.EdibleFood;
+            default:
+                return KindOfInteractObject.EdibleFood;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-            // Était-ce un objet collectable ?
+    #endregion
 
-        if (other.CompareTag("CollectableObject"))
-            _txtCanPerformAnAction.text = string.Empty;
+    #region UI
+
+    /* Afficher l'UI à l'écran */
+    void DisplayUI()
+    {
+        StopCoroutine("FadeOutUI");
+        GameObject.Find("--------------- UI ---------------")._Find("UIInGame").GetComponent<CanvasGroup>().alpha = 1;
     }
+
+    /* Faire disparaître l'UI progressivement */
+    IEnumerator FadeOutUI()
+    {
+        CanvasGroup UI = GameObject.Find("UIInGame").GetComponent<CanvasGroup>();
+        float i = 1;
+        while (i > 0)
+        {
+            UI.alpha = i -= Time.deltaTime / 1.6F;
+            yield return null;
+        }
+        yield break;
+    }
+
     #endregion
 }

@@ -18,7 +18,8 @@ public class EdibleFood : Item {
 
     [Space]
     [Header("Processus pourrissement")]
-    public byte         rottingValue;   // La valeur de l'état de pourrissement TODO : changer le public en private à la fin des tests
+    [SerializeField] // TODO: Retirer à la fin des tests
+    private byte        rottingValue;   // La valeur de l'état de pourrissement
     public byte         nbOfSeconds;    // Le nombre de secondes qu'il faut à l'aliment pour perdre un point
                                         // de fraîcheur (rottingValue--)
 
@@ -27,7 +28,6 @@ public class EdibleFood : Item {
     public ushort       hungerRegen;    // Valeur de régénération de la faim par tick
     public ushort       thirstRegen;    // Valeur de régénération de la soif par tick
     public byte         nbOfTicks;      // Nombre de ticks nécessaire à la consommation entière de l'aliment
-
 
         // METHODS
 
@@ -49,6 +49,7 @@ public class EdibleFood : Item {
         while (rottingValue > 0)
         {
             yield return new WaitForSeconds(nbOfSeconds);
+            System.Console.WriteLine(GetRottingState());
             rottingValue--;
         }
     }
@@ -57,12 +58,12 @@ public class EdibleFood : Item {
     private string GetRottingState()
     {
         if (rottingValue > 89)
-            return "Fresh"; // Frais
+            return Lang.GetString("item.food.rottingstate_fresh");
         else if (rottingValue > 49)
-            return "Good"; // bon
+            return Lang.GetString("item.food.rottingstate_good");
         else if (rottingValue > 19)
-            return "Stale"; // rassis
+            return Lang.GetString("item.food.rottingstate_stale");
         else
-            return "Rotten"; // Pourri
+            return Lang.GetString("item.food.rottingstate_rotten");
     }
 }

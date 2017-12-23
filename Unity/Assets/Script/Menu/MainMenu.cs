@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public sealed class MainMenu : MonoBehaviour {
 
@@ -24,6 +25,7 @@ public sealed class MainMenu : MonoBehaviour {
     }
 
     // TODO: Ajouter un pop-up demandant au joueur s'il veut vraiment quitter ou non
+    // Permet de fermer le jeu
     public void OnClickQuit()
     {
         #if UNITY_EDITOR

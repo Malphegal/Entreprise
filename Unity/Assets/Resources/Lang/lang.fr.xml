@@ -3,5 +3,13 @@
     <string name="game.name">Gate</string>
 
     <string name="mainmenu.startbutton">Commencer une nouvelle partie</string>
+
+    <string name="item.food.rottingstate_fresh">Frais</string>
+    <string name="item.food.rottingstate_good">Bon</string>
+    <string name="item.food.rottingstate_stale">Rassis</string>
+    <string name="item.food.rottingstate_rotten">Pourri</string>
+
+    <string name="ui.currenthunger">Faim</string>
+    <string name="ui.currentthirst">Soif</string>
   </French>
 </Language>
