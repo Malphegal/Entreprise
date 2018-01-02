@@ -24,10 +24,8 @@ public class CameraRotate : MonoBehaviour {
 
     public float cameraTargetHeight = 22.0F; // Hauteur de la caméra par rapport au joueur
 
-    //checks if first person mode is on
-    private bool click = false;
-    //stores cameras distance from player
-    private float curDist = 0;
+    private bool FPSMode = false; // Checks if first person mode is on
+    private float curDist = 0; // Stores cameras distance from player
 
     void Awake()
     {
@@ -78,8 +76,9 @@ public class CameraRotate : MonoBehaviour {
         // TODO: Cette ligne cause des problèmes de caméra
         // -----------------------------------------------
         //?
-        //condicion ? first_expresion : second_expresion;
-        //(input > 0) ? isPositive : isNegative;
+        // condition ? first_expresion : second_expresion;
+        // (input > 0) ? isPositive : isNegative;
+        // TODO: Has to be done
         currentDistance = !isCorrected || correctedDistance > currentDistance ? Mathf.Lerp(currentDistance, correctedDistance, Time.deltaTime * ZoomRate) : correctedDistance;
 
         position = _cameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3(0, -cameraTargetHeight, 0));
@@ -87,31 +86,31 @@ public class CameraRotate : MonoBehaviour {
         transform.rotation = rotation;
         transform.position = position;
 
-        //CameraTarget.rotation = rotation;
+        // CameraTarget.rotation = rotation;
 
         float cameraX = transform.rotation.x;
-        //checks if right mouse button is pushed
+        // Checks if right mouse button is pushed
         if (Input.GetMouseButton(1))
         {
-            //sets CHARACTERS x rotation to match cameras x rotation
+            // Sets CHARACTERS x rotation to match cameras x rotation
             _cameraTarget.eulerAngles = new Vector3(cameraX, transform.eulerAngles.y, transform.eulerAngles.z);
         }
-        //checks if middle mouse button is pushed down
+        // Checks if middle mouse button is pushed down
         if (Input.GetMouseButtonDown(2))
         {
-            print("a");
-            //if middle mouse button is pressed 1st time set click to true and camera in front of player and save cameras position before mmb.
-            //if mmb is pressed again set camera back to it's position before we clicked mmb 1st time and set click to false
-            if (click == false)
+            print("MOUSE 3, oui");
+            // If middle mouse button is pressed 1st time set click to true and camera in front of player and save cameras position before mmb.
+            // If mmb is pressed again set camera back to it's position before we clicked mmb 1st time and set click to false
+            if (FPSMode == false)
             {
-                click = true;
+                FPSMode = true;
                 curDist = distance;
                 distance = distance - distance - 1;
             }
             else
             {
                 distance = curDist;
-                click = false;
+                FPSMode = false;
             }
         }
 

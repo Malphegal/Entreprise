@@ -13,12 +13,10 @@ public class EdibleFood : Item {
 
         // FIELDS
 
-    public string       foodName;       // Nom de l'aliment
     public FoodType     foodType;       // Type de l'aliment
 
     [Space]
     [Header("Processus pourrissement")]
-    [SerializeField] // TODO: Retirer à la fin des tests
     private byte        rottingValue;   // La valeur de l'état de pourrissement
     public byte         nbOfSeconds;    // Le nombre de secondes qu'il faut à l'aliment pour perdre un point
                                         // de fraîcheur (rottingValue--)
@@ -65,5 +63,10 @@ public class EdibleFood : Item {
             return Lang.GetString("item.food.rottingstate_stale");
         else
             return Lang.GetString("item.food.rottingstate_rotten");
+    }
+
+    public override string ToString()
+    {
+        return base.ToString() + " " + rottingValue;
     }
 }

@@ -13,8 +13,6 @@ public sealed class Player : MonoBehaviour
 {
     #region FIELDS
 
-    private static Player _player; // Référence vers le joueur
-
     private static GameObject _pnlCurrentBuffs; // Le panel qui contient les icones des buffs actifs
 
     private static Text _txtHungerValue;    // Texte de la valeur de faim actuelle
@@ -23,7 +21,7 @@ public sealed class Player : MonoBehaviour
     private static ushort _hunger;  // Valeur actuelle du niveau de faim du joueur
     private static ushort _thirst;  // Valeur actuelle du niveau de soif du joueur
 
-    #endregion
+    #endregion  
 
     #region PROPERTIES
 
@@ -32,10 +30,10 @@ public sealed class Player : MonoBehaviour
     public static ushort    Hunger      { get { return _hunger; } set { _hunger = (ushort)Mathf.Clamp(value, 0, 100); } }   // Le niveau de faim du joueur
     public static ushort    Thirst      { get { return _thirst; } set { _thirst = (ushort)Mathf.Clamp(value, 0, 100); } }   // Le niveau de soif du joueur
 
-    public static byte      Speed       { get; private set; }   // La vitesse du joueur
+    public static int       CurrentHP   { get; set; }   // Points de vie du joueur
+    public static int       MaxHP       { get; set; }   // Points de vie maximums du joueur
 
-    public static int       MaxHP       { get; private set; }   // Le nombre de points de vie maximum du joueur
-    public static int       CurrentHP   { get; private set; }   // Les points de vie acutels du joueur
+    public static bool      IsDead      { get { return CurrentHP <= 0; } }  // Return true if the player is dead, otherwise false
 
     #endregion
 
@@ -46,18 +44,23 @@ public sealed class Player : MonoBehaviour
     #endregion
 
     #region METHODS
-    
+
     void Awake()
     {
-        _player = this;
+        // DEBUG: Initialize stats
+        #if UNITY_EDITOR
+            Lang.DefineLanguage(System.IO.Directory.GetFiles(".", "lang.fr.xml", System.IO.SearchOption.AllDirectories)[0], "French");
+            InitPlayerStats.NewGameInitStats(100);
+        #endif
 
         Hunger = 100;
         Thirst = 100;
 
         _pnlCurrentBuffs = GameObject.Find("pnlCurrentBuffs");
 
-        _txtHungerValue = GameObject.Find("TxtHungerValue").GetComponent<Text>();
-        _txtThirstValue = GameObject.Find("TxtThirstValue").GetComponent<Text>();
+        _txtHungerValue = GameObject.Find("txtHungerValue").GetComponent<Text>();
+        _txtThirstValue = GameObject.Find("txtThirstValue").GetComponent<Text>();
+        GameObject.Find("txtHealthValue").GetComponent<Text>().text = CurrentHP + "/" + MaxHP + " " + Lang.GetString("ui.currenthp");
 
         InvokeRepeating("LoweringHunger", 0, 2);
         InvokeRepeating("LoweringThirst", 0, 1);

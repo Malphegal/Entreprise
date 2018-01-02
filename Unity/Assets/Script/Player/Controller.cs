@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// Classe permettant le déplacement du modèle du joueur.
@@ -8,9 +9,10 @@ using UnityEngine;
 public sealed class Controller : MonoBehaviour {
 
     /* Différent types d'object sur lesquels on peut intéragir */
-    enum KindOfInteractObject
+    enum InteractObject
     {
-        EdibleFood
+        CollectableObject,
+        LivingEntity
     }
 
     #region FIELD
@@ -18,12 +20,12 @@ public sealed class Controller : MonoBehaviour {
     private Rigidbody _rb;  // RigibBody du joueur
 
     private byte    _speed      = 3;        // Vitesse du joueur
-    private float   _jumpPower  = 450;      // Hauteur de saut du joueur
+    private float   _jumpPower  = 450F;      // Hauteur de saut du joueur
     private bool    _isJumping  = false;    // Le joueur est-il en train de sauter ?
     private bool    _canJump    = true;     // Le joueur peut-il sauter ?
 
-    private float _distanceCamera       = 2F;   // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp)
-    private float _distanceCameraSave   = 2F;   // Distance sauvegarde, pour zoom dezoom
+    //private float _distanceCamera       = 2F;   // Distance camera par rapport au joueur (Min -8, Max 6 ; Mathf.Clamp)
+    //private float _distanceCameraSave   = 2F;   // Distance sauvegarde, pour zoom dezoom
 
     Vector3 screenPosForRayCast;  // Pour le raycast d'un objet 'Interact' : position de la caméra
     RaycastHit hit;     // Pour le raycast d'un objet 'Interact' : avons nous touché grace à ray
@@ -36,8 +38,7 @@ public sealed class Controller : MonoBehaviour {
 
     private void Awake()
     {
-            // Lang
-
+        // DEBUG:
         Lang.DefineLanguage(System.IO.Directory.GetFiles(".", "lang.fr.xml", System.IO.SearchOption.AllDirectories)[0], "French");
 
             // Init
@@ -53,12 +54,30 @@ public sealed class Controller : MonoBehaviour {
     {
             // Permet d'intéragir avec un objet 'Interact' à une distance de 'maxDistanceHit'
 
-        int maxDistanceHit = 5;
+        int maxDistanceHit = 10;
         int layerMask = 1 << 9; // 9 == 'Interact'
         if (Physics.Raycast(Camera.main.ScreenPointToRay(screenPosForRayCast), out hit, maxDistanceHit, layerMask)){
-            // TODO: Traiter la valeur de retour
             // Quel est le type de l'objet sur lequel on peut intéragir ?
-            WhichInteractObjectRayCastHitIs(hit);
+            InteractObject tagOfObject = WhichInteractObjectRayCastHitIs(hit);
+            _txtCanPerformAnAction.text = CanPerformAnActionValue(tagOfObject, hit);
+
+            if (tagOfObject == InteractObject.LivingEntity)
+                if (Input.GetKeyDown(KeyCode.M))
+                    hit.collider.gameObject.GetComponent<LivingEntity>().GotHit(Random.Range(7, 18));
+
+            if (tagOfObject == InteractObject.CollectableObject)
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (Inventory.AddItem(hit.collider.gameObject.GetComponent<Item>()))
+                        foreach (Component c in hit.collider.gameObject.GetComponents<Component>())
+                        {
+                            System.Reflection.PropertyInfo pi;
+                            if ((pi = c.GetType().GetProperty("enabled")) != null)
+                                pi.SetValue(c, c == c.GetComponent<Item>(), null);
+                        }
+                    else
+                        print("Inventory FULL");
+                }
         }
         else
             _txtCanPerformAnAction.text = "";
@@ -75,6 +94,15 @@ public sealed class Controller : MonoBehaviour {
             DisplayUI();
         if (Input.GetButtonUp("Display stats"))
             StartCoroutine("FadeOutUI");
+
+        if (Input.GetKeyDown(KeyCode.P))
+            GetComponent<PlayerAttack>().GotHit(Random.Range(7, 18));
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            GameObject.Find("--------------- UI ---------------")._Find("inventory").SetActive(!GameObject.Find("--------------- UI ---------------")._Find("inventory").activeInHierarchy);
+            // TODO: Open the inventory menu
+        }
     }
 
     private void FixedUpdate()
@@ -107,19 +135,30 @@ public sealed class Controller : MonoBehaviour {
         _canJump = true;
     }
 
-    // TODO: Changer le 'E' en la touche que le joueur choisira
-    // TODO: Changer le text à l'écran en fonction de la langue
-    private KindOfInteractObject WhichInteractObjectRayCastHitIs(RaycastHit raycastHit)
+    private InteractObject WhichInteractObjectRayCastHitIs(RaycastHit raycastHit)
     {
         switch (raycastHit.collider.gameObject.tag)
         {
-            case "EdibleFood":
-                _txtCanPerformAnAction.text = "E - Pick up " + raycastHit.collider.gameObject.name;
-                return KindOfInteractObject.EdibleFood;
-            case "AA": case "BB":
-                return KindOfInteractObject.EdibleFood;
+            case "CollectableObject":
+                return InteractObject.CollectableObject;
+            case "LivingEntity":
+                return InteractObject.LivingEntity;
             default:
-                return KindOfInteractObject.EdibleFood;
+                return (InteractObject)(-1);
+        }
+    }
+
+    // TODO: Changer le 'E' en la touche que le joueur choisira
+    private string CanPerformAnActionValue(InteractObject interactObject, RaycastHit raycastHit)
+    {
+        switch (interactObject)
+        {
+            case InteractObject.CollectableObject:
+                return "E - " + Lang.GetString("controller.action.pickup") + " " + Lang.GetString(raycastHit.collider.gameObject.GetComponent<Item>().itemName);
+            case InteractObject.LivingEntity:
+                return raycastHit.collider.gameObject.name;
+            default:
+                return "";
         }
     }
 
@@ -131,13 +170,13 @@ public sealed class Controller : MonoBehaviour {
     void DisplayUI()
     {
         StopCoroutine("FadeOutUI");
-        GameObject.Find("--------------- UI ---------------")._Find("UIInGame").GetComponent<CanvasGroup>().alpha = 1;
+        GameObject.Find("--------------- UI ---------------")._Find("pnlStats").GetComponent<CanvasGroup>().alpha = 1;
     }
 
     /* Faire disparaître l'UI progressivement */
     IEnumerator FadeOutUI()
     {
-        CanvasGroup UI = GameObject.Find("UIInGame").GetComponent<CanvasGroup>();
+        CanvasGroup UI = GameObject.Find("pnlStats").GetComponent<CanvasGroup>();
         float i = 1;
         while (i > 0)
         {

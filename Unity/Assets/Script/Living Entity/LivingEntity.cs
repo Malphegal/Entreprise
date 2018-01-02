@@ -17,7 +17,7 @@ public abstract class LivingEntity : MonoBehaviour {
         // PROPERTIES
 
     public string   Name            { get { return _name; } }
-    public int      HP              { get { return _hp; }               set { _hp = Mathf.Clamp(_hp + value, 0, MaxHP); } }
+    public int      HP              { get { return _hp; }               set { _hp = value; } }
     public int      MaxHP           { get { return _maxHP; }            set { _maxHP = value; } }
     public int      AttackValue     { get { return _baseAttackValue; }  set { _baseAttackValue = value; } }
     public int      DefenceValue    { get { return _baseDefenceValue; } set { _baseDefenceValue = value; } }
@@ -28,4 +28,8 @@ public abstract class LivingEntity : MonoBehaviour {
         // ABSTRACT METHODS
 
     public abstract void Movement();
+
+    public abstract void GotHit(int damage);
+
+    public abstract IEnumerator Die();
 }

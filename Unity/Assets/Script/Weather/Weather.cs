@@ -18,6 +18,7 @@ public class Weather : MonoBehaviour {
         currentTimeOfDay = 0.3F;
         secondsInDay = 60F;
         timeMultiplier = 1F;
+        //runCycle = true;
     }
 
     public void StartCycle(bool nouvelleValeur)

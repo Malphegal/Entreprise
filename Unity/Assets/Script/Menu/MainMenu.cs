@@ -21,6 +21,12 @@ public sealed class MainMenu : MonoBehaviour {
     // TODO: Passer la méthode en asynchrone pour avoir une barre de chargement
     public void OnClickNewGame()
     {
+            // Initialize the stats of the player
+
+        InitPlayerStats.NewGameInitStats(100);
+
+            // Starts the game by loading the game
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
