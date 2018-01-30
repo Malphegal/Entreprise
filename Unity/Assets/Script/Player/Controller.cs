@@ -101,7 +101,7 @@ public sealed class Controller : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I))
         {
             GameObject.Find("--------------- UI ---------------")._Find("inventory").SetActive(!GameObject.Find("--------------- UI ---------------")._Find("inventory").activeInHierarchy);
-            // TODO: Open the inventory menu
+            // TODO: Close the inventory_LeftClick panel
         }
     }
 

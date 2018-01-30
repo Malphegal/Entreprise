@@ -11,4 +11,5 @@ public class InventorySlot {
     public bool IsEmpty { get { return Item == null; } }
 
     #endregion
+
 }

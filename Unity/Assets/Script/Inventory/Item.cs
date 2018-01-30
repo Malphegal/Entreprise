@@ -6,7 +6,7 @@ public class Item : MonoBehaviour {
 
     public enum TypeOfCollectableItem
     {
-        EdibleFood,
+        EdibleFood
     }
 
     #region FIELDS
@@ -27,6 +27,7 @@ public class Item : MonoBehaviour {
 
     #region METHODS
 
+    // DEBUG : Remove it later
     public override string ToString()
     {
         return Lang.GetString(itemName) + " : " + typeOfCollectableItem;

@@ -24,8 +24,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (cevenirSurSaPosition)
             cible.position = _positionDepart;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (_sourisDown)

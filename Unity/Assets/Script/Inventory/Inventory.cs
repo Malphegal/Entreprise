@@ -5,9 +5,60 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    #region FIELDS
+
     private static InventorySlot[] _myInventory;
 
     private static GameObject inventoryUI;
+
+    private GameObject _leftClickPanel;
+    private Text _itemNameLeftClick;
+    private Image _itemImageLeftClick;
+
+    #endregion
+
+    #region METHODS
+
+    private void Awake()
+    {
+        _leftClickPanel = gameObject._Find("inventory_LeftClick");
+        _itemNameLeftClick = gameObject._Find("inventory_LeftClick_ItemName").GetComponent<Text>();
+        _itemImageLeftClick = gameObject._Find("inventory_LeftClick_ItemImage").GetComponent<Image>();
+    }
+
+    public void CloseInventoryLeftClickPanel()
+    {
+        _leftClickPanel.SetActive(false);
+    }
+
+    public void ShowInventoryLeftClickPanel(int indexOfSlotClicked, Vector2 mousePosition)
+    {
+        _leftClickPanel.SetActive(true);
+
+        RectTransform panelRectTransform = (RectTransform)_leftClickPanel.transform;
+        print(panelRectTransform.localPosition);
+
+        _itemNameLeftClick.text = Lang.GetString(_myInventory[indexOfSlotClicked].Item.itemName);
+        _itemImageLeftClick.sprite = _myInventory[indexOfSlotClicked].Item._imageOfTheItem;
+    }
+
+    /*Vector2 ClampToWindow(PointerEventData data)
+    {
+        Vector2 rawPointerPosition = data.position;
+
+        Vector3[] canvasCorners = new Vector3[4];
+        canvasRectTransform.GetWorldCorners(canvasCorners);
+
+        float clampedX = Mathf.Clamp(rawPointerPosition.x, canvasCorners[0].x, canvasCorners[2].x);
+        float clampedY = Mathf.Clamp(rawPointerPosition.y, canvasCorners[0].y, canvasCorners[2].y);
+
+        Vector2 newPointerPosition = new Vector2(clampedX, clampedY);
+        return newPointerPosition;
+    }*/
+
+    #endregion
+
+    #region STATIC METHODS
 
     /* Creates the inventory. Called from the initClass. */
     public static void InitInventory(int inventorySize)
@@ -30,8 +81,9 @@ public class Inventory : MonoBehaviour {
             newSlot.transform.SetParent(inventoryUI.transform);
             ((RectTransform)newSlot.transform).localScale = new Vector3(1, 1, 1);
 
-            Button btn = newSlot.AddComponent<Button>();
-            btn.onClick.AddListener(delegate { RightClickOnSlot(btn); });
+            //Button btn = newSlot.AddComponent<Button>();
+            //btn.onClick.AddListener(delegate { RightClickOnSlot(btn); });
+            newSlot.AddComponent<ClickableInventorySlot>();
         }
     }
 
@@ -78,24 +130,5 @@ public class Inventory : MonoBehaviour {
         throw new System.NotImplementedException();
     }
 
-    // TODO: Remove it and change it to OnPointerClick(...)
-    public static void RightClickOnSlot(Button btn)
-    {
-        print(_myInventory[int.Parse(btn.gameObject.name.Split('_')[1])].Item);
-        RemoveItem(_myInventory[int.Parse(btn.gameObject.name.Split('_')[1])].Item);
-    }
-
-    /*
-     public class ClickableObject : MonoBehaviour, IPointerClickHandler {
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (eventData.button == PointerEventData.InputButton.Left)
-                Debug.Log("Left click");
-            else if (eventData.button == PointerEventData.InputButton.Middle)
-                Debug.Log("Middle click");
-            else if (eventData.button == PointerEventData.InputButton.Right)
-                Debug.Log("Right click");
-        }
-    }
-     */
+    #endregion
 }
