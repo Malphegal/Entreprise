@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class InventorySlot : MonoBehaviour {
 
-    #region PROPERTIES
-
-    public Item Item { get; set; }
-
+        // PROPERTIES
+        
     public int NumberOfSameItem { get; set; }
 
     public bool IsEmpty { get { return NumberOfSameItem == 0; } }
 
-    public bool Selected { get; set; }
+    private bool _isSelected;
 
-    #endregion
-
-    #region METHODS
+        // METHODS
 
     public void ChangeSelectedValue()
     {
         UnityEngine.UI.Outline outline = transform.parent.GetComponent<UnityEngine.UI.Outline>();
-        if (Selected ^= true)
+        if (_isSelected ^= true)
         {
             outline.effectColor = Color.red;
             outline.effectDistance = new Vector2(6, 6);
-            InventoryOptions.MoveInventoryOptionWindow(int.Parse(gameObject.name[gameObject.name.Length - 1].ToString()));
         }
         else
         {
@@ -33,6 +28,4 @@ public class InventorySlot : MonoBehaviour {
             outline.effectDistance = new Vector2(3, 3);
         }
     }
-
-    #endregion
 }

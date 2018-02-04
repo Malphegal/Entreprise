@@ -7,13 +7,10 @@ public class Controller : MonoBehaviour {
         // FIELDS
 
     private float _maxSpeed = 10f;
+    private float _jumpVelocity = 5;
     private bool _facingRight = true;
-    [Range(1, 10)]
-    public float jumpVelocity;
 
     private Rigidbody2D _rb;
-
-    private bool inInventory = false;
 
         // METHODS
 
@@ -24,59 +21,19 @@ public class Controller : MonoBehaviour {
 
     private void Update()
     {
-            // Mouvement
+            // -------- Mouvement --------
 
-        if (!inInventory)
-        {
-            float move = Input.GetAxis("Horizontal");
+        float move = Input.GetAxis("Horizontal");
 
-            _rb.velocity = new Vector2(move * _maxSpeed, _rb.velocity.y);
-            if ((move > 0 && !_facingRight) || (move < 0 && _facingRight))
-                Flip();
+        _rb.velocity = new Vector2(move * _maxSpeed, _rb.velocity.y);
+        if ((move > 0 && !_facingRight) || (move < 0 && _facingRight))
+            Flip();
 
-            if (Input.GetButtonDown("Jump"))
-                _rb.velocity = Vector2.up * jumpVelocity;
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                Inventory.HighlightNextSlot();
-                if (InventoryOptions.CurrentlyInOptionWindow)
-                    InventoryOptions.OpenOptions(false);
-            }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                Inventory.HighlightPreviousSlot();
-                if (InventoryOptions.CurrentlyInOptionWindow)
-                    InventoryOptions.OpenOptions(false);
-            }
-        }
-
-        // TODO: Change it to the right key (another class too ?)
-        if (Input.GetKeyDown(KeyCode.N))
-            StartCoroutine(Attack());
-
-        // DEBUG : Remove it !
-        if (Input.GetKeyDown(KeyCode.M))
-            GetComponent<PlayerStat>().GotHit(Random.Range(4, 9));
-
-            // Inventory
-
-        // TODO: Put the right key
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inInventory ^= true;
-            Inventory.HighlightSlots();
-        }
-
-            // Open options 
-
-        if (inInventory && !InventoryOptions.CurrentlyInOptionWindow && Input.GetKeyDown(KeyCode.E))
-            InventoryOptions.OpenOptions(true);
+        if (Input.GetButtonDown("Jump"))
+                _rb.velocity = Vector2.up * _jumpVelocity;
     }
 
-    /* Change the sprite orientation */
+    /* Change the Sprite orientation */
     void Flip()
     {
         _facingRight ^= true;
@@ -85,40 +42,16 @@ public class Controller : MonoBehaviour {
         transform.localScale = theScale;
     }
 
-        // TODO: Move this method to another class
-    private IEnumerator Attack()
-    {
-        Transform arme = transform.GetChild(0);
-
-        arme.GetComponent<PolygonCollider2D>().enabled = true;
-
-        while (arme.rotation.z > -.132)
-        {
-            arme.Rotate(0, 0, -10);
-            yield return new WaitForSeconds(0.04F);
-        }
-
-        while (arme.rotation.z < 0.13)
-        {
-            arme.Rotate(0, 0, 10);
-            yield return new WaitForSeconds(0.04F);
-        }
-
-        arme.GetComponent<PolygonCollider2D>().enabled = false;
-
-        yield return null;
-    }
-
     // TODO: Move this method to another class
-    // TODO: Check => The same item is added twice sometimes
+    // TODO: Use a proper reference with Inventory
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 10 => Item
-
+            // 10 => Item
+        
         if (collision.gameObject.layer == 10)
         {
-            Inventory.AddItem(collision.gameObject.GetComponent<Item>());
-            DestroyObject(collision.gameObject);
+            if (GameObject.Find("inventory").GetComponent<Inventory>().AddItem(collision.gameObject.GetComponent<Item>()))
+                Destroy(collision.gameObject);
         }
     }
 }

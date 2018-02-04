@@ -27,11 +27,13 @@ public class PlayerStat : MonoBehaviour {
     private int _maxEnergy = 100;
 
     private Weapon _weapon;
+    public Weapon Weapon { set { _weapon = value; } }
     private Clothes _clothes;
+    public Clothes Clothes { set { _clothes = value; } }
 
     private bool _stopNaturalRegen = false;
 
-    private static long counter = 0;
+    private long _naturalRegenCounter = 0;
     private float _timeBeforeNaturalRegen = 1F;
     private float _timeBeforeHungerDecrease = 3F;
     private float _timeBeforeThirstDecrease = 2F;
@@ -48,6 +50,9 @@ public class PlayerStat : MonoBehaviour {
     public static bool canBeHit = true;
 
     private IEnumerator naturalRegen;
+
+    public int AttackValue { get { return _weapon == null ? 0 : _weapon.damage; } }
+    public int DefenceValue { get { return _clothes == null ? 0 : _clothes.defence; } }
 
         // METHODS
 
@@ -79,19 +84,19 @@ public class PlayerStat : MonoBehaviour {
         while (!_stopNaturalRegen)
         {
             yield return new WaitForSecondsRealtime(1F);
-            counter++;
-            if (counter % _timeBeforeNaturalRegen == 0 && _currentHealth < _maxHealth)
+            _naturalRegenCounter++;
+            if (_naturalRegenCounter % _timeBeforeNaturalRegen == 0 && _currentHealth < _maxHealth)
             {
                 _currentHealth++;
                 UpdateUI(UIUpdate.Health);
             }
 
-            if (counter % _timeBeforeHungerDecrease == 0)
+            if (_naturalRegenCounter % _timeBeforeHungerDecrease == 0)
             {
                 _currentHunger--;
                 UpdateUI(UIUpdate.Hunger);
             }
-            if (counter % _timeBeforeThirstDecrease == 0)
+            if (_naturalRegenCounter % _timeBeforeThirstDecrease == 0)
             {
                 _currentThirst--;
                 UpdateUI(UIUpdate.Thirst);
@@ -177,11 +182,10 @@ public class PlayerStat : MonoBehaviour {
     }
 
     /* Eat food in inventory at index indexInInventory */
-    public void Eat(int indexInInventory)
+    public void Eat(Food food)
     {
-        Food itemToEat = Inventory.GetFood(indexInInventory);
-        _currentHunger = Mathf.Min(_maxHunger, _currentHunger + itemToEat.hungerValue);
-        _currentThirst = Mathf.Min(_maxThirst, _currentThirst + itemToEat.thirstValue);
+        _currentHunger = Mathf.Min(_maxHunger, _currentHunger + food.hungerValue);
+        _currentThirst = Mathf.Min(_maxThirst, _currentThirst + food.thirstValue);
         UpdateUI(UIUpdate.Hunger);
         UpdateUI(UIUpdate.Thirst);
     }

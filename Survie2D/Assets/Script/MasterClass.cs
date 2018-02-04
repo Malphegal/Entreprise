@@ -4,6 +4,10 @@ using UnityEngine;
 
 public static class MasterClass {
 
+        // FIELDS
+
+    public static string NameOfThePlayer { get; set; }
+
         // STATIC METHODS
 
     /* Find a children of a specific GameObject */

@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
+public class Weapon : Item {
 
-        // FIELD
+        // FIELDS
 
-    private string _name;
-
-    private Sprite _image;
-
-    private int _damage;
-
-        // METHODS
-
-
-
+    public int damage;
 }

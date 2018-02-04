@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Use the Sprite of the gameObject which this is attached instead of a duplicated Sprite object ?
 public class Item : MonoBehaviour {
 
     public enum TypeOfCollectableItem
     {
-        None,
         Food,
-        Weapon,
-        Clothes,
         Resource
+        //None,
+        //Weapon,
+        //RangedWeapon,
+        //Shield,
+        //Hammer,
+        //Pickaxe,
+        //Axe,
+        //Hoe,
+        //Hook,
+        //Clothes,
     }
 
-    #region FIELDS
+        // FIELDS
 
     public TypeOfCollectableItem typeOfCollectableItem;
 
@@ -23,14 +31,13 @@ public class Item : MonoBehaviour {
 
     public bool stackable;
 
-    #endregion
+        // METHODS
 
-    #region METHODS
-
-    public override string ToString()
+    public virtual void InitValues(Item item)
     {
-        return Lang.GetString(itemName);
+        typeOfCollectableItem = item.typeOfCollectableItem;
+        itemName =              item.itemName;
+        imageOfTheItem =        item.imageOfTheItem;
+        stackable =             item.stackable;
     }
-
-    #endregion
 }

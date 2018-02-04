@@ -5,12 +5,28 @@
     <string name="ui.currenthunger">Faim</string>
     <string name="ui.currentthirst">Soif</string>
     <string name="ui.currenthealth">PV</string>
-    <string name="ui.currentenergy">Energie</string>
-
+    <string name="ui.currentenergy">Énergie</string>
+    <string name="ui.inventory.optionwindow.eat">Manger</string>
+    <string name="ui.inventory.optionwindow.drop">Jeter</string>
+    <string name="ui.inventory.optionwindow.destroy">Détruire</string>
+    <string name="ui.charactersheet.attack">Attaque</string>
+    <string name="ui.charactersheet.defence">Defense</string>
+    <string name="ui.skilltree.title">Arbre de talent</string>
+    
     <string name="player.death">Vous êtes mort !</string>
-  
+
+    <string name="npc.dialogue.marc.0">Bonjour ! Comment allez-vous ?</string>
+    <string name="npc.dialogue.marc.1">Regardez le ciel, il est magnifique !</string>
+    <string name="npc.dialogue.marc.2">... J'ai encore perdu mon marteau. Oh non :(</string>
+    <string name="npc.dialogue.marc.3">... Je dois vérifier si j'... ah j'ai trouvé !</string>
+    
     <string name="item.resource.straw">Paille</string>
     <string name="item.resource.wood">Bois</string>
     <string name="item.food.apple">Pomme</string>
+    <string name="item.weapon.sword">Épée</string>
+    <string name="item.shield.shield">Bouclier</string>
+    <string name="item.rangedweapon.bow">Arc</string>
+    <string name="item.clothes.platearmor">Armure de plate</string>
+    
   </French>
 </Language>

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPC : Peaceful {
 
-
-
+    protected override void IA()
+    {
+        return;
+    }
 }

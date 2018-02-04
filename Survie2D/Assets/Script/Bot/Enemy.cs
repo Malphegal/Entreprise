@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 
 	    // FIELDS
 
-    private string _name;
+    public string nameOfEnemy;
 
     private Sprite _sprite;
 
@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour {
         player.GetComponent<PlayerStat>().GotHit(attackValue);
     }
 
-    /* Trigger death animation and Destroy() itself */
+    /* Trigger death animation and then Destroy() itself */
     public virtual IEnumerator Die()
     {
         StopCoroutine(Walk());

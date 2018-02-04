@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clothes : MonoBehaviour {
+public class Clothes : Item {
 
-        // FIELD
+        // FIELDS
 
-    private string _name;
-
-    private Sprite _image;
-
-        // METHODS
-
-
+    public int defence;
 }
