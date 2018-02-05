@@ -12,6 +12,8 @@ public class Controller : MonoBehaviour {
 
     private Rigidbody2D _rb;
 
+    public bool IsFacingRight { get { return _facingRight; } }
+
         // METHODS
 
     private void Awake()
@@ -34,7 +36,7 @@ public class Controller : MonoBehaviour {
     }
 
     /* Change the Sprite orientation */
-    void Flip()
+    private void Flip()
     {
         _facingRight ^= true;
         Vector3 theScale = transform.localScale;

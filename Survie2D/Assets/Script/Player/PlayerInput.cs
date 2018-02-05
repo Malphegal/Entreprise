@@ -14,6 +14,8 @@ public class PlayerInput : MonoBehaviour {
     private bool _inCharacterSheet  = false;
     private bool _inInventory       = false;
 
+    public GameObject arrowProjectile;
+
     private void Awake()
     {
         GameObject HUD = GameObject.Find("----------- HUD -----------");
@@ -48,6 +50,10 @@ public class PlayerInput : MonoBehaviour {
             // DEBUG: Move it to the right class
         if (Input.GetKeyDown(KeyCode.N))
             StartCoroutine(Attack());
+
+            // DEBUG: Move it to the right class
+        if (Input.GetKeyDown(KeyCode.B))
+            StartCoroutine(RangedAttack());
     }
 
     // TODO: Move it to the right class
@@ -70,6 +76,32 @@ public class PlayerInput : MonoBehaviour {
         }
 
         arme.GetComponent<PolygonCollider2D>().enabled = false;
+
+        yield return null;
+    }
+
+    private IEnumerator RangedAttack()
+    {
+        float timeLeft = 1F;
+        while (timeLeft > 0)
+        {
+            yield return new WaitForSeconds(0.1F);
+            if (!Input.GetKey(KeyCode.B))
+                yield break;
+            timeLeft -= 0.1F;
+        }
+
+        while (Input.GetKey(KeyCode.B))
+            yield return new WaitForEndOfFrame();
+
+        StartCoroutine(Arrow());
+    }
+
+    private IEnumerator Arrow()
+    {
+        GameObject player = GameObject.Find("player");
+        GameObject arrow = Instantiate(arrowProjectile, new Vector3(player.transform.position.x + (player.GetComponent<Controller>().IsFacingRight ? 0.5F : -0.5F)
+            , player.transform.position.y, player.transform.position.z), new Quaternion());
 
         yield return null;
     }

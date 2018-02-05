@@ -26,11 +26,6 @@ public class PlayerStat : MonoBehaviour {
     private int _currentEnergy = 100;
     private int _maxEnergy = 100;
 
-    private Weapon _weapon;
-    public Weapon Weapon { set { _weapon = value; } }
-    private Clothes _clothes;
-    public Clothes Clothes { set { _clothes = value; } }
-
     private bool _stopNaturalRegen = false;
 
     private long _naturalRegenCounter = 0;
@@ -51,8 +46,8 @@ public class PlayerStat : MonoBehaviour {
 
     private IEnumerator naturalRegen;
 
-    public int AttackValue { get { return _weapon == null ? 0 : _weapon.damage; } }
-    public int DefenceValue { get { return _clothes == null ? 0 : _clothes.defence; } }
+    public int AttackValue { get { return 1; } }
+    public int DefenceValue { get { return 2; } }
 
         // METHODS
 
