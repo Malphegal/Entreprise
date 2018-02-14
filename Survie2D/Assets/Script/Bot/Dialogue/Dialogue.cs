@@ -29,7 +29,7 @@ public class Dialogue : MonoBehaviour
         textMesh.color = Color.red;
         floatingObject.name = "floatingDialogue_" + _npcName;
         floatingObject.transform.parent = transform;
-        floatingObject.transform.localPosition = new Vector3(0, 1.5F, -1);
+        floatingObject.transform.localPosition = new Vector3(0, 1.5F, 1);
         StartCoroutine(RemoveFloatingText());
     }
 

@@ -12,6 +12,14 @@
     <string name="ui.charactersheet.attack">Attaque</string>
     <string name="ui.charactersheet.defence">Defense</string>
     <string name="ui.skilltree.title">Arbre de talent</string>
+    <string name="ui.skilltree.skillunlocked">Talent débloqué : </string>
+    <string name="ui.skilltree.skill.1">Alex Ception</string>
+    <string name="ui.skilltree.skill.2">Jean Registre</string>
+    <string name="ui.skilltree.skill.3">Mehdi Cament</string>
+    <string name="ui.skilltree.skill.4">Nordine Ateur</string>
+    <string name="ui.skilltree.skill.5">Sarah Tatouille</string>
+    <string name="ui.skilltree.skill.6">Otto Graf</string>
+    <string name="ui.skilltree.skill.7">Eddy Moitou</string>
     
     <string name="player.death">Vous êtes mort !</string>
 

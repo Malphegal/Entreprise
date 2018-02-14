@@ -32,6 +32,7 @@ public class CharacterSheet : MonoBehaviour {
         _defence.text = Lang.GetString("ui.charactersheet.defence") + " : " + _playerStat.DefenceValue;
     }
 
+    /* Refresh all stats in the characterSheet */
     private void OnEnable()
     {
         UpdateAllStats();

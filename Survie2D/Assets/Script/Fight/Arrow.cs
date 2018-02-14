@@ -11,6 +11,8 @@ public class Arrow : MonoBehaviour {
     private const int arrowImpulsionX = 18;
     private const int arrowImpulsionY = 2;
 
+    private bool _guided = false;
+
     private void Awake()
     {
         if (!(_right = GameObject.Find("player").GetComponent<Controller>().IsFacingRight))
@@ -29,7 +31,11 @@ public class Arrow : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.gameObject.SendMessage("GotHit", arrowDamage, SendMessageOptions.DontRequireReceiver);
-        Destroy(gameObject);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0F;
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<BoxCollider2D>());
+        transform.SetParent(collision.gameObject.transform);
     }
 
     /* Change the arrow orientation */

@@ -42,12 +42,17 @@ public class PlayerStat : MonoBehaviour {
     private Image _HUDThirst;
     private Text _HUDThirstValue;
 
-    public static bool canBeHit = true;
+    private bool _canBeHit = true;
 
     private IEnumerator naturalRegen;
 
-    public int AttackValue { get { return 1; } }
-    public int DefenceValue { get { return 2; } }
+    private int _baseAttackValue = 10;
+    public float AdditionalPercentageAttackValue { get; set; }
+    public int AttackValue { get { return (int)(_baseAttackValue * (AdditionalPercentageAttackValue / 100)); } }
+
+    private int _baseDefenceValue = 10;
+    public float AdditionalPercentageDefenceValue { get; set; }
+    public int DefenceValue { get { return (int)(_baseDefenceValue * (AdditionalPercentageDefenceValue / 100)); } }
 
         // METHODS
 
@@ -68,6 +73,9 @@ public class PlayerStat : MonoBehaviour {
         _HUDEnergyValue.text = _currentEnergy + " / " + _maxEnergy + " " + Lang.GetString("ui.currentenergy");
         _HUDHungerValue.text = _currentHunger + " / " + _maxHunger + " " + Lang.GetString("ui.currenthunger");
         _HUDThirstValue.text = _currentThirst + " / " + _maxThirst + " " + Lang.GetString("ui.currentthirst");
+
+        AdditionalPercentageAttackValue = 100;
+        AdditionalPercentageDefenceValue = 100;
 
         naturalRegen = NaturalRegen();
         StartCoroutine(naturalRegen);
@@ -103,9 +111,9 @@ public class PlayerStat : MonoBehaviour {
     // TODO: Add a sound which depends of who hits the player
     public void GotHit(int damage)
     {
-        if (canBeHit)
+        if (_canBeHit)
         {
-            canBeHit = false;
+            _canBeHit = false;
             _currentHealth = Mathf.Max(_currentHealth - damage, 0);
             UpdateUI(UIUpdate.Health);
 
@@ -139,7 +147,7 @@ public class PlayerStat : MonoBehaviour {
             // An enemy can now hits the player again
 
         Physics2D.IgnoreLayerCollision(9, 8, false);
-        canBeHit = true;
+        _canBeHit = true;
     }
 
     // TODO: Insta reload ?

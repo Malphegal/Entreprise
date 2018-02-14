@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour {
 
     private IEnumerator _walk;
 
+    private float _remainingTime_Blink = 1F;
+    private bool _blinking = false;
+
         // METHODS
 
     private void Awake()
@@ -79,12 +82,17 @@ public class Enemy : MonoBehaviour {
     public virtual void GotHit(int damage)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
-        // TODO: Check if not dead yet
+
         if (currentHealth == 0)
         {
             StopCoroutine(_walk);
             StartCoroutine(Die());
+            return;
         }
+
+        _remainingTime_Blink = 1F;
+        if (!_blinking)
+            StartCoroutine(StartBlinking());
     }
 
     /* Attack the player */
@@ -118,5 +126,21 @@ public class Enemy : MonoBehaviour {
 
         if (collision.gameObject.layer == 9)
             Attack(collision.gameObject);
+    }
+
+    /* Blinks the player to show that he got hit */
+    private IEnumerator StartBlinking()
+    {
+        _blinking = true;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        while (_remainingTime_Blink > 0)
+        {
+            spriteRenderer.color = new Color(1, 0.5F, 0.5F);
+            yield return new WaitForSeconds(0.1F);
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(0.1F);
+            _remainingTime_Blink -= 0.2F;
+        }
+        _blinking = false;
     }
 }

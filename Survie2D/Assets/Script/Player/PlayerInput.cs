@@ -6,39 +6,61 @@ public class PlayerInput : MonoBehaviour {
 
         // FIELDS
 
-    private GameObject _characterSheet;
-    private Inventory _inventory;
+    private Rigidbody2D _rb;
 
+    private GameObject _characterSheet;
+    private GameObject _skillTree;
+    private Inventory _inventory;
     private Controller _controller;
 
     private bool _inCharacterSheet  = false;
-    private bool _inInventory       = false;
+    private bool _inInventory       = false; public static bool InInventory { get; private set; } // Used by CanBuildBridge
+    private bool _inSkillTree       = false;
+
+    private bool _attacking         = false;
 
     public GameObject arrowProjectile;
 
     private void Awake()
     {
         GameObject HUD = GameObject.Find("----------- HUD -----------");
-        _controller = GetComponent<Controller>();
 
+        _rb             = GetComponent<Rigidbody2D>();
+
+        _controller     = GetComponent<Controller>();
         _characterSheet = HUD._Find("characterSheet")._Find("characterSheet_Panel");
-        _inventory = HUD._Find("inventory").GetComponent<Inventory>();
+        _inventory      = HUD._Find("inventory").GetComponent<Inventory>();
+        _skillTree      = HUD._Find("skillTree_Panel");
     }
 
     private void Update()
     {
-            // -------- Character sheet --------
+        if(!_inSkillTree) { 
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _characterSheet.SetActive(_inCharacterSheet ^= true);
+                // -------- Character sheet --------
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                _characterSheet.SetActive(_inCharacterSheet ^= true);
+            }
+
+                // -------- Inventory --------
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                _controller.enabled = !(_inventory.enabled = InInventory = _inInventory ^= true);
+                _rb.velocity = Vector2.zero;
+            }
         }
 
-            // -------- Inventory --------
+            // -------- SkillTree --------
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            _controller.enabled = !(_inventory.enabled = _inInventory ^= true);
+            _inventory.enabled = InInventory = _inInventory = false;
+            _characterSheet.SetActive(_inCharacterSheet = false);
+            _skillTree.SetActive(_inSkillTree ^= true);
+            _controller.enabled = !_inSkillTree;
         }
 
             // -------- DEBUG --------
@@ -46,9 +68,8 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.M))
             GetComponent<PlayerStat>().GotHit(Random.Range(4, 9));
 
-
             // DEBUG: Move it to the right class
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && !_attacking)
             StartCoroutine(Attack());
 
             // DEBUG: Move it to the right class
@@ -57,9 +78,12 @@ public class PlayerInput : MonoBehaviour {
     }
 
     // TODO: Move it to the right class
+    /* Attack with the melee weapon */
     private IEnumerator Attack()
     {
-        Transform arme = transform.GetChild(0);
+        _attacking = true;
+
+        Transform arme = gameObject._Find("weapon").transform;
 
         arme.GetComponent<PolygonCollider2D>().enabled = true;
 
@@ -77,9 +101,12 @@ public class PlayerInput : MonoBehaviour {
 
         arme.GetComponent<PolygonCollider2D>().enabled = false;
 
+        _attacking = false;
+
         yield return null;
     }
-
+    
+    /* Prepare to shoot an arrow */
     private IEnumerator RangedAttack()
     {
         float timeLeft = 1F;
@@ -94,16 +121,14 @@ public class PlayerInput : MonoBehaviour {
         while (Input.GetKey(KeyCode.B))
             yield return new WaitForEndOfFrame();
 
-        StartCoroutine(Arrow());
+        Arrow();
     }
 
-    private IEnumerator Arrow()
+    /* Shoot an arrow */
+    private void Arrow()
     {
         GameObject player = GameObject.Find("player");
         GameObject arrow = Instantiate(arrowProjectile, new Vector3(player.transform.position.x + (player.GetComponent<Controller>().IsFacingRight ? 0.5F : -0.5F)
             , player.transform.position.y, player.transform.position.z), new Quaternion());
-
-        yield return null;
     }
-
 }

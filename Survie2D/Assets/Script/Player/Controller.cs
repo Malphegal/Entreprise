@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour {
     private bool _facingRight = true;
 
     private Rigidbody2D _rb;
+    private Inventory _inventory;
 
     public bool IsFacingRight { get { return _facingRight; } }
 
@@ -19,6 +20,7 @@ public class Controller : MonoBehaviour {
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _inventory = GameObject.Find("inventory").GetComponent<Inventory>();
     }
 
     private void Update()
@@ -44,16 +46,24 @@ public class Controller : MonoBehaviour {
         transform.localScale = theScale;
     }
 
-    // TODO: Move this method to another class
-    // TODO: Use a proper reference with Inventory
     private void OnTriggerEnter2D(Collider2D collision)
     {
             // 10 => Item
         
         if (collision.gameObject.layer == 10)
         {
-            if (GameObject.Find("inventory").GetComponent<Inventory>().AddItem(collision.gameObject.GetComponent<Item>()))
+            if (_inventory.AddItem(collision.gameObject.GetComponent<Item>()))
                 Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+            // 13 => CanBeBuilt
+
+        if (collision.gameObject.layer == 13 && Input.GetKeyDown(KeyCode.E))
+        {
+            collision.gameObject.GetComponent<CanBuildBridge>().enabled = true;
         }
     }
 }

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 // TODO: Add all Text in an array, aswell as the Sprite
 //       No need to use GetComponent at runtime anymore
 // TODO: Unselect the inventory if an enemy hits the player
-// TODO: Each slot has an Item component, but its value changes if NumberOfSameItem
-//       goes from 0 to something higher
 public class Inventory : MonoBehaviour {
 
         // FIELDS
@@ -53,7 +51,6 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    // TODO: Remove InventoryOption ?
     private void Update()
     {
             // -------- Slots --------
@@ -105,7 +102,7 @@ public class Inventory : MonoBehaviour {
 
                     // Remove it in any case, and close optionWindow if there is no item left on this InventorySlot
 
-                if (!RemoveItem(_currentSelectedSlot))
+                if (RemoveItem(_currentSelectedSlot) == 0)
                 {
                     CloseOptions();
                 }
@@ -184,18 +181,50 @@ public class Inventory : MonoBehaviour {
     }
 
     /* Return false is there is no more item at index indexToRemove */
-    public bool RemoveItem(int indexToRemove)
+    public int RemoveItem(int indexToRemove)
     {
-        Text text = _myInventory[indexToRemove].gameObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-
-        if (text.text == "1" || !_myInventory[indexToRemove].GetComponent<Item>().stackable)
+        if (_myInventory[indexToRemove].NumberOfSameItem <= 1)
         {
             RemoveStack(indexToRemove);
-            return false;
+            return 0;
         }
 
-        text.text = (--_myInventory[indexToRemove].NumberOfSameItem).ToString();
-        return true;
+        _myInventory[indexToRemove].GetComponentInChildren<Text>(true).text = (--_myInventory[indexToRemove].NumberOfSameItem).ToString();
+        return _myInventory[indexToRemove].NumberOfSameItem;
+    }
+
+    /* Return the number of items still needed to reach amount */
+    public int RemoveItem(Item itemToRemove, int amount)
+    {
+        for (int i = 0; i < c_inventorySize; i++)
+        {
+            Item currentItem = _myInventory[i].GetComponent<Item>();
+
+                // If the current slot does not have any Item attached to it
+
+            if (currentItem == null)
+                continue;
+
+                // If the current slot matches the requested Item
+
+            if (currentItem.itemName == itemToRemove.itemName)
+            {
+                int temp = Mathf.Min(_myInventory[i].NumberOfSameItem, amount);
+                amount -= temp;
+
+                if (amount == 0)
+                {
+                    RemoveStack(i);
+                    return 0;
+                }
+
+                if ((_myInventory[i].NumberOfSameItem -= temp) == 0)
+                    RemoveStack(i);
+                else
+                    _myInventory[i].GetComponentInChildren<Text>().text = _myInventory[i].NumberOfSameItem.ToString();
+            }
+        }
+        return amount;
     }
 
     /* Remove the whole stack at index indexToRemove */
@@ -203,7 +232,7 @@ public class Inventory : MonoBehaviour {
     {
         _myInventory[indexToRemove].NumberOfSameItem = 0;
         _myInventory[indexToRemove].GetComponent<Image>().sprite = null;
-        _myInventory[indexToRemove].transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "0";
+        _myInventory[indexToRemove].GetComponentInChildren<Text>(true).text = "0";
         _myInventory[indexToRemove].transform.GetChild(0).gameObject.SetActive(false);
 
         Destroy(_myInventory[indexToRemove].GetComponent<Item>());
@@ -220,6 +249,25 @@ public class Inventory : MonoBehaviour {
     public void DropStack(int indexToDrop)
     {
         throw new System.NotImplementedException();
+    }
+
+    public bool ItemExists(Item item, out int counter, out int indexToRemove)
+    {
+        for (int i = 0; i < _myInventory.Length; i++)
+        {
+            Item tempItem = _myInventory[i].GetComponent<Item>();
+            if (tempItem == null)
+                continue;
+            if (tempItem.itemName == item.itemName)
+            {
+                counter = _myInventory[i].NumberOfSameItem;
+                indexToRemove = i;
+                return true;
+            }
+        }
+        counter = -1;
+        indexToRemove = -1;
+        return false;
     }
 
     /* Display the current selected slot */
@@ -287,8 +335,6 @@ public class Inventory : MonoBehaviour {
 
             // If an item is selected
 
-
-        print(item.typeOfCollectableItem);
         if (item.typeOfCollectableItem == Item.TypeOfCollectableItem.Food)
         {
             _eat.SetActive(_isEatActive = true);

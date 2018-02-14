@@ -107,8 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766bc3af12b23241ac96b38bd8eb70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameOfEnemy: 
   currentHealth: 100
   attackValue: 6
+  defenceValue: 0
 --- !u!212 &212530469317816248
 SpriteRenderer:
   m_ObjectHideFlags: 1
