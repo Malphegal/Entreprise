@@ -2261,7 +2261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1684356104770920, guid: 59b16c1943a0b1b459a48e6d755b89d1, type: 2}
       propertyPath: m_Name
-      value: Slime1
+      value: slime1
       objectReference: {fileID: 0}
     - target: {fileID: 114221977821323714, guid: 59b16c1943a0b1b459a48e6d755b89d1,
         type: 2}
@@ -9695,7 +9695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1684356104770920, guid: 59b16c1943a0b1b459a48e6d755b89d1, type: 2}
       propertyPath: m_Name
-      value: Slime2
+      value: slime2
       objectReference: {fileID: 0}
     - target: {fileID: 114221977821323714, guid: 59b16c1943a0b1b459a48e6d755b89d1,
         type: 2}
@@ -15127,7 +15127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1684356104770920, guid: 59b16c1943a0b1b459a48e6d755b89d1, type: 2}
       propertyPath: m_Name
-      value: Slime3
+      value: slime3
       objectReference: {fileID: 0}
     - target: {fileID: 114221977821323714, guid: 59b16c1943a0b1b459a48e6d755b89d1,
         type: 2}

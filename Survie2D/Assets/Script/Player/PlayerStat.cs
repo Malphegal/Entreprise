@@ -50,7 +50,7 @@ public class PlayerStat : MonoBehaviour {
     public float AdditionalPercentageAttackValue { get; set; }
     public int AttackValue { get { return (int)(_baseAttackValue * (AdditionalPercentageAttackValue / 100)); } }
 
-    private int _baseDefenceValue = 10;
+    private int _baseDefenceValue = 4;
     public float AdditionalPercentageDefenceValue { get; set; }
     public int DefenceValue { get { return (int)(_baseDefenceValue * (AdditionalPercentageDefenceValue / 100)); } }
 
