@@ -8,17 +8,21 @@ public class Item : MonoBehaviour {
     public enum TypeOfCollectableItem
     {
         Food,
-        Resource
+        Resource,
+        Rune
         //None,
         //Weapon,
         //RangedWeapon,
         //Shield,
+        //Clothes,
+
+            // Tools
+
         //Hammer,
         //Pickaxe,
         //Axe,
         //Hoe,
         //Hook,
-        //Clothes,
     }
 
         // FIELDS
@@ -27,7 +31,7 @@ public class Item : MonoBehaviour {
 
     public string itemName;
 
-    public Sprite imageOfTheItem;
+    public Sprite ImageOfTheItem { get; private set; }
 
     public bool stackable;
 
@@ -37,7 +41,16 @@ public class Item : MonoBehaviour {
     {
         typeOfCollectableItem = item.typeOfCollectableItem;
         itemName =              item.itemName;
-        imageOfTheItem =        item.imageOfTheItem;
+        ImageOfTheItem =        item.ImageOfTheItem;
         stackable =             item.stackable;
+    }
+
+    private void Awake()
+    {
+            // If the item is already attached to a GameObject which has a SpriteRenderer, assigned it to ImageOfTheImage
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+            ImageOfTheItem = sr.sprite;
     }
 }

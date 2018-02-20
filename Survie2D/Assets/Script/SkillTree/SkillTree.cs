@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour {
 
-    // FIELDS
+        // FIELDS
 
     private const string c_skillTreeSlotName = "skillTreeSlot";
     private const int c_skillSlotCount = 7;
@@ -13,14 +13,20 @@ public class SkillTree : MonoBehaviour {
     private SkillTreeSlot[] _skillTreeSlot;
 
     private Text _info;
+    private Text _coin;
+    private Text _price;
+
+    private string priceText;
 
     private PlayerStat _playerStat;
 
     private int _currentSelectedSlot = 0;
     private float _remaningTime = 5F;
-    private bool _isCoroutineRunning = false;
 
     private string _skillUnlockedText;
+
+    private int _skillTreeCoins = 0;
+    public int SkillTreeCoins { get { return _skillTreeCoins; } set { _coin.text = (_skillTreeCoins = value).ToString(); } }
 
         // METHODS
 
@@ -44,6 +50,10 @@ public class SkillTree : MonoBehaviour {
             _skillTreeSlot[i] = gameObject._Find(c_skillTreeSlotName + i).GetComponent<SkillTreeSlot>();
 
         _info = gameObject._Find("skillTree_SkillUnlocked").GetComponent<Text>();
+        _coin = gameObject._Find("skillTree_Coin").GetComponent<Text>();
+        _price = gameObject._Find("skillTree_CurrentPrice").GetComponent<Text>();
+
+        priceText = Lang.GetString("ui.skilltree.price");
 
         gameObject._Find("skillTree_Title").GetComponent<Text>().text = Lang.GetString("ui.skilltree.title");
 
@@ -57,6 +67,13 @@ public class SkillTree : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.D))
             SelectNextSlot();
+
+        if (_remaningTime > 0)
+        {
+            _remaningTime -= Time.deltaTime;
+            if (_remaningTime <= 0)
+                _info.text = "";
+        }
     }
 
     private void SelectNextSlot()
@@ -95,16 +112,15 @@ public class SkillTree : MonoBehaviour {
         }
 
         _skillTreeSlot[index].enabled = _skillTreeSlot[index].Unlocked ? false : selectIt;
+        _price.text = priceText + (_skillTreeSlot[index].enabled ? _skillTreeSlot[index].price.ToString() : "0");
     }
 
     public void AllUnlocks(int id, string name)
     {
-        _remaningTime = 5F;
-        if (!_isCoroutineRunning)
-            StartCoroutine(DisplayInfo());
-        _isCoroutineRunning = true;
+        _remaningTime = 5F; // Used to display the name of the new unlocked skill, in seconds
 
-        _info.text = _skillUnlockedText + Lang.GetString(name);
+        _info.text = _skillUnlockedText + Lang.GetString(name); // Information about the name of the current unlocked skill, lasts few seconds
+        _price.text = priceText + "0"; // The current price required for the selected skill is now equal to 0
 
             // Unlock the skill by modify what it requires
 
@@ -132,16 +148,5 @@ public class SkillTree : MonoBehaviour {
                 _playerStat.AdditionalPercentageDefenceValue += 30;
                 return;
         }
-    }
-
-    private IEnumerator DisplayInfo()
-    {
-        while (_remaningTime > 0)
-        {
-            yield return new WaitForSeconds(0.1F);
-            _remaningTime -= 0.1F;
-        }
-        _info.text = "";
-        _isCoroutineRunning = false;
     }
 }

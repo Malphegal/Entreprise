@@ -6,75 +6,84 @@ public class PlayerInput : MonoBehaviour {
 
         // FIELDS
 
-    private Rigidbody2D _rb;
-
     private GameObject _characterSheet;
     private GameObject _skillTree;
     private Inventory _inventory;
     private Controller _controller;
 
-    private bool _inCharacterSheet  = false;
-    private bool _inInventory       = false; public static bool InInventory { get; private set; } // Used by CanBuildBridge
-    private bool _inSkillTree       = false;
+    private static bool _inCharacterSheet  = false;
+    private static bool _inInventory       = false;
+    private static bool _inSkillTree       = false;
 
-    private bool _attacking         = false;
+    public static bool AvailableForNewMenu {
+        get { return !(_inInventory || _inSkillTree || _inCharacterSheet); } } // Can't open another window if a menu if already opened
 
+    public static bool RuneMode {
+        get { return _inCharacterSheet; } }
+
+    private bool _attacking = false;
+
+    // TODO: Another class ?
     public GameObject arrowProjectile;
 
     private void Awake()
     {
         GameObject HUD = GameObject.Find("----------- HUD -----------");
 
-        _rb             = GetComponent<Rigidbody2D>();
-
         _controller     = GetComponent<Controller>();
         _characterSheet = HUD._Find("characterSheet")._Find("characterSheet_Panel");
         _inventory      = HUD._Find("inventory").GetComponent<Inventory>();
         _skillTree      = HUD._Find("skillTree_Panel");
     }
-
+    
     private void Update()
     {
-        if(!_inSkillTree) { 
+            // -------- Character sheet --------
 
-                // -------- Character sheet --------
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (AvailableForNewMenu && !_inCharacterSheet)
+                _characterSheet.SetActive(!(_controller.enabled = !(_inCharacterSheet = true)));
+            else if (_inCharacterSheet)
+                _characterSheet.SetActive(!(_controller.enabled = !(_inventory.enabled = _inCharacterSheet = false)));
+        }
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                _characterSheet.SetActive(_inCharacterSheet ^= true);
-            }
+            // -------- Inventory --------
 
-                // -------- Inventory --------
-
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                _controller.enabled = !(_inventory.enabled = InInventory = _inInventory ^= true);
-                _rb.velocity = Vector2.zero;
-            }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (AvailableForNewMenu && !_inInventory)
+                _controller.enabled = !(_inventory.enabled = _inInventory = true);
+            else if (_inInventory)
+                _controller.enabled = !(_inventory.enabled = _inInventory = false);
         }
 
             // -------- SkillTree --------
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            _inventory.enabled = InInventory = _inInventory = false;
-            _characterSheet.SetActive(_inCharacterSheet = false);
-            _skillTree.SetActive(_inSkillTree ^= true);
-            _controller.enabled = !_inSkillTree;
+            if (AvailableForNewMenu && !_inSkillTree)
+                _skillTree.SetActive(!(_controller.enabled = !(_inSkillTree = true)));
+            else if (_inSkillTree)
+                _skillTree.SetActive(!(_controller.enabled = !(_inSkillTree = false)));
         }
 
             // -------- DEBUG --------
 
         if (Input.GetKeyDown(KeyCode.M))
-            GetComponent<PlayerStat>().GotHit(Random.Range(4, 9));
+            GetComponent<PlayerStat>().GotHit(Random.Range(30, 60));
 
-            // DEBUG: Move it to the right class
+            // TODO: Move it to the right class
         if (Input.GetKeyDown(KeyCode.N) && !_attacking)
             StartCoroutine(Attack());
 
-            // DEBUG: Move it to the right class
+            // TODO: Move it to the right class
         if (Input.GetKeyDown(KeyCode.B))
             StartCoroutine(RangedAttack());
+
+            // DEBUG: Remove it !
+        if (Input.GetKeyDown(KeyCode.L))
+            _skillTree.GetComponent<SkillTree>().SkillTreeCoins += 1;
     }
 
     // TODO: Move it to the right class
@@ -128,7 +137,7 @@ public class PlayerInput : MonoBehaviour {
     private void Arrow()
     {
         GameObject player = GameObject.Find("player");
-        GameObject arrow = Instantiate(arrowProjectile, new Vector3(player.transform.position.x + (player.GetComponent<Controller>().IsFacingRight ? 0.5F : -0.5F)
+        Instantiate(arrowProjectile, new Vector3(player.transform.position.x + (player.GetComponent<Controller>().IsFacingRight ? 0.5F : -0.5F)
             , player.transform.position.y, player.transform.position.z), new Quaternion());
     }
 }

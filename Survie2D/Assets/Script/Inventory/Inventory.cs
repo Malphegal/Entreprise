@@ -20,7 +20,10 @@ public class Inventory : MonoBehaviour {
 
     private int _currentSelectedSlot = 0;
 
-    public PlayerStat _playerStat;
+    private PlayerStat _playerStat;
+    private CharacterSheet _characterSheet;
+
+    private bool _inRuneMode = false;
 
     #endregion
 
@@ -41,7 +44,8 @@ public class Inventory : MonoBehaviour {
     {
         _inventoryOption = transform.parent.gameObject._Find("optionOfInventorySlot")._Find("optionOfInventorySlot_Panel");
         _eat = _inventoryOption._Find("optionOfInventorySlot_0");
-        _playerStat = GameObject.Find("player").GetComponent<PlayerStat>();
+        _playerStat = GameObject.FindWithTag("Player").GetComponent<PlayerStat>();
+        _characterSheet = GameObject.Find("characterSheet").transform.GetChild(0).GetComponent<CharacterSheet>();
 
         _myInventory = new InventorySlot[c_inventorySize];
         for (int i = 0; i < c_inventorySize; i++)
@@ -69,7 +73,7 @@ public class Inventory : MonoBehaviour {
                 CloseOptions();
         }
 
-            // -------- Options window --------
+            // -------- Options window AND runes --------
 
         if (_optionWindowDisplayed)
         {
@@ -91,26 +95,38 @@ public class Inventory : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (_currentSelectedOption == 0)
+                if (_currentSelectedOption == 0) // Eat
                 {
-                    _playerStat.Eat(_myInventory[_currentSelectedSlot].GetComponent<Food>());
+                    _playerStat.Eat((Food)_myInventory[_currentSelectedSlot].Item);
                 }
-                else if (_currentSelectedOption == 1)
+                else if (_currentSelectedOption == 1) // Drop
                 {
                     print("DROP - NOT IMPLEMENTED");
                 }
 
                     // Remove it in any case, and close optionWindow if there is no item left on this InventorySlot
 
-                if (RemoveItem(_currentSelectedSlot) == 0)
+                if (RemoveItem(_currentSelectedSlot) == 0) // Remove
                 {
                     CloseOptions();
                 }
             }
         }
-        else if (!_optionWindowDisplayed && Input.GetKeyDown(KeyCode.E) && _myInventory[_currentSelectedSlot].NumberOfSameItem > 0)
+        else if (Input.GetKeyDown(KeyCode.E))
         {
-            OpenOptions();
+                // Inventory options
+
+            if (!_inRuneMode && _myInventory[_currentSelectedSlot].NumberOfSameItem > 0)
+            {
+                OpenOptions();
+            }
+
+                // Runes
+
+            else if (_inRuneMode)
+            {
+                MoveRune();
+            }
         }
     }
 
@@ -128,31 +144,7 @@ public class Inventory : MonoBehaviour {
             for (int i = 0; i < _myInventory.Length; i++)
                 if (_myInventory[i].IsEmpty)
                 {
-                    if (itemToAdd.typeOfCollectableItem == Item.TypeOfCollectableItem.Food)
-                    {
-                        Food newFood = _myInventory[i].gameObject.AddComponent<Food>(); // Create a new component copied from the original item
-                        newFood.InitValues(itemToAdd);
-                    }
-                    else
-                    {
-                        Item newItem = _myInventory[i].gameObject.AddComponent<Item>(); // Create a new component copied from the original item
-                        newItem.InitValues(itemToAdd);
-                    }
-
-                    _myInventory[i].GetComponent<Item>().InitValues(itemToAdd); // Copy itemToAdd to this new component
-                    _myInventory[i].NumberOfSameItem = 1;
-
-                    GameObject inventorySlotIndexI = _myInventory[i].gameObject;
-                    inventorySlotIndexI.GetComponent<Image>().sprite = itemToAdd.imageOfTheItem;
-
-                        // Display the counter if the item is stackable
-
-                    if (itemToAdd.stackable)
-                    {
-                        inventorySlotIndexI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "1";
-                        inventorySlotIndexI.transform.GetChild(0).gameObject.SetActive(true);
-                    }
-                    
+                    AddItemAt(itemToAdd, i);
                     return true;
                 }
 
@@ -169,13 +161,31 @@ public class Inventory : MonoBehaviour {
         return true;
     }
 
-        // TODO: Try to optimize the code
+    /* Add an item at a specific empty location */
+    private void AddItemAt(Item itemToAdd, int index) {
+        if (itemToAdd.typeOfCollectableItem == Item.TypeOfCollectableItem.Food)
+            _myInventory[index].gameObject.AddComponent<Food>();
+        else
+            _myInventory[index].gameObject.AddComponent<Item>();
+        _myInventory[index].Item.InitValues(itemToAdd);
+        _myInventory[index].NumberOfSameItem = 1;
+
+        GameObject inventorySlotIndexI = _myInventory[index].gameObject;
+        inventorySlotIndexI.GetComponent<Image>().sprite = itemToAdd.ImageOfTheItem;
+
+        if (itemToAdd.stackable)
+        {
+            inventorySlotIndexI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "1";
+            inventorySlotIndexI.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
     /* If itemToCheck exists in inventory and stack value is lower than maxStackSize, return its index, otherwise return -1 */
     private int ItemExistsAndStackableInInventory(Item itemToCheck)
     {
         for (int i = 0; i < c_inventorySize; i++)
-            if (!_myInventory[i].IsEmpty && _myInventory[i].GetComponent<Item>().itemName == itemToCheck.itemName)
-                if (_myInventory[i].GetComponent<Item>().stackable && int.Parse(_myInventory[i].gameObject.GetComponentInChildren<Text>().text) < c_maxStackSize)
+            if (!_myInventory[i].IsEmpty && _myInventory[i].Item.itemName == itemToCheck.itemName)
+                if (_myInventory[i].Item.stackable && int.Parse(_myInventory[i].gameObject.GetComponentInChildren<Text>().text) < c_maxStackSize)
                     return i;
         return -1;
     }
@@ -196,9 +206,9 @@ public class Inventory : MonoBehaviour {
     /* Return the number of items still needed to reach amount */
     public int RemoveItem(Item itemToRemove, int amount)
     {
-        for (int i = 0; i < c_inventorySize; i++)
+        for (int i = 0; i < c_inventorySize && amount > 0; i++)
         {
-            Item currentItem = _myInventory[i].GetComponent<Item>();
+            Item currentItem = _myInventory[i].Item;
 
                 // If the current slot does not have any Item attached to it
 
@@ -211,12 +221,6 @@ public class Inventory : MonoBehaviour {
             {
                 int temp = Mathf.Min(_myInventory[i].NumberOfSameItem, amount);
                 amount -= temp;
-
-                if (amount == 0)
-                {
-                    RemoveStack(i);
-                    return 0;
-                }
 
                 if ((_myInventory[i].NumberOfSameItem -= temp) == 0)
                     RemoveStack(i);
@@ -235,7 +239,7 @@ public class Inventory : MonoBehaviour {
         _myInventory[indexToRemove].GetComponentInChildren<Text>(true).text = "0";
         _myInventory[indexToRemove].transform.GetChild(0).gameObject.SetActive(false);
 
-        Destroy(_myInventory[indexToRemove].GetComponent<Item>());
+        Destroy(_myInventory[indexToRemove].Item);
     }
 
         // TODO: Drop an item and create the proper 2D sprite
@@ -255,7 +259,7 @@ public class Inventory : MonoBehaviour {
     {
         for (int i = 0; i < _myInventory.Length; i++)
         {
-            Item tempItem = _myInventory[i].GetComponent<Item>();
+            Item tempItem = _myInventory[i].Item;
             if (tempItem == null)
                 continue;
             if (tempItem.itemName == item.itemName)
@@ -309,6 +313,7 @@ public class Inventory : MonoBehaviour {
     /* Unselect the current slot */
     private void OnDisable()
     {
+        _inRuneMode = false;
         HighlightSlots();
         if (_optionWindowDisplayed)
             CloseOptions();
@@ -317,6 +322,8 @@ public class Inventory : MonoBehaviour {
     /* Select the current slot */
     private void OnEnable()
     {
+        if (PlayerInput.RuneMode)
+            _inRuneMode = true;
         HighlightSlots();
     }
 
@@ -326,7 +333,7 @@ public class Inventory : MonoBehaviour {
 
     public void OpenOptions()
     {
-        Item item = _myInventory[_currentSelectedSlot].GetComponent<Item>();
+        Item item = _myInventory[_currentSelectedSlot].Item;
 
             // If there is no item in the current selected slot
 
@@ -411,6 +418,52 @@ public class Inventory : MonoBehaviour {
             // Then select the new one
 
         ChangeSelectedOption(_currentSelectedOption, true);
+    }
+
+    #endregion
+
+    #region -------- Runes --------
+
+    private void MoveRune()
+    {
+        Item rune = _myInventory[_currentSelectedSlot].Item;
+
+            // If _characterSheet has no rune in the selected slot
+
+        if (_characterSheet.RuneSlotIndex < 0)
+        {
+            if (rune != null && rune.typeOfCollectableItem == Item.TypeOfCollectableItem.Rune)
+            {
+                _characterSheet.AddRune(rune);
+                RemoveItem(_currentSelectedSlot);
+                enabled = false;
+            }
+        }
+
+            // If _characterSheet has a rune in the selected slot
+
+        else
+        {
+            if (rune == null)
+            {
+                AddItemAt(_characterSheet.GetRune(), _currentSelectedSlot);
+                _characterSheet.RemoveRune();
+                enabled = false;
+            }
+
+            else if (rune != null && rune.typeOfCollectableItem == Item.TypeOfCollectableItem.Rune)
+            {
+                // SWAP
+                Item runeInCharSheet = _characterSheet.SwapRune(rune);
+
+                _myInventory[_currentSelectedSlot].GetComponent<Image>().sprite = runeInCharSheet.ImageOfTheItem;
+                _myInventory[_currentSelectedSlot].gameObject.GetComponent<Item>().InitValues(runeInCharSheet);
+
+                Destroy(runeInCharSheet);
+
+                enabled = false;
+            }
+        }
     }
 
     #endregion

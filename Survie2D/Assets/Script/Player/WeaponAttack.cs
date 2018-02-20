@@ -9,6 +9,6 @@ public class WeaponAttack : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 8)
-            collision.gameObject.GetComponent<Enemy>().GotHit(5);
+            collision.gameObject.GetComponent<Enemy>().GotHit(Random.Range(20, 35));
     }
 }

@@ -10,6 +10,8 @@ public class InventorySlot : MonoBehaviour {
 
     public bool IsEmpty { get { return NumberOfSameItem == 0; } }
 
+    public Item Item { get { return GetComponent<Item>(); } }
+
     private bool _isSelected;
 
         // METHODS

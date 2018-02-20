@@ -9,6 +9,9 @@ public class SkillTreeSlot : MonoBehaviour {
     private int _id;
 
     public string skillName;
+    public int price;
+
+    private SkillTree _skillTree;
 
     public bool Unlocked { get; private set; }
 
@@ -17,15 +20,17 @@ public class SkillTreeSlot : MonoBehaviour {
     private void Awake()
     {
         _id = int.Parse(name.Split('t')[1]);
+        _skillTree = GetComponentInParent<SkillTree>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && _skillTree.SkillTreeCoins >= price)
         {
                 // Unlock this skill
             
-            GetComponentInParent<SkillTree>().AllUnlocks(_id, skillName);
+            _skillTree.AllUnlocks(_id, skillName);
+            _skillTree.SkillTreeCoins -= price;
 
                 // Display the image
 

@@ -54,6 +54,11 @@ public class PlayerStat : MonoBehaviour {
     public float AdditionalPercentageDefenceValue { get; set; }
     public int DefenceValue { get { return (int)(_baseDefenceValue * (AdditionalPercentageDefenceValue / 100)); } }
 
+    public Rune.Color RightHandRune { get; set; }
+    public Rune.Color LeftHandRune { get; set; }
+    public Rune.Color DistanceRune { get; set; }
+    public Rune.Color ClothesRune { get; set; }
+
         // METHODS
 
     private void Awake()
@@ -107,14 +112,13 @@ public class PlayerStat : MonoBehaviour {
         }
     }
 
-    // TODO: Add defence
     // TODO: Add a sound which depends of who hits the player
     public void GotHit(int damage)
     {
         if (_canBeHit)
         {
             _canBeHit = false;
-            _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+            _currentHealth = Mathf.Max(_currentHealth - Mathf.Max(damage - DefenceValue, 1), 0);
             UpdateUI(UIUpdate.Health);
 
             StartCoroutine(StartBlinking());

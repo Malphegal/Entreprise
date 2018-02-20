@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CanBuildBridge : MonoBehaviour
 {
-
-    // ENUMS
+        // ENUMS
 
     private enum ResourcesIndex
     {
@@ -13,7 +12,7 @@ public class CanBuildBridge : MonoBehaviour
         straw
     }
 
-    // FIELDS
+        // FIELDS
 
     public GameObject[] allBridges;
     private GameObject _firstChild;
@@ -53,6 +52,107 @@ public class CanBuildBridge : MonoBehaviour
             SpriteRenderer sr = _allNewBridge[i].AddComponent<SpriteRenderer>();
             sr.sprite = allBridges[i].GetComponent<SpriteRenderer>().sprite;
             sr.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        }
+    }
+
+    // TODO: Move all panels on the right of the current panel
+    private void Update()
+    {
+        if (PlayerInput.AvailableForNewMenu)
+        {
+                // ---------------- SELECT THE BRIDGE ----------------
+
+            if (_firstFrameSkiped && _isInChoicePhase && !_isInBuildPhase)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    UnselectInChoicePhase();
+                }
+
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    if (_currentSelectedBridge == 0 || !_canChangeCurrentBridgeSelected)
+                        return;
+
+                    _currentSelectedBridge--;
+                    if (_canChangeCurrentBridgeSelected)
+                    {
+                        _canChangeCurrentBridgeSelected = false;
+                        StartCoroutine(Translate(true));
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    if (_currentSelectedBridge == _allNewBridge.Length - 1 || !_canChangeCurrentBridgeSelected)
+                        return;
+
+                    _currentSelectedBridge++;
+                    if (_canChangeCurrentBridgeSelected)
+                    {
+                        _canChangeCurrentBridgeSelected = false;
+                        StartCoroutine(Translate(false));
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.E) && _canChangeCurrentBridgeSelected)
+                {
+                    UnselectInChoicePhase();
+                    EnableUnderConstruction();
+                    return;
+                }
+            }
+
+                // ---------------- USE RESOURCE TO BUILD THE BRIDGE ----------------
+
+            if (_isInBuildPhase && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase)
+            {
+                Item[] allItemsRequired = GetComponentsInChildren<Item>(true);
+                for (int i = 0; i < allItemsRequired.Length; i++)
+                {
+                        // If the current item is not required anymore
+
+                    if (!allItemsRequired[i].gameObject.activeInHierarchy)
+                        continue;
+
+                        // Remove the current required item
+
+                    int remainingQuantity = _inventory.RemoveItem(allItemsRequired[i], _currentResourcesRequired[i]);
+                    _currentResourcesRequired[i] = remainingQuantity;
+
+                        // If this Item is not required anymore
+
+                    if (remainingQuantity == 0)
+                    {
+                        allItemsRequired[i].transform.parent.gameObject.SetActive(false);
+
+                            // TODO: Move all panels at the right of the current panel
+
+                        for (int j = i + 1; j < allItemsRequired.Length; j++)
+                            allItemsRequired[j].transform.parent.Translate(new Vector3(-1, 0, 0));
+
+                            // If at least one other resource is still required, don't build the bridge
+
+                        bool panelStillActive = false;
+                        for (int j = 0; j < allItemsRequired.Length; j++)
+                            if (allItemsRequired[j].gameObject.activeInHierarchy)
+                            {
+                                panelStillActive = true;
+                                break;
+                            }
+
+                        if (!panelStillActive)
+                            BridgeBuilt();
+                    }
+                    else
+                        allItemsRequired[i].transform.parent.GetComponentInChildren<TextMesh>().text = remainingQuantity.ToString();
+                }
+            }
+
+                // ---------------- WINDOW NOT EVEN DISPLAYED ----------------
+
+            if (_playerInRange && PlayerInput.AvailableForNewMenu && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase && !_isInBuildPhase)
+                SelectInChoicePhase();
         }
     }
 
@@ -158,87 +258,6 @@ public class CanBuildBridge : MonoBehaviour
         bridge.transform.localPosition = new Vector3(10, 0, 0);
 
         Destroy(this);
-    }
-
-    // TODO: Move all panels on the right of the current panel
-    private void Update()
-    {
-        if (_firstFrameSkiped && _isInChoicePhase && !_isInBuildPhase)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                UnselectInChoicePhase();
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if (_currentSelectedBridge == 0 || !_canChangeCurrentBridgeSelected)
-                    return;
-
-                _currentSelectedBridge--;
-                if (_canChangeCurrentBridgeSelected)
-                {
-                    _canChangeCurrentBridgeSelected = false;
-                    StartCoroutine(Translate(true));
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                if (_currentSelectedBridge == _allNewBridge.Length - 1 || !_canChangeCurrentBridgeSelected)
-                    return;
-
-                _currentSelectedBridge++;
-                if (_canChangeCurrentBridgeSelected)
-                {
-                    _canChangeCurrentBridgeSelected = false;
-                    StartCoroutine(Translate(false));
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.E) && _canChangeCurrentBridgeSelected)
-            {
-                UnselectInChoicePhase();
-                EnableUnderConstruction();
-                return;
-            }
-        }
-
-        if (_isInBuildPhase && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase)
-        {
-            Item[] allItemsRequired = GetComponentsInChildren<Item>(true);
-            for (int i = 0; i < allItemsRequired.Length; i++)
-            {
-                    // If the current item is not required anymore
-
-                if (!allItemsRequired[i].gameObject.activeInHierarchy)
-                    continue;
-
-                    // Remove the current required item
-
-                int remainingQuantity = _inventory.RemoveItem(allItemsRequired[i], _currentResourcesRequired[i]);
-                _currentResourcesRequired[i] = remainingQuantity;
-
-                    // If this Item is not required anymore
-
-                if (remainingQuantity == 0)
-                {
-                    allItemsRequired[i].transform.parent.gameObject.SetActive(false);
-                        // TODO: Move all panels on the right of the current panel
-                    for (int j = 0; j < allItemsRequired.Length; j++)
-                        if (allItemsRequired[j].gameObject.activeInHierarchy)
-                            return;
-
-                    BridgeBuilt();
-                    return;
-                }
-
-                allItemsRequired[i].transform.parent.GetComponentInChildren<TextMesh>().text = remainingQuantity.ToString();
-            }
-        }
-
-        if (_playerInRange && !PlayerInput.InInventory && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase && !_isInBuildPhase)
-            SelectInChoicePhase();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

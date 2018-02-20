@@ -11,8 +11,6 @@ public class Arrow : MonoBehaviour {
     private const int arrowImpulsionX = 18;
     private const int arrowImpulsionY = 2;
 
-    private bool _guided = false;
-
     private void Awake()
     {
         if (!(_right = GameObject.Find("player").GetComponent<Controller>().IsFacingRight))

@@ -35,24 +35,25 @@ public class Dialogue : MonoBehaviour
 
     private string GetNextDialogue()
     {
-        return _dialogues[_currentDialogue = (_currentDialogue + 1) % numberOfDialogues]; // à tester
+        return _dialogues[_currentDialogue = (_currentDialogue + 1) % numberOfDialogues];
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9 && Input.GetKeyDown(KeyCode.E))
+        if (collision.gameObject.layer == 9 && Input.GetKeyDown(KeyCode.E) && PlayerInput.AvailableForNewMenu)
         {
             textMesh.text = GetNextDialogue();
+            _remaningTime = 3F;
             if (!_coroutineIsRunning)
             {
                 _coroutineIsRunning = true;
                 StartCoroutine(RemoveFloatingText());
             }
-            _remaningTime = 3F;
         }
     }
 
     // TODO: Each NPC has its own thread ?
+    // TODO: Inside Update instead ?
     private IEnumerator RemoveFloatingText()
     {
         while (_coroutineIsRunning)

@@ -9,32 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1589525388276710}
+  m_RootGameObject: {fileID: 1667940277568666}
   m_IsPrefabParent: 1
---- !u!1 &1589525388276710
+--- !u!1 &1667940277568666
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4323600000060108}
-  - component: {fileID: 212227595920668904}
-  - component: {fileID: 60835188867856602}
-  - component: {fileID: 114432639254596968}
-  m_Layer: 0
-  m_Name: woodBridge
+  - component: {fileID: 4247336261475166}
+  - component: {fileID: 212596878971581830}
+  - component: {fileID: 114908407643635672}
+  - component: {fileID: 114536363378122742}
+  - component: {fileID: 61422929565907154}
+  m_Layer: 10
+  m_Name: earthRune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4323600000060108
+--- !u!4 &4247336261475166
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1589525388276710}
+  m_GameObject: {fileID: 1667940277568666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,54 +43,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60835188867856602
-PolygonCollider2D:
+--- !u!61 &61422929565907154
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1589525388276710}
+  m_GameObject: {fileID: 1667940277568666}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 1}
-    newSize: {x: 4, y: 1}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.8132799, y: -0.17742634}
-      - {x: 0.09293005, y: -0.33388704}
-      - {x: 1.768381, y: -0.16552508}
-      - {x: 1.7772287, y: -0.34996897}
-      - {x: 0.036498018, y: -0.46914905}
-      - {x: -1.8653547, y: -0.3002447}
---- !u!114 &114432639254596968
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &114536363378122742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1589525388276710}
+  m_GameObject: {fileID: 1667940277568666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3b5d681b5c4ef4da8a280d2e850ddc, type: 3}
+  m_Script: {fileID: 11500000, guid: 767e8b62291ee1d4baac701f76543196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllResources: 0200000002000000
---- !u!212 &212227595920668904
+  typeOfCollectableItem: 2
+  itemName: item.rune.earth
+  stackable: 0
+--- !u!114 &114908407643635672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667940277568666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a79e3b27a78da40b71c28fdc7b3f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color: 1
+--- !u!212 &212596878971581830
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1589525388276710}
+  m_GameObject: {fileID: 1667940277568666}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -118,12 +128,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 18ac4ca2be4d7ee48b2b2d13628bee5b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a8a1ece84072be141b39e0bc090f0336, type: 3}
+  m_Color: {r: 1, g: 0.9724138, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

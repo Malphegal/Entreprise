@@ -13,6 +13,7 @@
     <string name="ui.charactersheet.defence">Defense</string>
     <string name="ui.skilltree.title">Arbre de talent</string>
     <string name="ui.skilltree.skillunlocked">Talent débloqué : </string>
+    <string name="ui.skilltree.price">Prix : </string>
     <string name="ui.skilltree.skill.1">Alex Ception</string>
     <string name="ui.skilltree.skill.2">Jean Registre</string>
     <string name="ui.skilltree.skill.3">Mehdi Cament</string>
@@ -29,12 +30,14 @@
     <string name="npc.dialogue.marc.3">... Je dois vérifier si j'... ah j'ai trouvé !</string>
     
     <string name="item.resource.straw">Paille</string>
+
     <string name="item.resource.wood">Bois</string>
     <string name="item.food.apple">Pomme</string>
-    <string name="item.weapon.sword">Épée</string>
-    <string name="item.shield.shield">Bouclier</string>
-    <string name="item.rangedweapon.bow">Arc</string>
-    <string name="item.clothes.platearmor">Armure de plate</string>
+    
+    <string name="item.rune.earth">Rune de terre</string>
+    <string name="item.rune.fire">Rune de feu</string>
+    <string name="item.rune.water">Rune d'eau</string>
+    <string name="item.rune.wind">Rune de vent</string>
     
   </French>
 </Language>
