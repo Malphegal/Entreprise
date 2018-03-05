@@ -11,6 +11,9 @@ public class PlayerInput : MonoBehaviour {
     private Inventory _inventory;
     private Controller _controller;
 
+    // TODO: Another class ?
+    public GameObject arrowProjectile;
+
     private static bool _inCharacterSheet  = false;
     private static bool _inInventory       = false;
     private static bool _inSkillTree       = false;
@@ -21,10 +24,13 @@ public class PlayerInput : MonoBehaviour {
     public static bool RuneMode {
         get { return _inCharacterSheet; } }
 
-    private bool _attacking = false;
+    private bool _canAttack = false;
 
-    // TODO: Another class ?
-    public GameObject arrowProjectile;
+        // PROPERTIES
+
+    public bool CanMove { get { return !_canAttack; } }
+
+        // METHODS
 
     private void Awake()
     {
@@ -74,7 +80,7 @@ public class PlayerInput : MonoBehaviour {
             GetComponent<PlayerStat>().GotHit(Random.Range(30, 60));
 
             // TODO: Move it to the right class
-        if (Input.GetKeyDown(KeyCode.N) && !_attacking)
+        if (Input.GetKeyDown(KeyCode.N) && !_canAttack)
             StartCoroutine(Attack());
 
             // TODO: Move it to the right class
@@ -90,11 +96,38 @@ public class PlayerInput : MonoBehaviour {
     /* Attack with the melee weapon */
     private IEnumerator Attack()
     {
-        _attacking = true;
+        _canAttack = true;
+
+        Vector2 vec = GetComponent<Rigidbody2D>().velocity;
+        print(vec);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(vec.x / 3, vec.y);
+        print(GetComponent<Rigidbody2D>().velocity);
 
         Transform arme = gameObject._Find("weapon").transform;
 
         arme.GetComponent<PolygonCollider2D>().enabled = true;
+
+        const float c_decresedTime = 0.00125F;
+        const float c_timeLeft = 0.012F;
+        const float c_translateValue = 0.05F;
+
+        float timeLeft = c_timeLeft;
+        while (timeLeft > 0)
+        {
+            arme.Translate(_controller.IsFacingRight ? c_translateValue : -c_translateValue, 0, 0, Space.World);
+            timeLeft -= c_decresedTime;
+            yield return new WaitForSeconds(c_decresedTime);
+        }
+
+        timeLeft = c_timeLeft;
+        while (timeLeft > 0)
+        {
+            arme.Translate(_controller.IsFacingRight ? -c_translateValue : c_translateValue, 0, 0, Space.World);
+            timeLeft -= c_decresedTime;
+            yield return new WaitForSeconds(c_decresedTime);
+        }
+
+        /*
 
         while (arme.rotation.z > -.132)
         {
@@ -108,11 +141,11 @@ public class PlayerInput : MonoBehaviour {
             yield return new WaitForSeconds(0.04F);
         }
 
+        */
+
         arme.GetComponent<PolygonCollider2D>().enabled = false;
 
-        _attacking = false;
-
-        yield return null;
+        _canAttack = false;
     }
     
     /* Prepare to shoot an arrow */

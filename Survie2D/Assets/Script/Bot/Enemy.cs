@@ -23,23 +23,27 @@ public class Enemy : MonoBehaviour {
     Rigidbody2D _rb;
 
     private IEnumerator _walk;
+    private IEnumerator _blink;
 
-    private float _remainingTime_Blink = 1F;
+    private float _remainingTime_Blink;
     private bool _blinking = false;
 
-        // METHODS
+    // METHODS
 
     private void Awake()
     {
         _maxHealth = currentHealth;
         _rb = GetComponent<Rigidbody2D>();
+
+        _walk = Walk();
+        _blink = StartBlinking();
+
         IA();
     }
 
     // TODO: Implement method
     protected virtual void IA()
     {
-        _walk = Walk();
         StartCoroutine(_walk);
     }
 
@@ -85,6 +89,7 @@ public class Enemy : MonoBehaviour {
 
         if (currentHealth == 0)
         {
+            StopCoroutine(_blink);
             StopCoroutine(_walk);
             StartCoroutine(Die());
             return;
@@ -92,7 +97,7 @@ public class Enemy : MonoBehaviour {
 
         _remainingTime_Blink = 1F;
         if (!_blinking)
-            StartCoroutine(StartBlinking());
+            StartCoroutine(_blink);
     }
 
     /* Attack the player */
@@ -104,11 +109,10 @@ public class Enemy : MonoBehaviour {
     /* Trigger death animation and then Destroy() itself */
     public virtual IEnumerator Die()
     {
-        StopCoroutine(Walk());
-
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Destroy(GetComponent<Collider2D>());
         Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<Animator>());
 
         float timer = 5F;
         while ((timer -= 0.2F) > 0)

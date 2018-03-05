@@ -12,6 +12,9 @@ public class Controller : MonoBehaviour {
 
     private Rigidbody2D _rb;
     private Inventory _inventory;
+    private PlayerInput _playerInput;
+
+        // PROPERTIES
 
     public bool IsFacingRight { get { return _facingRight; } }
 
@@ -20,12 +23,16 @@ public class Controller : MonoBehaviour {
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerInput = GetComponent<PlayerInput>();
         _inventory = GameObject.Find("inventory").GetComponent<Inventory>();
     }
 
     private void Update()
     {
             // -------- Mouvement --------
+
+        if (!_playerInput.CanMove)
+            return;
 
         float move = Input.GetAxis("Horizontal");
 
