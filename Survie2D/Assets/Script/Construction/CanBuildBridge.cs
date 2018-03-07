@@ -33,6 +33,9 @@ public class CanBuildBridge : MonoBehaviour
     private int[] _currentResourcesRequired;
     public Sprite[] allResourcesSprites;
 
+    public int totalNumberOfRequiredItems; // ProgressBar
+    public int totalNumberOfRequiredItemsLeft; // ProgressBar
+
         // METHODS
 
     private void Awake()
@@ -55,11 +58,36 @@ public class CanBuildBridge : MonoBehaviour
         }
     }
 
+    float test = 0F;
+
     // TODO: Move all panels on the right of the current panel
     private void Update()
     {
         if (PlayerInput.AvailableForNewMenu)
         {
+                // -- TEST --
+
+            if (Input.GetKey(KeyCode.J) && _playerInRange)
+            {
+                Vector3 vec3 = gameObject._Find("progressBar_Construction").transform.localScale;
+
+                if ((gameObject._Find("progressBar_Resource").transform.localScale.x) <= vec3.x)
+                    return;
+
+                vec3 = new Vector3((test += 0.001F) / 10F, vec3.y, vec3.z);
+
+                if (vec3.x > gameObject._Find("progressBar_Resource").transform.localScale.x)
+                    vec3.x = gameObject._Find("progressBar_Resource").transform.localScale.x;
+
+                if (vec3.x >= 0.1F)
+                    BridgeBuilt();
+
+                gameObject._Find("progressBar_Construction").transform.localScale = vec3;
+                gameObject._Find("percentConstruction").GetComponent<TextMesh>().text = Mathf.RoundToInt(vec3.x * 1000) + " %";
+
+                return;
+            }
+
                 // ---------------- SELECT THE BRIDGE ----------------
 
             if (_firstFrameSkiped && _isInChoicePhase && !_isInBuildPhase)
@@ -103,7 +131,7 @@ public class CanBuildBridge : MonoBehaviour
                 }
             }
 
-                // ---------------- USE RESOURCE TO BUILD THE BRIDGE ----------------
+                // ---------------- SEND RESOURCES TO BUILD THE BRIDGE ----------------
 
             if (_isInBuildPhase && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase)
             {
@@ -118,7 +146,15 @@ public class CanBuildBridge : MonoBehaviour
                         // Remove the current required item
 
                     int remainingQuantity = _inventory.RemoveItem(allItemsRequired[i], _currentResourcesRequired[i]);
-                    _currentResourcesRequired[i] = remainingQuantity;
+                    totalNumberOfRequiredItemsLeft -= _currentResourcesRequired[i] - remainingQuantity; // Total number of remaining items
+                    _currentResourcesRequired[i] = remainingQuantity; // Remaining number of the current object
+
+                        // Move the progressBar
+
+                    Vector3 vec3 = gameObject._Find("progressBar_Resource").transform.localScale;
+                    vec3 = new Vector3(((totalNumberOfRequiredItems - totalNumberOfRequiredItemsLeft) / (float)totalNumberOfRequiredItems) / 10F, vec3.y, vec3.z);
+                    gameObject._Find("progressBar_Resource").transform.localScale = vec3;
+                    gameObject._Find("percentResource").GetComponent<TextMesh>().text = Mathf.RoundToInt(vec3.x * 1000) + " %";
 
                         // If this Item is not required anymore
 
@@ -130,26 +166,13 @@ public class CanBuildBridge : MonoBehaviour
 
                         for (int j = i + 1; j < allItemsRequired.Length; j++)
                             allItemsRequired[j].transform.parent.Translate(new Vector3(-1, 0, 0));
-
-                            // If at least one other resource is still required, don't build the bridge
-
-                        bool panelStillActive = false;
-                        for (int j = 0; j < allItemsRequired.Length; j++)
-                            if (allItemsRequired[j].gameObject.activeInHierarchy)
-                            {
-                                panelStillActive = true;
-                                break;
-                            }
-
-                        if (!panelStillActive)
-                            BridgeBuilt();
                     }
                     else
                         allItemsRequired[i].transform.parent.GetComponentInChildren<TextMesh>().text = remainingQuantity.ToString();
                 }
             }
 
-                // ---------------- WINDOW NOT EVEN DISPLAYED ----------------
+                // ---------------- WINDOW NOT DISPLAYED ----------------
 
             if (_playerInRange && PlayerInput.AvailableForNewMenu && Input.GetKeyDown(KeyCode.E) && !_isInChoicePhase && !_isInBuildPhase)
                 SelectInChoicePhase();
@@ -217,10 +240,12 @@ public class CanBuildBridge : MonoBehaviour
         GameObject panel0 = gameObject._Find("panel0"); // original panel, the one for wood
         gameObject._Find("amount").GetComponent<TextMesh>().text = _currentResourcesRequired[0].ToString();
 
+        totalNumberOfRequiredItems = _currentResourcesRequired[0]; // ProgressBar
+
         int newPanelCounter = 0; // x position of the new panels
         GameObject required_background = gameObject._Find("required_background"); // background which store all panels
 
-            // Check if straw is required to build this bridge
+            // Check if other resources is required to build this bridge
 
         for (int i = 1; i < allResourcesSprites.Length; i++) // i = 1, because wood is already done
             if (_currentResourcesRequired[i] > 0)
@@ -233,12 +258,19 @@ public class CanBuildBridge : MonoBehaviour
 
                 resourceCounter._Find("amount").GetComponent<TextMesh>().text = _currentResourcesRequired[i].ToString();
                 resourceCounter.transform.localPosition = new Vector3(-1.45F + ++newPanelCounter, 0.27F, 0);
+
+                totalNumberOfRequiredItems += _currentResourcesRequired[i]; // ProgressBar
             }
+
+            // Enable the progress bar
+
+        totalNumberOfRequiredItemsLeft = totalNumberOfRequiredItems;
+        gameObject._Find("progressBar").SetActive(true);
 
             // Destroy unused components
 
         Destroy(GetComponent<ParticleSystem>());
-        Destroy(_firstChild);
+        Destroy(_firstChild); // Selection panel of a bridge
     }
 
     /* Remove all unnecessary components, including this, and build the selected bridge */
