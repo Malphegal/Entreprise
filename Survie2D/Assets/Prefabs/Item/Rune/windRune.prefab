@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4727686153853242}
   - component: {fileID: 212940957243452668}
   - component: {fileID: 114799911963770766}
-  - component: {fileID: 114330957690555398}
   - component: {fileID: 61495653338904414}
   m_Layer: 10
   m_Name: windRune
@@ -68,20 +67,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114330957690555398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795296857602398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767e8b62291ee1d4baac701f76543196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeOfCollectableItem: 2
-  itemName: item.rune.wind
-  stackable: 0
 --- !u!114 &114799911963770766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a79e3b27a78da40b71c28fdc7b3f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeOfCollectableItem: 2
+  itemName: item.rune.wind
+  stackable: 0
   _color: 4
 --- !u!212 &212940957243452668
 SpriteRenderer:

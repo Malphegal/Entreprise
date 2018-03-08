@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4279023476039192}
   - component: {fileID: 212314182399156794}
   - component: {fileID: 114316604243416120}
-  - component: {fileID: 114842425866903806}
   - component: {fileID: 61949435399442490}
   m_Layer: 10
   m_Name: waterRune
@@ -79,21 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a79e3b27a78da40b71c28fdc7b3f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 3
---- !u!114 &114842425866903806
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216624786215712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767e8b62291ee1d4baac701f76543196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   typeOfCollectableItem: 2
   itemName: item.rune.water
   stackable: 0
+  _color: 3
 --- !u!212 &212314182399156794
 SpriteRenderer:
   m_ObjectHideFlags: 1

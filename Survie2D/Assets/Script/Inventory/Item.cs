@@ -2,55 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: Use the Sprite of the gameObject which this is attached instead of a duplicated Sprite object ?
-public class Item : MonoBehaviour {
-
-    public enum TypeOfCollectableItem
+namespace Items
+{
+    namespace Objects
     {
-        Food,
-        Resource,
-        Rune
-        //None,
-        //Weapon,
-        //RangedWeapon,
-        //Shield,
-        //Clothes,
+        public class Item : MonoBehaviour
+        {
+                // ENUMS
 
-            // Tools
+            public enum TypeOfCollectableItem
+            {
+                Food,
+                Resource,
+                Rune,
+                Tool
+                //None,
+                //Weapon,
+                //RangedWeapon,
+                //Shield,
+                //Clothes,
 
-        //Hammer,
-        //Pickaxe,
-        //Axe,
-        //Hoe,
-        //Hook,
-    }
+                // Tools
 
-        // FIELDS
+                //Hammer,
+                //Pickaxe,
+                //Axe,
+                //Hoe,
+                //Hook,
+            }
 
-    public TypeOfCollectableItem typeOfCollectableItem;
+                // FIELDS
 
-    public string itemName;
+            public TypeOfCollectableItem typeOfCollectableItem;
 
-    public Sprite ImageOfTheItem { get; private set; }
+            public string itemName;
 
-    public bool stackable;
+            public Sprite ImageOfTheItem { get; private set; }
 
-        // METHODS
+            public bool stackable;
 
-    public virtual void InitValues(Item item)
-    {
-        typeOfCollectableItem = item.typeOfCollectableItem;
-        itemName =              item.itemName;
-        ImageOfTheItem =        item.ImageOfTheItem;
-        stackable =             item.stackable;
-    }
+                // METHODS
 
-    private void Awake()
-    {
-            // If the item is already attached to a GameObject which has a SpriteRenderer, assigned it to ImageOfTheImage
+            /* Copy all variable from itemToCopyFrom to this instance */
+            public virtual void InitValues(Item itemToCopyFrom)
+            {
+                typeOfCollectableItem = itemToCopyFrom.typeOfCollectableItem;
+                itemName = itemToCopyFrom.itemName;
+                ImageOfTheItem = itemToCopyFrom.ImageOfTheItem;
+                stackable = itemToCopyFrom.stackable;
+            }
 
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-            ImageOfTheItem = sr.sprite;
+            /* Tries to assign the sprite contained in gameObject to ImageOfTheItem */
+            private void Awake()
+            {
+                SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                if (sr != null)
+                    ImageOfTheItem = sr.sprite;
+            }
+        }
     }
 }

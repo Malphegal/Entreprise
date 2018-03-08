@@ -38,6 +38,10 @@
     <string name="item.rune.fire">Rune de feu</string>
     <string name="item.rune.water">Rune d'eau</string>
     <string name="item.rune.wind">Rune de vent</string>
+
+    <string name="item.tool.hammer">Marteau</string>
+    
+    <string name="ia.enemy.slime">Slime</string>
     
   </French>
 </Language>

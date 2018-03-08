@@ -19,11 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4496481080003084}
-  - component: {fileID: 212530469317816248}
   - component: {fileID: 58933661212729396}
-  - component: {fileID: 95741494195145090}
-  - component: {fileID: 114221977821323714}
-  - component: {fileID: 50083158573819434}
+  - component: {fileID: 212115194720304506}
+  - component: {fileID: 114449067365441978}
+  - component: {fileID: 50025743463770156}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Untagged
@@ -44,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50083158573819434
+--- !u!50 &50025743463770156
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -79,24 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.07798135}
   serializedVersion: 2
   m_Radius: 0.42201865
---- !u!95 &95741494195145090
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1684356104770920}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4d2481d58cdd6b447955169b239d29d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114221977821323714
+--- !u!114 &114449067365441978
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,11 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766bc3af12b23241ac96b38bd8eb70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfEnemy: 
-  currentHealth: 100
-  attackValue: 9
-  defenceValue: 0
---- !u!212 &212530469317816248
+  nameOfEnemy: ia.enemy.slime
+  currentHealth: 80
+  attackValue: 10
+  defenceValue: 5
+--- !u!212 &212115194720304506
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using IA.Enemy;
 
 public class WeaponAttack : MonoBehaviour {
 
-        // TODO: Can't attack the same enemy twice or more with a single hit
-
+    // TODO: Use SendMessage instead ?
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 8)
-            collision.gameObject.GetComponent<Enemy>().GotHit(Random.Range(20, 35));
+            collision.gameObject.GetComponent<EnemyBehaviour>().GotHit(Random.Range(20, 35));
     }
 }
