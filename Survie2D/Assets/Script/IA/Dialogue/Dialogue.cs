@@ -21,7 +21,7 @@ namespace IA
 
             public void Awake()
             {
-                _npcName = GetComponentInParent<NPCBehaviour>().nameOfEnemy;
+                _npcName = GetComponentInParent<NPCBehaviour>().name;
                 _dialogues = new string[numberOfDialogues];
 
                 for (int i = 0; i < numberOfDialogues; i++)

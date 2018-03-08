@@ -113,6 +113,7 @@ namespace Player
                 }
             }
 
+            // TODO: The namespace player AND AIDefaultBehaviour should be contained in a larger namespace, which contains ILivingBeing
             // TODO: Add a sound which depends of who hits the player
             public void GotHit(int damage)
             {

@@ -27,7 +27,6 @@ namespace Environnement
             private GameObject[] _allNewBridge;
 
             private Controller _controller;
-            //private Features.Inventory _inventory;
 
             private bool _firstFrameSkiped = false;
             private int _currentSelectedBridge = 0;
@@ -278,14 +277,12 @@ namespace Environnement
                 Destroy(_firstChild); // Selection panel of a bridge
             }
 
+            // TODO: the parent of the bridge doesn't have to be this.transform
             /* Remove all unnecessary components, including this, and build the selected bridge */
             private void BridgeBuilt()
             {
+                print("Dans le méthode");
                 Destroy(GetComponent<CapsuleCollider2D>());
-
-                GameObject finalBridge = Instantiate(allBridges[_currentSelectedBridge], transform);
-                finalBridge.transform.localPosition = new Vector3(4, 0, 0);
-                finalBridge.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
 
                 Destroy(transform.GetChild(2).gameObject); // The first panel which represent one kind of item required
                 Destroy(transform.GetChild(1).gameObject); // contruction_sign

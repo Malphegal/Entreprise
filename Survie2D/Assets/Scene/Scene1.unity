@@ -6677,7 +6677,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f02aa59f7b59a1b4f8acccf56cbb0793, type: 3}
   m_Color: {r: 0.34385815, g: 0.41441947, b: 0.88235295, a: 1}
   m_FlipX: 0
@@ -11384,7 +11384,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 569944043
+  randomSeed: -985308715
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18291,7 +18291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b5265a0b8d7975344836f7a81a706140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21131,8 +21131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f173cdd9f3277d4cac4b18b48fffe51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfEnemy: marc
+  name: marc
   currentHealth: 50
+  maxHealth: 100
   attackValue: 1
   defenceValue: 1
 --- !u!1 &1723695970
@@ -24575,7 +24576,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2127487650}
   - component: {fileID: 2127487651}
-  - component: {fileID: 2127487652}
   m_Layer: 13
   m_Name: progressBar_Construction
   m_TagString: Untagged
@@ -24629,7 +24629,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f02aa59f7b59a1b4f8acccf56cbb0793, type: 3}
   m_Color: {r: 0, g: 1, b: 0.21379304, a: 1}
   m_FlipX: 0
@@ -24640,17 +24640,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
---- !u!114 &2127487652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2127487649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a5ed5d42e481540ab368aaaf5ff459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2131754157
 GameObject:
   m_ObjectHideFlags: 0

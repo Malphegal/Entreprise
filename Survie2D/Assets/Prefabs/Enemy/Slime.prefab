@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212115194720304506}
   - component: {fileID: 114449067365441978}
   - component: {fileID: 50025743463770156}
+  - component: {fileID: 95867243733708094}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Untagged
@@ -78,6 +79,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.07798135}
   serializedVersion: 2
   m_Radius: 0.42201865
+--- !u!95 &95867243733708094
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684356104770920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d2481d58cdd6b447955169b239d29d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114449067365441978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766bc3af12b23241ac96b38bd8eb70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfEnemy: ia.enemy.slime
+  name: 
   currentHealth: 80
+  maxHealth: 0
   attackValue: 10
   defenceValue: 5
 --- !u!212 &212115194720304506

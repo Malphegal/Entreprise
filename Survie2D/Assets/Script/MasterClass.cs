@@ -25,6 +25,14 @@ namespace NomDuJeu2D
                 return null;
             }
 
+            /* Flip the current transform x */
+            public static void FlipTransform(this Transform transform)
+            {
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+            
             // TODO: Choose the right language instead of "French"
             [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
             public static void InitializeTheGame()
