@@ -9,9 +9,10 @@ namespace Items
 {
     namespace Objects
     {
+            // TODO: Don't make this class static, and and a Rune panel which contains this class
         public static class RuneManagement
         {
-            // STATIC FIELDS
+                // STATIC FIELDS
 
             private static GameObject[] _runeSlots;
             private static bool[] _boolRuneSlots;

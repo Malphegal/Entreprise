@@ -6,6 +6,7 @@ namespace Items
 {
     namespace Objects
     {
+            // TODO: Don't make this class static, and and a Tool panel which contains this class
         public static class ToolManagement
         {
                 // STATIC FIELDS
