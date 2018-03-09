@@ -120,13 +120,16 @@ namespace Player
                 if (_canBeHit)
                 {
                     _canBeHit = false;
-                    _currentHealth = Mathf.Max(_currentHealth - Mathf.Max(damage - DefenceValue, 1), 0);
+                    _currentHealth = _currentHealth - Mathf.Max(damage - DefenceValue, 1);
                     UpdateUI(UIUpdate.Health);
 
-                    StartCoroutine(StartBlinking());
-
-                    if (_currentHealth == 0)
+                    if (_currentHealth <= 0)
+                    {
+                        StopAllCoroutines();
                         StartCoroutine(Die());
+                    }
+                    else
+                        StartCoroutine(StartBlinking());
                 }
             }
 
@@ -160,8 +163,6 @@ namespace Player
             // TODO: A class Die, with smooth "YOU DIED !" which appears on screen
             private IEnumerator Die()
             {
-                StartCoroutine(naturalRegen);
-
                 Destroy(GetComponent<Rigidbody2D>());
                 Destroy(GetComponent<Controller>());
                 Destroy(GetComponent<Jump>());
@@ -179,12 +180,23 @@ namespace Player
 
                 deathTxt.text = Lang.GetString("player.death");
 
-                while (deathTxt.fontSize < 50)
+                    // A fade-in black screen
+
+                int remainingTime = 255;
+                while (remainingTime > 0)
                 {
-                    deathTxt.fontSize++;
-                    deathImg.color = new Color(deathImg.color.r, deathImg.color.g, deathImg.color.b, deathImg.color.a + 0.05F);
-                    yield return new WaitForSeconds(0.2F);
+                    deathImg.color = new Color(0, 0, 0, deathImg.color.a + 2 / 255F);
+                    remainingTime -= 2;
+
+                    if (remainingTime % 3 == 0)
+                        deathTxt.fontSize++;
+
+                    yield return new WaitForSeconds(0.02F);
                 }
+
+                    // Black screen for 2 secs for reloading the game
+
+                yield return new WaitForSeconds(2F);
 
                 // TODO: Insta reload ?
                 MasterClass.InitializeTheGame();
