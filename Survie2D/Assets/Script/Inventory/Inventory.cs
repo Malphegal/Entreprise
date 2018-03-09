@@ -28,8 +28,8 @@ namespace Items
 
             private int _currentSelectedSlot = 0;
 
-            private PlayerAction _playerAction;
-            private CharacterSheet _characterSheet;
+            private static PlayerAction _playerAction;
+            private static CharacterSheet _characterSheet;
 
             private bool _inRuneMode = false;
 
@@ -145,16 +145,25 @@ namespace Items
             /* Return true if the item has been added */
             public static bool AddItem(Item itemToAdd)
             {
-                // If the item is a tool
+                    // If the item is a tool
 
                 if (itemToAdd.typeOfCollectableItem == Item.TypeOfCollectableItem.Tool)
-                    return ToolManagement.AddTool((Tool)itemToAdd);
+                {
+                        // Add it in the ToolManagement
 
-                // If it's not a tool
+                    if (ToolManagement.AddTool((Tool)itemToAdd))
+                    {
+                        _characterSheet.AddTool((Tool)itemToAdd);
+                        return true;
+                    }
+                    return false;
+                }
+
+                    // If it's not a tool
 
                 int indexItemToAdd = ItemExistsAndStackableInInventory(itemToAdd);
 
-                // If the item doesn't exists or there is a stack with 99 items
+                    // If the item doesn't exists or there is a stack with 99 items
 
                 if (indexItemToAdd == -1)
                 {
@@ -165,12 +174,12 @@ namespace Items
                             return true;
                         }
 
-                    // If there is no more slot left
+                        // If there is no more slot left
 
                     return false;
                 }
 
-                // If the item exists and one can be added
+                    // If the item exists and one can be added
 
                 _myInventory[indexItemToAdd].gameObject.GetComponentInChildren<Text>().text =
                     (++_myInventory[indexItemToAdd].NumberOfSameItem).ToString();

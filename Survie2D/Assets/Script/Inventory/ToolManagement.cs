@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Items;
 
 namespace Items
 {
@@ -13,6 +12,10 @@ namespace Items
 
             private static byte _nbOfTools = 0;
             private static bool[] _myTools;
+
+                // PROPERTIES
+
+            public static int ToolIndex { get { return _nbOfTools - 1; } }
 
                 // STATIC METHODS
 
@@ -31,8 +34,11 @@ namespace Items
                 if (_myTools[(int)toolToAdd.typeOfTool])
                     return false;
 
+                    // Add the tool in the static array
+
                 _myTools[(int)toolToAdd.typeOfTool] = true;
                 _nbOfTools++;
+
                 return true;
             }
         }

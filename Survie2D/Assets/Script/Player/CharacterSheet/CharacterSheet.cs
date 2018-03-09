@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Items.InventoryManagement;
 using NomDuJeu2D.Util;
+using Items.Objects;
 
 namespace Player
 {
@@ -138,6 +139,13 @@ namespace Player
                     _runeOutlines[index].effectDistance = new Vector2(1, 1);
                     _runeOutlines[index].effectColor = Color.black;
                 }
+            }
+
+            public void AddTool(Tool tool)
+            {
+                Image imgToChange = gameObject._Find("characterSheet_Tool" + ToolManagement.ToolIndex).GetComponent<Image>();
+                imgToChange.color = Color.white;
+                imgToChange.sprite = tool.ImageOfTheItem;
             }
         }
     }
