@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player.Input;
+using NomDuJeu2D.Util;
 
 namespace Player
 {
@@ -20,7 +21,7 @@ namespace Player
             private void Awake()
             {
                 if (!(_right = GameObject.Find("player").GetComponent<Controller>().IsFacingRight))
-                    Flip();
+                    transform.FlipTransform();
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(_right ? arrowImpulsionX : -arrowImpulsionX, arrowImpulsionY), ForceMode2D.Impulse);
             }
 
@@ -40,15 +41,6 @@ namespace Player
                 Destroy(GetComponent<Rigidbody2D>());
                 Destroy(GetComponent<BoxCollider2D>());
                 transform.SetParent(collision.gameObject.transform);
-            }
-
-            // TODO: Make flip as a extended static method ?
-            /* Change the arrow orientation */
-            void Flip()
-            {
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
             }
         }
     }

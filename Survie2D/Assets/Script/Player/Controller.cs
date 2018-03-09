@@ -4,6 +4,7 @@ using UnityEngine;
 using Items.InventoryManagement;
 using Items.Objects;
 using Environnement.Bridge; // TODO: Move the used class to CanBuildBridge
+using NomDuJeu2D.Util;
 
 namespace Player
 {
@@ -43,19 +44,13 @@ namespace Player
 
                 _rb.velocity = new Vector2(move * _maxSpeed, _rb.velocity.y);
                 if ((move > 0 && !_facingRight) || (move < 0 && _facingRight))
-                    Flip();
+                {
+                    transform.FlipTransform();
+                    _facingRight = !_facingRight;
+                }
 
                 if (UnityEngine.Input.GetButtonDown("Jump"))
                     _rb.velocity = Vector2.up * _jumpVelocity;
-            }
-
-            /* Change the Sprite orientation */
-            private void Flip()
-            {
-                _facingRight ^= true;
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
             }
 
             private void OnTriggerEnter2D(Collider2D collision)
