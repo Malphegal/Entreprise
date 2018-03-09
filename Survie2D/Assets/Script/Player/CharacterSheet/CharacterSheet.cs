@@ -46,7 +46,7 @@ namespace Player
             {
                 HighLight(_currentSelectedRuneSlot = 0, true);
                 _attack.text = Lang.GetString("ui.charactersheet.attack") + " : " + _playerStat.AttackValue;
-                _defence.text = Lang.GetString("ui.charactersheet.defence") + " : " + _playerStat.DefenceValue;
+                _defence.text = Lang.GetString("ui.charactersheet.armor") + " : " + _playerStat.DefenceValue;
             }
 
             private void OnDisable()

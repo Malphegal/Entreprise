@@ -2,15 +2,15 @@
   <French>
     <string name="game.name">[NOM_DU_JEU]</string>
 
-    <string name="ui.currenthunger">Faim</string>
-    <string name="ui.currentthirst">Soif</string>
-    <string name="ui.currenthealth">PV</string>
-    <string name="ui.currentenergy">Énergie</string>
+    <string name="ui.stat.hunger">Faim</string>
+    <string name="ui.stat.thirst">Soif</string>
+    <string name="ui.stat.health">PV</string>
+    <string name="ui.stat.energy">Énergie</string>
     <string name="ui.inventory.optionwindow.eat">Manger</string>
     <string name="ui.inventory.optionwindow.drop">Jeter</string>
     <string name="ui.inventory.optionwindow.destroy">Détruire</string>
     <string name="ui.charactersheet.attack">Attaque</string>
-    <string name="ui.charactersheet.defence">Defense</string>
+    <string name="ui.charactersheet.armor">Armure</string>
     <string name="ui.skilltree.title">Arbre de talent</string>
     <string name="ui.skilltree.skillunlocked">Talent débloqué : </string>
     <string name="ui.skilltree.price">Prix : </string>

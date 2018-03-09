@@ -75,10 +75,10 @@ namespace Player
                 _HUDThirst = HUD._Find("thirst").GetComponent<Image>();
                 _HUDThirstValue = HUD._Find("thirstText").GetComponent<Text>();
 
-                _HUDHealthValue.text = _currentHealth + " / " + _maxHealth + " " + Lang.GetString("ui.currenthealth");
-                _HUDEnergyValue.text = _currentEnergy + " / " + _maxEnergy + " " + Lang.GetString("ui.currentenergy");
-                _HUDHungerValue.text = _currentHunger + " / " + _maxHunger + " " + Lang.GetString("ui.currenthunger");
-                _HUDThirstValue.text = _currentThirst + " / " + _maxThirst + " " + Lang.GetString("ui.currentthirst");
+                _HUDHealthValue.text = _currentHealth + " / " + _maxHealth + " " + Lang.GetString("ui.stat.health");
+                _HUDEnergyValue.text = _currentEnergy + " / " + _maxEnergy + " " + Lang.GetString("ui.stat.energy");
+                _HUDHungerValue.text = _currentHunger + " / " + _maxHunger + " " + Lang.GetString("ui.stat.hunger");
+                _HUDThirstValue.text = _currentThirst + " / " + _maxThirst + " " + Lang.GetString("ui.stat.thirst");
 
                 AdditionalPercentageAttackValue = 100;
                 AdditionalPercentageDefenceValue = 100;
@@ -160,7 +160,7 @@ namespace Player
             }
 
             // TODO: Insta reload ?
-            // TODO: A class Die, with smooth "YOU DIED !" which appears on screen
+            // TODO: A class Die ?
             private IEnumerator Die()
             {
                 Destroy(GetComponent<Rigidbody2D>());
@@ -222,19 +222,19 @@ namespace Player
                 switch (UIUpdate)
                 {
                     case UIUpdate.Health:
-                        _HUDHealthValue.text = _currentHealth + " / " + _maxHealth + " " + Lang.GetString("ui.currenthealth");
+                        _HUDHealthValue.text = _currentHealth + " / " + _maxHealth + " " + Lang.GetString("ui.stat.health");
                         _HUDHealth.color = new Color(1 - ((float)_currentHealth / _maxHealth), ((float)_currentHealth / _maxHealth), 0);
                         break;
                     case UIUpdate.Energy:
-                        _HUDEnergyValue.text = _currentEnergy + " / " + _maxEnergy + " " + Lang.GetString("ui.currentenergy");
+                        _HUDEnergyValue.text = _currentEnergy + " / " + _maxEnergy + " " + Lang.GetString("ui.stat.energy");
                         _HUDEnergy.color = new Color(1 - ((float)_currentEnergy / _maxEnergy), ((float)_currentEnergy / _maxEnergy), 0);
                         break;
                     case UIUpdate.Hunger:
-                        _HUDHungerValue.text = _currentHunger + " / " + _maxHunger + " " + Lang.GetString("ui.currenthunger");
+                        _HUDHungerValue.text = _currentHunger + " / " + _maxHunger + " " + Lang.GetString("ui.stat.hunger");
                         _HUDHunger.color = new Color(1 - ((float)_currentHunger / _maxHunger), ((float)_currentHunger / _maxHunger), 0);
                         break;
                     case UIUpdate.Thirst:
-                        _HUDThirstValue.text = _currentThirst + " / " + _maxThirst + " " + Lang.GetString("ui.currentthirst");
+                        _HUDThirstValue.text = _currentThirst + " / " + _maxThirst + " " + Lang.GetString("ui.stat.thirst");
                         _HUDThirst.color = new Color(1 - ((float)_currentThirst / _maxThirst), ((float)_currentThirst / _maxThirst), 0);
                         break;
                 }
