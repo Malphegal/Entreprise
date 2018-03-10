@@ -8,7 +8,7 @@ using Player.Skill;
 
 namespace Player
 {
-    namespace Input
+    namespace Inputt
     {
         public class PlayerInput : MonoBehaviour
         {

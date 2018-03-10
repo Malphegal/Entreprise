@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player.Input;
+using Player.Inputt;
 using NomDuJeu2D.Util;
 
 namespace Player
@@ -32,6 +32,7 @@ namespace Player
                     Destroy(gameObject);
             }
 
+            // TODO: Replace SendMessage by the interface ILivingBeing
             /* If the arrow hits an enemy, call GotHit to its gameObject */
             private void OnCollisionEnter2D(Collision2D collision)
             {

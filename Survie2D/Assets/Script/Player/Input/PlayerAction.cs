@@ -6,7 +6,7 @@ using Player.Stats;
 
 namespace Player
 {
-    namespace Input
+    namespace Inputt
     {
         public class PlayerAction : MonoBehaviour
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Player.Input;
+using Player.Inputt;
 using Player.Stats;
 using NomDuJeu2D.Util;
 using Items.Objects;

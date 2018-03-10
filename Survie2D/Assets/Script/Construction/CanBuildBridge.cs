@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player.Input;
+using Player.Inputt;
 using NomDuJeu2D.Util;
 using Items.Objects;
 using Items.InventoryManagement;

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundRepeating : MonoBehaviour {
-
-    public float zValue;
-
-    void Update()
+namespace Background
+{
+    public class BackgroundRepeating : MonoBehaviour
     {
-        transform.Translate(Time.deltaTime * 0.5F, 0, 0);
+        void Update()
+        {
+            transform.Translate(Time.deltaTime * 0.5F, 0, 0);
+        }
     }
 }

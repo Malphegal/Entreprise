@@ -8,7 +8,7 @@ using NomDuJeu2D.Util;
 
 namespace Player
 {
-    namespace Input
+    namespace Inputt
     {
         public class Controller : MonoBehaviour
         {

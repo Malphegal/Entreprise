@@ -52,7 +52,6 @@ namespace IA
                 }
             }
 
-            // TODO: SendMessage instead of GetComponent ?
             /* Attack the player */
             public void Attack(GameObject player)
             {

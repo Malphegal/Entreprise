@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using NomDuJeu2D.Util;
-using Player.Input;
+using Player.Inputt;
 
 namespace Player
 {
