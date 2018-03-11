@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IA
+namespace LivingBeing
 {
-    namespace Behaviour
+    public interface ILivingBeing
+    {
+        void GotHit(int damage);
+    }
+
+    namespace AI
     {
         public abstract class AIDefaultBehaviour : MonoBehaviour, ILivingBeing
         {
@@ -59,7 +64,7 @@ namespace IA
                 _isFacingRight = true;
                 _rb = GetComponent<Rigidbody2D>();
 
-                    // Starts the AI
+                // Starts the AI
 
                 AI();
             }
@@ -70,7 +75,7 @@ namespace IA
             {
                 currentHealth -= Mathf.Max(0, damage - defenceValue);
 
-                    // If the AI is dead
+                // If the AI is dead
 
                 if (currentHealth <= 0)
                 {
@@ -79,7 +84,7 @@ namespace IA
                     return;
                 }
 
-                    // It blinks if it has been touched
+                // It blinks if it has been touched
 
                 _blink_RemainingTime = 1F;
                 if (!_isBlinking)
@@ -102,11 +107,6 @@ namespace IA
                 _isBlinking = false;
                 yield break;
             }
-        }
-
-        public interface ILivingBeing
-        {
-            void GotHit(int damage);
         }
     }
 }

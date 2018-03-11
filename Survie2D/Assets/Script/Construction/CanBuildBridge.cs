@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player.Inputt;
+using LivingBeing.Player.Inputt;
 using NomDuJeu2D.Util;
 using Items.Objects;
 using Items.InventoryManagement;
@@ -10,6 +10,7 @@ namespace Environnement
 {
     namespace Bridge
     {
+        // TODO: this class does too much !
         public class CanBuildBridge : MonoBehaviour
         {
                 // ENUMS
@@ -43,6 +44,8 @@ namespace Environnement
             public int totalNumberOfRequiredItems; // ProgressBar
             public int totalNumberOfRequiredItemsLeft; // ProgressBar
 
+            private bool stopUpdate = false;
+
                 // METHODS
 
             private void Awake()
@@ -68,7 +71,7 @@ namespace Environnement
             float test = 0F;
             private void Update()
             {
-                if (PlayerInput.AvailableForNewMenu)
+                if (PlayerInput.AvailableForNewMenu && !stopUpdate)
                 {
                         // -- TEST CONSTRUCTION --
 
@@ -281,7 +284,7 @@ namespace Environnement
             /* Remove all unnecessary components, including this, and build the selected bridge */
             private void BridgeBuilt()
             {
-                print("Dans le méthode");
+                stopUpdate = true;
                 Destroy(GetComponent<CapsuleCollider2D>());
 
                 Destroy(transform.GetChild(2).gameObject); // The first panel which represent one kind of item required

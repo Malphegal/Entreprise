@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Player.Stats;
+using LivingBeing.Player.Stats;
 using NomDuJeu2D.Util;
 
 namespace Items

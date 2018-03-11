@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Player.Inputt;
-using Player.Stats;
+using LivingBeing.Player.Inputt;
+using LivingBeing.Player.Stats;
 using NomDuJeu2D.Util;
 using Items.Objects;
 
