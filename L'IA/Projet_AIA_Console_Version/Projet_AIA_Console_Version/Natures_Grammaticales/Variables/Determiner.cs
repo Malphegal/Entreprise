@@ -76,11 +76,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._determinant))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
                 {
-                    if (this._determinant == (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._determinant == (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        this._determinant = (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i]["MS"];
+                        this._determinant = (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i]["MS"];
                         break;
                     }
                 }
@@ -101,11 +101,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._determinant))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
                 {
-                    if (this._determinant == (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._determinant == (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        this._determinant = (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i]["MP"];
+                        this._determinant = (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i]["MP"];
                         break;
                     }
                 }
@@ -126,11 +126,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._determinant))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
                 {
-                    if (this._determinant == (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._determinant == (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        this._determinant = (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i]["FS"];
+                        this._determinant = (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i]["FS"];
                         break;
                     }
                 }
@@ -151,11 +151,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._determinant))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["DeterminantsAccords"].Rows.Count; i++)
                 {
-                    if (this._determinant == (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._determinant == (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        this._determinant = (string)Phrase.lesData.Tables["DeterminantsAccords"].Rows[i]["FP"];
+                        this._determinant = (string)RecupBDD.lesData.Tables["DeterminantsAccords"].Rows[i]["FP"];
                         break;
                     }
                 }
@@ -296,11 +296,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
             if (infoDeterminant == null)
             {
                 DataRow row = null;
-                for (int i = 0; i < Phrase.lesData.Tables["Determinants"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["Determinants"].Rows.Count; i++)
                 {
-                    if (determiner == (string)Phrase.lesData.Tables["Determinants"].Rows[i]["Determinant"])
+                    if (determiner == (string)RecupBDD.lesData.Tables["Determinants"].Rows[i]["Determinant"])
                     {
-                        row = Phrase.lesData.Tables["Determinants"].Rows[i];
+                        row = RecupBDD.lesData.Tables["Determinants"].Rows[i];
                         break;
                     }
                 }

@@ -66,11 +66,11 @@ namespace Projet_AIA_Console_Version
         {
             if (estConnu(this._nom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["NomsAccords"].Rows.Count; i++)
                 {
-                    if (this._nom == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"])
+                    if (this._nom == (string)RecupBDD.lesData.Tables["NomsAccords"].Rows[i]["Singular"])
                     {
-                        this._nom = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"];
+                        this._nom = (string)RecupBDD.lesData.Tables["NomsAccords"].Rows[i]["Plurial"];
                         break;
                     }
                 }
@@ -86,11 +86,11 @@ namespace Projet_AIA_Console_Version
         {
             if (estConnu(this._nom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["NomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["NomsAccords"].Rows.Count; i++)
                 {
-                    if (this._nom == (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Plurial"])
+                    if (this._nom == (string)RecupBDD.lesData.Tables["NomsAccords"].Rows[i]["Plurial"])
                     {
-                        this._nom = (string)Phrase.lesData.Tables["NomsAccords"].Rows[i]["Singular"];
+                        this._nom = (string)RecupBDD.lesData.Tables["NomsAccords"].Rows[i]["Singular"];
                         break;
                     }
                 }
@@ -211,10 +211,10 @@ namespace Projet_AIA_Console_Version
             for (int i = name.Length; res == "" && i >= 1; i--)
             {
                 ending = name.Substring(name.Length - i);
-                for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                 {
-                    if ((string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"] == ending)
-                        return (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"];
+                    if ((string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"] == ending)
+                        return (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"];
                 }
             }
 
@@ -249,10 +249,10 @@ namespace Projet_AIA_Console_Version
                 for (int i = name.Length; i >= 1; i--)
                 {
                     ending = name.Substring(name.Length - i);
-                    for (int j = 0; (!findSomethingS || !findSomethingP) && j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                    for (int j = 0; (!findSomethingS || !findSomethingP) && j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                     {
-                        findSomethingS = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"] == ending;
-                        findSomethingP = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"] == ending;
+                        findSomethingS = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"] == ending;
+                        findSomethingP = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"] == ending;
                     }
 
                     if (findSomethingS)
@@ -309,14 +309,14 @@ namespace Projet_AIA_Console_Version
             string plurialEnding = "s";
 
             // On parcourt la table des exceptions pluriel.
-            for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe du nom...
-                if (group == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"])
+                if (group == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"])
                 {
                     // On récupère la terminaison singulier et la terminaison pluriel correspondant à ce groupe.
-                    singularEnding = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"];
-                    plurialEnding = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"];
+                    singularEnding = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"];
+                    plurialEnding = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"];
                     break;
                 }
             }
@@ -335,13 +335,13 @@ namespace Projet_AIA_Console_Version
                 ending = name.Substring(name.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions.
-                for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                 {
                     // Si la terminaison ending du nom existe pour un singulier...
-                    if (ending == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"])
+                    if (ending == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["NomsExceptions"].Rows[j];
+                        row = RecupBDD.lesData.Tables["NomsExceptions"].Rows[j];
                         break;
                     }
                 }
@@ -369,13 +369,13 @@ namespace Projet_AIA_Console_Version
                 ending = name.Substring(name.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions.
-                for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                 {
                     // Si la terminaison ending du nom existe pour un singulier...
-                    if (ending == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"])
+                    if (ending == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["NomsExceptions"].Rows[j];
+                        row = RecupBDD.lesData.Tables["NomsExceptions"].Rows[j];
                         break;
                     }
                 }
@@ -398,14 +398,14 @@ namespace Projet_AIA_Console_Version
             string plurialEnding = "s";
 
             // On parcourt la table des exceptions pluriel.
-            for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe du nom...
-                if (group == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"])
+                if (group == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Groupe"])
                 {
                     // On récupère la terminaison singulier et la terminaison pluriel correspondant à ce groupe.
-                    singularEnding = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Singular"];
-                    plurialEnding = (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"];
+                    singularEnding = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Singular"];
+                    plurialEnding = (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"];
                     break;
                 }
             }
@@ -424,13 +424,13 @@ namespace Projet_AIA_Console_Version
                 ending = name.Substring(name.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions.
-                for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                 {
                     // Si la terminaison ending du nom existe pour un pluriel...
-                    if (ending == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"])
+                    if (ending == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["NomsExceptions"].Rows[j];
+                        row = RecupBDD.lesData.Tables["NomsExceptions"].Rows[j];
                         break;
                     }
                 }
@@ -458,13 +458,13 @@ namespace Projet_AIA_Console_Version
                 ending = name.Substring(name.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions.
-                for (int j = 0; j < Phrase.lesData.Tables["NomsExceptions"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["NomsExceptions"].Rows.Count; j++)
                 {
                     // Si la terminaison ending du nom existe pour un pluriel...
-                    if (ending == (string)Phrase.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"])
+                    if (ending == (string)RecupBDD.lesData.Tables["NomsExceptions"].Rows[j]["Plurial"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["NomsExceptions"].Rows[j];
+                        row = RecupBDD.lesData.Tables["NomsExceptions"].Rows[j];
                         break;
                     }
                 }
@@ -487,11 +487,11 @@ namespace Projet_AIA_Console_Version
             if (infoNom == null)
             {
                 DataRow row = null;
-                for (int i = 0; i < Phrase.lesData.Tables["Noms"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["Noms"].Rows.Count; i++)
                 {
-                    if (name == (string)Phrase.lesData.Tables["Noms"].Rows[i]["Nom"])
+                    if (name == (string)RecupBDD.lesData.Tables["Noms"].Rows[i]["Nom"])
                     {
-                        row = Phrase.lesData.Tables["Noms"].Rows[i];
+                        row = RecupBDD.lesData.Tables["Noms"].Rows[i];
                         break;
                     }
                 }

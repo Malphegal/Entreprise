@@ -12,7 +12,7 @@ namespace Projet_AIA_Console_Version
         static void Main(string[] args)
         {
             // CREATION DATASETS
-            Phrase.CreationDataSets();
+            RecupBDD.CreationDataSets();
             Console.WriteLine("DataSets créés avec succès !\n");
 
 

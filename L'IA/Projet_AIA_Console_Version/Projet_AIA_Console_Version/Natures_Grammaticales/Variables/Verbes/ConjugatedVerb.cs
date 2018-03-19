@@ -78,12 +78,12 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
                 this.Time = infoVerbe[1] == null ? timeOf(verb) : infoVerbe[1];
                 this.Mode = infoVerbe[2] == null ? modeOf(verb) : infoVerbe[2];
                 this.Action = infoVerbe[4] == null ? infinitiveOf(verb) : infoVerbe[4];
-                this.AuxAvoir = infoVerbe[1] == null ? (byte)1 : Convert.ToByte(infoVerbe[1]);
-                this.AuxEtre = infoVerbe[2] == null ? (byte)0 : Convert.ToByte(infoVerbe[2]);
-                this.NonPronominale = infoVerbe[3] == null ? (byte)1 : Convert.ToByte(infoVerbe[3]);
-                this.Pronominale = infoVerbe[4] == null ? (byte)1 : Convert.ToByte(infoVerbe[4]);
-                this.Transitif = infoVerbe[5];
-                this.Intransitif = infoVerbe[6] == null ? (byte)1 : Convert.ToByte(infoVerbe[6]);
+                this.AuxAvoir = infoVerbe[5] == null ? (byte)1 : Convert.ToByte(infoVerbe[5]);
+                this.AuxEtre = infoVerbe[6] == null ? (byte)0 : Convert.ToByte(infoVerbe[6]);
+                this.NonPronominale = infoVerbe[7] == null ? (byte)1 : Convert.ToByte(infoVerbe[7]);
+                this.Pronominale = infoVerbe[8] == null ? (byte)1 : Convert.ToByte(infoVerbe[8]);
+                this.Transitif = infoVerbe[9];
+                this.Intransitif = infoVerbe[10] == null ? (byte)1 : Convert.ToByte(infoVerbe[10]);
             }
             else
             {
@@ -111,6 +111,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
         public ConjugatedVerb(string verb, string person, string group, string time, string mode, string action,
                 byte auxAvoir, byte auxEtre, byte nonPronominale, byte pronominale, string transitif, byte intransitif)
         {
+            infoVerbe = null;
             this._verbe = verb;
             this.Nature = "verbe conjugué";
             this.Person = person;
@@ -144,6 +145,37 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
         public override string GetParticipePasse()
         {
             return ConjugationOf(this, "1", "passé", "participe");
+        }
+
+        // Renvoie true si le verbe est conjugué à un temps composé, sinon false.
+        public bool IsTempsCompose()
+        {
+            if (new string[] { "passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur" }.Contains(Time)
+                || new string[] { "conditionnel passé", "subjonctif passé", "impératif passé" }.Contains(Mode + " " + Time))
+                return true;
+            else
+                return false;
+        }
+
+        // Renvoie l'auxiliaire conjugué avec lequel est formé le verbe.
+        public string GetAuxiliaireConjugue()
+        {
+            return this.ToString().Split(' ')[0];
+        }
+
+        // Renvoie le participe conjugué avec lequel est formé le verbe.
+        public string GetParticipeConjugue()
+        {
+            return this.ToString().Split(' ')[1];
+        }
+
+        // Renvoie le genre du verbe conjugué.
+        public string GetGender()
+        {
+            if (this.IsTempsCompose())
+                return GenderOfAuxiliaire(this.ToString().Split(' ')[1]);
+            else
+                return "N";
         }
 
         public override string ToString()
@@ -198,6 +230,43 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
                 // Si le verbe est déjà au singulier, on ne fait rien.
             }
             // Si le verbe est un infinitif, on ne fait rien.
+        }
+
+        // Renvoie le genre de l'auxiliaire passé en paramètre.
+        public static string GenderOfAuxiliaire(string auxiliaire)
+        {
+            if (auxiliaire.EndsWith("e") || auxiliaire.EndsWith("es"))
+                return "F";
+            else
+                return "M";
+        }
+
+        // Renvoie le temps auquel est conjugué le verbe composé en fonction du temps de l'auxiliaire.
+        public static string TimeOfVerbeCompose(ConjugatedVerb auxiliaire)
+        {
+            if (auxiliaire.Mode == "indicatif" && auxiliaire.Time == "présent")
+                return "passé composé";
+            else
+            {
+                switch(auxiliaire.Time)
+                {
+                    case "présent":
+                        return "passé";
+                    case "imparfait":
+                        return "plus-que-parfait";
+                    case "passé simple":
+                        return "passé antérieur";
+                    case "futur simple":
+                        return "futur antérieur";
+                    default:
+                        return auxiliaire.Time;
+                }
+            }
+        }
+
+        public static bool IsAStateVerb(ConjugatedVerb verbe)
+        {
+            return new string[] { "être", "devenir", "paraître", "sembler", "demeurer", "rester" }.Contains(verbe.Action);
         }
     }
 }

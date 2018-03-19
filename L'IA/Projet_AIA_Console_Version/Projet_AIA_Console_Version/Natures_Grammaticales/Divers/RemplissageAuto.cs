@@ -484,9 +484,9 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales.Divers
             OleDbCommand cmd = new OleDbCommand() { Connection = con, CommandType = CommandType.Text };
             con.Open();
 
-            for (int idRow = 0; idRow < Phrase.lesData.Tables["InsertInfinitive"].Rows.Count; idRow++)
+            for (int idRow = 0; idRow < RecupBDD.lesData.Tables["InsertInfinitive"].Rows.Count; idRow++)
             {
-                DataRow listeVerbes = Phrase.lesData.Tables["InsertInfinitive"].Rows[idRow];
+                DataRow listeVerbes = RecupBDD.lesData.Tables["InsertInfinitive"].Rows[idRow];
                 string verbe = listeVerbes["Infinitif"] as string;
                 string groupe = listeVerbes["Groupe"] as string;
                 if (!new string[] { "aimer", "aller", "avoir", "comprendre", "coudre", "croire", "découdre", "dire",

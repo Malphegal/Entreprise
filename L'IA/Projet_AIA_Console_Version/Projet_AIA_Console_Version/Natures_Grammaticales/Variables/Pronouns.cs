@@ -12,6 +12,7 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
             // PROPRIETES
 
         public string Type  { get; private set; }
+        public string NatureDetaillee { get { return this.Nature + this.Type; } }
 
             // CONSTRUCTEUR
 
@@ -73,11 +74,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._pronom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["PronomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["PronomsAccords"].Rows.Count; i++)
                 {
-                    if (this._pronom == (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._pronom == (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        this._pronom = (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i]["MS"];
+                        this._pronom = (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i]["MS"];
                         break;
                     }
                 }
@@ -99,11 +100,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._pronom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["PronomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["PronomsAccords"].Rows.Count; i++)
                 {
-                    if (this._pronom == (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._pronom == (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        pronom = (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i]["MP"];
+                        pronom = (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i]["MP"];
                         break;
                     }
                 }
@@ -129,11 +130,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._pronom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["PronomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["PronomsAccords"].Rows.Count; i++)
                 {
-                    if (this._pronom == (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._pronom == (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        pronom = (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i]["FS"];
+                        pronom = (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i]["FS"];
                         break;
                     }
                 }
@@ -159,11 +160,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
 
             if (estConnu(this._pronom))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["PronomsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["PronomsAccords"].Rows.Count; i++)
                 {
-                    if (this._pronom == (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
+                    if (this._pronom == (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i][genderTempo + this.Number])
                     {
-                        pronom = (string)Phrase.lesData.Tables["PronomsAccords"].Rows[i]["FP"];
+                        pronom = (string)RecupBDD.lesData.Tables["PronomsAccords"].Rows[i]["FP"];
                         break;
                     }
                 }
@@ -308,11 +309,11 @@ namespace Projet_AIA_Console_Version.Natures_Grammaticales
             if (infoPronom == null)
             {
                 DataRow row = null;
-                for (int i = 0; i < Phrase.lesData.Tables["Pronoms"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["Pronoms"].Rows.Count; i++)
                 {
-                    if (pronoun == (string)Phrase.lesData.Tables["Pronoms"].Rows[i]["Pronom"])
+                    if (pronoun == (string)RecupBDD.lesData.Tables["Pronoms"].Rows[i]["Pronom"])
                     {
-                        row = Phrase.lesData.Tables["Pronoms"].Rows[i];
+                        row = RecupBDD.lesData.Tables["Pronoms"].Rows[i];
                         break;
                     }
                 }

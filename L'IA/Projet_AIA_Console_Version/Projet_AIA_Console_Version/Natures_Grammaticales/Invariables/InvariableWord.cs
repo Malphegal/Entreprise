@@ -32,10 +32,10 @@
         // Renvoie le type du l'adverbe.
         private static string typeOf(string adverbe)
         {
-            for (int i = 0; i < Phrase.lesData.Tables["Adverbes"].Rows.Count; i++)
+            for (int i = 0; i < RecupBDD.lesData.Tables["Adverbes"].Rows.Count; i++)
             {
-                if (adverbe == (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Adverbe"])
-                    return (string)Phrase.lesData.Tables["Adverbes"].Rows[i]["Type"];
+                if (adverbe == (string)RecupBDD.lesData.Tables["Adverbes"].Rows[i]["Adverbe"])
+                    return (string)RecupBDD.lesData.Tables["Adverbes"].Rows[i]["Type"];
             }
 
             // Vu que la table des adverbes ne contient pas tous les adverbes, si l'adverbe n'a pas été
@@ -104,7 +104,7 @@
         public Preposition(string preposition)
         {
             this._preposition = preposition;
-            this.Nature = "preposition";
+            this.Nature = "préposition";
         }
 
             // METHODES

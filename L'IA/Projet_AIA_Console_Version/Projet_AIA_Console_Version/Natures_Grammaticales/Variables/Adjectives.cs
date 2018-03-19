@@ -69,13 +69,13 @@ namespace Projet_AIA_Console_Version
             if (estConnu(this._adjectif))
             {
                 // On parcourt la table des accords des adjectifs.
-                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
                     // Si on a trouvé l'adjectif...
-                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
+                    if (this._adjectif == (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
                         // On modifie sa valeur et on sort de la boucle.
-                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MS"];
+                        this._adjectif = (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i]["MS"];
                         break;
                     }
                 }
@@ -103,13 +103,13 @@ namespace Projet_AIA_Console_Version
             if (estConnu(this._adjectif))
             {
                 // On parcourt la table des accords des adjectifs.
-                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
                     // Si on a trouvé l"adjectif...
-                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
+                    if (this._adjectif == (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
                         // On modifie sa valeur et on sort de la boucle.
-                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["MP"];
+                        this._adjectif = (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i]["MP"];
                         break;
                     }
                 }
@@ -135,11 +135,11 @@ namespace Projet_AIA_Console_Version
         {
             if (estConnu(this._adjectif))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
+                    if (this._adjectif == (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FS"];
+                        this._adjectif = (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i]["FS"];
                         break;
                     }
                 }
@@ -163,11 +163,11 @@ namespace Projet_AIA_Console_Version
         {
             if (estConnu(this._adjectif))
             {
-                for (int i = 0; i < Phrase.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["AdjectifsAccords"].Rows.Count; i++)
                 {
-                    if (this._adjectif == (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
+                    if (this._adjectif == (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i][this.Gender + this.Number])
                     {
-                        this._adjectif = (string)Phrase.lesData.Tables["AdjectifsAccords"].Rows[i]["FP"];
+                        this._adjectif = (string)RecupBDD.lesData.Tables["AdjectifsAccords"].Rows[i]["FP"];
                         break;
                     }
                 }
@@ -353,10 +353,10 @@ namespace Projet_AIA_Console_Version
                         for (int i = adjective.Length; i >= 1; i--)
                         {
                             ending = adjective.Substring(adjective.Length - i);
-                            for (int j = 0; (!findSomethingM || !findSomethingF) && j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                            for (int j = 0; (!findSomethingM || !findSomethingF) && j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                             {
-                                findSomethingM = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"] == ending;
-                                findSomethingF = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"] == ending;
+                                findSomethingM = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"] == ending;
+                                findSomethingF = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"] == ending;
                             }
                             
                             if (findSomethingM)
@@ -422,10 +422,10 @@ namespace Projet_AIA_Console_Version
                 for (int i = adjective.Length; i >= 1; i--)
                 {
                     ending = adjective.Substring(adjective.Length - i);
-                    for (int j = 0; (!findSomethingS || !findSomethingP) && j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                    for (int j = 0; (!findSomethingS || !findSomethingP) && j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                     {
-                        findSomethingS = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"] == ending;
-                        findSomethingP = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"] == ending;
+                        findSomethingS = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"] == ending;
+                        findSomethingP = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"] == ending;
                     }
                     
                     if (findSomethingS)
@@ -468,10 +468,10 @@ namespace Projet_AIA_Console_Version
                 for (int i = adjective.Length; res == "" && i >= 1; i--)
                 {
                     ending = adjective.Substring(adjective.Length - i);
-                    for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                    for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                     {
-                        if ((string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"] == ending)
-                            return (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"];
+                        if ((string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"] == ending)
+                            return (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"];
                     }
                 }
 
@@ -503,10 +503,10 @@ namespace Projet_AIA_Console_Version
             for (int i = adjective.Length; res == "" && i >= 1; i--)
             {
                 ending = adjective.Substring(adjective.Length - i);
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                 {
-                    if ((string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"] == ending)
-                        return (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"];
+                    if ((string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"] == ending)
+                        return (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"];
                 }
             }
 
@@ -549,14 +549,14 @@ namespace Projet_AIA_Console_Version
             string plurialEnding = "s";
 
             // On parcourt la table des exceptions S2P.
-            for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe S2P de l'adjectif...
-                if (groupS2P == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"])
+                if (groupS2P == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"])
                 {
                     // On récupère la terminaison singulier et la terminaison pluriel correspondant à ce groupe S2P.
-                    singularEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"];
-                    plurialEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"];
+                    singularEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"];
+                    plurialEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"];
                     break;
                 }
             }
@@ -575,13 +575,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions S2P.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un singulier...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
                         break;
                     }
                 }
@@ -609,13 +609,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions S2P.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un singulier...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
                         break;
                     }
                 }
@@ -638,14 +638,14 @@ namespace Projet_AIA_Console_Version
             string plurialEnding = "s";
 
             // On parcourt la table des exceptions S2P.
-            for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe S2P de l'adjectif...
-                if (groupS2P == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"])
+                if (groupS2P == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["GroupS2P"])
                 {
                     // On récupère la terminaison singulier et la terminaison pluriel correspondant à ce groupe S2P.
-                    singularEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"];
-                    plurialEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"];
+                    singularEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Singular"];
+                    plurialEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"];
                     break;
                 }
             }
@@ -664,13 +664,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions S2P.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un pluriel...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
                         break;
                     }
                 }
@@ -698,13 +698,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions S2P.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un pluriel...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j]["Plurial"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsS2P"].Rows[j];
                         break;
                     }
                 }
@@ -727,14 +727,14 @@ namespace Projet_AIA_Console_Version
             string femaleEnding = "e";
 
             // On parcourt la table des exceptions M2F.
-            for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe M2F de l'adjectif...
-                if (groupM2F == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"])
+                if (groupM2F == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"])
                 {
                     // On récupère la terminaison masculin et la terminaison féminin correspondant à ce groupe M2F.
-                    maleEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"];
-                    femaleEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
+                    maleEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"];
+                    femaleEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
                     break;
                 }
             }
@@ -753,13 +753,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions M2F.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un masculin...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
                         break;
                     }
                 }
@@ -787,13 +787,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions M2F.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un masculin...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
                         break;
                     }
                 }
@@ -816,14 +816,14 @@ namespace Projet_AIA_Console_Version
             string femaleEnding = "e";
 
             // On parcourt la table des exceptions M2F.
-            for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+            for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
             {
                 // Si on a trouvé dans la table le groupe M2F de l'adjectif...
-                if (groupM2F == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"])
+                if (groupM2F == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["GroupM2F"])
                 {
                     // On récupère la terminaison masculin et la terminaison féminin correspondant à ce groupe M2F.
-                    maleEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"];
-                    femaleEnding = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
+                    maleEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Male"];
+                    femaleEnding = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
                     break;
                 }
             }
@@ -841,13 +841,13 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions M2F.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                 {
                     // Si la terminaison ending de l'adjectif existe pour un féminin...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
                         break;
                     }
                 }
@@ -875,14 +875,14 @@ namespace Projet_AIA_Console_Version
                 ending = adjective.Substring(adjective.Length - i);
                 DataRow row = null;
                 // On parcourt la table des exceptions M2F.
-                for (int j = 0; j < Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
+                for (int j = 0; j < RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows.Count; j++)
                 {
-                    string s = (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
+                    string s = (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"];
                     // Si la terminaison ending de l'adjectif existe pour un féminin...
-                    if (ending == (string)Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"])
+                    if (ending == (string)RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j]["Female"])
                     {
                         // On récupère la ligne correspondant à cette terminaison.
-                        row = Phrase.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
+                        row = RecupBDD.lesData.Tables["AdjectifsExceptionsM2F"].Rows[j];
                         break;
                     }
                 }
@@ -905,11 +905,11 @@ namespace Projet_AIA_Console_Version
             if (infoAdjectif == null)
             {
                 DataRow row = null;
-                for (int i = 0; i < Phrase.lesData.Tables["Adjectifs"].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables["Adjectifs"].Rows.Count; i++)
                 {
-                    if (adjective == (string)Phrase.lesData.Tables["Adjectifs"].Rows[i]["Adjective"])
+                    if (adjective == (string)RecupBDD.lesData.Tables["Adjectifs"].Rows[i]["Adjective"])
                     {
-                        row = Phrase.lesData.Tables["Adjectifs"].Rows[i];
+                        row = RecupBDD.lesData.Tables["Adjectifs"].Rows[i];
                         break;
                     }
                 }

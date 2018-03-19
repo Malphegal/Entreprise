@@ -128,9 +128,9 @@ namespace Projet_AIA_Console_Version
                 // Si le verbeInfinitif est connu, on récupère directement sa conjugaison dans la base de données.
                 if (estConnu(verbeInfinitif._verbe, nomTable))
                 {
-                    for (int idRow = 0; idRow < Phrase.lesData.Tables["VerbesConjugues"].Rows.Count; idRow++)
+                    for (int idRow = 0; idRow < RecupBDD.lesData.Tables["VerbesConjugues"].Rows.Count; idRow++)
                     {
-                        DataRow row = Phrase.lesData.Tables["VerbesConjugues"].Rows[idRow];
+                        DataRow row = RecupBDD.lesData.Tables["VerbesConjugues"].Rows[idRow];
                         // Si on a trouvé la ligne pour l'infinitif où le groupe est le même pour le temps et la personne que l'on souhaite,
                         // en renvoie le verbeInfinitif conjugué de cette même ligne.
                         if (row["Infinitif"] as string == verbeInfinitif._verbe && row["Groupe"] as string == verbeInfinitif.Group && row["Temps"] as string == time
@@ -149,9 +149,9 @@ namespace Projet_AIA_Console_Version
                 string stem = stemOf(verbeInfinitif._verbe, verbeInfinitif.Nature);
                 string ending = "";
 
-                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
-                    DataRow row = Phrase.lesData.Tables["Conjugaison"].Rows[idRow];
+                    DataRow row = RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow];
                     // Si on a trouvé la ligne où le groupe est le même pour le temps et la personne que l'on souhaite,
                     // on récupère la terminaison correspondante à cette ligne.
                     if (row["VerbGroup"] as string == verbeInfinitif.Group && row["Time"] as string == time
@@ -287,11 +287,11 @@ namespace Projet_AIA_Console_Version
                 // à quel groupe appartient cette terminaison.
                 for (int i = 0; i < verb.Length; i++)
                 {
-                    for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                    for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                     {
                         // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le groupe correspondant.
-                        if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
-                            return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["verbGroup"];
+                        if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
+                            return (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["verbGroup"];
                     }
                 }
             }
@@ -321,11 +321,11 @@ namespace Projet_AIA_Console_Version
                 // table des conjugaisons.
                 for (int i = 0; i < verb.Length; i++)
                 {
-                    for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                    for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                     {
                         // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le reste du verbe
                         // sans cette terminaison.
-                        if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
+                        if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["ending"])
                             return verb.Substring(0, i);
                     }
                 }
@@ -359,10 +359,10 @@ namespace Projet_AIA_Console_Version
                 // table des conjugaisons.
                 for (int i = 0; i < verb.Length; i++)
                 {
-                    for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                    for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                     {
                         // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie cette terminaison.
-                        if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
                             return verb.Substring(i);
                     }
                 }
@@ -379,11 +379,11 @@ namespace Projet_AIA_Console_Version
             // à quel temps appartient cette terminaison.
             for (int i = 0; i < verb.Length; i++)
             {
-                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
                     // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le temps correspondant.
-                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
-                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Time"];
+                    if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Time"];
                 }
             }
 
@@ -398,11 +398,11 @@ namespace Projet_AIA_Console_Version
             // à quel mode appartient cette terminaison.
             for (int i = 0; i < verb.Length; i++)
             {
-                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
                     // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie le mode correspondant.
-                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
-                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Mode"];
+                    if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Mode"];
                 }
             }
 
@@ -417,11 +417,11 @@ namespace Projet_AIA_Console_Version
             // pour quelle personne elle existe..
             for (int i = 0; i < verb.Length; i++)
             {
-                for (int idRow = 0; idRow < Phrase.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
+                for (int idRow = 0; idRow < RecupBDD.lesData.Tables["Conjugaison"].Rows.Count; idRow++)
                 {
                     // Si on a trouvé la terminaison du verbe dans la table Conjugaison, on renvoie la personne correspondante.
-                    if (verb.Substring(i) == (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
-                        return (string)Phrase.lesData.Tables["Conjugaison"].Rows[idRow]["Person"];
+                    if (verb.Substring(i) == (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Ending"])
+                        return (string)RecupBDD.lesData.Tables["Conjugaison"].Rows[idRow]["Person"];
                 }
             }
 
@@ -440,7 +440,7 @@ namespace Projet_AIA_Console_Version
             switch(group)
             {
                 case "1":
-                    if (stem.Contains("appell") || stem.Contains("jett"))
+                    if (stem.Length > 2 && (stem.Contains("appell") || stem.Contains("jett")))
                         stem = stem.Substring(0, stem.Length - 1);
                     return stem + "er";
                 case "2":
@@ -451,9 +451,9 @@ namespace Projet_AIA_Console_Version
                 // Pour le troisième groupe, c'est très arbitraire car il n'y a pas vraiment de règle.
                 // Le programme se trompera relativement souvent.
                 case "3":
-                    if (new char[] { 't', 'd', 'p' }.Contains(stem[stem.Length - 1]))
+                    if (stem.Length > 2 && new char[] { 't', 'd', 'p' }.Contains(stem[stem.Length - 1]))
                         return stem + "re";
-                    else if (stem[stem.Length-1] == 'l')
+                    else if (stem.Length > 2 && stem[stem.Length-1] == 'l')
                         if (stem + "er" == "aller")
                             return "aller";
                         else
@@ -485,11 +485,11 @@ namespace Projet_AIA_Console_Version
             {
                 DataRow row = null;
                 DataRow rowInfo = null;
-                for (int i = 0; i < Phrase.lesData.Tables[typeVerbe].Rows.Count; i++)
+                for (int i = 0; i < RecupBDD.lesData.Tables[typeVerbe].Rows.Count; i++)
                 {
-                    if (verb == Phrase.lesData.Tables[typeVerbe].Rows[i]["Verbe"] as string)
+                    if (verb == RecupBDD.lesData.Tables[typeVerbe].Rows[i]["Verbe"] as string)
                     {
-                        row = Phrase.lesData.Tables[typeVerbe].Rows[i];
+                        row = RecupBDD.lesData.Tables[typeVerbe].Rows[i];
                         break;
                     }
                 }
@@ -501,12 +501,12 @@ namespace Projet_AIA_Console_Version
                     if (typeVerbe == "VerbesConjugues")
                     {
                         // On cherche les informations du verbes dans la table VerbesInfinitifs (auxiliaire, transitif...).
-                        for (int j = 0; j < Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
+                        for (int j = 0; j < RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
                         {
                             // On fait pour cela une recherche par l'infinitif, puisque la table ne contient que des infinitifs.
-                            if (row["Infinitif"] as string == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
+                            if (row["Infinitif"] as string == RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
                             {
-                                rowInfo = Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
+                                rowInfo = RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
                                 break;
                             }
                         }
@@ -525,12 +525,12 @@ namespace Projet_AIA_Console_Version
                     else
                     {
                         // On cherche les informations du verbes dans la table VerbesInfinitifs (auxiliaire, transitif...).
-                        for (int j = 0; j < Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
+                        for (int j = 0; j < RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows.Count; j++)
                         {
                             // On fait pour cela une recherche par l'infinitif, puisque la table ne contient que des infinitifs.
-                            if (verb == Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
+                            if (verb == RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows[j]["Verbe"] as string)
                             {
-                                rowInfo = Phrase.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
+                                rowInfo = RecupBDD.lesData.Tables["InfosVerbesInfinitifs"].Rows[j];
                                 break;
                             }
                         }
