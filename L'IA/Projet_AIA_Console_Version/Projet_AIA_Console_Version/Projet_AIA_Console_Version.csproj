@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Exceptions.cs" />
     <Compile Include="Fonctions_Grammaticales\Fonction.cs" />
+    <Compile Include="Fonctions_Grammaticales\GNMask.cs" />
     <Compile Include="Fonctions_Grammaticales\FonctionMask.cs" />
+    <Compile Include="Fonctions_Grammaticales\GroupeNominal.cs" />
     <Compile Include="Natures_Grammaticales\Invariables\InvariableWord.cs" />
     <Compile Include="Natures_Grammaticales\LinkBetweenWord.cs" />
     <Compile Include="Natures_Grammaticales\Nature.cs" />

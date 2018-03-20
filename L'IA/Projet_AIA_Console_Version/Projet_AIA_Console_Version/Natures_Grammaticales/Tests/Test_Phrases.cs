@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Projet_AIA_Console_Version;
 using Projet_AIA_Console_Version.Natures_Grammaticales;
 using static Projet_AIA_Console_Version.Fonctions_Grammaticales.Fonction;
+using static Projet_AIA_Console_Version.Fonctions_Grammaticales.GroupeNominal;
 using Projet_AIA_Console_Version.Fonctions_Grammaticales;
 
 namespace Projet_AIA_Console_Version
@@ -55,12 +56,14 @@ namespace Projet_AIA_Console_Version
 
                     try
                     {
-                        phraseAvecFonction = DeterminerLesFonctions(phraseAvecNature);
+                        List<Word> phraseAvecGN;
+                        phraseAvecGN = RassemblerGN(phraseAvecNature);
+                        phraseAvecFonction = DeterminerLesFonctions(phraseAvecGN);
 
                         Console.WriteLine("\nCompréhension : ");
                         foreach (MotFonction idee in phraseAvecFonction)
                         {
-                            Console.WriteLine(idee.mot.ToString() + " " + ToStringFunction(idee.lien) + " " + idee.cibleLien.ToString());
+                            Console.WriteLine(idee.DescriptifFonction());
                         }
                     }
                     catch (FunctionsNotFound ex)
@@ -68,6 +71,12 @@ namespace Projet_AIA_Console_Version
                         Console.WriteLine("\nCompréhension : ");
                         Console.WriteLine("\nJe n'ai pas compris la phrase. :(\n");
                         Console.WriteLine(ex.Message);
+                    }
+                    catch (GroupeNominalNotFound exe)
+                    {
+                        Console.WriteLine("\nCompréhension : ");
+                        Console.WriteLine("\nJe n'ai pas compris la phrase. :(\n");
+                        Console.WriteLine(exe.Message);
                     }
                 }
                 Console.WriteLine("\n");

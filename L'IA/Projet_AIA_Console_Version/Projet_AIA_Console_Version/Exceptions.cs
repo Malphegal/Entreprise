@@ -11,4 +11,11 @@ namespace Projet_AIA_Console_Version
         public FunctionsNotFound(string message) : base(message)
         { }
     }
+
+    public class GroupeNominalNotFound : Exception
+    {
+        public GroupeNominalNotFound(string message) : base(message)
+        { }
+
+    }
 }

@@ -8,7 +8,7 @@ using static Projet_AIA_Console_Version.Fonctions_Grammaticales.Fonction;
 
 namespace Projet_AIA_Console_Version.Fonctions_Grammaticales
 {
-    static class FonctionMask
+    public static class FonctionMask
     {
         public static Mask[] allMask = new Mask[5];
 
@@ -48,17 +48,19 @@ namespace Projet_AIA_Console_Version.Fonctions_Grammaticales
         {
             public NatureMaskNugget[] natureMask;
             public FonctionMaskNugget[] fonctionMask;
-            public int Size { get { return natureMask.Count(); } }
+            public int size;
 
             public Mask(NatureMaskNugget[] natureMask, FonctionMaskNugget[] fonctionMask)
             {
                 this.natureMask = natureMask;
                 this.fonctionMask = fonctionMask;
+                this.size = natureMask.Length;
             }
         }
 
         public static void CreateMaskList()
         {
+            /*
             // il mange
             allMask[0] = new Mask(
                 CreateListNatureMaskNugget( MyTuple.New("pronom", Condition.PronPers),
@@ -107,6 +109,21 @@ namespace Projet_AIA_Console_Version.Fonctions_Grammaticales
                 CreateListFonctionMaskNugget(   MyTuple.New(Function.déterminentDe, 2),
                                                 MyTuple.New(Function.épithèteDe, 1),
                                                 MyTuple.New(Function.sujetDe, 0)));
+            */
+
+            allMask[0] = new Mask(
+                CreateListNatureMaskNugget( MyTuple.New("GN", Condition.None),
+                                            MyTuple.New("verbe conjugué", Condition.None)),
+                CreateListFonctionMaskNugget(   MyTuple.New(Function.sujetDe, 1),
+                                                MyTuple.New(Function.verbe, 0)));
+
+            allMask[1] = new Mask(
+                CreateListNatureMaskNugget( MyTuple.New("GN", Condition.None),
+                                            MyTuple.New("verbe conjugué", Condition.None),
+                                            MyTuple.New("GN", Condition.None)),
+                CreateListFonctionMaskNugget(   MyTuple.New(Function.sujetDe, 1),
+                                                MyTuple.New(Function.verbe, 0),
+                                                MyTuple.New(Function.codDe, -1)));
         }
 
         public static NatureMaskNugget[] CreateListNatureMaskNugget(params MyTuple<string, Condition>[] natureMaskNugget)

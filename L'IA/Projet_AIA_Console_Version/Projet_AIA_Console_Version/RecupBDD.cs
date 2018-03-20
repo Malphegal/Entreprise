@@ -58,6 +58,7 @@ namespace Projet_AIA_Console_Version
 
 
             FonctionMask.CreateMaskList();
+            GNMask.CreateGNMaskList();
         }
     }
 }
